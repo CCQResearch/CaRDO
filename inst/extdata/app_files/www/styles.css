@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+
+:root {
+  --bslib-spacer: 0rem;
+  --input-primary: #2E2E2E;
+  --input-secondary: #FFDE56;
+}
+
+/*  Text Tag Options  --------------------------------------------------------*/
+
+h1, .h1 {
+  font-family: 'Barlow';
+  font-weight: 600;
+  font-size: 2.5em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2, .h2 {
+  margin: 0;
+  font-family: 'Barlow';
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+@media (max-width: 910px) {
+  h1 {
+    font-size: 2em;
+  }
+  
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+/*----------------------------------------------------------------------------*/
+
+
+/* Navigation Bar ----------------------------------------------------------- */
+
+/* This is a slight border above the main page */
+.bslib-page-navbar>.navbar+div, .bslib-page-dashboard>.navbar+div {
+  border: none !important;
+}
+
+/* Specifying the font styling for the nav bar */
+.navbar.navbar-default > .container-fluid {
+  font-family: 'Barlow';
+  font-weight: 600;
+  font-size: 2em;
+  letter-spacing: 0.1rem;
+  gap: 1em;
+}
+
+/* brand is simply the dashboard title */
+.navbar-brand {
+  color: var(--input-primary);
+  font-size: 2.5rem;
+}
+
+/* This formats the font for the navigation links */
+.nav-link {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: grey;
+}
+
+/* If the links are active or hovered over, the text and background colors change */
+.nav-link.active {
+  color: var(--input-primary) !important;
+  background-color: var(--input-secondary) !important;
+}
+
+.nav-link:hover {
+  color: var(--input-secondary) !important;
+}
+
+/* Overriding bslib's endless web of padding variables */
+.nav-underline .nav-link {
+    padding: 10px !important;
+    border: 0 !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+/* Header Options ----------------------------------------------------------- */
+
+@media (max-width: 890px) {
+  .header-options {
+    display: flex !important;
+  }
+  
+  .header-options .html-fill-item {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .header-options .html-fill-item div:first-child {
+    order: 2;
+  }
+  
+  h1, .h1 {
+    text-align: left !important;
+  }
+}
+
+/* Menu Bar */
+.header-options {
+  background-color: var(--input-primary);
+  padding: 20px;
+}
+
+.header-options > bslib-layout-columns {
+  margin: 0;
+}
+
+/* Menu Bar / Dropdown Menu */
+.selectize-input.focus {
+  border-color: var(--input-secondary);
+  /* box-shadow: 0 0 0 0.25rem rgb(255, 222, 86, 0.25) */
+}
+
+.selectize-dropdown .selected {
+  background-color: var(--input-secondary);
+  color: var(--input-primary);
+}
+
+/* Labels for inputs (dropdown and radio) */
+.control-label {
+  font-size: 1.2rem;
+  margin-bottom: 0 !important;
+  color: white;
+}
+
+@media (max-width: 1300px) {
+  .control-label {
+    display: none;
+  }
+}
+
+.html-fill-item {
+  --bslib-grid--row-heights: -1fr 7fr 7fr !important;
+}
+
+/* Global button padding */
+.btn {
+  --bs-btn-padding-x: 0.8em;
+  --bs-btn-padding-y: 0.5em;
+}
+
+
+.btn-outline-primary {
+  color: var(--input-primary);
+  background-color: white;
+  border-color: var(--input-secondary);
+}
+
+.btn-check:checked+.btn {
+  color: var(--input-primary);
+  background-color: var(--input-secondary);
+  border-color: var(--input-secondary);
+}
+
+.btn-check+.btn:hover {
+  color: var(--input-secondary);
+  background-color: transparent;
+  border-color: var(--input-secondary);
+}
+
+.form-group.shiny-input-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.form-group.shiny-input-container > div {
+  width: 70%;
+}
+
+.bslib-grid-item.bslib-gap-spacing.html-fill-container {
+  justify-content: center;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+/* Summary Card ------------------------------------------------------------- */
+
+img {
+  height: 10vw;
+  width: 10vw;
+}
+
+.summary-container {
+  display: flex;
+  /*flex-direction: row;
+  justify-content: flex-start;
+  padding: 1rem 0rem;
+  height: 100%;*/
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+}
+
+/*
+.summary-left, .summary-middle{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  height: 100%;
+}
+*/
+
+.summary-title {
+  flex 0 1 auto;
+  padding-top: 1.2rem;
+  /*display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem 2rem;
+  height: 100%;*/
+}
+
+@media (max-width: 1340px) {
+  .summary-title {
+    display: none;
+  }
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+  background-color: #FAF9F6;
+  border-radius: 16px;
+  padding: 0rem 0rem 1rem 1rem;
+}
+
+.lifetime-risk {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  flex: 0 1 300px;
+  padding: 1rem;
+  border: 2px solid #FAF9F6;
+  border-radius: 16px;
+  gap: 1.5rem;
+}
+
+.content-row {
+  font-size: 2.8em;
+  font-weight: 300;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.summary h1 {
+  font-size: 1.4rem;
+  text-align: right;
+  text-transform: none;
+}
+
+.summary span {
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: right;
+}
+
+.ltr-vis {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ltr-matrix {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ltr-text {
+  font-size: 2.8em;
+  font-weight: 300;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding-bottom: 1rem;
+}
+
+.ltr-info {
+  font-size: 0.8rem;
+}
+
+/*
+.value-card {
+  background-color: var(--input-secondary);
+  color: var(--input-primary);
+  border-radius: 17px;
+  padding: 0.4rem 2rem;
+  text-align: center;
+}
+
+@media (max-width: 740px) {
+  .value-card {
+    padding: 0.4rem 1rem;
+  }
+  
+  .summary-left, .summary-middle {
+    padding: 0.5rem 0.5rem;
+  }
+}
+
+
+.value-description {
+  background-color: white;
+  color: black;
+  padding: 0.4rem 0rem;
+  text-align: left;
+}
+*/
+
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+/* Content Grid ------------------------------------------------------------- */
+
+.container-fluid.html-fill-item.html-fill-container {
+  font-family: 'Barlow';
+}
+
+.bslib-grid-item .card {
+  margin: 1rem;
+}
+
+.card {
+  box-shadow: none;
+}
+
+.card-header {
+  font-family: 'Barlow';
+  font-weight: 500 !important;
+  font-size: 1.1em !important;
+  letter-spacing: 0.03em;
+  color: black;
+  border-width: 2px;
+  border-color: black;
+  
+}
+
+.custom-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.heading-bracket {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.card-body {
+  border: none;
+}
+
+/* -------------------------------------------------------------------------- */
