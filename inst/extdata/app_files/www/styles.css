@@ -20,7 +20,7 @@ h1, .h1 {
 h2, .h2 {
   margin: 0;
   font-family: 'Barlow';
-  font-size: 1.2rem;
+  font-size: max(1vw, 16px);
   font-weight: 400;
 }
 
@@ -76,6 +76,10 @@ h2, .h2 {
   color: var(--input-secondary) !important;
 }
 
+.nav-link.active:hover {
+  color: var(--input-primary) !important;
+}
+
 /* Overriding bslib's endless web of padding variables */
 .nav-underline .nav-link {
     padding: 10px !important;
@@ -96,19 +100,21 @@ h2, .h2 {
 
 /* Header Options ----------------------------------------------------------- */
 
-@media (max-width: 890px) {
+@media (max-width: 770px) {
+  
   .header-options {
     display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
   }
   
-  .header-options .html-fill-item {
-    display: flex !important;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .header-options .html-fill-item div:first-child {
+  .header-options div:first-child {
     order: 2;
+  }
+  
+  .form-group.shiny-input-container {
+    gap: 0 !important;
   }
   
   h1, .h1 {
@@ -118,8 +124,24 @@ h2, .h2 {
 
 /* Menu Bar */
 .header-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--input-primary);
+  margin: 0;
   padding: 20px;
+}
+
+.cancer-menu, .gender-measure {
+  width: 30%;
+}
+
+.gender-measure {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .header-options > bslib-layout-columns {
@@ -184,7 +206,12 @@ h2, .h2 {
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 0.5em;
+  margin: 0;
   align-items: center;
+}
+
+.shiny-input-container:not(.shiny-input-container-inline) {
+  width: 100% !important;
 }
 
 .form-group.shiny-input-container > div {
@@ -240,9 +267,13 @@ img {
   height: 100%;*/
 }
 
-@media (max-width: 1340px) {
-  .summary-title {
-    display: none;
+@media (max-width: 1600px) {
+  .summary-title, .ltr-vis {
+    display: none !important;
+  }
+  
+  .lifetime-risk {
+    flex: 1 !important;
   }
 }
 
@@ -270,7 +301,7 @@ img {
 }
 
 .content-row {
-  font-size: 2.8em;
+  font-size: max(2.2vw, 30px);
   font-weight: 300;
 }
 
@@ -309,7 +340,7 @@ img {
 }
 
 .ltr-text {
-  font-size: 2.8em;
+  font-size: max(2.2vw, 30px);
   font-weight: 300;
   flex-grow: 1;
   display: flex;
@@ -323,34 +354,6 @@ img {
   font-size: 0.8rem;
 }
 
-/*
-.value-card {
-  background-color: var(--input-secondary);
-  color: var(--input-primary);
-  border-radius: 17px;
-  padding: 0.4rem 2rem;
-  text-align: center;
-}
-
-@media (max-width: 740px) {
-  .value-card {
-    padding: 0.4rem 1rem;
-  }
-  
-  .summary-left, .summary-middle {
-    padding: 0.5rem 0.5rem;
-  }
-}
-
-
-.value-description {
-  background-color: white;
-  color: black;
-  padding: 0.4rem 0rem;
-  text-align: left;
-}
-*/
-
 /* -------------------------------------------------------------------------- */
 
 
@@ -358,6 +361,21 @@ img {
 
 
 /* Content Grid ------------------------------------------------------------- */
+
+@media (max-width: 770px), (max-height: 600px) {
+  .bslib-grid.grid {
+    grid-template-columns: 1fr !important;
+    height: unset !important;
+  }
+  
+  .html-fill-container > .html-fill-item {
+    min-height: auto;
+  }
+  
+  .navbar-brand {
+    font-size: max(2.5vw, 24px) !important;
+  }
+}
 
 .container-fluid.html-fill-item.html-fill-container {
   font-family: 'Barlow';
@@ -374,7 +392,7 @@ img {
 .card-header {
   font-family: 'Barlow';
   font-weight: 500 !important;
-  font-size: 1.1em !important;
+  font-size: max(0.9vw, 12px) !important;
   letter-spacing: 0.03em;
   color: black;
   border-width: 2px;
