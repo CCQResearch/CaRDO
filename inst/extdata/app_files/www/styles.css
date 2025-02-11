@@ -4,6 +4,7 @@
   --bslib-spacer: 0rem;
   --input-primary: #2E2E2E;
   --input-secondary: #FFDE56;
+  --custom-background: #FAF9F6;
 }
 
 /*  Text Tag Options  --------------------------------------------------------*/
@@ -42,6 +43,12 @@ h2, .h2 {
 /* This is a slight border above the main page */
 .bslib-page-navbar>.navbar+div, .bslib-page-dashboard>.navbar+div {
   border: none !important;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 /* Specifying the font styling for the nav bar */
@@ -170,6 +177,10 @@ h2, .h2 {
   .control-label {
     display: none;
   }
+  
+  .form-group.shiny-input-container > div {
+    width: 100% !important;
+  }
 }
 
 .html-fill-item {
@@ -283,7 +294,7 @@ img {
   justify-content: space-between;
   flex: 1;
   min-width: 0;
-  background-color: #FAF9F6;
+  background-color: var(--custom-background);
   border-radius: 16px;
   padding: 0rem 0rem 1rem 1rem;
 }
@@ -295,7 +306,7 @@ img {
   height: 100%;
   flex: 0 1 300px;
   padding: 1rem;
-  border: 2px solid #FAF9F6;
+  border: 2px solid var(--custom-background);
   border-radius: 16px;
   gap: 1.5rem;
 }
@@ -363,6 +374,20 @@ img {
 /* Content Grid ------------------------------------------------------------- */
 
 @media (max-width: 770px), (max-height: 600px) {
+  .header-options {
+    position: sticky;
+    top: 62px;
+    z-index: 9999;
+  }
+  
+  .cancer-menu, .gender-measure {
+    width: 100%;
+  }
+  
+  .bslib-page-fill {
+    height: auto !important;
+  }
+  
   .bslib-grid.grid {
     grid-template-columns: 1fr !important;
     height: unset !important;
@@ -413,6 +438,79 @@ img {
 
 .card-body {
   border: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+/* Methods ------------------------------------------------------------------ */
+
+.methods-panel {
+  align-self: start;
+  line-height: 2rem;
+  width: 40%;
+  max-width: 100%;
+  margin-top: 4rem;
+  padding: 2rem;
+}
+
+.methods-panel h1 {
+  text-align: start;
+  margin-bottom: 4rem;
+}
+
+.methods-panel h2 {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.methods-panel > * {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1300px) {
+  .methods-panel {
+    width: 60%;
+  }
+}
+
+@media (max-width: 800px) {
+  .methods-panel {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .methods-panel {
+    width: 100%;
+  }
+  
+  p .MathJax_Display {
+    display: none !important;
+  }
+}
+
+body.methods-active {
+  background-color: var(--custom-background) !important;
+  transition: background-color 0.5s ease-in-out;
+}
+
+body.methods-active nav.navbar.navbar-default {
+  background-color: var(--custom-background) !important;
+  transition: background-color 0.5s ease-in-out;
 }
 
 /* -------------------------------------------------------------------------- */
