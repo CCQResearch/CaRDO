@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
 
 :root {
+  --regular-font: 'Barlow';
   --bslib-spacer: 0rem;
   --input-primary: #2E2E2E;
   --input-secondary: #FFDE56;
@@ -10,7 +11,7 @@
 /*  Text Tag Options  --------------------------------------------------------*/
 
 h1, .h1 {
-  font-family: 'Barlow';
+  font-family: var(--regular-font);
   font-weight: 600;
   font-size: 2.5em;
   letter-spacing: 0.1em;
@@ -20,7 +21,7 @@ h1, .h1 {
 
 h2, .h2 {
   margin: 0;
-  font-family: 'Barlow';
+  font-family: var(--regular-font);
   font-size: max(1vw, 16px);
   font-weight: 400;
 }
@@ -53,7 +54,7 @@ h2, .h2 {
 
 /* Specifying the font styling for the nav bar */
 .navbar.navbar-default > .container-fluid {
-  font-family: 'Barlow';
+  font-family: var(--regular-font);
   font-weight: 600;
   font-size: 2em;
   letter-spacing: 0.1rem;
@@ -403,11 +404,11 @@ img {
 }
 
 .container-fluid.html-fill-item.html-fill-container {
-  font-family: 'Barlow';
+  font-family: var(--regular-font);
 }
 
 .bslib-grid-item .card {
-  margin: 1rem;
+  margin: 2rem;
 }
 
 .card {
@@ -415,7 +416,7 @@ img {
 }
 
 .card-header {
-  font-family: 'Barlow';
+  font-family: var(--regular-font);
   font-weight: 500 !important;
   font-size: max(0.9vw, 12px) !important;
   letter-spacing: 0.03em;
@@ -514,3 +515,21 @@ body.methods-active nav.navbar.navbar-default {
 }
 
 /* -------------------------------------------------------------------------- */
+
+/* Plotly Fonts */
+
+text.xtitle, g.xtick > text, g.ytick > text, g.traces > text, g.scrollbox > text {
+  font-family: var(--regular-font) !important;
+}
+
+text.xtitle, g.scrollbox > text {
+  font-size: 1rem !important;
+}
+
+g.xtick > text, g.ytick > text, g.traces > text {
+  font-size: 0.8rem !important;
+}
+
+text.xtitle {
+  font-weight: 500 !important;
+}
