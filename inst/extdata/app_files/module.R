@@ -72,6 +72,10 @@ UI_module <- function(id){
                 class = "ltr-text",
                 h2("Lifetime Risk"),
                 uiOutput(ns("ltr_text"))
+              ),
+              div(
+                id = "ltr-tooltip",
+                class = "ltr-tooltip"
               )
             )
           )
@@ -323,7 +327,7 @@ server_module <- function(id){
                  preserveAspectRatio = "XMidYMid meet",
                  lapply(1:10, function(i) {
                    color <- ifelse(i <= round(lifetime_risk() * 10), "#FFDE56", "grey")
-                   tags$circle(cx = "50%", cy = (10 - i) * 10 + 5, r = 3, fill = color)
+                   tags$circle(class = "data-circle", `data-info` = "Each circle represents 1/10th of the population", cx = "50%", cy = (10 - i) * 10 + 5, r = 3, fill = color)
                  })
         )
       })
@@ -459,7 +463,7 @@ server_module <- function(id){
               # linewidth = 1
               #linecolor = "#111111"
             ),
-            margin = list(t = 0, b = 0, l = 0, r = 0, pad = 15),
+            margin = list(t = 0, b = 0, l = 15, r = 0),
             showlegend = TRUE,
             paper_bgcolor = 'transparent',
             plot_bgcolor = 'transparent',
@@ -613,8 +617,7 @@ server_module <- function(id){
               y=80,x=0,
               orientation = 'h'
             ),
-            hovermode = "x unified",
-            margin = list(t = 0, b = 0, l = 0, r = 0, pad = 15)
+            hovermode = "x unified"
           ) %>%
           config(
             displaylogo = FALSE,
