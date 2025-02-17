@@ -8,11 +8,12 @@
 
 CaRDO is a user-friendly R package for creating interactive R-Shiny
 dashboards that visualize and publish population-level cancer
-statistics. You can find an example CaRDO dashboard {here}
+statistics. You can find an example CaRDO dashboard
+[here](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-statistics-online-qcsol/)
 
 ## Installation
 
-CaRDO requires the following packages installed before launching
+1.  CaRDO requires the following packages installed before launching
 
 ``` r
 install.packages("devtools")
@@ -21,13 +22,13 @@ install.packages("plotly")
 install.packages("markdown")
 ```
 
-Install CaRDO using
+2.  Install CaRDO using
 
 ``` r
 devtools::install_github("https://github.com/CCQResearch/CaRDO")
 ```
 
-Load CaRDO using
+3.  Load CaRDO using
 
 ``` r
 cardo::create_dashboard()
@@ -35,8 +36,8 @@ cardo::create_dashboard()
 
 ## Data requirements
 
-There are three key requirements for any cancer dataset that is loaded
-into CaRDO.
+There are **three** key requirements for any cancer dataset that is
+loaded into CaRDO.
 
 1.  You must have a single column for each variable and outcome you wish
     to report, and each row in your dataset should correspond to a
