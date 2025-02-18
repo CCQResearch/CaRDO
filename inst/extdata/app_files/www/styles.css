@@ -30,7 +30,7 @@ h2, .h2 {
   h1 {
     font-size: 2em;
   }
-  
+
   h2 {
     font-size: 1rem;
   }
@@ -64,7 +64,7 @@ h2, .h2 {
 /* brand is simply the dashboard title */
 .navbar-brand {
   color: var(--input-primary);
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 /* This formats the font for the navigation links */
@@ -109,22 +109,22 @@ h2, .h2 {
 /* Header Options ----------------------------------------------------------- */
 
 @media (max-width: 770px) {
-  
+
   .header-options {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 1rem !important;
   }
-  
+
   .header-options div:first-child {
     order: 2;
   }
-  
+
   .form-group.shiny-input-container {
     gap: 0 !important;
   }
-  
+
   h1, .h1 {
     text-align: left !important;
   }
@@ -149,7 +149,7 @@ h2, .h2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .header-options > bslib-layout-columns {
@@ -178,7 +178,7 @@ h2, .h2 {
   .control-label {
     display: none;
   }
-  
+
   .form-group.shiny-input-container > div {
     width: 100% !important;
   }
@@ -283,7 +283,7 @@ img {
   .summary-title, .ltr-vis {
     display: none !important;
   }
-  
+
   .lifetime-risk {
     flex: 1 !important;
   }
@@ -352,7 +352,7 @@ img {
 }
 
 .ltr-text {
-  font-size: max(2.2vw, 30px);
+  font-size: max(1.9vw, 30px);
   font-weight: 300;
   flex-grow: 1;
   display: flex;
@@ -364,6 +364,10 @@ img {
 
 .ltr-info {
   font-size: 0.8rem;
+}
+
+.ltr-stat {
+  font-weight: 500;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -380,24 +384,24 @@ img {
     top: 62px;
     z-index: 9999;
   }
-  
+
   .cancer-menu, .gender-measure {
     width: 100%;
   }
-  
+
   .bslib-page-fill {
     height: auto !important;
   }
-  
+
   .bslib-grid.grid {
     grid-template-columns: 1fr !important;
     height: unset !important;
   }
-  
+
   .html-fill-container > .html-fill-item {
     min-height: auto;
   }
-  
+
   .navbar-brand {
     font-size: max(2.5vw, 24px) !important;
   }
@@ -423,7 +427,7 @@ img {
   color: black;
   border-width: 2px;
   border-color: black;
-  
+
 }
 
 .custom-heading {
@@ -451,8 +455,8 @@ img {
   line-height: 2rem;
   width: 40%;
   max-width: 100%;
-  margin-top: 4rem;
-  padding: 2rem;
+  margin-top: 4rem !important;
+  padding: 2rem !important;
 }
 
 .methods-panel h1 {
@@ -462,7 +466,7 @@ img {
 
 .methods-panel h2 {
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin: 2rem 0rem 1rem 0rem;
 }
 
 .methods-panel > * {
@@ -498,19 +502,19 @@ img {
   .methods-panel {
     width: 100%;
   }
-  
+
   p .MathJax_Display {
     display: none !important;
   }
 }
 
 body.methods-active {
-  background-color: var(--custom-background) !important;
+  background-color: #FFFFFF !important;
   transition: background-color 0.5s ease-in-out;
 }
 
 body.methods-active nav.navbar.navbar-default {
-  background-color: var(--custom-background) !important;
+  background-color: #FFFFFF !important;
   transition: background-color 0.5s ease-in-out;
 }
 
@@ -522,6 +526,10 @@ text.xtitle, g.xtick > text, g.ytick > text, g.traces > text, g.scrollbox > text
   font-family: var(--regular-font) !important;
 }
 
+text.ytitle, g.ytick > text, g.ytick > text, g.traces > text, g.scrollbox > text {
+  font-family: var(--regular-font) !important;
+}
+
 text.xtitle, g.scrollbox > text {
   font-size: 1rem !important;
 }
@@ -530,6 +538,6 @@ g.xtick > text, g.ytick > text, g.traces > text {
   font-size: 0.8rem !important;
 }
 
-text.xtitle {
+text.xtitle, text.ytitle {
   font-weight: 500 !important;
 }
