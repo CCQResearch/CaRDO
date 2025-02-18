@@ -59,7 +59,7 @@ counts_limit <- inc_counts %>%
          sex == 3,
          measure == "Counts") %>%
   pull(obs) %>%
-  max()
+  max(., na.rm = TRUE)
 
 rates_limit <- if(length(measure_choices) != 1){
   inc_annual_counts %>%
@@ -67,7 +67,7 @@ rates_limit <- if(length(measure_choices) != 1){
            sex == 3,
            measure == "Rates") %>%
     pull(obs) %>%
-    max()
+    max(., na.rm = TRUE)
 } else {
   NULL
 }

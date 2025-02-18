@@ -156,8 +156,9 @@ server_module <- function(id){
         data_topright <- reactive({
           inc_annual_counts %>%
             filter(cancer.type == input$cancer.type,
-                   measure == input$measure) %>%
-            pivot_wider(names_from = 'sex', values_from = 'obs')
+                   measure == input$measure)
+          # %>%
+          #   pivot_wider(names_from = 'sex', values_from = 'obs')
         })
 
         # DELETE IF AVERAGES IS OKAY
@@ -223,8 +224,9 @@ server_module <- function(id){
         data_topright <- reactive({
           mrt_annual_counts %>%
             filter(measure == input$measure,
-                   cancer.type == input$cancer.type) %>%
-            pivot_wider(names_from = 'sex', values_from = 'obs')
+                   cancer.type == input$cancer.type)
+          # %>%
+          #   pivot_wider(names_from = 'sex', values_from = 'obs')
         })
 
         # DELETE IF AVERAGES IS OKAY
@@ -271,7 +273,7 @@ server_module <- function(id){
         paste0(
           if_else(input$measure == "Counts", paste0("%{y:,}"), paste0("%{y:,.2f}")),
           if_else(id == "Diagnosis", " diagnoses", " deaths"),
-          if_else(input$measure == "Counts", "", " per 1 million pop.")
+          if_else(input$measure == "Counts", "", " per 100,000 pop.")
         )
       })
 
@@ -335,9 +337,9 @@ server_module <- function(id){
       })
 
       output$ltr_text <- renderUI({
-        
-        ltr_stat <- if (round(lifetime_risk() * 10) < 1) {"<1"} else {round(lifetime_risk() * 10)} 
-        
+
+        ltr_stat <- if (round(lifetime_risk() * 10) < 1) {"< 1"} else {round(lifetime_risk() * 10)}
+
         div(
           HTML(paste(span(class = "ltr-stat", ltr_stat), " out of 10")),
           div(
@@ -409,36 +411,9 @@ server_module <- function(id){
           }
         })
 
-        # browser()
-
-        plot_ly(
-          data = data_topright(),
-          x = ~year,
-          hovertemplate = time_hovertemplate()) %>%
-          add_trace(
-            y = ~`3`,
-            name = "Persons",
-            type = "scatter",
-            mode = "lines", #add +lines for trends
-            line = line_styles[[3]]
-            #marker = marker_styles[[3]]
-          ) %>%
-          add_trace(
-            y = ~`1`,
-            name = "Male",
-            type = "scatter",
-            mode = "lines", #add +lines for trends
-            line = line_styles[[1]]
-            #marker = marker_styles[[1]]
-          ) %>%
-          add_trace(
-            y = ~`2`,
-            name = "Female",
-            type = "scatter",
-            mode = "lines", #add +lines for trends
-            line = line_styles[[2]]
-            #marker =marker_styles[[2]]
-          ) %>%
+        plot <- plot_ly(
+          hovertemplate = time_hovertemplate()
+        )  %>%
           config(
             displaylogo = FALSE,
             displayModeBar = FALSE,
@@ -470,7 +445,7 @@ server_module <- function(id){
               # linewidth = 1
               #linecolor = "#111111"
             ),
-            margin = list(t = 0, b = 0, l = 15, r = 0),
+            # margin = list(t = 0, b = 0, l = 15, r = 0),
             showlegend = TRUE,
             paper_bgcolor = 'transparent',
             plot_bgcolor = 'transparent',
@@ -481,6 +456,50 @@ server_module <- function(id){
               activecolor = '#111111'
             )
           )
+
+        # browser()
+
+        for(sex_num in unique(data_topright()$sex)){
+          plot <- plot %>%
+            add_trace(
+              data = data_topright() %>% filter(sex == sex_num),
+              x = ~year,
+              y = ~obs,
+              name = sex_name[[sex_num]],
+              type = "scatter",
+              mode = "lines", #add +lines for trends
+              line = line_styles[[sex_num]]
+              #marker = marker_styles[[3]]
+            )
+        }
+
+        plot
+        # %>%
+        #   add_trace(
+        #     y = ~`3`,
+        #     name = "Persons",
+        #     type = "scatter",
+        #     mode = "lines", #add +lines for trends
+        #     line = line_styles[[3]]
+        #     #marker = marker_styles[[3]]
+        #   ) %>%
+        #   add_trace(
+        #     y = ~`1`,
+        #     name = "Male",
+        #     type = "scatter",
+        #     mode = "lines", #add +lines for trends
+        #     line = line_styles[[1]]
+        #     #marker = marker_styles[[1]]
+        #   ) %>%
+        #   add_trace(
+        #     y = ~`2`,
+        #     name = "Female",
+        #     type = "scatter",
+        #     mode = "lines", #add +lines for trends
+        #     line = line_styles[[2]]
+        #     #marker =marker_styles[[2]]
+        #   )
+
       })
 
       # ---------------------------------------------------------------------- #
@@ -514,7 +533,7 @@ server_module <- function(id){
       output$bottomleft <- renderPlotly({
 
         plot_colour <- if(id == "Diagnosis") "#335C98" else "#A74A43"
-        
+
         cancer_axis_limit <- if(input$measure == "Counts") {counts_limit} else {rates_limit}
 
         plot_ly(data = data_bottomleft())%>%

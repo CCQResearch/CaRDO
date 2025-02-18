@@ -1,7 +1,7 @@
-Package: CanDOR
+Package: CaRDO
 Type: Package
 Title: TESTING VERSION - Create Your Own Cancer Shiny Dashboard
-Version: 9.9.9
+Version: 0.0.1
 Authors@R:
     c(
       person("Sean", "Francis", ,"statistics@cancerqld.org.au", role = c("aut", "cre")),

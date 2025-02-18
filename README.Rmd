@@ -37,7 +37,7 @@ devtools::install_github("https://github.com/CCQResearch/CaRDO")
 ```
 3. Load CaRDO using 
 ``` r
-cardo::create_dashboard()
+CaRDO::create_dashboard()
 ```
 
 ## Data requirements

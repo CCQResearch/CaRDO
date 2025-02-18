@@ -1,0 +1,2472 @@
+"Year","Sex","AgeGroup","Cancer","Deaths"
+2011,1,1,"Colorectal",14
+2011,1,2,"Colorectal",5
+2011,1,5,"Colorectal",12
+2011,1,6,"Colorectal",17
+2011,1,8,"Colorectal",6
+2011,1,10,"Colorectal",18
+2011,1,11,"Colorectal",13
+2011,1,12,"Colorectal",34
+2011,1,13,"Colorectal",39
+2011,1,14,"Colorectal",57
+2011,1,15,"Colorectal",34
+2011,1,16,"Colorectal",77
+2011,1,17,"Colorectal",65
+2011,1,18,"Colorectal",45
+2011,2,1,"Colorectal",11
+2011,2,2,"Colorectal",17
+2011,2,4,"Colorectal",16
+2011,2,6,"Colorectal",11
+2011,2,8,"Colorectal",1
+2011,2,9,"Colorectal",2
+2011,2,11,"Colorectal",13
+2011,2,12,"Colorectal",22
+2011,2,13,"Colorectal",8
+2011,2,14,"Colorectal",12
+2011,2,15,"Colorectal",26
+2011,2,16,"Colorectal",50
+2011,2,17,"Colorectal",49
+2011,2,18,"Colorectal",89
+2012,1,1,"Colorectal",9
+2012,1,4,"Colorectal",10
+2012,1,5,"Colorectal",17
+2012,1,7,"Colorectal",1
+2012,1,9,"Colorectal",3
+2012,1,10,"Colorectal",4
+2012,1,11,"Colorectal",27
+2012,1,12,"Colorectal",25
+2012,1,13,"Colorectal",40
+2012,1,14,"Colorectal",58
+2012,1,15,"Colorectal",42
+2012,1,16,"Colorectal",85
+2012,1,17,"Colorectal",60
+2012,1,18,"Colorectal",79
+2012,2,1,"Colorectal",1
+2012,2,2,"Colorectal",2
+2012,2,6,"Colorectal",11
+2012,2,8,"Colorectal",14
+2012,2,9,"Colorectal",15
+2012,2,11,"Colorectal",28
+2012,2,13,"Colorectal",19
+2012,2,14,"Colorectal",13
+2012,2,15,"Colorectal",29
+2012,2,16,"Colorectal",40
+2012,2,17,"Colorectal",55
+2012,2,18,"Colorectal",73
+2013,1,1,"Colorectal",4
+2013,1,4,"Colorectal",10
+2013,1,6,"Colorectal",12
+2013,1,10,"Colorectal",10
+2013,1,11,"Colorectal",13
+2013,1,12,"Colorectal",28
+2013,1,13,"Colorectal",55
+2013,1,14,"Colorectal",53
+2013,1,15,"Colorectal",75
+2013,1,16,"Colorectal",82
+2013,1,17,"Colorectal",57
+2013,1,18,"Colorectal",54
+2013,2,1,"Colorectal",4
+2013,2,4,"Colorectal",17
+2013,2,6,"Colorectal",15
+2013,2,9,"Colorectal",2
+2013,2,10,"Colorectal",19
+2013,2,12,"Colorectal",31
+2013,2,13,"Colorectal",39
+2013,2,14,"Colorectal",33
+2013,2,15,"Colorectal",43
+2013,2,16,"Colorectal",39
+2013,2,17,"Colorectal",50
+2013,2,18,"Colorectal",102
+2014,1,1,"Colorectal",11
+2014,1,3,"Colorectal",17
+2014,1,5,"Colorectal",17
+2014,1,6,"Colorectal",6
+2014,1,8,"Colorectal",8
+2014,1,9,"Colorectal",18
+2014,1,10,"Colorectal",11
+2014,1,11,"Colorectal",23
+2014,1,12,"Colorectal",1
+2014,1,13,"Colorectal",28
+2014,1,14,"Colorectal",53
+2014,1,15,"Colorectal",50
+2014,1,16,"Colorectal",67
+2014,1,17,"Colorectal",78
+2014,1,18,"Colorectal",69
+2014,2,1,"Colorectal",11
+2014,2,2,"Colorectal",4
+2014,2,3,"Colorectal",13
+2014,2,4,"Colorectal",5
+2014,2,5,"Colorectal",14
+2014,2,7,"Colorectal",2
+2014,2,8,"Colorectal",10
+2014,2,11,"Colorectal",3
+2014,2,13,"Colorectal",30
+2014,2,14,"Colorectal",30
+2014,2,15,"Colorectal",31
+2014,2,16,"Colorectal",57
+2014,2,17,"Colorectal",53
+2014,2,18,"Colorectal",89
+2015,1,2,"Colorectal",4
+2015,1,5,"Colorectal",11
+2015,1,6,"Colorectal",2
+2015,1,7,"Colorectal",17
+2015,1,10,"Colorectal",17
+2015,1,11,"Colorectal",36
+2015,1,12,"Colorectal",14
+2015,1,13,"Colorectal",50
+2015,1,14,"Colorectal",71
+2015,1,15,"Colorectal",52
+2015,1,16,"Colorectal",65
+2015,1,17,"Colorectal",62
+2015,1,18,"Colorectal",77
+2015,2,1,"Colorectal",15
+2015,2,2,"Colorectal",9
+2015,2,8,"Colorectal",10
+2015,2,9,"Colorectal",4
+2015,2,10,"Colorectal",23
+2015,2,11,"Colorectal",13
+2015,2,12,"Colorectal",5
+2015,2,13,"Colorectal",5
+2015,2,14,"Colorectal",41
+2015,2,15,"Colorectal",51
+2015,2,16,"Colorectal",41
+2015,2,17,"Colorectal",50
+2015,2,18,"Colorectal",88
+2016,1,1,"Colorectal",9
+2016,1,2,"Colorectal",4
+2016,1,5,"Colorectal",9
+2016,1,6,"Colorectal",2
+2016,1,7,"Colorectal",16
+2016,1,9,"Colorectal",12
+2016,1,10,"Colorectal",15
+2016,1,11,"Colorectal",23
+2016,1,12,"Colorectal",5
+2016,1,13,"Colorectal",41
+2016,1,14,"Colorectal",55
+2016,1,15,"Colorectal",62
+2016,1,16,"Colorectal",48
+2016,1,17,"Colorectal",66
+2016,1,18,"Colorectal",88
+2016,2,1,"Colorectal",15
+2016,2,2,"Colorectal",7
+2016,2,3,"Colorectal",12
+2016,2,4,"Colorectal",6
+2016,2,5,"Colorectal",14
+2016,2,7,"Colorectal",15
+2016,2,8,"Colorectal",6
+2016,2,9,"Colorectal",9
+2016,2,10,"Colorectal",20
+2016,2,11,"Colorectal",1
+2016,2,12,"Colorectal",11
+2016,2,13,"Colorectal",45
+2016,2,14,"Colorectal",23
+2016,2,15,"Colorectal",30
+2016,2,16,"Colorectal",48
+2016,2,17,"Colorectal",67
+2016,2,18,"Colorectal",87
+2017,1,1,"Colorectal",7
+2017,1,2,"Colorectal",14
+2017,1,3,"Colorectal",10
+2017,1,4,"Colorectal",4
+2017,1,7,"Colorectal",15
+2017,1,8,"Colorectal",5
+2017,1,9,"Colorectal",10
+2017,1,10,"Colorectal",5
+2017,1,11,"Colorectal",31
+2017,1,12,"Colorectal",27
+2017,1,13,"Colorectal",36
+2017,1,14,"Colorectal",38
+2017,1,15,"Colorectal",57
+2017,1,16,"Colorectal",51
+2017,1,17,"Colorectal",78
+2017,1,18,"Colorectal",93
+2017,2,1,"Colorectal",7
+2017,2,2,"Colorectal",6
+2017,2,3,"Colorectal",1
+2017,2,10,"Colorectal",1
+2017,2,11,"Colorectal",2
+2017,2,12,"Colorectal",19
+2017,2,13,"Colorectal",41
+2017,2,14,"Colorectal",45
+2017,2,15,"Colorectal",62
+2017,2,16,"Colorectal",28
+2017,2,17,"Colorectal",39
+2017,2,18,"Colorectal",109
+2018,1,3,"Colorectal",5
+2018,1,6,"Colorectal",16
+2018,1,7,"Colorectal",5
+2018,1,10,"Colorectal",9
+2018,1,11,"Colorectal",29
+2018,1,12,"Colorectal",27
+2018,1,13,"Colorectal",59
+2018,1,14,"Colorectal",54
+2018,1,15,"Colorectal",63
+2018,1,16,"Colorectal",64
+2018,1,17,"Colorectal",76
+2018,1,18,"Colorectal",69
+2018,2,2,"Colorectal",3
+2018,2,5,"Colorectal",13
+2018,2,7,"Colorectal",1
+2018,2,8,"Colorectal",8
+2018,2,10,"Colorectal",19
+2018,2,11,"Colorectal",16
+2018,2,12,"Colorectal",35
+2018,2,13,"Colorectal",12
+2018,2,14,"Colorectal",32
+2018,2,15,"Colorectal",37
+2018,2,16,"Colorectal",44
+2018,2,17,"Colorectal",42
+2018,2,18,"Colorectal",96
+2019,1,1,"Colorectal",17
+2019,1,3,"Colorectal",5
+2019,1,4,"Colorectal",17
+2019,1,6,"Colorectal",17
+2019,1,9,"Colorectal",4
+2019,1,10,"Colorectal",23
+2019,1,11,"Colorectal",28
+2019,1,12,"Colorectal",18
+2019,1,13,"Colorectal",60
+2019,1,14,"Colorectal",45
+2019,1,15,"Colorectal",73
+2019,1,16,"Colorectal",77
+2019,1,17,"Colorectal",61
+2019,1,18,"Colorectal",93
+2019,2,1,"Colorectal",1
+2019,2,2,"Colorectal",13
+2019,2,3,"Colorectal",15
+2019,2,6,"Colorectal",16
+2019,2,7,"Colorectal",14
+2019,2,8,"Colorectal",3
+2019,2,9,"Colorectal",15
+2019,2,11,"Colorectal",18
+2019,2,12,"Colorectal",23
+2019,2,13,"Colorectal",25
+2019,2,14,"Colorectal",18
+2019,2,15,"Colorectal",57
+2019,2,16,"Colorectal",23
+2019,2,17,"Colorectal",39
+2019,2,18,"Colorectal",129
+2020,1,2,"Colorectal",1
+2020,1,11,"Colorectal",23
+2020,1,12,"Colorectal",16
+2020,1,13,"Colorectal",30
+2020,1,14,"Colorectal",61
+2020,1,15,"Colorectal",49
+2020,1,16,"Colorectal",70
+2020,1,17,"Colorectal",97
+2020,1,18,"Colorectal",92
+2020,2,6,"Colorectal",1
+2020,2,8,"Colorectal",10
+2020,2,11,"Colorectal",4
+2020,2,12,"Colorectal",12
+2020,2,13,"Colorectal",29
+2020,2,14,"Colorectal",35
+2020,2,15,"Colorectal",58
+2020,2,16,"Colorectal",41
+2020,2,17,"Colorectal",57
+2020,2,18,"Colorectal",109
+2021,1,1,"Colorectal",17
+2021,1,2,"Colorectal",12
+2021,1,4,"Colorectal",16
+2021,1,5,"Colorectal",4
+2021,1,6,"Colorectal",2
+2021,1,7,"Colorectal",2
+2021,1,8,"Colorectal",3
+2021,1,9,"Colorectal",19
+2021,1,10,"Colorectal",9
+2021,1,11,"Colorectal",20
+2021,1,12,"Colorectal",39
+2021,1,13,"Colorectal",9
+2021,1,14,"Colorectal",35
+2021,1,15,"Colorectal",54
+2021,1,16,"Colorectal",52
+2021,1,17,"Colorectal",70
+2021,1,18,"Colorectal",86
+2021,2,1,"Colorectal",11
+2021,2,3,"Colorectal",6
+2021,2,7,"Colorectal",7
+2021,2,8,"Colorectal",8
+2021,2,9,"Colorectal",5
+2021,2,10,"Colorectal",13
+2021,2,11,"Colorectal",9
+2021,2,12,"Colorectal",4
+2021,2,13,"Colorectal",12
+2021,2,14,"Colorectal",22
+2021,2,15,"Colorectal",32
+2021,2,16,"Colorectal",48
+2021,2,17,"Colorectal",36
+2021,2,18,"Colorectal",137
+2022,1,3,"Colorectal",3
+2022,1,5,"Colorectal",17
+2022,1,8,"Colorectal",14
+2022,1,10,"Colorectal",27
+2022,1,11,"Colorectal",17
+2022,1,12,"Colorectal",29
+2022,1,13,"Colorectal",29
+2022,1,14,"Colorectal",36
+2022,1,15,"Colorectal",50
+2022,1,16,"Colorectal",47
+2022,1,17,"Colorectal",74
+2022,1,18,"Colorectal",106
+2022,2,5,"Colorectal",2
+2022,2,7,"Colorectal",14
+2022,2,8,"Colorectal",20
+2022,2,9,"Colorectal",9
+2022,2,10,"Colorectal",15
+2022,2,11,"Colorectal",27
+2022,2,12,"Colorectal",11
+2022,2,13,"Colorectal",19
+2022,2,14,"Colorectal",17
+2022,2,15,"Colorectal",44
+2022,2,16,"Colorectal",59
+2022,2,17,"Colorectal",65
+2022,2,18,"Colorectal",125
+2011,1,2,"Pancreatic",8
+2011,1,3,"Pancreatic",2
+2011,1,4,"Pancreatic",7
+2011,1,5,"Pancreatic",13
+2011,1,7,"Pancreatic",11
+2011,1,8,"Pancreatic",8
+2011,1,9,"Pancreatic",17
+2011,1,10,"Pancreatic",10
+2011,1,12,"Pancreatic",20
+2011,1,13,"Pancreatic",10
+2011,1,14,"Pancreatic",39
+2011,1,15,"Pancreatic",30
+2011,1,16,"Pancreatic",3
+2011,1,17,"Pancreatic",25
+2011,1,18,"Pancreatic",1
+2011,2,1,"Pancreatic",13
+2011,2,5,"Pancreatic",16
+2011,2,6,"Pancreatic",5
+2011,2,10,"Pancreatic",13
+2011,2,11,"Pancreatic",18
+2011,2,12,"Pancreatic",3
+2011,2,14,"Pancreatic",18
+2011,2,15,"Pancreatic",2
+2011,2,16,"Pancreatic",37
+2011,2,17,"Pancreatic",19
+2011,2,18,"Pancreatic",23
+2012,1,1,"Pancreatic",1
+2012,1,8,"Pancreatic",6
+2012,1,9,"Pancreatic",2
+2012,1,12,"Pancreatic",8
+2012,1,13,"Pancreatic",5
+2012,1,14,"Pancreatic",15
+2012,1,15,"Pancreatic",19
+2012,1,16,"Pancreatic",24
+2012,1,17,"Pancreatic",29
+2012,1,18,"Pancreatic",33
+2012,2,1,"Pancreatic",4
+2012,2,3,"Pancreatic",7
+2012,2,4,"Pancreatic",12
+2012,2,9,"Pancreatic",10
+2012,2,10,"Pancreatic",16
+2012,2,11,"Pancreatic",19
+2012,2,12,"Pancreatic",2
+2012,2,13,"Pancreatic",19
+2012,2,14,"Pancreatic",30
+2012,2,15,"Pancreatic",5
+2012,2,16,"Pancreatic",22
+2012,2,17,"Pancreatic",23
+2012,2,18,"Pancreatic",14
+2013,1,4,"Pancreatic",10
+2013,1,5,"Pancreatic",2
+2013,1,7,"Pancreatic",15
+2013,1,8,"Pancreatic",3
+2013,1,10,"Pancreatic",2
+2013,1,11,"Pancreatic",6
+2013,1,12,"Pancreatic",9
+2013,1,13,"Pancreatic",29
+2013,1,14,"Pancreatic",30
+2013,1,15,"Pancreatic",9
+2013,1,16,"Pancreatic",32
+2013,1,17,"Pancreatic",8
+2013,1,18,"Pancreatic",32
+2013,2,3,"Pancreatic",17
+2013,2,5,"Pancreatic",14
+2013,2,8,"Pancreatic",1
+2013,2,12,"Pancreatic",10
+2013,2,13,"Pancreatic",19
+2013,2,14,"Pancreatic",11
+2013,2,15,"Pancreatic",7
+2013,2,16,"Pancreatic",9
+2013,2,17,"Pancreatic",5
+2013,2,18,"Pancreatic",52
+2014,1,1,"Pancreatic",2
+2014,1,2,"Pancreatic",2
+2014,1,3,"Pancreatic",1
+2014,1,8,"Pancreatic",3
+2014,1,9,"Pancreatic",2
+2014,1,10,"Pancreatic",3
+2014,1,12,"Pancreatic",16
+2014,1,13,"Pancreatic",5
+2014,1,14,"Pancreatic",36
+2014,1,15,"Pancreatic",26
+2014,1,16,"Pancreatic",33
+2014,1,17,"Pancreatic",11
+2014,1,18,"Pancreatic",13
+2014,2,1,"Pancreatic",6
+2014,2,6,"Pancreatic",14
+2014,2,9,"Pancreatic",14
+2014,2,10,"Pancreatic",20
+2014,2,12,"Pancreatic",7
+2014,2,13,"Pancreatic",19
+2014,2,14,"Pancreatic",25
+2014,2,15,"Pancreatic",18
+2014,2,17,"Pancreatic",25
+2014,2,18,"Pancreatic",34
+2015,1,2,"Pancreatic",8
+2015,1,4,"Pancreatic",13
+2015,1,5,"Pancreatic",17
+2015,1,6,"Pancreatic",12
+2015,1,7,"Pancreatic",6
+2015,1,8,"Pancreatic",10
+2015,1,9,"Pancreatic",1
+2015,1,10,"Pancreatic",19
+2015,1,11,"Pancreatic",22
+2015,1,12,"Pancreatic",10
+2015,1,13,"Pancreatic",10
+2015,1,14,"Pancreatic",46
+2015,1,15,"Pancreatic",14
+2015,1,16,"Pancreatic",36
+2015,1,17,"Pancreatic",42
+2015,1,18,"Pancreatic",17
+2015,2,2,"Pancreatic",17
+2015,2,5,"Pancreatic",4
+2015,2,10,"Pancreatic",12
+2015,2,11,"Pancreatic",13
+2015,2,12,"Pancreatic",1
+2015,2,13,"Pancreatic",23
+2015,2,14,"Pancreatic",11
+2015,2,15,"Pancreatic",24
+2015,2,16,"Pancreatic",34
+2015,2,17,"Pancreatic",12
+2015,2,18,"Pancreatic",25
+2016,1,1,"Pancreatic",12
+2016,1,5,"Pancreatic",4
+2016,1,6,"Pancreatic",10
+2016,1,7,"Pancreatic",10
+2016,1,9,"Pancreatic",18
+2016,1,11,"Pancreatic",2
+2016,1,12,"Pancreatic",15
+2016,1,13,"Pancreatic",14
+2016,1,14,"Pancreatic",33
+2016,1,15,"Pancreatic",50
+2016,1,16,"Pancreatic",29
+2016,1,17,"Pancreatic",35
+2016,1,18,"Pancreatic",37
+2016,2,1,"Pancreatic",13
+2016,2,2,"Pancreatic",2
+2016,2,3,"Pancreatic",14
+2016,2,4,"Pancreatic",15
+2016,2,5,"Pancreatic",17
+2016,2,6,"Pancreatic",14
+2016,2,9,"Pancreatic",8
+2016,2,11,"Pancreatic",13
+2016,2,12,"Pancreatic",21
+2016,2,13,"Pancreatic",17
+2016,2,14,"Pancreatic",26
+2016,2,15,"Pancreatic",27
+2016,2,16,"Pancreatic",28
+2016,2,17,"Pancreatic",25
+2016,2,18,"Pancreatic",34
+2017,1,2,"Pancreatic",9
+2017,1,5,"Pancreatic",13
+2017,1,8,"Pancreatic",3
+2017,1,9,"Pancreatic",19
+2017,1,10,"Pancreatic",17
+2017,1,11,"Pancreatic",16
+2017,1,12,"Pancreatic",31
+2017,1,13,"Pancreatic",28
+2017,1,14,"Pancreatic",23
+2017,1,15,"Pancreatic",22
+2017,1,16,"Pancreatic",52
+2017,1,17,"Pancreatic",15
+2017,1,18,"Pancreatic",28
+2017,2,3,"Pancreatic",11
+2017,2,4,"Pancreatic",1
+2017,2,6,"Pancreatic",8
+2017,2,7,"Pancreatic",13
+2017,2,9,"Pancreatic",16
+2017,2,10,"Pancreatic",2
+2017,2,11,"Pancreatic",10
+2017,2,12,"Pancreatic",23
+2017,2,13,"Pancreatic",13
+2017,2,14,"Pancreatic",6
+2017,2,15,"Pancreatic",19
+2017,2,16,"Pancreatic",39
+2017,2,17,"Pancreatic",37
+2017,2,18,"Pancreatic",53
+2018,1,1,"Pancreatic",4
+2018,1,2,"Pancreatic",8
+2018,1,3,"Pancreatic",1
+2018,1,6,"Pancreatic",10
+2018,1,8,"Pancreatic",6
+2018,1,9,"Pancreatic",17
+2018,1,10,"Pancreatic",18
+2018,1,11,"Pancreatic",5
+2018,1,12,"Pancreatic",13
+2018,1,13,"Pancreatic",5
+2018,1,14,"Pancreatic",21
+2018,1,15,"Pancreatic",45
+2018,1,16,"Pancreatic",28
+2018,1,17,"Pancreatic",33
+2018,1,18,"Pancreatic",12
+2018,2,1,"Pancreatic",8
+2018,2,2,"Pancreatic",17
+2018,2,3,"Pancreatic",14
+2018,2,7,"Pancreatic",10
+2018,2,10,"Pancreatic",14
+2018,2,11,"Pancreatic",13
+2018,2,12,"Pancreatic",24
+2018,2,13,"Pancreatic",3
+2018,2,14,"Pancreatic",11
+2018,2,15,"Pancreatic",33
+2018,2,16,"Pancreatic",13
+2018,2,17,"Pancreatic",15
+2018,2,18,"Pancreatic",45
+2019,1,3,"Pancreatic",1
+2019,1,5,"Pancreatic",6
+2019,1,10,"Pancreatic",14
+2019,1,12,"Pancreatic",18
+2019,1,13,"Pancreatic",23
+2019,1,14,"Pancreatic",31
+2019,1,15,"Pancreatic",27
+2019,1,16,"Pancreatic",51
+2019,1,17,"Pancreatic",30
+2019,1,18,"Pancreatic",3
+2019,2,1,"Pancreatic",15
+2019,2,2,"Pancreatic",15
+2019,2,7,"Pancreatic",2
+2019,2,11,"Pancreatic",19
+2019,2,12,"Pancreatic",7
+2019,2,13,"Pancreatic",12
+2019,2,14,"Pancreatic",42
+2019,2,15,"Pancreatic",41
+2019,2,16,"Pancreatic",42
+2019,2,17,"Pancreatic",44
+2019,2,18,"Pancreatic",49
+2020,1,2,"Pancreatic",11
+2020,1,5,"Pancreatic",11
+2020,1,6,"Pancreatic",9
+2020,1,8,"Pancreatic",1
+2020,1,10,"Pancreatic",11
+2020,1,12,"Pancreatic",5
+2020,1,13,"Pancreatic",24
+2020,1,14,"Pancreatic",41
+2020,1,15,"Pancreatic",54
+2020,1,16,"Pancreatic",31
+2020,1,17,"Pancreatic",31
+2020,1,18,"Pancreatic",39
+2020,2,2,"Pancreatic",15
+2020,2,4,"Pancreatic",8
+2020,2,6,"Pancreatic",5
+2020,2,8,"Pancreatic",16
+2020,2,9,"Pancreatic",6
+2020,2,12,"Pancreatic",28
+2020,2,13,"Pancreatic",26
+2020,2,14,"Pancreatic",30
+2020,2,15,"Pancreatic",22
+2020,2,16,"Pancreatic",14
+2020,2,17,"Pancreatic",22
+2020,2,18,"Pancreatic",36
+2021,1,5,"Pancreatic",11
+2021,1,7,"Pancreatic",1
+2021,1,8,"Pancreatic",17
+2021,1,9,"Pancreatic",14
+2021,1,10,"Pancreatic",11
+2021,1,12,"Pancreatic",21
+2021,1,13,"Pancreatic",22
+2021,1,14,"Pancreatic",47
+2021,1,15,"Pancreatic",43
+2021,1,16,"Pancreatic",31
+2021,1,17,"Pancreatic",34
+2021,1,18,"Pancreatic",41
+2021,2,1,"Pancreatic",13
+2021,2,2,"Pancreatic",2
+2021,2,3,"Pancreatic",17
+2021,2,6,"Pancreatic",11
+2021,2,7,"Pancreatic",5
+2021,2,8,"Pancreatic",14
+2021,2,9,"Pancreatic",14
+2021,2,11,"Pancreatic",12
+2021,2,12,"Pancreatic",2
+2021,2,13,"Pancreatic",21
+2021,2,14,"Pancreatic",46
+2021,2,15,"Pancreatic",27
+2021,2,16,"Pancreatic",34
+2021,2,17,"Pancreatic",54
+2021,2,18,"Pancreatic",38
+2022,1,3,"Pancreatic",4
+2022,1,4,"Pancreatic",10
+2022,1,7,"Pancreatic",9
+2022,1,8,"Pancreatic",15
+2022,1,9,"Pancreatic",7
+2022,1,11,"Pancreatic",4
+2022,1,12,"Pancreatic",32
+2022,1,13,"Pancreatic",16
+2022,1,14,"Pancreatic",22
+2022,1,15,"Pancreatic",24
+2022,1,16,"Pancreatic",48
+2022,1,17,"Pancreatic",35
+2022,1,18,"Pancreatic",41
+2022,2,2,"Pancreatic",14
+2022,2,4,"Pancreatic",2
+2022,2,11,"Pancreatic",1
+2022,2,12,"Pancreatic",22
+2022,2,13,"Pancreatic",21
+2022,2,14,"Pancreatic",30
+2022,2,15,"Pancreatic",30
+2022,2,16,"Pancreatic",61
+2022,2,17,"Pancreatic",21
+2022,2,18,"Pancreatic",51
+2011,1,2,"Lung",17
+2011,1,3,"Lung",17
+2011,1,5,"Lung",17
+2011,1,6,"Lung",4
+2011,1,9,"Lung",12
+2011,1,10,"Lung",17
+2011,1,11,"Lung",26
+2011,1,12,"Lung",65
+2011,1,13,"Lung",78
+2011,1,14,"Lung",124
+2011,1,15,"Lung",128
+2011,1,16,"Lung",119
+2011,1,17,"Lung",130
+2011,1,18,"Lung",70
+2011,2,2,"Lung",13
+2011,2,3,"Lung",8
+2011,2,4,"Lung",3
+2011,2,5,"Lung",4
+2011,2,11,"Lung",6
+2011,2,12,"Lung",43
+2011,2,13,"Lung",53
+2011,2,14,"Lung",78
+2011,2,15,"Lung",79
+2011,2,16,"Lung",66
+2011,2,17,"Lung",51
+2011,2,18,"Lung",65
+2012,1,1,"Lung",2
+2012,1,5,"Lung",12
+2012,1,7,"Lung",10
+2012,1,8,"Lung",19
+2012,1,9,"Lung",11
+2012,1,11,"Lung",32
+2012,1,12,"Lung",45
+2012,1,13,"Lung",84
+2012,1,14,"Lung",112
+2012,1,15,"Lung",132
+2012,1,16,"Lung",120
+2012,1,17,"Lung",115
+2012,1,18,"Lung",90
+2012,2,3,"Lung",7
+2012,2,4,"Lung",17
+2012,2,6,"Lung",9
+2012,2,11,"Lung",25
+2012,2,12,"Lung",32
+2012,2,13,"Lung",51
+2012,2,14,"Lung",74
+2012,2,15,"Lung",55
+2012,2,16,"Lung",76
+2012,2,17,"Lung",52
+2012,2,18,"Lung",64
+2013,1,2,"Lung",16
+2013,1,3,"Lung",3
+2013,1,4,"Lung",11
+2013,1,5,"Lung",13
+2013,1,11,"Lung",35
+2013,1,12,"Lung",38
+2013,1,13,"Lung",80
+2013,1,14,"Lung",125
+2013,1,15,"Lung",135
+2013,1,16,"Lung",114
+2013,1,17,"Lung",112
+2013,1,18,"Lung",97
+2013,2,2,"Lung",8
+2013,2,3,"Lung",2
+2013,2,5,"Lung",15
+2013,2,6,"Lung",7
+2013,2,7,"Lung",5
+2013,2,9,"Lung",15
+2013,2,10,"Lung",11
+2013,2,11,"Lung",10
+2013,2,12,"Lung",32
+2013,2,13,"Lung",30
+2013,2,14,"Lung",78
+2013,2,15,"Lung",52
+2013,2,16,"Lung",60
+2013,2,17,"Lung",60
+2013,2,18,"Lung",75
+2014,1,2,"Lung",13
+2014,1,3,"Lung",17
+2014,1,6,"Lung",14
+2014,1,8,"Lung",13
+2014,1,9,"Lung",12
+2014,1,10,"Lung",28
+2014,1,11,"Lung",28
+2014,1,12,"Lung",71
+2014,1,13,"Lung",93
+2014,1,14,"Lung",147
+2014,1,15,"Lung",155
+2014,1,16,"Lung",127
+2014,1,17,"Lung",97
+2014,1,18,"Lung",108
+2014,2,3,"Lung",10
+2014,2,6,"Lung",7
+2014,2,8,"Lung",6
+2014,2,9,"Lung",9
+2014,2,11,"Lung",19
+2014,2,12,"Lung",37
+2014,2,13,"Lung",67
+2014,2,14,"Lung",85
+2014,2,15,"Lung",81
+2014,2,16,"Lung",57
+2014,2,17,"Lung",85
+2014,2,18,"Lung",58
+2015,1,2,"Lung",2
+2015,1,3,"Lung",5
+2015,1,4,"Lung",16
+2015,1,5,"Lung",3
+2015,1,6,"Lung",15
+2015,1,7,"Lung",13
+2015,1,8,"Lung",18
+2015,1,9,"Lung",8
+2015,1,10,"Lung",23
+2015,1,11,"Lung",23
+2015,1,12,"Lung",58
+2015,1,13,"Lung",89
+2015,1,14,"Lung",133
+2015,1,15,"Lung",135
+2015,1,16,"Lung",135
+2015,1,17,"Lung",124
+2015,1,18,"Lung",72
+2015,2,4,"Lung",9
+2015,2,8,"Lung",15
+2015,2,11,"Lung",33
+2015,2,12,"Lung",35
+2015,2,13,"Lung",47
+2015,2,14,"Lung",83
+2015,2,15,"Lung",83
+2015,2,16,"Lung",76
+2015,2,17,"Lung",76
+2015,2,18,"Lung",49
+2016,1,2,"Lung",8
+2016,1,3,"Lung",2
+2016,1,5,"Lung",1
+2016,1,7,"Lung",12
+2016,1,8,"Lung",3
+2016,1,9,"Lung",4
+2016,1,11,"Lung",29
+2016,1,12,"Lung",69
+2016,1,13,"Lung",67
+2016,1,14,"Lung",137
+2016,1,15,"Lung",142
+2016,1,16,"Lung",133
+2016,1,17,"Lung",91
+2016,1,18,"Lung",131
+2016,2,1,"Lung",10
+2016,2,3,"Lung",14
+2016,2,5,"Lung",2
+2016,2,6,"Lung",16
+2016,2,7,"Lung",9
+2016,2,9,"Lung",16
+2016,2,10,"Lung",5
+2016,2,11,"Lung",8
+2016,2,12,"Lung",42
+2016,2,13,"Lung",61
+2016,2,14,"Lung",84
+2016,2,15,"Lung",92
+2016,2,16,"Lung",79
+2016,2,17,"Lung",42
+2016,2,18,"Lung",74
+2017,1,1,"Lung",1
+2017,1,2,"Lung",13
+2017,1,3,"Lung",12
+2017,1,7,"Lung",17
+2017,1,8,"Lung",18
+2017,1,9,"Lung",6
+2017,1,10,"Lung",15
+2017,1,11,"Lung",30
+2017,1,12,"Lung",34
+2017,1,13,"Lung",102
+2017,1,14,"Lung",116
+2017,1,15,"Lung",154
+2017,1,16,"Lung",121
+2017,1,17,"Lung",96
+2017,1,18,"Lung",95
+2017,2,3,"Lung",2
+2017,2,5,"Lung",2
+2017,2,6,"Lung",10
+2017,2,7,"Lung",10
+2017,2,8,"Lung",4
+2017,2,9,"Lung",11
+2017,2,11,"Lung",16
+2017,2,12,"Lung",41
+2017,2,13,"Lung",37
+2017,2,14,"Lung",96
+2017,2,15,"Lung",80
+2017,2,16,"Lung",85
+2017,2,17,"Lung",64
+2017,2,18,"Lung",59
+2018,1,1,"Lung",8
+2018,1,4,"Lung",5
+2018,1,5,"Lung",12
+2018,1,6,"Lung",2
+2018,1,11,"Lung",31
+2018,1,12,"Lung",65
+2018,1,13,"Lung",90
+2018,1,14,"Lung",134
+2018,1,15,"Lung",130
+2018,1,16,"Lung",129
+2018,1,17,"Lung",121
+2018,1,18,"Lung",94
+2018,2,1,"Lung",8
+2018,2,2,"Lung",17
+2018,2,3,"Lung",14
+2018,2,6,"Lung",10
+2018,2,7,"Lung",9
+2018,2,8,"Lung",9
+2018,2,9,"Lung",10
+2018,2,11,"Lung",13
+2018,2,12,"Lung",56
+2018,2,13,"Lung",66
+2018,2,14,"Lung",65
+2018,2,15,"Lung",87
+2018,2,16,"Lung",96
+2018,2,17,"Lung",79
+2018,2,18,"Lung",72
+2019,1,2,"Lung",10
+2019,1,5,"Lung",5
+2019,1,7,"Lung",18
+2019,1,8,"Lung",18
+2019,1,9,"Lung",10
+2019,1,10,"Lung",12
+2019,1,11,"Lung",35
+2019,1,12,"Lung",49
+2019,1,13,"Lung",88
+2019,1,14,"Lung",106
+2019,1,15,"Lung",153
+2019,1,16,"Lung",111
+2019,1,17,"Lung",94
+2019,1,18,"Lung",125
+2019,2,2,"Lung",7
+2019,2,3,"Lung",13
+2019,2,5,"Lung",9
+2019,2,7,"Lung",15
+2019,2,9,"Lung",1
+2019,2,10,"Lung",14
+2019,2,11,"Lung",17
+2019,2,12,"Lung",40
+2019,2,13,"Lung",54
+2019,2,14,"Lung",96
+2019,2,15,"Lung",81
+2019,2,16,"Lung",100
+2019,2,17,"Lung",69
+2019,2,18,"Lung",100
+2020,1,1,"Lung",16
+2020,1,3,"Lung",9
+2020,1,5,"Lung",14
+2020,1,9,"Lung",1
+2020,1,10,"Lung",28
+2020,1,11,"Lung",4
+2020,1,12,"Lung",38
+2020,1,13,"Lung",75
+2020,1,14,"Lung",109
+2020,1,15,"Lung",133
+2020,1,16,"Lung",138
+2020,1,17,"Lung",105
+2020,1,18,"Lung",88
+2020,2,1,"Lung",15
+2020,2,4,"Lung",13
+2020,2,5,"Lung",1
+2020,2,6,"Lung",17
+2020,2,7,"Lung",11
+2020,2,9,"Lung",16
+2020,2,10,"Lung",2
+2020,2,11,"Lung",30
+2020,2,12,"Lung",25
+2020,2,13,"Lung",53
+2020,2,14,"Lung",82
+2020,2,15,"Lung",101
+2020,2,16,"Lung",100
+2020,2,17,"Lung",85
+2020,2,18,"Lung",87
+2021,1,1,"Lung",6
+2021,1,8,"Lung",5
+2021,1,9,"Lung",8
+2021,1,11,"Lung",17
+2021,1,12,"Lung",56
+2021,1,13,"Lung",86
+2021,1,14,"Lung",109
+2021,1,15,"Lung",155
+2021,1,16,"Lung",150
+2021,1,17,"Lung",110
+2021,1,18,"Lung",101
+2021,2,4,"Lung",10
+2021,2,5,"Lung",17
+2021,2,6,"Lung",8
+2021,2,8,"Lung",11
+2021,2,10,"Lung",16
+2021,2,11,"Lung",15
+2021,2,12,"Lung",42
+2021,2,13,"Lung",79
+2021,2,14,"Lung",84
+2021,2,15,"Lung",123
+2021,2,16,"Lung",107
+2021,2,17,"Lung",86
+2021,2,18,"Lung",97
+2022,1,6,"Lung",16
+2022,1,7,"Lung",4
+2022,1,10,"Lung",15
+2022,1,11,"Lung",9
+2022,1,12,"Lung",40
+2022,1,13,"Lung",92
+2022,1,14,"Lung",100
+2022,1,15,"Lung",150
+2022,1,16,"Lung",175
+2022,1,17,"Lung",159
+2022,1,18,"Lung",107
+2022,2,2,"Lung",10
+2022,2,3,"Lung",3
+2022,2,4,"Lung",12
+2022,2,7,"Lung",5
+2022,2,9,"Lung",8
+2022,2,10,"Lung",16
+2022,2,11,"Lung",20
+2022,2,12,"Lung",33
+2022,2,13,"Lung",72
+2022,2,14,"Lung",89
+2022,2,15,"Lung",105
+2022,2,16,"Lung",112
+2022,2,17,"Lung",113
+2022,2,18,"Lung",81
+2011,1,1,"Melanoma",11
+2011,1,2,"Melanoma",15
+2011,1,4,"Melanoma",2
+2011,1,6,"Melanoma",3
+2011,1,8,"Melanoma",8
+2011,1,10,"Melanoma",18
+2011,1,11,"Melanoma",21
+2011,1,12,"Melanoma",10
+2011,1,13,"Melanoma",32
+2011,1,14,"Melanoma",29
+2011,1,15,"Melanoma",40
+2011,1,16,"Melanoma",1
+2011,1,17,"Melanoma",40
+2011,1,18,"Melanoma",30
+2011,2,1,"Melanoma",5
+2011,2,2,"Melanoma",13
+2011,2,4,"Melanoma",5
+2011,2,8,"Melanoma",12
+2011,2,9,"Melanoma",11
+2011,2,13,"Melanoma",7
+2011,2,14,"Melanoma",10
+2011,2,16,"Melanoma",12
+2011,2,17,"Melanoma",18
+2011,2,18,"Melanoma",8
+2012,1,1,"Melanoma",17
+2012,1,3,"Melanoma",1
+2012,1,5,"Melanoma",15
+2012,1,9,"Melanoma",2
+2012,1,11,"Melanoma",12
+2012,1,13,"Melanoma",16
+2012,1,14,"Melanoma",30
+2012,1,15,"Melanoma",39
+2012,1,16,"Melanoma",42
+2012,1,17,"Melanoma",21
+2012,1,18,"Melanoma",29
+2012,2,3,"Melanoma",1
+2012,2,4,"Melanoma",14
+2012,2,5,"Melanoma",10
+2012,2,8,"Melanoma",15
+2012,2,9,"Melanoma",1
+2012,2,10,"Melanoma",6
+2012,2,15,"Melanoma",15
+2012,2,16,"Melanoma",19
+2012,2,17,"Melanoma",11
+2012,2,18,"Melanoma",30
+2013,1,1,"Melanoma",1
+2013,1,7,"Melanoma",13
+2013,1,8,"Melanoma",9
+2013,1,9,"Melanoma",2
+2013,1,10,"Melanoma",22
+2013,1,11,"Melanoma",22
+2013,1,12,"Melanoma",2
+2013,1,13,"Melanoma",20
+2013,1,14,"Melanoma",39
+2013,1,15,"Melanoma",28
+2013,1,16,"Melanoma",37
+2013,1,17,"Melanoma",42
+2013,1,18,"Melanoma",51
+2013,2,2,"Melanoma",11
+2013,2,3,"Melanoma",4
+2013,2,4,"Melanoma",5
+2013,2,6,"Melanoma",16
+2013,2,8,"Melanoma",2
+2013,2,9,"Melanoma",5
+2013,2,11,"Melanoma",20
+2013,2,12,"Melanoma",5
+2013,2,13,"Melanoma",16
+2013,2,14,"Melanoma",9
+2013,2,15,"Melanoma",17
+2013,2,16,"Melanoma",4
+2013,2,17,"Melanoma",6
+2013,2,18,"Melanoma",2
+2014,1,2,"Melanoma",7
+2014,1,3,"Melanoma",17
+2014,1,7,"Melanoma",12
+2014,1,8,"Melanoma",12
+2014,1,10,"Melanoma",10
+2014,1,12,"Melanoma",24
+2014,1,13,"Melanoma",21
+2014,1,14,"Melanoma",1
+2014,1,15,"Melanoma",31
+2014,1,16,"Melanoma",40
+2014,1,17,"Melanoma",55
+2014,1,18,"Melanoma",12
+2014,2,2,"Melanoma",8
+2014,2,3,"Melanoma",7
+2014,2,4,"Melanoma",7
+2014,2,5,"Melanoma",10
+2014,2,7,"Melanoma",12
+2014,2,9,"Melanoma",15
+2014,2,10,"Melanoma",3
+2014,2,11,"Melanoma",7
+2014,2,13,"Melanoma",25
+2014,2,14,"Melanoma",11
+2014,2,15,"Melanoma",12
+2014,2,17,"Melanoma",11
+2014,2,18,"Melanoma",22
+2015,1,1,"Melanoma",4
+2015,1,2,"Melanoma",16
+2015,1,3,"Melanoma",13
+2015,1,5,"Melanoma",10
+2015,1,6,"Melanoma",18
+2015,1,7,"Melanoma",9
+2015,1,10,"Melanoma",3
+2015,1,11,"Melanoma",15
+2015,1,12,"Melanoma",7
+2015,1,13,"Melanoma",26
+2015,1,14,"Melanoma",31
+2015,1,15,"Melanoma",28
+2015,1,16,"Melanoma",36
+2015,1,17,"Melanoma",25
+2015,1,18,"Melanoma",24
+2015,2,1,"Melanoma",5
+2015,2,2,"Melanoma",16
+2015,2,4,"Melanoma",7
+2015,2,5,"Melanoma",8
+2015,2,8,"Melanoma",12
+2015,2,9,"Melanoma",4
+2015,2,11,"Melanoma",6
+2015,2,12,"Melanoma",15
+2015,2,13,"Melanoma",9
+2015,2,14,"Melanoma",1
+2015,2,16,"Melanoma",4
+2015,2,17,"Melanoma",15
+2015,2,18,"Melanoma",28
+2016,1,1,"Melanoma",8
+2016,1,3,"Melanoma",12
+2016,1,7,"Melanoma",17
+2016,1,8,"Melanoma",11
+2016,1,9,"Melanoma",9
+2016,1,10,"Melanoma",9
+2016,1,11,"Melanoma",6
+2016,1,14,"Melanoma",16
+2016,1,15,"Melanoma",28
+2016,1,16,"Melanoma",10
+2016,1,17,"Melanoma",24
+2016,1,18,"Melanoma",39
+2016,2,1,"Melanoma",17
+2016,2,2,"Melanoma",16
+2016,2,3,"Melanoma",17
+2016,2,4,"Melanoma",12
+2016,2,6,"Melanoma",9
+2016,2,7,"Melanoma",13
+2016,2,8,"Melanoma",12
+2016,2,9,"Melanoma",12
+2016,2,10,"Melanoma",12
+2016,2,12,"Melanoma",23
+2016,2,13,"Melanoma",7
+2016,2,14,"Melanoma",11
+2016,2,15,"Melanoma",12
+2016,2,17,"Melanoma",4
+2016,2,18,"Melanoma",31
+2017,1,1,"Melanoma",4
+2017,1,2,"Melanoma",10
+2017,1,4,"Melanoma",5
+2017,1,8,"Melanoma",10
+2017,1,10,"Melanoma",22
+2017,1,13,"Melanoma",2
+2017,1,14,"Melanoma",35
+2017,1,15,"Melanoma",11
+2017,1,16,"Melanoma",32
+2017,1,17,"Melanoma",31
+2017,1,18,"Melanoma",44
+2017,2,4,"Melanoma",15
+2017,2,10,"Melanoma",14
+2017,2,11,"Melanoma",6
+2017,2,12,"Melanoma",12
+2017,2,13,"Melanoma",22
+2017,2,14,"Melanoma",1
+2017,2,15,"Melanoma",19
+2017,2,16,"Melanoma",7
+2017,2,18,"Melanoma",44
+2018,1,2,"Melanoma",12
+2018,1,3,"Melanoma",1
+2018,1,5,"Melanoma",14
+2018,1,6,"Melanoma",5
+2018,1,10,"Melanoma",17
+2018,1,12,"Melanoma",23
+2018,1,14,"Melanoma",34
+2018,1,15,"Melanoma",34
+2018,1,16,"Melanoma",34
+2018,1,17,"Melanoma",32
+2018,1,18,"Melanoma",41
+2018,2,1,"Melanoma",12
+2018,2,3,"Melanoma",9
+2018,2,6,"Melanoma",7
+2018,2,7,"Melanoma",13
+2018,2,8,"Melanoma",9
+2018,2,9,"Melanoma",14
+2018,2,11,"Melanoma",12
+2018,2,13,"Melanoma",8
+2018,2,15,"Melanoma",13
+2018,2,18,"Melanoma",26
+2019,1,3,"Melanoma",1
+2019,1,4,"Melanoma",15
+2019,1,8,"Melanoma",2
+2019,1,11,"Melanoma",11
+2019,1,12,"Melanoma",8
+2019,1,13,"Melanoma",19
+2019,1,15,"Melanoma",31
+2019,1,16,"Melanoma",25
+2019,1,17,"Melanoma",11
+2019,1,18,"Melanoma",35
+2019,2,3,"Melanoma",14
+2019,2,5,"Melanoma",3
+2019,2,8,"Melanoma",6
+2019,2,10,"Melanoma",14
+2019,2,12,"Melanoma",1
+2019,2,13,"Melanoma",4
+2019,2,14,"Melanoma",22
+2019,2,15,"Melanoma",6
+2019,2,16,"Melanoma",14
+2019,2,18,"Melanoma",20
+2020,1,1,"Melanoma",17
+2020,1,2,"Melanoma",3
+2020,1,4,"Melanoma",6
+2020,1,7,"Melanoma",17
+2020,1,8,"Melanoma",4
+2020,1,12,"Melanoma",1
+2020,1,13,"Melanoma",10
+2020,1,14,"Melanoma",24
+2020,1,15,"Melanoma",25
+2020,1,16,"Melanoma",9
+2020,1,17,"Melanoma",19
+2020,1,18,"Melanoma",28
+2020,2,1,"Melanoma",6
+2020,2,3,"Melanoma",6
+2020,2,4,"Melanoma",5
+2020,2,5,"Melanoma",1
+2020,2,9,"Melanoma",13
+2020,2,10,"Melanoma",1
+2020,2,11,"Melanoma",12
+2020,2,12,"Melanoma",9
+2020,2,14,"Melanoma",6
+2020,2,15,"Melanoma",13
+2020,2,17,"Melanoma",13
+2020,2,18,"Melanoma",10
+2021,1,4,"Melanoma",14
+2021,1,9,"Melanoma",6
+2021,1,10,"Melanoma",14
+2021,1,11,"Melanoma",25
+2021,1,12,"Melanoma",4
+2021,1,13,"Melanoma",22
+2021,1,14,"Melanoma",20
+2021,1,15,"Melanoma",18
+2021,1,16,"Melanoma",37
+2021,1,17,"Melanoma",38
+2021,1,18,"Melanoma",46
+2021,2,3,"Melanoma",6
+2021,2,5,"Melanoma",7
+2021,2,7,"Melanoma",14
+2021,2,9,"Melanoma",2
+2021,2,10,"Melanoma",13
+2021,2,12,"Melanoma",21
+2021,2,14,"Melanoma",12
+2021,2,15,"Melanoma",4
+2021,2,18,"Melanoma",14
+2022,1,4,"Melanoma",12
+2022,1,6,"Melanoma",9
+2022,1,7,"Melanoma",16
+2022,1,8,"Melanoma",19
+2022,1,10,"Melanoma",17
+2022,1,11,"Melanoma",9
+2022,1,12,"Melanoma",9
+2022,1,13,"Melanoma",2
+2022,1,14,"Melanoma",26
+2022,1,15,"Melanoma",25
+2022,1,16,"Melanoma",29
+2022,1,17,"Melanoma",33
+2022,1,18,"Melanoma",42
+2022,2,1,"Melanoma",14
+2022,2,2,"Melanoma",8
+2022,2,3,"Melanoma",3
+2022,2,6,"Melanoma",9
+2022,2,7,"Melanoma",11
+2022,2,8,"Melanoma",14
+2022,2,9,"Melanoma",16
+2022,2,10,"Melanoma",17
+2022,2,11,"Melanoma",20
+2022,2,12,"Melanoma",15
+2022,2,14,"Melanoma",13
+2022,2,16,"Melanoma",4
+2022,2,18,"Melanoma",22
+2011,2,2,"Breast(female)",3
+2011,2,3,"Breast(female)",12
+2011,2,4,"Breast(female)",15
+2011,2,6,"Breast(female)",6
+2011,2,9,"Breast(female)",8
+2011,2,10,"Breast(female)",42
+2011,2,11,"Breast(female)",10
+2011,2,12,"Breast(female)",25
+2011,2,13,"Breast(female)",64
+2011,2,14,"Breast(female)",36
+2011,2,15,"Breast(female)",41
+2011,2,16,"Breast(female)",30
+2011,2,17,"Breast(female)",54
+2011,2,18,"Breast(female)",51
+2012,2,2,"Breast(female)",2
+2012,2,3,"Breast(female)",9
+2012,2,4,"Breast(female)",5
+2012,2,8,"Breast(female)",22
+2012,2,9,"Breast(female)",22
+2012,2,10,"Breast(female)",28
+2012,2,11,"Breast(female)",24
+2012,2,12,"Breast(female)",58
+2012,2,13,"Breast(female)",42
+2012,2,14,"Breast(female)",42
+2012,2,15,"Breast(female)",50
+2012,2,16,"Breast(female)",14
+2012,2,17,"Breast(female)",17
+2012,2,18,"Breast(female)",43
+2013,2,1,"Breast(female)",15
+2013,2,6,"Breast(female)",7
+2013,2,8,"Breast(female)",8
+2013,2,10,"Breast(female)",3
+2013,2,11,"Breast(female)",31
+2013,2,12,"Breast(female)",54
+2013,2,13,"Breast(female)",48
+2013,2,14,"Breast(female)",67
+2013,2,15,"Breast(female)",41
+2013,2,16,"Breast(female)",55
+2013,2,17,"Breast(female)",43
+2013,2,18,"Breast(female)",67
+2014,2,1,"Breast(female)",4
+2014,2,4,"Breast(female)",16
+2014,2,5,"Breast(female)",10
+2014,2,7,"Breast(female)",19
+2014,2,9,"Breast(female)",22
+2014,2,10,"Breast(female)",15
+2014,2,11,"Breast(female)",41
+2014,2,12,"Breast(female)",22
+2014,2,13,"Breast(female)",43
+2014,2,14,"Breast(female)",24
+2014,2,15,"Breast(female)",63
+2014,2,16,"Breast(female)",9
+2014,2,17,"Breast(female)",41
+2014,2,18,"Breast(female)",58
+2015,2,1,"Breast(female)",13
+2015,2,3,"Breast(female)",12
+2015,2,5,"Breast(female)",8
+2015,2,8,"Breast(female)",3
+2015,2,9,"Breast(female)",16
+2015,2,10,"Breast(female)",32
+2015,2,11,"Breast(female)",36
+2015,2,12,"Breast(female)",31
+2015,2,13,"Breast(female)",36
+2015,2,14,"Breast(female)",52
+2015,2,15,"Breast(female)",32
+2015,2,16,"Breast(female)",40
+2015,2,17,"Breast(female)",35
+2015,2,18,"Breast(female)",71
+2016,2,1,"Breast(female)",9
+2016,2,2,"Breast(female)",13
+2016,2,4,"Breast(female)",5
+2016,2,5,"Breast(female)",8
+2016,2,7,"Breast(female)",15
+2016,2,9,"Breast(female)",6
+2016,2,10,"Breast(female)",30
+2016,2,11,"Breast(female)",26
+2016,2,12,"Breast(female)",55
+2016,2,13,"Breast(female)",44
+2016,2,14,"Breast(female)",46
+2016,2,15,"Breast(female)",62
+2016,2,16,"Breast(female)",40
+2016,2,17,"Breast(female)",30
+2016,2,18,"Breast(female)",87
+2017,2,2,"Breast(female)",12
+2017,2,5,"Breast(female)",6
+2017,2,7,"Breast(female)",12
+2017,2,9,"Breast(female)",30
+2017,2,10,"Breast(female)",10
+2017,2,11,"Breast(female)",23
+2017,2,12,"Breast(female)",35
+2017,2,13,"Breast(female)",17
+2017,2,14,"Breast(female)",57
+2017,2,15,"Breast(female)",33
+2017,2,16,"Breast(female)",64
+2017,2,17,"Breast(female)",24
+2017,2,18,"Breast(female)",72
+2018,2,2,"Breast(female)",15
+2018,2,3,"Breast(female)",3
+2018,2,4,"Breast(female)",7
+2018,2,5,"Breast(female)",3
+2018,2,6,"Breast(female)",2
+2018,2,8,"Breast(female)",9
+2018,2,9,"Breast(female)",23
+2018,2,10,"Breast(female)",9
+2018,2,11,"Breast(female)",30
+2018,2,12,"Breast(female)",42
+2018,2,13,"Breast(female)",42
+2018,2,14,"Breast(female)",69
+2018,2,15,"Breast(female)",41
+2018,2,16,"Breast(female)",72
+2018,2,17,"Breast(female)",19
+2018,2,18,"Breast(female)",79
+2019,2,1,"Breast(female)",9
+2019,2,3,"Breast(female)",7
+2019,2,4,"Breast(female)",5
+2019,2,5,"Breast(female)",16
+2019,2,6,"Breast(female)",7
+2019,2,7,"Breast(female)",6
+2019,2,8,"Breast(female)",2
+2019,2,9,"Breast(female)",15
+2019,2,10,"Breast(female)",17
+2019,2,11,"Breast(female)",34
+2019,2,12,"Breast(female)",39
+2019,2,13,"Breast(female)",42
+2019,2,14,"Breast(female)",45
+2019,2,15,"Breast(female)",41
+2019,2,16,"Breast(female)",56
+2019,2,17,"Breast(female)",62
+2019,2,18,"Breast(female)",96
+2020,2,3,"Breast(female)",10
+2020,2,4,"Breast(female)",5
+2020,2,5,"Breast(female)",14
+2020,2,7,"Breast(female)",11
+2020,2,8,"Breast(female)",22
+2020,2,9,"Breast(female)",9
+2020,2,10,"Breast(female)",27
+2020,2,11,"Breast(female)",27
+2020,2,12,"Breast(female)",50
+2020,2,13,"Breast(female)",55
+2020,2,14,"Breast(female)",49
+2020,2,15,"Breast(female)",55
+2020,2,16,"Breast(female)",58
+2020,2,17,"Breast(female)",41
+2020,2,18,"Breast(female)",83
+2021,2,1,"Breast(female)",10
+2021,2,3,"Breast(female)",8
+2021,2,6,"Breast(female)",6
+2021,2,7,"Breast(female)",4
+2021,2,9,"Breast(female)",18
+2021,2,10,"Breast(female)",36
+2021,2,11,"Breast(female)",27
+2021,2,12,"Breast(female)",21
+2021,2,13,"Breast(female)",38
+2021,2,14,"Breast(female)",33
+2021,2,15,"Breast(female)",69
+2021,2,16,"Breast(female)",62
+2021,2,17,"Breast(female)",49
+2021,2,18,"Breast(female)",74
+2022,2,3,"Breast(female)",1
+2022,2,4,"Breast(female)",6
+2022,2,6,"Breast(female)",6
+2022,2,10,"Breast(female)",1
+2022,2,11,"Breast(female)",26
+2022,2,12,"Breast(female)",24
+2022,2,13,"Breast(female)",61
+2022,2,14,"Breast(female)",52
+2022,2,15,"Breast(female)",55
+2022,2,16,"Breast(female)",45
+2022,2,17,"Breast(female)",46
+2022,2,18,"Breast(female)",83
+2011,1,1,"Prostate",17
+2011,1,3,"Prostate",16
+2011,1,5,"Prostate",3
+2011,1,7,"Prostate",14
+2011,1,8,"Prostate",7
+2011,1,9,"Prostate",16
+2011,1,11,"Prostate",14
+2011,1,12,"Prostate",10
+2011,1,13,"Prostate",21
+2011,1,14,"Prostate",31
+2011,1,15,"Prostate",80
+2011,1,16,"Prostate",91
+2011,1,17,"Prostate",105
+2011,1,18,"Prostate",134
+2012,1,1,"Prostate",7
+2012,1,2,"Prostate",3
+2012,1,4,"Prostate",13
+2012,1,5,"Prostate",8
+2012,1,7,"Prostate",11
+2012,1,9,"Prostate",13
+2012,1,10,"Prostate",12
+2012,1,13,"Prostate",26
+2012,1,14,"Prostate",55
+2012,1,15,"Prostate",53
+2012,1,16,"Prostate",81
+2012,1,17,"Prostate",124
+2012,1,18,"Prostate",152
+2013,1,1,"Prostate",14
+2013,1,9,"Prostate",2
+2013,1,10,"Prostate",9
+2013,1,11,"Prostate",11
+2013,1,12,"Prostate",4
+2013,1,13,"Prostate",30
+2013,1,14,"Prostate",48
+2013,1,15,"Prostate",71
+2013,1,16,"Prostate",77
+2013,1,17,"Prostate",104
+2013,1,18,"Prostate",165
+2014,1,1,"Prostate",9
+2014,1,5,"Prostate",3
+2014,1,7,"Prostate",6
+2014,1,8,"Prostate",12
+2014,1,10,"Prostate",2
+2014,1,12,"Prostate",18
+2014,1,13,"Prostate",31
+2014,1,14,"Prostate",18
+2014,1,15,"Prostate",48
+2014,1,16,"Prostate",54
+2014,1,17,"Prostate",111
+2014,1,18,"Prostate",164
+2015,1,1,"Prostate",1
+2015,1,2,"Prostate",8
+2015,1,3,"Prostate",11
+2015,1,5,"Prostate",5
+2015,1,8,"Prostate",1
+2015,1,9,"Prostate",12
+2015,1,11,"Prostate",14
+2015,1,13,"Prostate",30
+2015,1,14,"Prostate",30
+2015,1,15,"Prostate",60
+2015,1,16,"Prostate",65
+2015,1,17,"Prostate",73
+2015,1,18,"Prostate",139
+2016,1,3,"Prostate",1
+2016,1,5,"Prostate",7
+2016,1,6,"Prostate",15
+2016,1,7,"Prostate",2
+2016,1,13,"Prostate",9
+2016,1,14,"Prostate",31
+2016,1,15,"Prostate",74
+2016,1,16,"Prostate",85
+2016,1,17,"Prostate",81
+2016,1,18,"Prostate",174
+2017,1,2,"Prostate",1
+2017,1,4,"Prostate",4
+2017,1,6,"Prostate",13
+2017,1,10,"Prostate",2
+2017,1,11,"Prostate",6
+2017,1,12,"Prostate",7
+2017,1,13,"Prostate",25
+2017,1,14,"Prostate",30
+2017,1,15,"Prostate",65
+2017,1,16,"Prostate",57
+2017,1,17,"Prostate",90
+2017,1,18,"Prostate",164
+2018,1,1,"Prostate",13
+2018,1,3,"Prostate",6
+2018,1,5,"Prostate",1
+2018,1,6,"Prostate",5
+2018,1,10,"Prostate",16
+2018,1,12,"Prostate",16
+2018,1,13,"Prostate",31
+2018,1,14,"Prostate",28
+2018,1,15,"Prostate",68
+2018,1,16,"Prostate",77
+2018,1,17,"Prostate",106
+2018,1,18,"Prostate",168
+2019,1,1,"Prostate",9
+2019,1,2,"Prostate",15
+2019,1,7,"Prostate",5
+2019,1,9,"Prostate",9
+2019,1,10,"Prostate",16
+2019,1,11,"Prostate",12
+2019,1,13,"Prostate",18
+2019,1,14,"Prostate",31
+2019,1,15,"Prostate",61
+2019,1,16,"Prostate",86
+2019,1,17,"Prostate",90
+2019,1,18,"Prostate",179
+2020,1,1,"Prostate",2
+2020,1,3,"Prostate",1
+2020,1,6,"Prostate",3
+2020,1,7,"Prostate",6
+2020,1,8,"Prostate",9
+2020,1,9,"Prostate",1
+2020,1,10,"Prostate",17
+2020,1,11,"Prostate",13
+2020,1,12,"Prostate",2
+2020,1,13,"Prostate",1
+2020,1,14,"Prostate",43
+2020,1,15,"Prostate",88
+2020,1,16,"Prostate",115
+2020,1,17,"Prostate",134
+2020,1,18,"Prostate",188
+2021,1,2,"Prostate",16
+2021,1,5,"Prostate",14
+2021,1,6,"Prostate",2
+2021,1,7,"Prostate",13
+2021,1,10,"Prostate",13
+2021,1,11,"Prostate",7
+2021,1,12,"Prostate",15
+2021,1,13,"Prostate",33
+2021,1,14,"Prostate",32
+2021,1,15,"Prostate",51
+2021,1,16,"Prostate",85
+2021,1,17,"Prostate",118
+2021,1,18,"Prostate",206
+2022,1,1,"Prostate",16
+2022,1,2,"Prostate",9
+2022,1,6,"Prostate",4
+2022,1,9,"Prostate",13
+2022,1,10,"Prostate",10
+2022,1,11,"Prostate",4
+2022,1,13,"Prostate",24
+2022,1,14,"Prostate",27
+2022,1,15,"Prostate",54
+2022,1,16,"Prostate",95
+2022,1,17,"Prostate",107
+2022,1,18,"Prostate",206
+2011,1,1,"Lymphoma",15
+2011,1,4,"Lymphoma",17
+2011,1,8,"Lymphoma",2
+2011,1,10,"Lymphoma",1
+2011,1,14,"Lymphoma",6
+2011,1,15,"Lymphoma",10
+2011,1,16,"Lymphoma",20
+2011,1,17,"Lymphoma",8
+2011,1,18,"Lymphoma",1
+2011,2,1,"Lymphoma",14
+2011,2,4,"Lymphoma",12
+2011,2,6,"Lymphoma",13
+2011,2,10,"Lymphoma",5
+2011,2,11,"Lymphoma",14
+2011,2,14,"Lymphoma",10
+2011,2,15,"Lymphoma",5
+2011,2,18,"Lymphoma",6
+2012,1,1,"Lymphoma",14
+2012,1,2,"Lymphoma",8
+2012,1,3,"Lymphoma",3
+2012,1,4,"Lymphoma",12
+2012,1,8,"Lymphoma",8
+2012,1,9,"Lymphoma",3
+2012,1,10,"Lymphoma",7
+2012,1,11,"Lymphoma",18
+2012,1,14,"Lymphoma",30
+2012,1,16,"Lymphoma",24
+2012,1,17,"Lymphoma",28
+2012,1,18,"Lymphoma",22
+2012,2,1,"Lymphoma",6
+2012,2,3,"Lymphoma",4
+2012,2,4,"Lymphoma",17
+2012,2,5,"Lymphoma",11
+2012,2,7,"Lymphoma",4
+2012,2,8,"Lymphoma",6
+2012,2,10,"Lymphoma",1
+2012,2,12,"Lymphoma",12
+2012,2,14,"Lymphoma",14
+2012,2,15,"Lymphoma",20
+2012,2,17,"Lymphoma",3
+2012,2,18,"Lymphoma",20
+2013,1,4,"Lymphoma",11
+2013,1,5,"Lymphoma",14
+2013,1,6,"Lymphoma",6
+2013,1,9,"Lymphoma",7
+2013,1,12,"Lymphoma",17
+2013,1,13,"Lymphoma",14
+2013,1,14,"Lymphoma",25
+2013,1,15,"Lymphoma",34
+2013,1,16,"Lymphoma",24
+2013,1,17,"Lymphoma",10
+2013,1,18,"Lymphoma",36
+2013,2,2,"Lymphoma",16
+2013,2,4,"Lymphoma",17
+2013,2,5,"Lymphoma",9
+2013,2,9,"Lymphoma",7
+2013,2,11,"Lymphoma",14
+2013,2,13,"Lymphoma",14
+2013,2,14,"Lymphoma",23
+2013,2,15,"Lymphoma",6
+2013,2,16,"Lymphoma",16
+2013,2,17,"Lymphoma",19
+2013,2,18,"Lymphoma",14
+2014,1,1,"Lymphoma",17
+2014,1,2,"Lymphoma",6
+2014,1,5,"Lymphoma",5
+2014,1,7,"Lymphoma",1
+2014,1,9,"Lymphoma",6
+2014,1,10,"Lymphoma",8
+2014,1,12,"Lymphoma",18
+2014,1,13,"Lymphoma",24
+2014,1,14,"Lymphoma",6
+2014,1,15,"Lymphoma",5
+2014,1,16,"Lymphoma",12
+2014,1,17,"Lymphoma",29
+2014,1,18,"Lymphoma",15
+2014,2,1,"Lymphoma",1
+2014,2,2,"Lymphoma",12
+2014,2,3,"Lymphoma",4
+2014,2,6,"Lymphoma",1
+2014,2,9,"Lymphoma",12
+2014,2,11,"Lymphoma",3
+2014,2,12,"Lymphoma",7
+2014,2,13,"Lymphoma",12
+2014,2,15,"Lymphoma",3
+2014,2,16,"Lymphoma",11
+2014,2,17,"Lymphoma",30
+2014,2,18,"Lymphoma",40
+2015,1,4,"Lymphoma",1
+2015,1,7,"Lymphoma",16
+2015,1,10,"Lymphoma",16
+2015,1,12,"Lymphoma",1
+2015,1,13,"Lymphoma",17
+2015,1,14,"Lymphoma",16
+2015,1,15,"Lymphoma",27
+2015,1,16,"Lymphoma",6
+2015,1,17,"Lymphoma",12
+2015,1,18,"Lymphoma",42
+2015,2,1,"Lymphoma",7
+2015,2,3,"Lymphoma",13
+2015,2,5,"Lymphoma",12
+2015,2,9,"Lymphoma",18
+2015,2,10,"Lymphoma",16
+2015,2,14,"Lymphoma",17
+2015,2,16,"Lymphoma",6
+2015,2,17,"Lymphoma",13
+2015,2,18,"Lymphoma",37
+2016,1,2,"Lymphoma",16
+2016,1,4,"Lymphoma",9
+2016,1,5,"Lymphoma",8
+2016,1,6,"Lymphoma",5
+2016,1,7,"Lymphoma",7
+2016,1,9,"Lymphoma",1
+2016,1,12,"Lymphoma",6
+2016,1,13,"Lymphoma",5
+2016,1,14,"Lymphoma",3
+2016,1,15,"Lymphoma",15
+2016,1,16,"Lymphoma",7
+2016,1,17,"Lymphoma",1
+2016,1,18,"Lymphoma",14
+2016,2,3,"Lymphoma",3
+2016,2,8,"Lymphoma",12
+2016,2,10,"Lymphoma",3
+2016,2,11,"Lymphoma",14
+2016,2,12,"Lymphoma",11
+2016,2,13,"Lymphoma",5
+2016,2,14,"Lymphoma",4
+2016,2,15,"Lymphoma",4
+2016,2,16,"Lymphoma",17
+2016,2,17,"Lymphoma",13
+2016,2,18,"Lymphoma",28
+2017,1,2,"Lymphoma",17
+2017,1,4,"Lymphoma",10
+2017,1,5,"Lymphoma",1
+2017,1,6,"Lymphoma",12
+2017,1,7,"Lymphoma",12
+2017,1,8,"Lymphoma",1
+2017,1,9,"Lymphoma",14
+2017,1,10,"Lymphoma",5
+2017,1,11,"Lymphoma",17
+2017,1,13,"Lymphoma",7
+2017,1,14,"Lymphoma",6
+2017,1,15,"Lymphoma",11
+2017,1,16,"Lymphoma",13
+2017,1,17,"Lymphoma",6
+2017,1,18,"Lymphoma",20
+2017,2,2,"Lymphoma",15
+2017,2,3,"Lymphoma",2
+2017,2,5,"Lymphoma",4
+2017,2,6,"Lymphoma",2
+2017,2,7,"Lymphoma",17
+2017,2,11,"Lymphoma",4
+2017,2,16,"Lymphoma",7
+2017,2,18,"Lymphoma",34
+2018,1,4,"Lymphoma",5
+2018,1,7,"Lymphoma",4
+2018,1,8,"Lymphoma",8
+2018,1,9,"Lymphoma",14
+2018,1,10,"Lymphoma",14
+2018,1,11,"Lymphoma",19
+2018,1,12,"Lymphoma",8
+2018,1,13,"Lymphoma",15
+2018,1,14,"Lymphoma",25
+2018,1,15,"Lymphoma",26
+2018,1,16,"Lymphoma",13
+2018,1,17,"Lymphoma",7
+2018,1,18,"Lymphoma",25
+2018,2,1,"Lymphoma",3
+2018,2,2,"Lymphoma",13
+2018,2,3,"Lymphoma",11
+2018,2,4,"Lymphoma",5
+2018,2,5,"Lymphoma",7
+2018,2,6,"Lymphoma",8
+2018,2,7,"Lymphoma",5
+2018,2,13,"Lymphoma",2
+2018,2,14,"Lymphoma",12
+2018,2,15,"Lymphoma",30
+2018,2,16,"Lymphoma",3
+2018,2,17,"Lymphoma",6
+2018,2,18,"Lymphoma",34
+2019,1,1,"Lymphoma",7
+2019,1,3,"Lymphoma",6
+2019,1,4,"Lymphoma",13
+2019,1,5,"Lymphoma",9
+2019,1,6,"Lymphoma",2
+2019,1,7,"Lymphoma",16
+2019,1,8,"Lymphoma",12
+2019,1,9,"Lymphoma",16
+2019,1,10,"Lymphoma",8
+2019,1,12,"Lymphoma",16
+2019,1,13,"Lymphoma",16
+2019,1,14,"Lymphoma",17
+2019,1,15,"Lymphoma",23
+2019,1,16,"Lymphoma",33
+2019,1,17,"Lymphoma",11
+2019,1,18,"Lymphoma",41
+2019,2,1,"Lymphoma",17
+2019,2,2,"Lymphoma",8
+2019,2,3,"Lymphoma",6
+2019,2,5,"Lymphoma",11
+2019,2,8,"Lymphoma",11
+2019,2,12,"Lymphoma",13
+2019,2,13,"Lymphoma",12
+2019,2,14,"Lymphoma",19
+2019,2,15,"Lymphoma",12
+2019,2,16,"Lymphoma",17
+2019,2,17,"Lymphoma",33
+2019,2,18,"Lymphoma",46
+2020,1,1,"Lymphoma",14
+2020,1,4,"Lymphoma",17
+2020,1,6,"Lymphoma",1
+2020,1,7,"Lymphoma",4
+2020,1,9,"Lymphoma",14
+2020,1,10,"Lymphoma",20
+2020,1,11,"Lymphoma",20
+2020,1,12,"Lymphoma",9
+2020,1,13,"Lymphoma",16
+2020,1,14,"Lymphoma",13
+2020,1,15,"Lymphoma",26
+2020,1,16,"Lymphoma",8
+2020,1,17,"Lymphoma",38
+2020,1,18,"Lymphoma",25
+2020,2,1,"Lymphoma",4
+2020,2,6,"Lymphoma",7
+2020,2,7,"Lymphoma",10
+2020,2,12,"Lymphoma",4
+2020,2,13,"Lymphoma",3
+2020,2,14,"Lymphoma",2
+2020,2,15,"Lymphoma",21
+2020,2,16,"Lymphoma",26
+2020,2,17,"Lymphoma",32
+2020,2,18,"Lymphoma",23
+2021,1,3,"Lymphoma",1
+2021,1,6,"Lymphoma",17
+2021,1,11,"Lymphoma",5
+2021,1,12,"Lymphoma",2
+2021,1,13,"Lymphoma",9
+2021,1,14,"Lymphoma",5
+2021,1,15,"Lymphoma",9
+2021,1,16,"Lymphoma",22
+2021,1,17,"Lymphoma",9
+2021,1,18,"Lymphoma",32
+2021,2,1,"Lymphoma",3
+2021,2,2,"Lymphoma",9
+2021,2,3,"Lymphoma",7
+2021,2,6,"Lymphoma",12
+2021,2,7,"Lymphoma",3
+2021,2,8,"Lymphoma",2
+2021,2,10,"Lymphoma",10
+2021,2,12,"Lymphoma",10
+2021,2,13,"Lymphoma",18
+2021,2,14,"Lymphoma",9
+2021,2,16,"Lymphoma",13
+2021,2,17,"Lymphoma",23
+2021,2,18,"Lymphoma",11
+2022,1,1,"Lymphoma",3
+2022,1,3,"Lymphoma",4
+2022,1,4,"Lymphoma",13
+2022,1,5,"Lymphoma",11
+2022,1,6,"Lymphoma",2
+2022,1,8,"Lymphoma",15
+2022,1,9,"Lymphoma",20
+2022,1,10,"Lymphoma",5
+2022,1,11,"Lymphoma",1
+2022,1,12,"Lymphoma",21
+2022,1,13,"Lymphoma",20
+2022,1,14,"Lymphoma",5
+2022,1,15,"Lymphoma",20
+2022,1,16,"Lymphoma",31
+2022,1,17,"Lymphoma",21
+2022,1,18,"Lymphoma",41
+2022,2,2,"Lymphoma",17
+2022,2,3,"Lymphoma",6
+2022,2,5,"Lymphoma",15
+2022,2,6,"Lymphoma",15
+2022,2,9,"Lymphoma",1
+2022,2,10,"Lymphoma",16
+2022,2,12,"Lymphoma",19
+2022,2,13,"Lymphoma",4
+2022,2,14,"Lymphoma",11
+2022,2,15,"Lymphoma",2
+2022,2,17,"Lymphoma",9
+2022,2,18,"Lymphoma",49
+2011,1,2,"Leukaemia",9
+2011,1,4,"Leukaemia",7
+2011,1,5,"Leukaemia",15
+2011,1,6,"Leukaemia",10
+2011,1,8,"Leukaemia",11
+2011,1,10,"Leukaemia",8
+2011,1,13,"Leukaemia",22
+2011,1,14,"Leukaemia",28
+2011,1,16,"Leukaemia",25
+2011,1,18,"Leukaemia",16
+2011,2,1,"Leukaemia",2
+2011,2,2,"Leukaemia",12
+2011,2,3,"Leukaemia",5
+2011,2,4,"Leukaemia",17
+2011,2,5,"Leukaemia",2
+2011,2,7,"Leukaemia",3
+2011,2,8,"Leukaemia",17
+2011,2,9,"Leukaemia",1
+2011,2,10,"Leukaemia",5
+2011,2,11,"Leukaemia",16
+2011,2,12,"Leukaemia",13
+2011,2,13,"Leukaemia",21
+2011,2,14,"Leukaemia",5
+2011,2,15,"Leukaemia",6
+2011,2,16,"Leukaemia",28
+2011,2,17,"Leukaemia",4
+2011,2,18,"Leukaemia",34
+2012,1,1,"Leukaemia",9
+2012,1,4,"Leukaemia",14
+2012,1,5,"Leukaemia",3
+2012,1,8,"Leukaemia",13
+2012,1,10,"Leukaemia",10
+2012,1,12,"Leukaemia",2
+2012,1,13,"Leukaemia",24
+2012,1,14,"Leukaemia",1
+2012,1,15,"Leukaemia",31
+2012,1,16,"Leukaemia",16
+2012,1,17,"Leukaemia",22
+2012,1,18,"Leukaemia",21
+2012,2,1,"Leukaemia",3
+2012,2,2,"Leukaemia",13
+2012,2,3,"Leukaemia",11
+2012,2,4,"Leukaemia",1
+2012,2,6,"Leukaemia",2
+2012,2,8,"Leukaemia",14
+2012,2,10,"Leukaemia",3
+2012,2,12,"Leukaemia",7
+2012,2,14,"Leukaemia",2
+2012,2,15,"Leukaemia",19
+2012,2,17,"Leukaemia",12
+2012,2,18,"Leukaemia",22
+2013,1,1,"Leukaemia",7
+2013,1,2,"Leukaemia",15
+2013,1,3,"Leukaemia",15
+2013,1,4,"Leukaemia",9
+2013,1,5,"Leukaemia",11
+2013,1,6,"Leukaemia",14
+2013,1,8,"Leukaemia",3
+2013,1,10,"Leukaemia",15
+2013,1,11,"Leukaemia",9
+2013,1,12,"Leukaemia",8
+2013,1,13,"Leukaemia",4
+2013,1,14,"Leukaemia",18
+2013,1,15,"Leukaemia",10
+2013,1,16,"Leukaemia",7
+2013,1,17,"Leukaemia",31
+2013,1,18,"Leukaemia",15
+2013,2,2,"Leukaemia",14
+2013,2,3,"Leukaemia",11
+2013,2,4,"Leukaemia",11
+2013,2,5,"Leukaemia",5
+2013,2,6,"Leukaemia",7
+2013,2,7,"Leukaemia",15
+2013,2,11,"Leukaemia",17
+2013,2,13,"Leukaemia",14
+2013,2,14,"Leukaemia",3
+2013,2,15,"Leukaemia",12
+2013,2,16,"Leukaemia",15
+2013,2,17,"Leukaemia",15
+2013,2,18,"Leukaemia",38
+2014,1,4,"Leukaemia",3
+2014,1,5,"Leukaemia",5
+2014,1,6,"Leukaemia",12
+2014,1,9,"Leukaemia",7
+2014,1,10,"Leukaemia",8
+2014,1,13,"Leukaemia",16
+2014,1,14,"Leukaemia",5
+2014,1,15,"Leukaemia",35
+2014,1,16,"Leukaemia",39
+2014,1,17,"Leukaemia",23
+2014,1,18,"Leukaemia",23
+2014,2,2,"Leukaemia",13
+2014,2,3,"Leukaemia",15
+2014,2,8,"Leukaemia",12
+2014,2,11,"Leukaemia",3
+2014,2,12,"Leukaemia",13
+2014,2,13,"Leukaemia",8
+2014,2,14,"Leukaemia",17
+2014,2,15,"Leukaemia",21
+2014,2,17,"Leukaemia",27
+2014,2,18,"Leukaemia",34
+2015,1,1,"Leukaemia",9
+2015,1,2,"Leukaemia",5
+2015,1,4,"Leukaemia",8
+2015,1,5,"Leukaemia",9
+2015,1,7,"Leukaemia",5
+2015,1,8,"Leukaemia",1
+2015,1,9,"Leukaemia",6
+2015,1,11,"Leukaemia",9
+2015,1,12,"Leukaemia",14
+2015,1,14,"Leukaemia",20
+2015,1,15,"Leukaemia",24
+2015,1,16,"Leukaemia",43
+2015,1,18,"Leukaemia",23
+2015,2,1,"Leukaemia",2
+2015,2,5,"Leukaemia",6
+2015,2,6,"Leukaemia",8
+2015,2,9,"Leukaemia",5
+2015,2,15,"Leukaemia",15
+2015,2,17,"Leukaemia",1
+2015,2,18,"Leukaemia",12
+2016,1,3,"Leukaemia",2
+2016,1,4,"Leukaemia",12
+2016,1,5,"Leukaemia",17
+2016,1,6,"Leukaemia",1
+2016,1,12,"Leukaemia",2
+2016,1,13,"Leukaemia",29
+2016,1,14,"Leukaemia",13
+2016,1,15,"Leukaemia",44
+2016,1,16,"Leukaemia",38
+2016,1,17,"Leukaemia",36
+2016,1,18,"Leukaemia",24
+2016,2,3,"Leukaemia",12
+2016,2,11,"Leukaemia",3
+2016,2,12,"Leukaemia",7
+2016,2,13,"Leukaemia",8
+2016,2,14,"Leukaemia",11
+2016,2,15,"Leukaemia",5
+2016,2,16,"Leukaemia",14
+2016,2,17,"Leukaemia",18
+2016,2,18,"Leukaemia",40
+2017,1,4,"Leukaemia",10
+2017,1,5,"Leukaemia",13
+2017,1,7,"Leukaemia",5
+2017,1,8,"Leukaemia",8
+2017,1,9,"Leukaemia",15
+2017,1,10,"Leukaemia",18
+2017,1,12,"Leukaemia",6
+2017,1,14,"Leukaemia",22
+2017,1,15,"Leukaemia",19
+2017,1,16,"Leukaemia",16
+2017,1,17,"Leukaemia",29
+2017,1,18,"Leukaemia",18
+2017,2,1,"Leukaemia",6
+2017,2,4,"Leukaemia",13
+2017,2,5,"Leukaemia",9
+2017,2,6,"Leukaemia",8
+2017,2,9,"Leukaemia",9
+2017,2,10,"Leukaemia",8
+2017,2,12,"Leukaemia",16
+2017,2,13,"Leukaemia",2
+2017,2,14,"Leukaemia",9
+2017,2,15,"Leukaemia",12
+2017,2,16,"Leukaemia",24
+2017,2,17,"Leukaemia",5
+2017,2,18,"Leukaemia",31
+2018,1,1,"Leukaemia",14
+2018,1,3,"Leukaemia",11
+2018,1,4,"Leukaemia",9
+2018,1,5,"Leukaemia",11
+2018,1,8,"Leukaemia",1
+2018,1,9,"Leukaemia",3
+2018,1,12,"Leukaemia",4
+2018,1,14,"Leukaemia",1
+2018,1,15,"Leukaemia",29
+2018,1,16,"Leukaemia",16
+2018,1,17,"Leukaemia",39
+2018,1,18,"Leukaemia",26
+2018,2,1,"Leukaemia",4
+2018,2,3,"Leukaemia",13
+2018,2,4,"Leukaemia",2
+2018,2,6,"Leukaemia",17
+2018,2,8,"Leukaemia",16
+2018,2,12,"Leukaemia",1
+2018,2,13,"Leukaemia",21
+2018,2,14,"Leukaemia",19
+2018,2,15,"Leukaemia",2
+2018,2,16,"Leukaemia",14
+2018,2,17,"Leukaemia",7
+2018,2,18,"Leukaemia",21
+2019,1,2,"Leukaemia",6
+2019,1,6,"Leukaemia",9
+2019,1,7,"Leukaemia",7
+2019,1,8,"Leukaemia",10
+2019,1,9,"Leukaemia",1
+2019,1,10,"Leukaemia",9
+2019,1,13,"Leukaemia",17
+2019,1,14,"Leukaemia",24
+2019,1,15,"Leukaemia",40
+2019,1,16,"Leukaemia",27
+2019,1,17,"Leukaemia",6
+2019,1,18,"Leukaemia",26
+2019,2,1,"Leukaemia",3
+2019,2,2,"Leukaemia",1
+2019,2,5,"Leukaemia",2
+2019,2,6,"Leukaemia",7
+2019,2,9,"Leukaemia",16
+2019,2,12,"Leukaemia",13
+2019,2,13,"Leukaemia",14
+2019,2,15,"Leukaemia",24
+2019,2,17,"Leukaemia",4
+2019,2,18,"Leukaemia",22
+2020,1,5,"Leukaemia",4
+2020,1,6,"Leukaemia",11
+2020,1,7,"Leukaemia",12
+2020,1,8,"Leukaemia",15
+2020,1,9,"Leukaemia",12
+2020,1,13,"Leukaemia",20
+2020,1,14,"Leukaemia",13
+2020,1,15,"Leukaemia",35
+2020,1,16,"Leukaemia",46
+2020,1,17,"Leukaemia",21
+2020,1,18,"Leukaemia",19
+2020,2,1,"Leukaemia",9
+2020,2,2,"Leukaemia",10
+2020,2,3,"Leukaemia",11
+2020,2,4,"Leukaemia",1
+2020,2,6,"Leukaemia",12
+2020,2,7,"Leukaemia",5
+2020,2,13,"Leukaemia",19
+2020,2,15,"Leukaemia",24
+2020,2,16,"Leukaemia",24
+2020,2,17,"Leukaemia",17
+2020,2,18,"Leukaemia",24
+2021,1,2,"Leukaemia",10
+2021,1,3,"Leukaemia",10
+2021,1,6,"Leukaemia",17
+2021,1,8,"Leukaemia",18
+2021,1,9,"Leukaemia",13
+2021,1,10,"Leukaemia",1
+2021,1,12,"Leukaemia",17
+2021,1,13,"Leukaemia",3
+2021,1,14,"Leukaemia",3
+2021,1,15,"Leukaemia",39
+2021,1,16,"Leukaemia",22
+2021,1,17,"Leukaemia",12
+2021,1,18,"Leukaemia",30
+2021,2,1,"Leukaemia",14
+2021,2,3,"Leukaemia",2
+2021,2,7,"Leukaemia",1
+2021,2,8,"Leukaemia",14
+2021,2,9,"Leukaemia",4
+2021,2,11,"Leukaemia",18
+2021,2,12,"Leukaemia",3
+2021,2,13,"Leukaemia",14
+2021,2,14,"Leukaemia",6
+2021,2,15,"Leukaemia",9
+2021,2,16,"Leukaemia",25
+2021,2,17,"Leukaemia",6
+2021,2,18,"Leukaemia",41
+2022,1,2,"Leukaemia",4
+2022,1,5,"Leukaemia",5
+2022,1,6,"Leukaemia",11
+2022,1,7,"Leukaemia",7
+2022,1,10,"Leukaemia",3
+2022,1,13,"Leukaemia",2
+2022,1,14,"Leukaemia",28
+2022,1,15,"Leukaemia",40
+2022,1,16,"Leukaemia",15
+2022,1,17,"Leukaemia",42
+2022,1,18,"Leukaemia",21
+2022,2,1,"Leukaemia",11
+2022,2,2,"Leukaemia",17
+2022,2,7,"Leukaemia",7
+2022,2,10,"Leukaemia",14
+2022,2,11,"Leukaemia",10
+2022,2,12,"Leukaemia",13
+2022,2,13,"Leukaemia",4
+2022,2,14,"Leukaemia",18
+2022,2,15,"Leukaemia",11
+2022,2,16,"Leukaemia",2
+2022,2,17,"Leukaemia",8
+2022,2,18,"Leukaemia",27
+2011,1,1,"All cancers",5
+2011,1,2,"All cancers",13
+2011,1,7,"All cancers",13
+2011,1,8,"All cancers",22
+2011,1,9,"All cancers",24
+2011,1,10,"All cancers",76
+2011,1,11,"All cancers",147
+2011,1,12,"All cancers",229
+2011,1,13,"All cancers",367
+2011,1,14,"All cancers",429
+2011,1,15,"All cancers",495
+2011,1,16,"All cancers",508
+2011,1,17,"All cancers",523
+2011,1,18,"All cancers",527
+2011,2,1,"All cancers",4
+2011,2,6,"All cancers",12
+2011,2,7,"All cancers",3
+2011,2,8,"All cancers",15
+2011,2,9,"All cancers",69
+2011,2,10,"All cancers",73
+2011,2,11,"All cancers",118
+2011,2,12,"All cancers",192
+2011,2,13,"All cancers",226
+2011,2,14,"All cancers",268
+2011,2,15,"All cancers",289
+2011,2,16,"All cancers",289
+2011,2,17,"All cancers",347
+2011,2,18,"All cancers",494
+2012,1,1,"All cancers",18
+2012,1,4,"All cancers",6
+2012,1,5,"All cancers",15
+2012,1,6,"All cancers",7
+2012,1,7,"All cancers",27
+2012,1,8,"All cancers",32
+2012,1,9,"All cancers",35
+2012,1,10,"All cancers",69
+2012,1,11,"All cancers",140
+2012,1,12,"All cancers",213
+2012,1,13,"All cancers",363
+2012,1,14,"All cancers",475
+2012,1,15,"All cancers",488
+2012,1,16,"All cancers",556
+2012,1,17,"All cancers",532
+2012,1,18,"All cancers",568
+2012,2,2,"All cancers",8
+2012,2,5,"All cancers",20
+2012,2,6,"All cancers",8
+2012,2,7,"All cancers",22
+2012,2,8,"All cancers",27
+2012,2,9,"All cancers",41
+2012,2,10,"All cancers",74
+2012,2,11,"All cancers",142
+2012,2,12,"All cancers",186
+2012,2,13,"All cancers",251
+2012,2,14,"All cancers",275
+2012,2,15,"All cancers",312
+2012,2,16,"All cancers",331
+2012,2,17,"All cancers",324
+2012,2,18,"All cancers",519
+2013,1,3,"All cancers",8
+2013,1,4,"All cancers",5
+2013,1,6,"All cancers",14
+2013,1,8,"All cancers",23
+2013,1,9,"All cancers",41
+2013,1,10,"All cancers",46
+2013,1,11,"All cancers",121
+2013,1,12,"All cancers",232
+2013,1,13,"All cancers",325
+2013,1,14,"All cancers",522
+2013,1,15,"All cancers",550
+2013,1,16,"All cancers",508
+2013,1,17,"All cancers",550
+2013,1,18,"All cancers",648
+2013,2,2,"All cancers",9
+2013,2,5,"All cancers",8
+2013,2,6,"All cancers",14
+2013,2,7,"All cancers",3
+2013,2,8,"All cancers",39
+2013,2,9,"All cancers",40
+2013,2,10,"All cancers",70
+2013,2,11,"All cancers",119
+2013,2,12,"All cancers",180
+2013,2,13,"All cancers",219
+2013,2,14,"All cancers",313
+2013,2,15,"All cancers",318
+2013,2,16,"All cancers",336
+2013,2,17,"All cancers",340
+2013,2,18,"All cancers",594
+2014,1,2,"All cancers",20
+2014,1,3,"All cancers",4
+2014,1,4,"All cancers",16
+2014,1,5,"All cancers",22
+2014,1,7,"All cancers",5
+2014,1,8,"All cancers",22
+2014,1,9,"All cancers",40
+2014,1,10,"All cancers",63
+2014,1,11,"All cancers",162
+2014,1,12,"All cancers",223
+2014,1,13,"All cancers",350
+2014,1,14,"All cancers",462
+2014,1,15,"All cancers",537
+2014,1,16,"All cancers",541
+2014,1,17,"All cancers",527
+2014,1,18,"All cancers",603
+2014,2,2,"All cancers",19
+2014,2,4,"All cancers",20
+2014,2,5,"All cancers",11
+2014,2,7,"All cancers",25
+2014,2,8,"All cancers",18
+2014,2,9,"All cancers",43
+2014,2,10,"All cancers",79
+2014,2,11,"All cancers",113
+2014,2,12,"All cancers",156
+2014,2,13,"All cancers",241
+2014,2,14,"All cancers",290
+2014,2,15,"All cancers",359
+2014,2,16,"All cancers",334
+2014,2,17,"All cancers",380
+2014,2,18,"All cancers",574
+2015,1,1,"All cancers",18
+2015,1,4,"All cancers",1
+2015,1,5,"All cancers",18
+2015,1,7,"All cancers",6
+2015,1,8,"All cancers",30
+2015,1,9,"All cancers",39
+2015,1,10,"All cancers",61
+2015,1,11,"All cancers",138
+2015,1,12,"All cancers",227
+2015,1,13,"All cancers",286
+2015,1,14,"All cancers",498
+2015,1,15,"All cancers",511
+2015,1,16,"All cancers",521
+2015,1,17,"All cancers",512
+2015,1,18,"All cancers",639
+2015,2,2,"All cancers",19
+2015,2,5,"All cancers",3
+2015,2,6,"All cancers",8
+2015,2,7,"All cancers",24
+2015,2,8,"All cancers",35
+2015,2,9,"All cancers",63
+2015,2,10,"All cancers",95
+2015,2,11,"All cancers",157
+2015,2,12,"All cancers",169
+2015,2,13,"All cancers",256
+2015,2,14,"All cancers",340
+2015,2,15,"All cancers",330
+2015,2,16,"All cancers",378
+2015,2,17,"All cancers",349
+2015,2,18,"All cancers",593
+2016,1,1,"All cancers",17
+2016,1,5,"All cancers",19
+2016,1,7,"All cancers",26
+2016,1,8,"All cancers",4
+2016,1,9,"All cancers",48
+2016,1,10,"All cancers",63
+2016,1,11,"All cancers",136
+2016,1,12,"All cancers",229
+2016,1,13,"All cancers",299
+2016,1,14,"All cancers",513
+2016,1,15,"All cancers",560
+2016,1,16,"All cancers",578
+2016,1,17,"All cancers",530
+2016,1,18,"All cancers",712
+2016,2,2,"All cancers",7
+2016,2,3,"All cancers",20
+2016,2,5,"All cancers",20
+2016,2,6,"All cancers",22
+2016,2,7,"All cancers",19
+2016,2,8,"All cancers",38
+2016,2,9,"All cancers",46
+2016,2,10,"All cancers",82
+2016,2,11,"All cancers",106
+2016,2,12,"All cancers",192
+2016,2,13,"All cancers",266
+2016,2,14,"All cancers",308
+2016,2,15,"All cancers",368
+2016,2,16,"All cancers",376
+2016,2,17,"All cancers",354
+2016,2,18,"All cancers",588
+2017,1,1,"All cancers",11
+2017,1,2,"All cancers",17
+2017,1,5,"All cancers",11
+2017,1,6,"All cancers",10
+2017,1,7,"All cancers",25
+2017,1,8,"All cancers",30
+2017,1,9,"All cancers",41
+2017,1,10,"All cancers",74
+2017,1,11,"All cancers",113
+2017,1,12,"All cancers",237
+2017,1,13,"All cancers",347
+2017,1,14,"All cancers",501
+2017,1,15,"All cancers",582
+2017,1,16,"All cancers",611
+2017,1,17,"All cancers",570
+2017,1,18,"All cancers",691
+2017,2,1,"All cancers",13
+2017,2,2,"All cancers",6
+2017,2,5,"All cancers",2
+2017,2,6,"All cancers",26
+2017,2,7,"All cancers",16
+2017,2,8,"All cancers",21
+2017,2,9,"All cancers",47
+2017,2,10,"All cancers",47
+2017,2,11,"All cancers",130
+2017,2,12,"All cancers",182
+2017,2,13,"All cancers",207
+2017,2,14,"All cancers",346
+2017,2,15,"All cancers",382
+2017,2,16,"All cancers",374
+2017,2,17,"All cancers",363
+2017,2,18,"All cancers",635
+2018,1,1,"All cancers",17
+2018,1,5,"All cancers",17
+2018,1,6,"All cancers",15
+2018,1,7,"All cancers",23
+2018,1,8,"All cancers",31
+2018,1,9,"All cancers",20
+2018,1,10,"All cancers",49
+2018,1,11,"All cancers",121
+2018,1,12,"All cancers",240
+2018,1,13,"All cancers",383
+2018,1,14,"All cancers",497
+2018,1,15,"All cancers",628
+2018,1,16,"All cancers",609
+2018,1,17,"All cancers",591
+2018,1,18,"All cancers",704
+2018,2,1,"All cancers",3
+2018,2,2,"All cancers",17
+2018,2,3,"All cancers",7
+2018,2,5,"All cancers",3
+2018,2,7,"All cancers",21
+2018,2,8,"All cancers",38
+2018,2,9,"All cancers",32
+2018,2,10,"All cancers",88
+2018,2,11,"All cancers",125
+2018,2,12,"All cancers",208
+2018,2,13,"All cancers",248
+2018,2,14,"All cancers",303
+2018,2,15,"All cancers",388
+2018,2,16,"All cancers",382
+2018,2,17,"All cancers",378
+2018,2,18,"All cancers",636
+2019,1,1,"All cancers",16
+2019,1,2,"All cancers",10
+2019,1,3,"All cancers",16
+2019,1,8,"All cancers",23
+2019,1,9,"All cancers",41
+2019,1,10,"All cancers",73
+2019,1,11,"All cancers",97
+2019,1,12,"All cancers",234
+2019,1,13,"All cancers",380
+2019,1,14,"All cancers",455
+2019,1,15,"All cancers",623
+2019,1,16,"All cancers",640
+2019,1,17,"All cancers",556
+2019,1,18,"All cancers",735
+2019,2,1,"All cancers",11
+2019,2,2,"All cancers",3
+2019,2,6,"All cancers",6
+2019,2,7,"All cancers",33
+2019,2,8,"All cancers",15
+2019,2,9,"All cancers",50
+2019,2,10,"All cancers",73
+2019,2,11,"All cancers",92
+2019,2,12,"All cancers",180
+2019,2,13,"All cancers",246
+2019,2,14,"All cancers",344
+2019,2,15,"All cancers",422
+2019,2,16,"All cancers",412
+2019,2,17,"All cancers",369
+2019,2,18,"All cancers",667
+2020,1,1,"All cancers",18
+2020,1,4,"All cancers",1
+2020,1,5,"All cancers",17
+2020,1,6,"All cancers",10
+2020,1,7,"All cancers",1
+2020,1,8,"All cancers",16
+2020,1,9,"All cancers",39
+2020,1,10,"All cancers",57
+2020,1,11,"All cancers",105
+2020,1,12,"All cancers",213
+2020,1,13,"All cancers",321
+2020,1,14,"All cancers",453
+2020,1,15,"All cancers",622
+2020,1,16,"All cancers",635
+2020,1,17,"All cancers",621
+2020,1,18,"All cancers",734
+2020,2,1,"All cancers",9
+2020,2,2,"All cancers",10
+2020,2,4,"All cancers",15
+2020,2,7,"All cancers",15
+2020,2,8,"All cancers",30
+2020,2,9,"All cancers",38
+2020,2,10,"All cancers",86
+2020,2,11,"All cancers",124
+2020,2,12,"All cancers",187
+2020,2,13,"All cancers",214
+2020,2,14,"All cancers",323
+2020,2,15,"All cancers",423
+2020,2,16,"All cancers",432
+2020,2,17,"All cancers",457
+2020,2,18,"All cancers",669
+2021,1,3,"All cancers",7
+2021,1,5,"All cancers",6
+2021,1,6,"All cancers",5
+2021,1,7,"All cancers",20
+2021,1,8,"All cancers",25
+2021,1,9,"All cancers",39
+2021,1,10,"All cancers",88
+2021,1,11,"All cancers",126
+2021,1,12,"All cancers",205
+2021,1,13,"All cancers",327
+2021,1,14,"All cancers",424
+2021,1,15,"All cancers",661
+2021,1,16,"All cancers",646
+2021,1,17,"All cancers",603
+2021,1,18,"All cancers",777
+2021,2,2,"All cancers",12
+2021,2,7,"All cancers",4
+2021,2,8,"All cancers",34
+2021,2,9,"All cancers",34
+2021,2,10,"All cancers",72
+2021,2,11,"All cancers",98
+2021,2,12,"All cancers",164
+2021,2,13,"All cancers",251
+2021,2,14,"All cancers",324
+2021,2,15,"All cancers",432
+2021,2,16,"All cancers",418
+2021,2,17,"All cancers",428
+2021,2,18,"All cancers",729
+2022,1,2,"All cancers",12
+2022,1,4,"All cancers",7
+2022,1,5,"All cancers",11
+2022,1,6,"All cancers",21
+2022,1,7,"All cancers",17
+2022,1,8,"All cancers",22
+2022,1,9,"All cancers",19
+2022,1,10,"All cancers",50
+2022,1,11,"All cancers",111
+2022,1,12,"All cancers",232
+2022,1,13,"All cancers",346
+2022,1,14,"All cancers",428
+2022,1,15,"All cancers",559
+2022,1,16,"All cancers",747
+2022,1,17,"All cancers",714
+2022,1,18,"All cancers",872
+2022,2,1,"All cancers",2
+2022,2,2,"All cancers",8
+2022,2,5,"All cancers",20
+2022,2,7,"All cancers",23
+2022,2,8,"All cancers",15
+2022,2,9,"All cancers",34
+2022,2,10,"All cancers",61
+2022,2,11,"All cancers",107
+2022,2,12,"All cancers",158
+2022,2,13,"All cancers",289
+2022,2,14,"All cancers",344
+2022,2,15,"All cancers",403
+2022,2,16,"All cancers",496
+2022,2,17,"All cancers",433
+2022,2,18,"All cancers",695

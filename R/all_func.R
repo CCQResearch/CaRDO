@@ -43,7 +43,7 @@ create_dashboard <- function(){
 
   pages <- list(
     "landing_page",
-    "preface",
+    "disclaimer",
     "data_upload",
     "variable_select_inc",
     "variable_select_mrt",
@@ -56,17 +56,17 @@ create_dashboard <- function(){
                     #"geographical location"
   )
 
-  standard_pop <- readRDS(system.file("extdata/stdPopulations_18.RDS", package = "CanDOR"))
+  standard_pop <- readRDS(system.file("extdata/stdPopulations_18.RDS", package = "CaRDO"))
   std_pop_names <- unique(standard_pop$std_name)
 
-  addResourcePath("CanDOR", system.file("UX Styling/www", package = "CanDOR"))
+  addResourcePath("CaRDO", system.file("UX_Styling/www", package = "CaRDO"))
 
   ## User Interface ----
 
   ui <- page_fillable(
 
     # Initial
-    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "CanDOR/styles.css")),
+    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "CaRDO/styles.css")),
     useShinyjs(),
     rclipboardSetup(),
 
@@ -82,13 +82,13 @@ create_dashboard <- function(){
           class = pages[[1]],
           div(
             class = "acronym-container",
-            h1(class = "acronym-title", "CanDOR"),
+            h1(class = "acronym-title", "CaRDO"),
             div(
               class = "acronym-words",
-              span(HTML("<b>Can</b>cer")),
+              span(HTML("<b>Ca</b>ncer")),
+              span(HTML("<b>R</b>egistry")),
               span(HTML("<b>D</b>ata")),
-              span(HTML("<b>O</b>nline")),
-              span(HTML("<b>R</b>eporting"))
+              span(HTML("<b>O</b>nline"))
             )
           ),
           div(
@@ -103,7 +103,7 @@ create_dashboard <- function(){
         )
       ),
 
-      ### UI-Preface ----
+      ### UI-Disclaimer ----
 
       nav_panel_hidden(
         pages[[2]],
@@ -112,8 +112,21 @@ create_dashboard <- function(){
           div(
             class = "panel-title",
             p(HTML("Page 1 of ", length(pages)-1)),
-            h2("Preface"),
-            h6("Here will be an preface page")
+            h2("Disclaimer"),
+            HTML(
+              paste(
+                p("CaRDO is a user-friendly R package for creating interactive R-Shiny dashboards that visualize and publish population-level cancer statistics."),
+                p("Data loaded into CaRDO is stored locally on your computer, and all analyses are performed locally. Your data will not leave your computer while using CaRDO – CaRDO has been designed with data privacy as a top priority."),
+                p("However, if you choose to publish your dashboard (e.g., share it online), data will be uploaded to the cloud at the resolution that it appears in the dashboard. It is your responsibility to ensure that all displayed data is appropriate for sharing before publishing publicly."),
+                p("There are three key requirements for any cancer dataset that is loaded into CaRDO."),
+                p("1.	You must have a single column for each variable and outcome you wish to report, and each row in your dataset should correspond to a unique combination of each variable."),
+                p("2.	Cancer-type values must be coded as you wish them to be displayed"),
+                p("3.	Cancer counts and any population data must be aggregated by 5-year age groups, with age groups coded numerically from 1 – 18."),
+                p("Further details on data requirements and building a CaRDO dashboard are available {here}. Please reach out to us at statistics@qldcancer.org.au if you have any questions or concerns."),
+                br(),
+                br()
+              )
+            )
           ),
           div(
             # class = "panel-body",
@@ -401,7 +414,7 @@ create_dashboard <- function(){
           !is.null(data_incidence())
         }
       }
-      else if (current_page() == "preface"){
+      else if (current_page() == "disclaimer"){
         bool <- input$understand > 0
       }
       else if (current_page() == "variable_select_inc"){
@@ -481,6 +494,7 @@ create_dashboard <- function(){
 
             out <- tryCatch(
               {
+                # browser()
 
                 if (input$male_val == input$female_val){
                   stop("Sex specified for male and female Incidence/count data is identical - please select different values")
@@ -525,6 +539,8 @@ create_dashboard <- function(){
                       )
                     ) %>%
                     filter(!is.na(sex))
+
+                  data_inc$cancer.type <- as.character(data_inc$cancer.type)
 
 
                   # Generate all cancers if not given
@@ -573,6 +589,8 @@ create_dashboard <- function(){
                       )
                     ) %>%
                     filter(!is.na(sex))
+
+                  data_mrt$cancer.type <- as.character(data_mrt$cancer.type)
 
                   # Generate all cancers if not given
                   if(input$bool_all_canc == "No"){
@@ -659,6 +677,7 @@ create_dashboard <- function(){
             )
 
             if(is(out, "warning") | is(out, "error")){
+              # print(out$message)
               showModal(
                 modalDialog(
                   title = "Oops! Something went wrong",
@@ -674,7 +693,11 @@ create_dashboard <- function(){
                 title = "Congratulations! Your Shiny app can be found below.",
                 text = tagList(
                   div(
-                    file.path(getwd(), "Shiny App"),
+                    class = "directory-copy",
+                    div(
+                      class = "file-path",
+                      file.path(getwd(), "Shiny App")
+                    ),
                     rclipButton(
                       inputId = "clipbtn",
                       label = "Copy to clipboard",
@@ -1045,7 +1068,7 @@ create_dashboard <- function(){
             condition = "input.bool_all_canc == 'Yes'",
             selectInput(inputId = "all_canc_name",
                         label = "Select the cancer category indicating 'all cancers'",
-                        choices = unique(data_incidence()[[input$var_select_inc_cancer.type]]))
+                        choices = unique(data_incidence()[[input$var_select_inc_cancer.type]]) %>% sort)
           )
         )
       )
@@ -1088,7 +1111,7 @@ create_dashboard <- function(){
 #'
 #' @import dplyr
 #' @importFrom magrittr %>%
-#' @importFrom tidyr pivot_longer
+#' @importFrom tidyr pivot_longer pivot_wider
 #' @importFrom haven read_dta
 #' @author Sean Francis
 transform_data <- function(req_mortality_data, req_population_data,
@@ -1245,6 +1268,27 @@ transform_data <- function(req_mortality_data, req_population_data,
                    names_to = "measure",
                    values_to = "obs")
 
+    ## Implement suppression
+    data_inc_annual <- data_inc_annual %>%
+      pivot_wider(names_from = measure, values_from = obs) %>%
+      mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
+             "Counts" = if_else(suppress == 1, true = NA, false = Counts),
+             "Rates" = if_else(suppress == 1, true = NA, false = Rates)
+      ) %>%
+      pivot_longer(cols = c("Counts", "Rates", "ltr"),
+                   names_to = "measure",
+                   values_to = "obs")
+
+    data_inc_age <- data_inc_age  %>%
+      pivot_wider(names_from = measure, values_from = obs) %>%
+      mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
+             "Counts" = if_else(suppress == 1, true = NA, false = Counts),
+             "Rates" = if_else(suppress == 1, true = NA, false = Rates)
+      ) %>%
+      pivot_longer(cols = c("Counts", "Rates"),
+                   names_to = "measure",
+                   values_to = "obs")
+
 
     incProgress(1/8)
 
@@ -1322,11 +1366,34 @@ transform_data <- function(req_mortality_data, req_population_data,
                      names_to = "measure",
                      values_to = "obs")
 
+      ## Implement suppression
+      data_mrt_annual <- data_mrt_annual %>%
+        pivot_wider(names_from = measure, values_from = obs) %>%
+        mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
+               "Counts" = if_else(suppress == 1, true = NA, false = Counts),
+               "Rates" = if_else(suppress == 1, true = NA, false = Rates)
+        ) %>%
+        pivot_longer(cols = c("Counts", "Rates", "ltr"),
+                     names_to = "measure",
+                     values_to = "obs")
+
+      data_mrt_age <- data_mrt_age  %>%
+        pivot_wider(names_from = measure, values_from = obs) %>%
+        mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
+               "Counts" = if_else(suppress == 1, true = NA, false = Counts),
+               "Rates" = if_else(suppress == 1, true = NA, false = Rates)
+        ) %>%
+        pivot_longer(cols = c("Counts", "Rates"),
+                     names_to = "measure",
+                     values_to = "obs")
+
     }
     incProgress(1/8)
   }
+
   # If rates are not required
   else{
+
     data_inc_annual <- data_inc %>%
       group_by(year, sex, cancer.type) %>%
       summarise("obs" = sum(counts),
@@ -1340,6 +1407,23 @@ transform_data <- function(req_mortality_data, req_population_data,
       group_by(across(-c(obs, age.grp, counts))) %>%
       summarise("obs" = sum(obs),
                 .groups = 'drop')
+
+    ### Calculate 5 year averages
+    data_inc_average <- data_inc_annual %>%
+      filter(year >= max(year) - 4) %>%
+      group_by(sex, cancer.type, measure) %>%
+      summarise("year" = paste0(min(year), "-", max(year)),
+                "obs" = sum(obs)/5)
+
+    ### Implement suppression
+    data_inc_annual <- data_inc_annual %>%
+      mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
+             "obs" = if_else(suppress == 1, true = NA, false = obs))
+
+    data_inc_age <- data_inc_age %>%
+      mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
+             "obs" = if_else(suppress == 1, true = NA, false = obs))
+
 
     if (req_mortality_data){
 
@@ -1357,6 +1441,22 @@ transform_data <- function(req_mortality_data, req_population_data,
         summarise("obs" = sum(obs),
                   .groups = 'drop')
 
+      ### Calculate 5 year averages
+      data_mrt_average <- data_mrt_annual %>%
+        filter(year >= max(year) - 4) %>%
+        group_by(sex, cancer.type, measure) %>%
+        summarise("year" = paste0(min(year), "-", max(year)),
+                  "obs" = sum(obs)/5)
+
+      ### Implement suppression
+      data_mrt_annual <- data_mrt_annual %>%
+        mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
+               "obs" = if_else(suppress == 1, true = NA, false = obs))
+
+      data_mrt_age <- data_mrt_age %>%
+        mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
+               "obs" = if_else(suppress == 1, true = NA, false = obs))
+
     }
 
     incProgress(1/4)
@@ -1365,34 +1465,6 @@ transform_data <- function(req_mortality_data, req_population_data,
 
 
   incProgress(1/4)
-
-  # ### Calculate 5 year averages
-  # data_inc_average <- data_inc_annual %>%
-  #   filter(year >= max(year) - 4,
-  #          measure == "Counts") %>%
-  #   group_by(sex, cancer.type) %>%
-  #   summarise("year" = paste0(min(year), "-", max(year)),
-  #             "obs" = mean(obs)) %>%
-  #   bind_rows(data_inc_average_rates)
-  #
-  # if (req_mortality_data) {
-  #   data_mrt_average <- data_mrt_annual %>%
-  #     filter(year >= max(year) - 4,
-  #            measure == "Counts") %>%
-  #     group_by(sex, cancer.type) %>%
-  #     summarise("year" = paste0(min(year), "-", max(year)),
-  #               "obs" = mean(obs)) %>%
-  #     bind_rows(data_mrt_average_rates)
-  # }
-
-  ### Implement suppression
-  data_inc_annual <- data_inc_annual %>%
-    mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
-           "obs" = if_else(suppress == 1, true = NA, false = obs))
-
-  data_inc_age <- data_inc_age %>%
-    mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
-           "obs" = if_else(suppress == 1, true = NA, false = obs))
 
   write.csv(data_inc_annual,
             file.path(output_path, "data_inc_annual.csv"),
@@ -1410,15 +1482,6 @@ transform_data <- function(req_mortality_data, req_population_data,
 
   if (req_mortality_data){
 
-    ### Implement suppression
-    data_mrt_annual <- data_mrt_annual %>%
-      mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
-             "obs" = if_else(suppress == 1, true = NA, false = obs))
-
-    data_mrt_age <- data_mrt_age %>%
-      mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
-             "obs" = if_else(suppress == 1, true = NA, false = obs))
-
 
     write.csv(data_mrt_annual,
               file.path(output_path, "data_mrt_annual.csv"),
@@ -1435,9 +1498,9 @@ transform_data <- function(req_mortality_data, req_population_data,
 
   # At the end
   from_dir <- "Shiny App"
-  # Copy and paste all files in system.file("extdata/app_files", package = "CanDOR")
+  # Copy and paste all files in system.file("extdata/app_files", package = "CaRDO")
   # to "Shiny App"
-  path <- system.file("extdata/app_files", package = "CanDOR")
+  path <- system.file("extdata/app_files", package = "CaRDO")
 
   for( item in list.files(path)) {
 
