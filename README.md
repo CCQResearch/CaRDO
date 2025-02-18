@@ -8,8 +8,8 @@
 
 CaRDO is a user-friendly R package for creating interactive R-Shiny
 dashboards that visualize and publish population-level cancer
-statistics. You can find an example CaRDO dashboard <a
-href="https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-statistics-online-qcsol/"
+statistics. You can find an example CaRDO dashboard
+<a href="https://cancercouncilqueensland.shinyapps.io/CaRDOExample/"
 target="_blank">here</a>
 
 Detailed documentation for building a CaRDO dashboard is available
