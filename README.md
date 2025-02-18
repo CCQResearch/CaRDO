@@ -13,7 +13,8 @@ statistics. You can find an example CaRDO dashboard
 target="_blank">here</a>
 
 Detailed documentation for building a CaRDO dashboard is available
-[here](https://ccqresearch.github.io/CaRDO-Handbook/)
+<a href="https://ccqresearch.github.io/CaRDO-Handbook/"
+target="_blank">here</a>
 
 ## Installation
 
