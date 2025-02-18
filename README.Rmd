@@ -18,7 +18,9 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-CaRDO is a user-friendly R package for creating interactive R-Shiny dashboards that visualize and publish population-level cancer statistics. You can find an example CaRDO dashboard [here](https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-statistics-online-qcsol/){target="_blank"}
+CaRDO is a user-friendly R package for creating interactive R-Shiny dashboards that visualize and publish population-level cancer statistics. You can find an example CaRDO dashboard [here](https://cancercouncilqueensland.shinyapps.io/CaRDOExample/){target="_blank"}
+
+Detailed documentation for building a CaRDO dashboard is available [here](https://ccqresearch.github.io/CaRDO-Handbook/){target="_blank"}
 
 
 ## Installation
@@ -48,7 +50,7 @@ There are **three** key requirements for any cancer dataset that is loaded into 
 2. Cancer-type values must be coded as you wish them to be displayed
 3. Cancer counts and any population data must be aggregated by 5-year age groups, with age groups coded numerically from 1 – 18.
 
-Further details on data requirements and building a CaRDO dashboard are available {here}. Please reach out to us at statistics@qldcancer.org.au if you have any questions or concerns. 
+Further details on data requirements and building a CaRDO dashboard are available [here](https://ccqresearch.github.io/CaRDO-Handbook/). Please reach out to us at statistics@qldcancer.org.au if you have any questions or concerns. 
 
 ## Disclaimer
 
