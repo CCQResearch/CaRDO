@@ -7,6 +7,7 @@ all_cancers_name <- supplied_params[["All cancers"]] # <-- Don't Change This
 dashboard_title <- supplied_params[["Dashboard title"]] # <-- You can change this
 location_name <- supplied_params[["Dashboard catchment"]]
 
+
 # Define a variable that says whether mortality files are present, initialise to TRUE
 no_mrt <<- FALSE
 
@@ -39,6 +40,7 @@ sex_choices <- unique(inc_annual_counts$sex)
 measure_choices <- unique(inc_annual_counts$measure) %>%
   setdiff('ltr') # avoid having ltr as a stat measure - remove to include for visualisation
 most_recent_year <- max(inc_annual_counts$year)
+earliest_year <- min(inc_annual_counts$year)
 age_ranges <- unique(inc_counts$age.grp_string)
 
 sex_name <- list("1" = "Males",
@@ -51,3 +53,21 @@ lifetime_risk <- inc_annual_counts %>%
          sex == 3,
          measure == "ltr") %>%
   pull(obs)
+
+counts_limit <- inc_counts %>%
+  filter(cancer.type != "All cancers",
+         sex == 3,
+         measure == "Counts") %>%
+  pull(obs) %>%
+  max()
+
+rates_limit <- if(length(measure_choices) != 1){
+  inc_annual_counts %>%
+    filter(cancer.type != "All cancers",
+           sex == 3,
+           measure == "Rates") %>%
+    pull(obs) %>%
+    max()
+} else {
+  NULL
+}

@@ -33,7 +33,6 @@ library(markdown)
 # source("K:/EPI/R-Shiny Projects/CanDOR/Testing/Testing Development/inst/extdata/app_files/load_data.R", local = TRUE)
 source("module.R", local = TRUE)
 source("load_data.R", local = TRUE)
-source("methods.R", local = TRUE)
 
 # ##### TEMPORARY - TO DELETE #####
 # setwd("K:/EPI/R-Shiny Projects/CanDOR/Testing/Testing Development")
@@ -43,6 +42,7 @@ source("methods.R", local = TRUE)
 # UI (User Interface)
 ui <- page_navbar(
   header = tagList(
+    withMathJax(),
     tags$head(
       tags$script(src = "scripts.js"),
       tags$link(rel = "stylesheet", type = "text/css", href = "styles.css"),
@@ -61,21 +61,23 @@ ui <- page_navbar(
       UI_module("Deaths")
     )
   },
+  nav_spacer(),
   nav_panel(
     title = "Methods",
     id = "methods",
-    methods_page("Methods")
+    class = "methods-panel",
+    includeMarkdown("www/methods.md")
   )
 )
 
 server <- function(input, output, session){
-  
+
   server_module("Diagnosis")
-  
+
   if(!no_mrt){
     server_module("Deaths")
   }
-  
+
 }
 
 
