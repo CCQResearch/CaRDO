@@ -271,7 +271,7 @@ server_module <- function(id){
 
       time_hovertemplate <- reactive({
         paste0(
-          if_else(input$measure == "Counts", paste0("%{y:,}"), paste0("%{y:,.2f}")),
+          if_else(input$measure == "Counts", paste0("%{y:,}"), paste0("%{y:,.1f}")),
           if_else(id == "Diagnosis", " diagnoses", " deaths"),
           if_else(input$measure == "Counts", "", " per 100,000 pop.")
         )
@@ -338,7 +338,7 @@ server_module <- function(id){
 
       output$ltr_text <- renderUI({
 
-        ltr_stat <- if (round(lifetime_risk() * 10) < 1) {"< 1"} else {round(lifetime_risk() * 10)}
+        ltr_stat <- if (lifetime_risk() * 10 < 1) {"< 1"} else {round(lifetime_risk() * 10)}
 
         div(
           HTML(paste(span(class = "ltr-stat", ltr_stat), " out of 10")),
@@ -346,7 +346,7 @@ server_module <- function(id){
             class = "ltr-info",
             HTML(paste(
               "<span>Approximately 1 in <b>",
-              round(10/(10 * lifetime_risk()), 2),
+              round(10/(10 * lifetime_risk()), 1),
               if (input$sex == 3) {"persons"} else {if (input$sex == 1) {"males"} else {"females"}},
               "</b>are expected to be diagnosed with <b>",
               tolower(input$cancer.type),
@@ -372,7 +372,7 @@ server_module <- function(id){
         } else {
           if(input$sex == 1) " in males" else " in females"
         }
-        heading_bracket <- if(input$measure == "Counts") "" else " (Age Standarised per 100,000 people)"
+        heading_bracket <- if(input$measure == "Counts") "" else " (Age Standarised)"
 
         div(
           class = "custom-heading",
@@ -512,7 +512,11 @@ server_module <- function(id){
         } else {
           if(input$sex == 1) " in males" else " in females"
         }
-        heading_bracket <- if(input$measure == "Counts") "(Counts, 5 year average)" else " (5 years, age Standarised per 100,000 people)"
+        heading_bracket <- if(input$measure == "Counts") {
+          paste0("(Counts, 5 year average ", most_recent_year-4, "-", most_recent_year, ")")
+        } else {
+          paste0("(5 years ", most_recent_year-4, "-", most_recent_year, ", Age Standarised)")
+        }
 
         div(
           class = "custom-heading",
@@ -545,7 +549,7 @@ server_module <- function(id){
             marker = list(#line = list(color = "#333333", width = 0.5),
               color = plot_colour),
             hovertemplate = paste0(
-              "%{y}: ", if_else(input$measure == "Counts", paste0("%{x:,}"), paste0("%{x:,.2f}")),
+              "%{y}: ", if_else(input$measure == "Counts", paste0("%{x:,}"), paste0("%{x:,.1f}")),
               "<extra></extra>"
             )
           ) %>%
@@ -598,7 +602,7 @@ server_module <- function(id){
         } else {
           if(input$sex == 1) " in males" else " in females"
         }
-        heading_bracket <- if(input$measure == "Counts") "" else " (Age Standarised per 100,000 people)"
+        heading_bracket <- if(input$measure == "Counts") "" else " (Age Standarised)"
 
         div(
           class = "custom-heading",
