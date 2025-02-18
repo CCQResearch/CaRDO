@@ -12,6 +12,9 @@ statistics. You can find an example CaRDO dashboard <a
 href="https://cancerqld.org.au/research/queensland-cancer-statistics/queensland-cancer-statistics-online-qcsol/"
 target="_blank">here</a>
 
+Detailed documentation for building a CaRDO dashboard is available
+[here](https://ccqresearch.github.io/CaRDO-Handbook/)
+
 ## Installation
 
 1.  CaRDO requires the following packages installed before launching
@@ -48,8 +51,9 @@ loaded into CaRDO.
     age groups, with age groups coded numerically from 1 – 18.
 
 Further details on data requirements and building a CaRDO dashboard are
-available {here}. Please reach out to us at
-<statistics@qldcancer.org.au> if you have any questions or concerns.
+available [here](https://ccqresearch.github.io/CaRDO-Handbook/). Please
+reach out to us at <statistics@qldcancer.org.au> if you have any
+questions or concerns.
 
 ## Disclaimer
 
