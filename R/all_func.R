@@ -128,7 +128,11 @@ create_dashboard <- function(){
                     tags$li("Cancer-type values must be coded as you wish them to be displayed"),
                     tags$li("Cancer counts and any population data must be aggregated by 5-year age groups, with age groups coded numerically from 1 – 18.")
                   ),
-                  p("Further details on data requirements and building a CaRDO dashboard are available {here}. Please reach out to us at statistics@qldcancer.org.au if you have any questions or concerns.")
+                  p("Further details on data requirements and building a CaRDO dashboard are available",
+                    tags$a("here", href = "https://ccqresearch.github.io/CaRDO-Handbook/"),
+                    ". Please reach out to us at",
+                    tags$a("statistics@qldcancer.org.au", href = "mailto:statistics@qldcancer.org.au"),
+                    "if you have any questions or concerns.")
                 )
               )
             ),
