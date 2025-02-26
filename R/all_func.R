@@ -17,6 +17,8 @@
 # library(haven)
 # library(tidyverse)
 # library(rclipboard)
+# library(mgcv)
+# library(strucchange)
 
 
 #' Create your dashboard
@@ -502,7 +504,6 @@ create_dashboard <- function(){
 
             out <- tryCatch(
               {
-                # browser()
 
                 if (input$male_val == input$female_val){
                   stop("Sex specified for male and female Incidence/count data is identical - please select different values")
@@ -1109,7 +1110,7 @@ create_dashboard <- function(){
   }
 
   # shinyApp(ui, server)
-  runApp(shinyApp(ui, server), launch.browser = dialogViewer("", width = 1200, height = 800))
+  runApp(shinyApp(ui, server), launch.browser = browserViewer())#("", width = 1200, height = 800))
 
 }
 
@@ -1128,9 +1129,6 @@ transform_data <- function(req_mortality_data, req_population_data,
                            #geog.loc_var,
                            suppress_threshold){
 
-  # browser()
-
-
   output_path <- "Shiny App/Data"
 
   # Delete the directory if it exists
@@ -1147,7 +1145,6 @@ transform_data <- function(req_mortality_data, req_population_data,
     file.path(output_path, "supplied_params.RDS")
   )
 
-
   # Load in the data
   data_inc <- readRDS("tmp/data_inc.RDS")
 
@@ -1160,6 +1157,18 @@ transform_data <- function(req_mortality_data, req_population_data,
 
   data_inc <- bind_rows(tmp, data_inc)
 
+  # Check for sex-specific cancers (then later, remove the persons options from them)
+  sex_specific_cancers <- data_inc %>%
+    group_by(cancer.type) %>%
+    summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1)) %>%
+    filter(sex_specific == 1) %>%
+    pull(cancer.type)
+
+  # Remove sex-specific cancers from "persons"
+  data_inc <- data_inc %>%
+    filter(!(cancer.type %in% sex_specific_cancers & sex == 3))
+
+
   if (req_mortality_data){
     data_mrt <- readRDS("tmp/data_mrt.RDS")
 
@@ -1171,6 +1180,16 @@ transform_data <- function(req_mortality_data, req_population_data,
       ungroup()
 
     data_mrt <- bind_rows(tmp, data_mrt)
+
+    sex_specific_cancers_mrt <- data_mrt %>%
+      group_by(cancer.type) %>%
+      summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1)) %>%
+      filter(sex_specific == 1) %>%
+      pull(cancer.type)
+
+    # Remove sex-specific cancers from "persons"
+    data_mrt <- data_mrt %>%
+      filter(!(cancer.type %in% sex_specific_cancers_mrt & sex == 3))
   }
 
   if (req_population_data){
@@ -1189,7 +1208,6 @@ transform_data <- function(req_mortality_data, req_population_data,
     stack() %>%
     rename("age.grp" = values,
            "age.grp_string" = ind)
-
 
   # Generate rates if required
   if (req_population_data){
@@ -1244,6 +1262,62 @@ transform_data <- function(req_mortality_data, req_population_data,
                    names_to = "measure",
                    values_to = "obs")
 
+
+    # Add in trends - need to do for each cancer type, for each sex
+    data_inc_annual_tmp <- data.frame()
+
+    for (canc in unique(data_inc_annual$cancer.type)){
+      for (sex_i in unique(data_inc_annual$sex)){
+
+        filt_df <- data_inc_annual %>%
+          filter(cancer.type == canc,
+                 sex == sex_i)
+
+        filt_df_wide <- filt_df %>%
+          pivot_wider(names_from = "measure", values_from = "obs")
+
+
+        tmp_counts <- suppressWarnings(fit_trendline(filt_df_wide, "year", "Counts")) %>%
+          select(-c(Rates, ltr)) %>%
+          rename("Trend_Counts" = Trend)
+
+        tmp_rates <- suppressWarnings(fit_trendline(filt_df_wide, "year", "Rates")) %>%
+          select(-c(Counts, ltr)) %>%
+          rename("Trend_Rates" = Trend)
+
+        dat_merge <- merge(tmp_counts, tmp_rates)
+
+
+        dat <- merge(
+          dat_merge %>%
+            select(-contains("Trend")) %>%
+            pivot_longer(cols = c("Counts", "Rates"),
+                         names_to = "measure",
+                         values_to = "obs"),
+
+          dat_merge %>%
+            select(-c("Counts", "Rates")) %>%
+            rename("Counts" = Trend_Counts,
+                   "Rates" = Trend_Rates) %>%
+            pivot_longer(cols = c("Counts", "Rates"),
+                         names_to = "measure",
+                         values_to = "obs_trend")
+        )
+
+        dat_final <- bind_rows(
+          filt_df %>%
+            filter(measure == "ltr"),
+          dat)
+
+        data_inc_annual_tmp <- bind_rows(data_inc_annual_tmp, dat_final)
+      }
+    }
+
+    data_inc_annual <- data_inc_annual_tmp %>%
+      filter(obs != 0)
+
+
+
     # By age
     data_inc_age <- data_inc_pop %>%
       merge(std_pop_grouped) %>%
@@ -1276,8 +1350,13 @@ transform_data <- function(req_mortality_data, req_population_data,
                    names_to = "measure",
                    values_to = "obs")
 
-    ## Implement suppression
-    data_inc_annual <- data_inc_annual %>%
+    # Remove obs_trend temporarily
+    data_inc_annual_sup <- data_inc_annual %>%
+      select(-obs_trend)
+
+
+    ## Implement suppression - pivot wider then longer so that suppression can occur on counts and rates
+    data_inc_annual <- data_inc_annual_sup %>%
       pivot_wider(names_from = measure, values_from = obs) %>%
       mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
              "Counts" = if_else(suppress == 1, true = NA, false = Counts),
@@ -1285,7 +1364,8 @@ transform_data <- function(req_mortality_data, req_population_data,
       ) %>%
       pivot_longer(cols = c("Counts", "Rates", "ltr"),
                    names_to = "measure",
-                   values_to = "obs")
+                   values_to = "obs") %>%
+      merge(data_inc_annual)
 
     data_inc_age <- data_inc_age  %>%
       pivot_wider(names_from = measure, values_from = obs) %>%
@@ -1340,6 +1420,59 @@ transform_data <- function(req_mortality_data, req_population_data,
                      names_to = "measure",
                      values_to = "obs")
 
+      # Add in trends - need to do for each cancer type, for each sex
+      data_mrt_annual_tmp <- data.frame()
+
+      for (canc in unique(data_mrt_annual$cancer.type)){
+        for (sex_i in unique(data_mrt_annual$sex)){
+
+          filt_df <- data_mrt_annual %>%
+            filter(cancer.type == canc,
+                   sex == sex_i)
+
+          filt_df_wide <- filt_df %>%
+            pivot_wider(names_from = "measure", values_from = "obs")
+
+
+          tmp_counts <- suppressWarnings(fit_trendline(filt_df_wide, "year", "Counts")) %>%
+            select(-c(Rates, ltr)) %>%
+            rename("Trend_Counts" = Trend)
+
+          tmp_rates <- suppressWarnings(fit_trendline(filt_df_wide, "year", "Rates")) %>%
+            select(-c(Counts, ltr)) %>%
+            rename("Trend_Rates" = Trend)
+
+          dat_merge <- merge(tmp_counts, tmp_rates)
+
+
+          dat <- merge(
+            dat_merge %>%
+              select(-contains("Trend")) %>%
+              pivot_longer(cols = c("Counts", "Rates"),
+                           names_to = "measure",
+                           values_to = "obs"),
+
+            dat_merge %>%
+              select(-c("Counts", "Rates")) %>%
+              rename("Counts" = Trend_Counts,
+                     "Rates" = Trend_Rates) %>%
+              pivot_longer(cols = c("Counts", "Rates"),
+                           names_to = "measure",
+                           values_to = "obs_trend")
+          )
+
+          dat_final <- bind_rows(
+            filt_df %>%
+              filter(measure == "ltr"),
+            dat)
+
+          data_mrt_annual_tmp <- bind_rows(data_mrt_annual_tmp, dat_final)
+        }
+      }
+
+      data_mrt_annual <- data_mrt_annual_tmp %>%
+        filter(obs != 0)
+
 
       # By age
       data_mrt_age <- data_mrt_pop %>%
@@ -1374,8 +1507,12 @@ transform_data <- function(req_mortality_data, req_population_data,
                      names_to = "measure",
                      values_to = "obs")
 
+      data_mrt_annual_sup <- data_mrt_annual %>%
+        select(-obs_trend)
+
+
       ## Implement suppression
-      data_mrt_annual <- data_mrt_annual %>%
+      data_mrt_annual <- data_mrt_annual_sup %>%
         pivot_wider(names_from = measure, values_from = obs) %>%
         mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
                "Counts" = if_else(suppress == 1, true = NA, false = Counts),
@@ -1383,7 +1520,8 @@ transform_data <- function(req_mortality_data, req_population_data,
         ) %>%
         pivot_longer(cols = c("Counts", "Rates", "ltr"),
                      names_to = "measure",
-                     values_to = "obs")
+                     values_to = "obs") %>%
+        merge(data_mrt_annual)
 
       data_mrt_age <- data_mrt_age  %>%
         pivot_wider(names_from = measure, values_from = obs) %>%
@@ -1423,6 +1561,29 @@ transform_data <- function(req_mortality_data, req_population_data,
       summarise("year" = paste0(min(year), "-", max(year)),
                 "obs" = sum(obs)/5)
 
+    # Add in trends - need to do for each cancer type, for each sex
+    data_inc_annual_tmp <- data.frame()
+
+    for (canc in unique(data_inc_annual$cancer.type)){
+      for (sex_i in unique(data_inc_annual$sex)){
+
+        filt_df <- data_inc_annual %>%
+          filter(cancer.type == canc,
+                 sex == sex_i)
+
+        if(nrow(filt_df != 0)){
+
+          tmp_counts <- suppressWarnings(fit_trendline(filt_df, "year", "obs")) %>%
+            rename("obs_trend" = Trend)
+
+          data_inc_annual_tmp <- bind_rows(data_inc_annual_tmp, tmp_counts)
+        }
+      }
+    }
+
+    data_inc_annual <- data_inc_annual_tmp %>%
+      filter(obs != 0)
+
     ### Implement suppression
     data_inc_annual <- data_inc_annual %>%
       mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
@@ -1455,6 +1616,28 @@ transform_data <- function(req_mortality_data, req_population_data,
         group_by(sex, cancer.type, measure) %>%
         summarise("year" = paste0(min(year), "-", max(year)),
                   "obs" = sum(obs)/5)
+
+      # Add in trends - need to do for each cancer type, for each sex
+      data_mrt_annual_tmp <- data.frame()
+
+      for (canc in unique(data_mrt_annual$cancer.type)){
+        for (sex_i in unique(data_mrt_annual$sex)){
+
+          filt_df <- data_mrt_annual %>%
+            filter(cancer.type == canc,
+                   sex == sex_i)
+
+          if(nrow(filt_df) != 0) {
+            tmp_counts <- suppressWarnings(fit_trendline(filt_df, "year", "obs")) %>%
+              rename("obs_trend" = Trend)
+
+            data_mrt_annual_tmp <- bind_rows(data_mrt_annual_tmp, tmp_counts)
+          }
+        }
+      }
+
+      data_mrt_annual <- data_mrt_annual_tmp %>%
+        filter(obs != 0)
 
       ### Implement suppression
       data_mrt_annual <- data_mrt_annual %>%
@@ -1489,7 +1672,6 @@ transform_data <- function(req_mortality_data, req_population_data,
 
 
   if (req_mortality_data){
-
 
     write.csv(data_mrt_annual,
               file.path(output_path, "data_mrt_annual.csv"),
@@ -1529,6 +1711,147 @@ transform_data <- function(req_mortality_data, req_population_data,
 
   incProgress(1/4)
 
+}
+
+
+
+#' Selects either spline or linear model based on AIC
+#'
+#' @importFrom mgcv gam
+#' @author Sean Francis
+
+choose_best_model <- function(segmented_data, x_val, y_val) {
+  # Fit a linear model
+  lm_model <- lm(as.formula(paste0(y_val, " ~ ", x_val)), data = segmented_data)
+
+  # Set max number of knots
+  # max_knots <- min(10, floor(nrow(segment_data)/2))  # Ensure at least 2 unique values for knots
+  max_knots <- 1
+
+  # Fit a spline model
+  gam_formula <- as.formula(paste0(y_val, " ~ s(", x_val, ", bs = 'cr', k = ", max_knots, ")"))
+
+  # Fit a spline model
+  spline_model <- gam(gam_formula, data = segmented_data)
+
+  # Compare AIC
+  aic_values <- c(AIC(lm_model), AIC(spline_model))
+  names(aic_values) <- c("linear", "spline")
+
+  best_model <- if(names(which.min(aic_values)) == "linear"){
+    lm_model
+  }else{
+    spline_model
+  }
+
+  # Return the model type with the lowest AIC
+  return(
+    list(
+      "type" = names(which.min(aic_values)),
+      "model" = best_model
+    )
+  )
+}
+
+
+#' Fit piecewise model
+#'
+#' @importFrom dplyr sym
+#' @author Sean Francis
+
+fit_piecewise_model_with_selection <- function(data, breakpoints, x_val, y_val) {
+  models <- list()
+  fit_types <- character(length(breakpoints))
+
+  # Add -Inf and Inf for proper segment handling
+  breakpoints <- c(-Inf, breakpoints, Inf)
+
+  for (i in 1:(length(breakpoints) - 1)) {
+    # Define segment data
+    segmented_data <- data %>%
+      # Include the previous year in the predictions
+      filter(!!sym(x_val) >= breakpoints[i] & !!sym(x_val) <= breakpoints[i + 1])
+
+    if(nrow(segmented_data) != 1){
+      best_model <- choose_best_model(segmented_data, x_val, y_val)
+
+      # Choose the best model for the segment
+      fit_types[i] <- best_model$type
+
+      models[[i]] <- best_model$model
+    }
+  }
+
+  return(list("models" = models, "fit_types" = fit_types))
+}
+
+
+#' Fits trendline to the data
+#'
+#' @param y_val The y value of the dataset, to be used in regression
+#' @param x_val The x value of the dataset, to be used in regression
+#' @param data The dataset to regress from
+#' @importFrom dplyr filter sym
+#' @importFrom magrittr %>%
+#' @importFrom strucchange breakpoints
+#' @author Sean Francis
+
+fit_trendline <- function(data, x_val, y_val){
+
+  max_joins <- 3
+
+  # Identify the break points
+  bp <- breakpoints(as.formula(paste0(y_val, " ~ ", x_val)),
+                    data = data,
+                    breaks = max_joins,
+                    h = 5)
+
+  breaks <- if(any(is.na(bp$breakpoints))){length(data[[x_val]])}else{bp$breakpoints}
+
+  breakpoints <- data[[x_val]][breaks]
+
+  # Fit the piecewise model
+  result <- fit_piecewise_model_with_selection(data, breakpoints, x_val, y_val)
+  models <- result$models
+  fit_types <- result$fit_types
+
+  # Create a new data frame for predictions
+  predicted_data <- data.frame("tmp_name" = min(data[[x_val]]):max(data[[x_val]]))
+  names(predicted_data) <- x_val
+  predicted_data$Trend <- NA  # Initialize Trend with NA
+
+  # Loop through segments and fill predictions
+  for (i in 1:length(breakpoints)) {
+    # Define the segment for prediction
+    if (i == 1) {
+      segment_data <- predicted_data %>% filter(!!sym(x_val) <= breakpoints[i])
+    } else {
+      segment_data <- predicted_data %>% filter(!!sym(x_val) > breakpoints[i - 1] & !!sym(x_val) <= breakpoints[i])
+    }
+
+    # Predict values for the current segment using the appropriate model
+    if (nrow(segment_data) > 0) {
+      segment_data$Trend <- predict(models[[i]], newdata = segment_data)
+
+      # Update the predicted_data with the predictions
+      predicted_data[which(predicted_data[[x_val]] > (ifelse(i == 1, -Inf, breakpoints[i - 1])) &
+                             predicted_data[[x_val]] <= breakpoints[i]), "Trend"] <- segment_data$Trend
+    }
+  }
+
+  # Handle the last segment after the last breakpoint
+  if (length(breakpoints) > 0) {
+    last_segment_data <- predicted_data %>% filter(!!sym(x_val) > breakpoints[length(breakpoints)])
+    if(nrow(last_segment_data) > 1){
+      last_segment_data$Trend <- predict(models[[length(breakpoints)+1]], newdata = last_segment_data)
+      predicted_data[which(predicted_data[[x_val]] > breakpoints[length(breakpoints)]), "Trend"] <- last_segment_data$Trend
+    }
+  }
+
+
+  out <- merge(data, predicted_data, by = x_val)
+
+  return(out)
 }
 
 
