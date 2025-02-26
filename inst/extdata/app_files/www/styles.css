@@ -2,6 +2,7 @@
 
 :root {
   --regular-font: 'Barlow';
+  --font-colour-header: #FFFFFF;
   --input-primary: #2E2E2E;
   --input-secondary: #FFDE56;
   --custom-background: #FAF9F6;
@@ -32,6 +33,10 @@ h3, .h3 {
   font-family: var(--regular-font);
   font-size: clamp(12px, 1vw, 20px);
   font-weight: 400;
+}
+
+b, strong {
+  font-weight: 500;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -82,6 +87,10 @@ h3, .h3 {
 .nav-link.active {
   color: var(--input-primary) !important;
   background-color: var(--input-secondary) !important;
+}
+
+.navbar-brand:hover {
+  color: var(--input-primary) !important; /* Disabling the hover effect */ 
 }
 
 .nav-link:hover {
@@ -138,7 +147,7 @@ h3, .h3 {
 .control-label {
   font-size: 1.2rem;
   margin-bottom: 0 !important;
-  color: white;
+  color: var(--font-colour-header);
 }
 
 /* Cancer Type Dropdown Menu */
@@ -602,7 +611,7 @@ body.methods-active nav.navbar.navbar-default {
     padding: 5px;
     position: sticky;
     top: 46px;
-    z-index: 9999;
+    z-index: 1;
   }
   
   .cancer-menu, .gender-measure {
