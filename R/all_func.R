@@ -68,7 +68,10 @@ create_dashboard <- function(){
   ui <- page_fillable(
 
     # Initial
-    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "CaRDO/styles.css")),
+    tags$head(
+      tags$link(rel = "stylesheet", type = "text/css", href = "CaRDO/styles.css"),
+      tags$script(src = "CaRDO/script.js")
+    ),
     useShinyjs(),
     rclipboardSetup(),
 
@@ -111,13 +114,15 @@ create_dashboard <- function(){
         pages[[2]],
         div(
           class = pages[[2]],
+
           div(
             class = "panel-title",
             p(HTML("Page 1 of ", length(pages)-1)),
             h2("Disclaimer")
           ),
+
           div(
-            class = "panel-body-1",
+            class = "panel-body-2",
             div(
               class = "disc-content",
               HTML(
@@ -125,11 +130,6 @@ create_dashboard <- function(){
                   p("Data loaded into CaRDO is stored locally on your computer, and all analyses are performed locally. Your data will not leave your computer while using CaRDO – CaRDO has been designed with data privacy as a top priority."),
                   p("However, if you choose to publish your dashboard (e.g., share it online), data will be uploaded to the cloud at the resolution that it appears in the dashboard. It is your responsibility to ensure that all displayed data is appropriate for sharing before publishing publicly."),
                   p("There are three key requirements for any cancer dataset that is loaded into CaRDO."),
-                  tags$ol(
-                    tags$li("You must have a single column for each variable and outcome you wish to report, and each row in your dataset should correspond to a unique combination of each variable."),
-                    tags$li("Cancer-type values must be coded as you wish them to be displayed"),
-                    tags$li("Cancer counts and any population data must be aggregated by 5-year age groups, with age groups coded numerically from 1 – 18.")
-                  ),
                   p("Further details on data requirements and building a CaRDO dashboard are available",
                     tags$a("here", href = "https://ccqresearch.github.io/CaRDO-Handbook/"),
                     ". Please reach out to us at",
@@ -139,9 +139,25 @@ create_dashboard <- function(){
               )
             ),
             div(
-              actionButton(inputId = "understand", label = "Okay, I understand")
+              class = "requirements-list",
+              div(class = "rl-div", p("You must have a single column for each variable and outcome you wish to report, and each row in your dataset should correspond to a unique combination of each variable.")),
+              div(class = "rl-div", p("Cancer-type values must be coded as you wish them to be displayed.")),
+              div(class = "rl-div", p("Cancer counts and any population data must be aggregated by 5-year age groups, with age groups coded numerically from 1 – 18."))
             )
           ),
+
+          div(
+            class = "disclaimer-page-req",
+            div(
+              class = "understand-button",
+              actionButton(inputId = "understand", label = "Okay, I understand")
+            ),
+            div(
+              class = "disclaimer-tip",
+              tags$i("Please read through this page and click \"Okay, I understand\" before proceeding")
+            )
+          )
+
         )
       ),
 
@@ -156,7 +172,7 @@ create_dashboard <- function(){
           div(
             class = "panel-title",
             p(HTML("Page 2 of ", length(pages)-1)),
-            h2("Upload your dataset."),
+            h2("Load your dataset."),
             h4("Do you have Incidence, or Mortality data, or both?")
             #h6(HTML("<i>R saves these files to a temporary folder on your computer, which is immediately deleted by R.</i>"))
           ),
@@ -176,19 +192,19 @@ create_dashboard <- function(){
               conditionalPanel(
                 condition = "input.select_data.includes('Incidence')",
                 fileInput(inputId = "data_inc_upload",
-                          label = HTML("Upload <b>incidence</b> data"),
+                          label = HTML("Load <b>incidence</b> data"),
                           accept = c(".csv", ".tsv", ".dta"))
               ),
               conditionalPanel(
                 condition = "input.select_data.includes('Mortality')",
                 fileInput(inputId = "data_mrt_upload",
-                          label = HTML("Upload <b>mortality</b> data"),
+                          label = HTML("Load <b>mortality</b> data"),
                           accept = c(".csv", ".tsv", ".dta"))
               ),
               conditionalPanel(
                 condition = "input.select_data.includes('Population')",
                 fileInput(inputId = "pop_data_upload",
-                          label = HTML("Upload <b>population</b> data"),
+                          label = HTML("Load <b>population</b> data"),
                           accept = c(".csv", ".tsv", ".dta"))
               )
             ),
@@ -204,6 +220,15 @@ create_dashboard <- function(){
               )
             )
           )
+          # div(
+          #   class = "panel-base",
+          #   div(
+          #     p("The data that is loaded here will be copied and deleted once the necessary transformations have taken place. This will leave your original data safe and untouched.")
+          #   ),
+          #   div(
+          #     p("If you would like age standarised rates to be calculated and visualised on the dashboard, please upload your regions population data and select a standard population from the menu.")
+          #   )
+          # )
         )
       ),
 
@@ -333,10 +358,10 @@ create_dashboard <- function(){
               #             step = 1),
               sliderInput(inputId = "dashboard_suppression_threshold",
                           label = "Select suppression threshold",
-                          min = 5, max = 30,
+                          min = 1, max = 10,
                           # ticks = FALSE,
                           value = 5,
-                          step = 5),
+                          step = 1),
               p(
                 paste("If there are counts in your data that are below this value",
                       "they will not show in the dashboard. They are 'suppressed' after all necessary calculations are made.")
@@ -699,7 +724,7 @@ create_dashboard <- function(){
               confirmSweetAlert(
                 type = NULL,
                 inputId = "confirm",
-                title = "Congratulations! Your Shiny app can be found below.",
+                title = HTML("Dashboard Created!<br>Your dashboard folder can be found below."),
                 text = tagList(
                   div(
                     class = "directory-copy",
@@ -707,10 +732,15 @@ create_dashboard <- function(){
                       class = "file-path",
                       file.path(getwd(), "Shiny App")
                     ),
+                    tags$p("Copy and run this command into the console to open the application in RStudio"),
+                    div(
+                      class = "file-path",
+                      tags$code(id = "r-code", "file.edit(.../Shiny App/app.R)")
+                    ),
                     rclipButton(
                       inputId = "clipbtn",
                       label = "Copy to clipboard",
-                      clipText = file.path(getwd(), "Shiny App"),
+                      clipText = paste0("file.edit(", file.path(getwd(), "Shiny App/app.R"), ")"),
                       icon = icon("clipboard")
                     )
                   )
@@ -756,7 +786,7 @@ create_dashboard <- function(){
 
       if(current_page_index() == length(pages)){
         updateActionButton(inputId = "next_page",
-                           label = "Save and exit")
+                           label = "Create Dashboard")
       }else if (current_page_index()+1 == length(pages)){
         updateActionButton(inputId = "next_page",
                            label = "Next")
@@ -1072,7 +1102,7 @@ create_dashboard <- function(){
                              choices = c("No", "Yes"),
                              shape = "square",
                              icon = icon("check"),
-                             selected = "No"),
+                             selected = "Yes"),
           conditionalPanel(
             condition = "input.bool_all_canc == 'Yes'",
             selectInput(inputId = "all_canc_name",

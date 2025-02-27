@@ -7,6 +7,14 @@
   padding: 2.7rem 2.7rem !important;
 }
 
+@media (max-height: 775px) {
+
+ .bslib-page-fill {
+   padding: 1.7rem 1.7rem !important;
+ }
+
+}
+
 html, body {
   background: none !important;
 }
@@ -87,6 +95,7 @@ body::before {
 
 p {
   font-family: 'Barlow';
+  font-size: clamp(14px, 1.7vh, 16px);
   font-weight: 400;
   margin: 0px;
 }
@@ -102,7 +111,8 @@ h3, h4, h5, h6 {
 }
 
 h1 {font-size: 7rem;}
-h2 {font-size: 3rem;}
+/* h2 {font-size: 3rem;} */
+h2 {font-size: clamp(32px, 2.5vh, 48px)}
 h3 {font-size: 2rem;}
 h4 {font-size: 1.5rem;}
 h5 {font-size: 1.1rem;}
@@ -192,18 +202,51 @@ li {font-family: 'Barlow'; font-size: 0.9rem; margin: 0.5rem 1rem;}
 .disclaimer {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   gap: 1rem;
 }
 
-.panel-body-1 {
+.panel-body-2 {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 5vh;
+  width: 100%;
+  height: 100%;
 }
 
 .disc-content {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
   line-height: 1.5rem;
+  padding-top: 1rem;
+  gap: 1.7vh;
+  width: 40%;
+}
+
+.requirements-list {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5rem;
+  gap: 2vh;
+  width: 40%;
+}
+
+.rl-div {
+  background-color: #145B4D;
+  color: #FFFFFF;
+  line-height: 2rem;
+  border-radius: 12px;
+  padding: 3.3vh;
+}
+
+.rl-div p {
+  font-weight: 500;
+}
+
+.disclaimer-tip {
+  font-size: 0.9em;
+  text-align: end;
 }
 
 ol {
@@ -217,8 +260,12 @@ ol {
   margin-bottom: 0.3rem;
 }
 
-.panel-body-1 div {
-  align-self: flex-end;
+.disclaimer-page-req {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 /*  --------------------------------------------------------------------------*/
@@ -261,6 +308,24 @@ ol {
   height: 85%;
 }
 
+.panel-base {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  margin-top: auto;
+}
+
+.panel-base div {
+  background: linear-gradient(45deg, #D4E927, transparent);
+  border-radius: 16px;
+  width: 20%;
+  padding: 1rem;
+}
+
+.panel-base div p {
+  line-height: 2rem;
+  font-weight: 500;
+}
 
 /*----------------------------------------------------------------------------*/
 
@@ -273,6 +338,35 @@ ol {
   flex-direction: row;
   justify-content: space-between;
   height: 47px;
+}
+
+@property --color1 {
+  syntax: '<color>';
+  initial-value: #FBEB66;
+  inherits: false;
+}
+
+@property --color2 {
+  syntax: '<color>';
+  initial-value: #FAA731;
+  inherits: false;
+}
+
+.create-dashboard {
+  background: linear-gradient(45deg, var(--color1), var(--color2))!important;
+  border: none !important;
+  color: #000000 !important;
+  transition: --color1 1s, --color2 1s;
+}
+
+.create-dashboard:hover {
+  --color1: #FAA731;
+  --color2: #FBEB66;
+}
+
+.create-dashboard:active {
+  background: #000000 !important;
+  color: #FFDE56 !important;
 }
 
 .btn-outline-default,
@@ -326,6 +420,7 @@ ol {
   border-radius: 16px;
   padding: 0.5rem;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .directory-copy {
