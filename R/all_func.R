@@ -126,14 +126,17 @@ create_dashboard <- function(){
               class = "disc-content",
               HTML(
                 paste(
-                  p("Data loaded into CaRDO is stored locally on your computer, and all analyses are performed locally. Your data will not leave your computer while using CaRDO – CaRDO has been designed with data privacy as a top priority."),
-                  p("However, if you choose to publish your dashboard (e.g., share it online), data will be uploaded to the cloud at the resolution that it appears in the dashboard. It is your responsibility to ensure that all displayed data is appropriate for sharing before publishing publicly."),
-                  p("There are three key requirements for any cancer dataset that is loaded into CaRDO."),
+                  p("Any data loaded into CaRDO will be stored and processed locally. ",
+                  "The processing happens to a copy of the data you load and that copy is deleted once the processing is complete."),
+                  p("If you choose to publish the dashboard (e.g. share it online) the data that is uploaded will be the processed version and displayed as it appears in the dashboard. ",
+                  "It is your responsibility to ensure that all displayed data is appropriate for sharing before publishing publicly."),
+                  p("For the dashboard to work appropriately, there are three key requirements for any cancer dataset that is loaded into CaRDO. ",
+                    br(),
+                  tags$b("Please read through the requirements outlined on this page before continuing.")),
                   p("Further details on data requirements and building a CaRDO dashboard are available",
                     tags$a("here", href = "https://ccqresearch.github.io/CaRDO-Handbook/"),
-                    ". Please reach out to us at",
-                    tags$a("statistics@qldcancer.org.au", href = "mailto:statistics@qldcancer.org.au"),
-                    "if you have any questions or concerns.")
+                    ". If you have any other questions or concerns, please reach out to us at",
+                    tags$a("statistics@qldcancer.org.au", href = "mailto:statistics@qldcancer.org.au"))
                 )
               )
             ),
@@ -141,22 +144,13 @@ create_dashboard <- function(){
               class = "requirements-list",
               div(class = "rl-div", p("You must have a single column for each variable and outcome you wish to report, and each row in your dataset should correspond to a unique combination of each variable.")),
               div(class = "rl-div", p("Cancer-type values must be coded as you wish them to be displayed.")),
-              div(class = "rl-div", p("Cancer counts and any population data must be aggregated by 5-year age groups, with age groups coded numerically from 1 – 18."))
-            )
-          ),
-
-          div(
-            class = "disclaimer-page-req",
-            div(
-              class = "understand-button",
-              actionButton(inputId = "understand", label = "Okay, I understand")
-            ),
-            div(
-              class = "disclaimer-tip",
-              tags$i("Please read through this page and click \"Okay, I understand\" before proceeding")
+              div(class = "rl-div", p("Cancer counts and any population data must be aggregated by 5-year age groups, with age groups coded numerically from 1 – 18.")),
+              div(
+                class = "understand-button",
+                actionButton(inputId = "understand", label = "Okay, I understand")
+              )
             )
           )
-
         )
       ),
 
@@ -739,7 +733,7 @@ create_dashboard <- function(){
                     rclipButton(
                       inputId = "clipbtn",
                       label = "Copy to clipboard",
-                      clipText = paste0("file.edit(", file.path(getwd(), "Shiny App/app.R"), ")"),
+                      clipText = paste0("file.edit('", file.path(getwd(), "Shiny App/app.R"), "')"),
                       icon = icon("clipboard")
                     )
                   )
