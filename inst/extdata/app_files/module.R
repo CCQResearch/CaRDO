@@ -339,7 +339,9 @@ server_module <- function(id){
                  viewBox = "0 0 7 100",
                  preserveAspectRatio = "XMidYMid meet",
                  lapply(1:10, function(i) {
-                   color <- ifelse(i <= round(lifetime_risk() * 10), "#FFDE56", "grey")
+                   color <- ifelse(i <= round(lifetime_risk() * 10),
+                                   if(id == "Diagnosis") "#1C54AB" else "#8E3E39",
+                                   "#E6E6E6")
                    tags$circle(class = "data-circle", `data-info` = "Each circle represents 1 person out of 10 people", cx = "50%", cy = (10 - i) * 10 + 5, r = 3, fill = color)
                  })
         )
@@ -416,13 +418,13 @@ server_module <- function(id){
         )
 
         categories <- c("1", "2", "3")
-        plot_colour <- if(id == "Diagnosis") "#1C54A8" else "#A74A43"
+        plot_colour <- if(id == "Diagnosis") "#1C54A8" else "#8E3E39"
 
         line_styles <- sapply(categories, function(cat) {
           if (cat == input$sex) {
             list(color = plot_colour)
           } else {
-            list(color = "#D3D3D3", dash = "dot")
+            list(color = "#E6E6E6", dash = "dot")
           }
         }, simplify = FALSE)
 
@@ -433,7 +435,7 @@ server_module <- function(id){
                  line = list(color = "white"))
           } else {
             list(size = 6,
-                 color = "grey")
+                 color = "#E6E6E6")
           }
         })
 
@@ -566,7 +568,7 @@ server_module <- function(id){
 
       output$bottomleft <- renderPlotly({
 
-        plot_colour <- if(id == "Diagnosis") "#335C98" else "#A74A43"
+        plot_colour <- if(id == "Diagnosis") "#335C98" else "#8E3E39"
 
         cancer_axis_limit <- if(input$measure == "Counts") {counts_limit} else {rates_limit}
 
@@ -661,7 +663,7 @@ server_module <- function(id){
           )
         )
 
-        age_colours <- c("#EB63CA", "#63EB84", "#EBC863", "#6386EB")
+        age_colours <- c("#FF9F1C", "#7DDE9D", "#3A8592", "#042A2B")
         age_groups <- unique(data_bottomright()$age.grp_string) %>%
           sort
 
