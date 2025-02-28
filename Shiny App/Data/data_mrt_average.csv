@@ -1,0 +1,55 @@
+"year","sex","cancer.type","measure","obs"
+"2018-2022",1,"All cancers","Counts",3966.8
+"2018-2022",1,"All cancers","Rates",225.626649617778
+"2018-2022",1,"Breast(female)","Counts",0
+"2018-2022",1,"Breast(female)","Rates",0
+"2018-2022",1,"Colorectal","Counts",470.2
+"2018-2022",1,"Colorectal","Rates",27.4587226591039
+"2018-2022",1,"Leukaemia","Counts",185.4
+"2018-2022",1,"Leukaemia","Rates",10.9984604559428
+"2018-2022",1,"Lung","Counts",816.6
+"2018-2022",1,"Lung","Rates",45.6933680699516
+"2018-2022",1,"Lymphoma","Counts",199.6
+"2018-2022",1,"Lymphoma","Rates",12.2344785317529
+"2018-2022",1,"Melanoma","Counts",212
+"2018-2022",1,"Melanoma","Rates",12.6371025802766
+"2018-2022",1,"Pancreatic","Counts",251.6
+"2018-2022",1,"Pancreatic","Rates",14.5497001191069
+"2018-2022",1,"Prostate","Counts",572.6
+"2018-2022",1,"Prostate","Rates",34.0261856438445
+"2018-2022",2,"All cancers","Counts",2984
+"2018-2022",2,"All cancers","Rates",148.625017243631
+"2018-2022",2,"Breast(female)","Counts",468.2
+"2018-2022",2,"Breast(female)","Rates",24.5317834270575
+"2018-2022",2,"Colorectal","Counts",380
+"2018-2022",2,"Colorectal","Rates",19.1507500337851
+"2018-2022",2,"Leukaemia","Counts",139.6
+"2018-2022",2,"Leukaemia","Rates",7.6839414414235
+"2018-2022",2,"Lung","Counts",647.8
+"2018-2022",2,"Lung","Rates",33.2515602061577
+"2018-2022",2,"Lymphoma","Counts",154
+"2018-2022",2,"Lymphoma","Rates",8.35107968804995
+"2018-2022",2,"Melanoma","Counts",116.2
+"2018-2022",2,"Melanoma","Rates",6.8509247129539
+"2018-2022",2,"Pancreatic","Counts",259.8
+"2018-2022",2,"Pancreatic","Rates",13.7396366022353
+"2018-2022",2,"Prostate","Counts",0
+"2018-2022",2,"Prostate","Rates",0
+"2018-2022",3,"All cancers","Counts",6950.8
+"2018-2022",3,"All cancers","Rates",183.774439414316
+"2018-2022",3,"Breast(female)","Counts",0
+"2018-2022",3,"Breast(female)","Rates",0
+"2018-2022",3,"Colorectal","Counts",850.2
+"2018-2022",3,"Colorectal","Rates",23.0916610267098
+"2018-2022",3,"Leukaemia","Counts",325
+"2018-2022",3,"Leukaemia","Rates",9.22736156323895
+"2018-2022",3,"Lung","Counts",1464.4
+"2018-2022",3,"Lung","Rates",38.9413512137489
+"2018-2022",3,"Lymphoma","Counts",353.6
+"2018-2022",3,"Lymphoma","Rates",10.1600593518619
+"2018-2022",3,"Melanoma","Counts",328.2
+"2018-2022",3,"Melanoma","Rates",9.47082279634621
+"2018-2022",3,"Pancreatic","Counts",511.4
+"2018-2022",3,"Pancreatic","Rates",14.1010359706089
+"2018-2022",3,"Prostate","Counts",0
+"2018-2022",3,"Prostate","Rates",0

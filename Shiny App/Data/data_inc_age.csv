@@ -1,0 +1,3889 @@
+"age.grp_string","year","sex","cancer.type","suppress","measure","obs"
+"0-34",2005,1,"All cancers",0,"Counts",241
+"0-34",2005,1,"All cancers",0,"Rates",42.5753343255727
+"0-34",2005,1,"Breast (female)",1,"Counts",NA
+"0-34",2005,1,"Breast (female)",1,"Rates",NA
+"0-34",2005,1,"Colorectal",0,"Counts",58
+"0-34",2005,1,"Colorectal",0,"Rates",10.0802160584331
+"0-34",2005,1,"Leukaemia",0,"Counts",41
+"0-34",2005,1,"Leukaemia",0,"Rates",7.16502358850983
+"0-34",2005,1,"Lung",0,"Counts",22
+"0-34",2005,1,"Lung",0,"Rates",3.92424998870818
+"0-34",2005,1,"Lymphoma",0,"Counts",69
+"0-34",2005,1,"Lymphoma",0,"Rates",12.3791592799108
+"0-34",2005,1,"Melanoma",0,"Counts",65
+"0-34",2005,1,"Melanoma",0,"Rates",11.6239286208059
+"0-34",2005,1,"Pancreatic",0,"Counts",32
+"0-34",2005,1,"Pancreatic",0,"Rates",5.60576431479058
+"0-34",2005,1,"Prostate",0,"Counts",19
+"0-34",2005,1,"Prostate",0,"Rates",3.3612461693882
+"0-34",2005,2,"All cancers",0,"Counts",341
+"0-34",2005,2,"All cancers",0,"Rates",60.850608644116
+"0-34",2005,2,"Breast (female)",0,"Counts",54
+"0-34",2005,2,"Breast (female)",0,"Rates",9.6243484850212
+"0-34",2005,2,"Colorectal",0,"Counts",25
+"0-34",2005,2,"Colorectal",0,"Rates",4.52662314245667
+"0-34",2005,2,"Leukaemia",0,"Counts",51
+"0-34",2005,2,"Leukaemia",0,"Rates",9.26510843560856
+"0-34",2005,2,"Lung",0,"Counts",34
+"0-34",2005,2,"Lung",0,"Rates",6.04964346171719
+"0-34",2005,2,"Lymphoma",0,"Counts",59
+"0-34",2005,2,"Lymphoma",0,"Rates",10.2886760791862
+"0-34",2005,2,"Melanoma",0,"Counts",142
+"0-34",2005,2,"Melanoma",0,"Rates",25.4175844757295
+"0-34",2005,2,"Pancreatic",0,"Counts",57
+"0-34",2005,2,"Pancreatic",0,"Rates",9.94117888699049
+"0-34",2005,2,"Prostate",1,"Counts",NA
+"0-34",2005,2,"Prostate",1,"Rates",NA
+"0-34",2005,3,"All cancers",0,"Counts",582
+"0-34",2005,3,"All cancers",0,"Rates",51.5842364588496
+"0-34",2005,3,"Breast (female)",1,"Counts",NA
+"0-34",2005,3,"Breast (female)",1,"Rates",NA
+"0-34",2005,3,"Colorectal",0,"Counts",83
+"0-34",2005,3,"Colorectal",0,"Rates",7.33708390337008
+"0-34",2005,3,"Leukaemia",0,"Counts",92
+"0-34",2005,3,"Leukaemia",0,"Rates",8.171752052558
+"0-34",2005,3,"Lung",0,"Counts",56
+"0-34",2005,3,"Lung",0,"Rates",4.96052888206138
+"0-34",2005,3,"Lymphoma",0,"Counts",128
+"0-34",2005,3,"Lymphoma",0,"Rates",11.3341715527248
+"0-34",2005,3,"Melanoma",0,"Counts",207
+"0-34",2005,3,"Melanoma",0,"Rates",18.4892641268034
+"0-34",2005,3,"Pancreatic",0,"Counts",89
+"0-34",2005,3,"Pancreatic",0,"Rates",7.77710620793586
+"0-34",2005,3,"Prostate",1,"Counts",NA
+"0-34",2005,3,"Prostate",1,"Rates",NA
+"0-34",2006,1,"All cancers",0,"Counts",263
+"0-34",2006,1,"All cancers",0,"Rates",45.3909820808951
+"0-34",2006,1,"Breast (female)",1,"Counts",NA
+"0-34",2006,1,"Breast (female)",1,"Rates",NA
+"0-34",2006,1,"Colorectal",0,"Counts",11
+"0-34",2006,1,"Colorectal",0,"Rates",1.97656804376995
+"0-34",2006,1,"Leukaemia",0,"Counts",27
+"0-34",2006,1,"Leukaemia",0,"Rates",4.47952932078041
+"0-34",2006,1,"Lung",0,"Counts",65
+"0-34",2006,1,"Lung",0,"Rates",10.6174959849309
+"0-34",2006,1,"Lymphoma",0,"Counts",43
+"0-34",2006,1,"Lymphoma",0,"Rates",7.03176602716001
+"0-34",2006,1,"Melanoma",0,"Counts",60
+"0-34",2006,1,"Melanoma",0,"Rates",10.1275218643786
+"0-34",2006,1,"Pancreatic",0,"Counts",8
+"0-34",2006,1,"Pancreatic",0,"Rates",1.43049857355717
+"0-34",2006,1,"Prostate",0,"Counts",19
+"0-34",2006,1,"Prostate",0,"Rates",3.42407036287553
+"0-34",2006,2,"All cancers",0,"Counts",340
+"0-34",2006,2,"All cancers",0,"Rates",60.0790365628215
+"0-34",2006,2,"Breast (female)",0,"Counts",88
+"0-34",2006,2,"Breast (female)",0,"Rates",15.7585630352878
+"0-34",2006,2,"Colorectal",0,"Counts",58
+"0-34",2006,2,"Colorectal",0,"Rates",9.93928534700382
+"0-34",2006,2,"Leukaemia",0,"Counts",9
+"0-34",2006,2,"Leukaemia",0,"Rates",1.54327883978711
+"0-34",2006,2,"Lung",0,"Counts",42
+"0-34",2006,2,"Lung",0,"Rates",7.13634093095353
+"0-34",2006,2,"Lymphoma",0,"Counts",53
+"0-34",2006,2,"Lymphoma",0,"Rates",9.30333000076469
+"0-34",2006,2,"Melanoma",0,"Counts",92
+"0-34",2006,2,"Melanoma",0,"Rates",15.9672664395745
+"0-34",2006,2,"Pancreatic",0,"Counts",35
+"0-34",2006,2,"Pancreatic",0,"Rates",6.07477400481334
+"0-34",2006,2,"Prostate",1,"Counts",NA
+"0-34",2006,2,"Prostate",1,"Rates",NA
+"0-34",2006,3,"All cancers",0,"Counts",603
+"0-34",2006,3,"All cancers",0,"Rates",52.6863381416197
+"0-34",2006,3,"Breast (female)",1,"Counts",NA
+"0-34",2006,3,"Breast (female)",1,"Rates",NA
+"0-34",2006,3,"Colorectal",0,"Counts",69
+"0-34",2006,3,"Colorectal",0,"Rates",5.90959450343991
+"0-34",2006,3,"Leukaemia",0,"Counts",36
+"0-34",2006,3,"Leukaemia",0,"Rates",3.03675575293899
+"0-34",2006,3,"Lung",0,"Counts",107
+"0-34",2006,3,"Lung",0,"Rates",8.91721932442232
+"0-34",2006,3,"Lymphoma",0,"Counts",96
+"0-34",2006,3,"Lymphoma",0,"Rates",8.15280761881529
+"0-34",2006,3,"Melanoma",0,"Counts",152
+"0-34",2006,3,"Melanoma",0,"Rates",13.0938765919842
+"0-34",2006,3,"Pancreatic",0,"Counts",43
+"0-34",2006,3,"Pancreatic",0,"Rates",3.67799361811343
+"0-34",2006,3,"Prostate",1,"Counts",NA
+"0-34",2006,3,"Prostate",1,"Rates",NA
+"0-34",2007,1,"All cancers",0,"Counts",269
+"0-34",2007,1,"All cancers",0,"Rates",45.3135804957935
+"0-34",2007,1,"Breast (female)",1,"Counts",NA
+"0-34",2007,1,"Breast (female)",1,"Rates",NA
+"0-34",2007,1,"Colorectal",0,"Counts",45
+"0-34",2007,1,"Colorectal",0,"Rates",7.3513358873344
+"0-34",2007,1,"Leukaemia",0,"Counts",52
+"0-34",2007,1,"Leukaemia",0,"Rates",8.54799263772338
+"0-34",2007,1,"Lung",0,"Counts",45
+"0-34",2007,1,"Lung",0,"Rates",7.19652200513852
+"0-34",2007,1,"Lymphoma",0,"Counts",35
+"0-34",2007,1,"Lymphoma",0,"Rates",5.96460487615687
+"0-34",2007,1,"Melanoma",0,"Counts",108
+"0-34",2007,1,"Melanoma",0,"Rates",18.5037106225643
+"0-34",2007,1,"Pancreatic",0,"Counts",33
+"0-34",2007,1,"Pancreatic",0,"Rates",5.44601367781798
+"0-34",2007,1,"Prostate",0,"Counts",82
+"0-34",2007,1,"Prostate",0,"Rates",13.6905198551351
+"0-34",2007,2,"All cancers",0,"Counts",316
+"0-34",2007,2,"All cancers",0,"Rates",55.1094112383698
+"0-34",2007,2,"Breast (female)",0,"Counts",99
+"0-34",2007,2,"Breast (female)",0,"Rates",17.3457580603283
+"0-34",2007,2,"Colorectal",0,"Counts",39
+"0-34",2007,2,"Colorectal",0,"Rates",6.70659224787193
+"0-34",2007,2,"Leukaemia",0,"Counts",48
+"0-34",2007,2,"Leukaemia",0,"Rates",8.16864874523098
+"0-34",2007,2,"Lung",0,"Counts",17
+"0-34",2007,2,"Lung",0,"Rates",2.85369837616961
+"0-34",2007,2,"Lymphoma",0,"Counts",75
+"0-34",2007,2,"Lymphoma",0,"Rates",13.1112258858215
+"0-34",2007,2,"Melanoma",0,"Counts",83
+"0-34",2007,2,"Melanoma",0,"Rates",14.5228026247532
+"0-34",2007,2,"Pancreatic",0,"Counts",46
+"0-34",2007,2,"Pancreatic",0,"Rates",8.08758397616241
+"0-34",2007,2,"Prostate",1,"Counts",NA
+"0-34",2007,2,"Prostate",1,"Rates",NA
+"0-34",2007,3,"All cancers",0,"Counts",585
+"0-34",2007,3,"All cancers",0,"Rates",50.2383350140868
+"0-34",2007,3,"Breast (female)",1,"Counts",NA
+"0-34",2007,3,"Breast (female)",1,"Rates",NA
+"0-34",2007,3,"Colorectal",0,"Counts",84
+"0-34",2007,3,"Colorectal",0,"Rates",7.03425892837201
+"0-34",2007,3,"Leukaemia",0,"Counts",100
+"0-34",2007,3,"Leukaemia",0,"Rates",8.32834247958309
+"0-34",2007,3,"Lung",0,"Counts",62
+"0-34",2007,3,"Lung",0,"Rates",5.06660775356904
+"0-34",2007,3,"Lymphoma",0,"Counts",110
+"0-34",2007,3,"Lymphoma",0,"Rates",9.48645193184073
+"0-34",2007,3,"Melanoma",0,"Counts",191
+"0-34",2007,3,"Melanoma",0,"Rates",16.5121923252268
+"0-34",2007,3,"Pancreatic",0,"Counts",79
+"0-34",2007,3,"Pancreatic",0,"Rates",6.77184972622399
+"0-34",2007,3,"Prostate",1,"Counts",NA
+"0-34",2007,3,"Prostate",1,"Rates",NA
+"0-34",2008,1,"All cancers",0,"Counts",322
+"0-34",2008,1,"All cancers",0,"Rates",53.0701460883681
+"0-34",2008,1,"Breast (female)",1,"Counts",NA
+"0-34",2008,1,"Breast (female)",1,"Rates",NA
+"0-34",2008,1,"Colorectal",1,"Counts",NA
+"0-34",2008,1,"Colorectal",1,"Rates",NA
+"0-34",2008,1,"Leukaemia",0,"Counts",68
+"0-34",2008,1,"Leukaemia",0,"Rates",10.9645310452933
+"0-34",2008,1,"Lung",0,"Counts",33
+"0-34",2008,1,"Lung",0,"Rates",5.40990849493765
+"0-34",2008,1,"Lymphoma",0,"Counts",43
+"0-34",2008,1,"Lymphoma",0,"Rates",7.29397201095176
+"0-34",2008,1,"Melanoma",0,"Counts",111
+"0-34",2008,1,"Melanoma",0,"Rates",17.7924756335523
+"0-34",2008,1,"Pancreatic",0,"Counts",10
+"0-34",2008,1,"Pancreatic",0,"Rates",1.57889275240266
+"0-34",2008,1,"Prostate",0,"Counts",18
+"0-34",2008,1,"Prostate",0,"Rates",2.85951502280111
+"0-34",2008,2,"All cancers",0,"Counts",376
+"0-34",2008,2,"All cancers",0,"Rates",64.1363281848689
+"0-34",2008,2,"Breast (female)",0,"Counts",75
+"0-34",2008,2,"Breast (female)",0,"Rates",12.5550675534464
+"0-34",2008,2,"Colorectal",0,"Counts",32
+"0-34",2008,2,"Colorectal",0,"Rates",5.29508500348772
+"0-34",2008,2,"Leukaemia",0,"Counts",68
+"0-34",2008,2,"Leukaemia",0,"Rates",11.3589190147345
+"0-34",2008,2,"Lung",0,"Counts",68
+"0-34",2008,2,"Lung",0,"Rates",11.1811837724111
+"0-34",2008,2,"Lymphoma",0,"Counts",45
+"0-34",2008,2,"Lymphoma",0,"Rates",7.52789924241564
+"0-34",2008,2,"Melanoma",0,"Counts",117
+"0-34",2008,2,"Melanoma",0,"Rates",20.0237926988984
+"0-34",2008,2,"Pancreatic",0,"Counts",12
+"0-34",2008,2,"Pancreatic",0,"Rates",1.93873107367273
+"0-34",2008,2,"Prostate",1,"Counts",NA
+"0-34",2008,2,"Prostate",1,"Rates",NA
+"0-34",2008,3,"All cancers",0,"Counts",698
+"0-34",2008,3,"All cancers",0,"Rates",58.6061976189928
+"0-34",2008,3,"Breast (female)",1,"Counts",NA
+"0-34",2008,3,"Breast (female)",1,"Rates",NA
+"0-34",2008,3,"Colorectal",0,"Counts",32
+"0-34",2008,3,"Colorectal",0,"Rates",2.60026413506269
+"0-34",2008,3,"Leukaemia",0,"Counts",136
+"0-34",2008,3,"Leukaemia",0,"Rates",11.1331515447365
+"0-34",2008,3,"Lung",0,"Counts",101
+"0-34",2008,3,"Lung",0,"Rates",8.2671404578665
+"0-34",2008,3,"Lymphoma",0,"Counts",88
+"0-34",2008,3,"Lymphoma",0,"Rates",7.36283613998922
+"0-34",2008,3,"Melanoma",0,"Counts",228
+"0-34",2008,3,"Melanoma",0,"Rates",18.9462186100205
+"0-34",2008,3,"Pancreatic",0,"Counts",22
+"0-34",2008,3,"Pancreatic",0,"Rates",1.76950972765449
+"0-34",2008,3,"Prostate",1,"Counts",NA
+"0-34",2008,3,"Prostate",1,"Rates",NA
+"0-34",2009,1,"All cancers",0,"Counts",295
+"0-34",2009,1,"All cancers",0,"Rates",47.5947701609048
+"0-34",2009,1,"Breast (female)",1,"Counts",NA
+"0-34",2009,1,"Breast (female)",1,"Rates",NA
+"0-34",2009,1,"Colorectal",0,"Counts",58
+"0-34",2009,1,"Colorectal",0,"Rates",9.37834980526666
+"0-34",2009,1,"Leukaemia",0,"Counts",38
+"0-34",2009,1,"Leukaemia",0,"Rates",5.99838629668995
+"0-34",2009,1,"Lung",0,"Counts",18
+"0-34",2009,1,"Lung",0,"Rates",2.7202162452387
+"0-34",2009,1,"Lymphoma",0,"Counts",6
+"0-34",2009,1,"Lymphoma",0,"Rates",1.06537105595866
+"0-34",2009,1,"Melanoma",0,"Counts",111
+"0-34",2009,1,"Melanoma",0,"Rates",17.8089692817209
+"0-34",2009,1,"Pancreatic",0,"Counts",20
+"0-34",2009,1,"Pancreatic",0,"Rates",3.03374489959531
+"0-34",2009,1,"Prostate",0,"Counts",25
+"0-34",2009,1,"Prostate",0,"Rates",3.95364342773558
+"0-34",2009,2,"All cancers",0,"Counts",368
+"0-34",2009,2,"All cancers",0,"Rates",60.7704299992358
+"0-34",2009,2,"Breast (female)",0,"Counts",54
+"0-34",2009,2,"Breast (female)",0,"Rates",9.37346470674518
+"0-34",2009,2,"Colorectal",0,"Counts",62
+"0-34",2009,2,"Colorectal",0,"Rates",10.2776591052366
+"0-34",2009,2,"Leukaemia",0,"Counts",38
+"0-34",2009,2,"Leukaemia",0,"Rates",6.31681298557865
+"0-34",2009,2,"Lung",0,"Counts",74
+"0-34",2009,2,"Lung",0,"Rates",12.2752991437243
+"0-34",2009,2,"Lymphoma",0,"Counts",103
+"0-34",2009,2,"Lymphoma",0,"Rates",16.8193338253818
+"0-34",2009,2,"Melanoma",0,"Counts",128
+"0-34",2009,2,"Melanoma",0,"Rates",20.784508761018
+"0-34",2009,2,"Pancreatic",0,"Counts",38
+"0-34",2009,2,"Pancreatic",0,"Rates",6.29022746032612
+"0-34",2009,2,"Prostate",1,"Counts",NA
+"0-34",2009,2,"Prostate",1,"Rates",NA
+"0-34",2009,3,"All cancers",0,"Counts",663
+"0-34",2009,3,"All cancers",0,"Rates",54.1645451576535
+"0-34",2009,3,"Breast (female)",1,"Counts",NA
+"0-34",2009,3,"Breast (female)",1,"Rates",NA
+"0-34",2009,3,"Colorectal",0,"Counts",120
+"0-34",2009,3,"Colorectal",0,"Rates",9.8086941491911
+"0-34",2009,3,"Leukaemia",0,"Counts",76
+"0-34",2009,3,"Leukaemia",0,"Rates",6.16520352059475
+"0-34",2009,3,"Lung",0,"Counts",92
+"0-34",2009,3,"Lung",0,"Rates",7.4287520656314
+"0-34",2009,3,"Lymphoma",0,"Counts",109
+"0-34",2009,3,"Lymphoma",0,"Rates",8.79107715841936
+"0-34",2009,3,"Melanoma",0,"Counts",239
+"0-34",2009,3,"Melanoma",0,"Rates",19.290265880982
+"0-34",2009,3,"Pancreatic",0,"Counts",58
+"0-34",2009,3,"Pancreatic",0,"Rates",4.61981380183804
+"0-34",2009,3,"Prostate",1,"Counts",NA
+"0-34",2009,3,"Prostate",1,"Rates",NA
+"0-34",2010,1,"All cancers",0,"Counts",320
+"0-34",2010,1,"All cancers",0,"Rates",50.0361836355283
+"0-34",2010,1,"Breast (female)",1,"Counts",NA
+"0-34",2010,1,"Breast (female)",1,"Rates",NA
+"0-34",2010,1,"Colorectal",0,"Counts",57
+"0-34",2010,1,"Colorectal",0,"Rates",8.68584603156291
+"0-34",2010,1,"Leukaemia",0,"Counts",39
+"0-34",2010,1,"Leukaemia",0,"Rates",6.01779914828696
+"0-34",2010,1,"Lung",0,"Counts",51
+"0-34",2010,1,"Lung",0,"Rates",7.9456281716168
+"0-34",2010,1,"Lymphoma",0,"Counts",36
+"0-34",2010,1,"Lymphoma",0,"Rates",5.59808852139082
+"0-34",2010,1,"Melanoma",0,"Counts",114
+"0-34",2010,1,"Melanoma",0,"Rates",17.9337823660535
+"0-34",2010,1,"Pancreatic",0,"Counts",43
+"0-34",2010,1,"Pancreatic",0,"Rates",6.31429572216982
+"0-34",2010,1,"Prostate",0,"Counts",42
+"0-34",2010,1,"Prostate",0,"Rates",6.50659642380158
+"0-34",2010,2,"All cancers",0,"Counts",374
+"0-34",2010,2,"All cancers",0,"Rates",60.787782887903
+"0-34",2010,2,"Breast (female)",0,"Counts",71
+"0-34",2010,2,"Breast (female)",0,"Rates",11.4934764703533
+"0-34",2010,2,"Colorectal",0,"Counts",35
+"0-34",2010,2,"Colorectal",0,"Rates",5.96327713324807
+"0-34",2010,2,"Leukaemia",0,"Counts",70
+"0-34",2010,2,"Leukaemia",0,"Rates",11.4041739228337
+"0-34",2010,2,"Lung",0,"Counts",47
+"0-34",2010,2,"Lung",0,"Rates",7.55352256162822
+"0-34",2010,2,"Lymphoma",0,"Counts",46
+"0-34",2010,2,"Lymphoma",0,"Rates",7.32939635954553
+"0-34",2010,2,"Melanoma",0,"Counts",105
+"0-34",2010,2,"Melanoma",0,"Rates",17.205396295994
+"0-34",2010,2,"Pancreatic",0,"Counts",25
+"0-34",2010,2,"Pancreatic",0,"Rates",4.02218689927466
+"0-34",2010,2,"Prostate",1,"Counts",NA
+"0-34",2010,2,"Prostate",1,"Rates",NA
+"0-34",2010,3,"All cancers",0,"Counts",694
+"0-34",2010,3,"All cancers",0,"Rates",55.4158705578543
+"0-34",2010,3,"Breast (female)",1,"Counts",NA
+"0-34",2010,3,"Breast (female)",1,"Rates",NA
+"0-34",2010,3,"Colorectal",0,"Counts",92
+"0-34",2010,3,"Colorectal",0,"Rates",7.42352094986244
+"0-34",2010,3,"Leukaemia",0,"Counts",109
+"0-34",2010,3,"Leukaemia",0,"Rates",8.66259804581016
+"0-34",2010,3,"Lung",0,"Counts",98
+"0-34",2010,3,"Lung",0,"Rates",7.70890940651596
+"0-34",2010,3,"Lymphoma",0,"Counts",82
+"0-34",2010,3,"Lymphoma",0,"Rates",6.40997246212344
+"0-34",2010,3,"Melanoma",0,"Counts",219
+"0-34",2010,3,"Melanoma",0,"Rates",17.5781371190136
+"0-34",2010,3,"Pancreatic",0,"Counts",68
+"0-34",2010,3,"Pancreatic",0,"Rates",5.18737373834247
+"0-34",2010,3,"Prostate",1,"Counts",NA
+"0-34",2010,3,"Prostate",1,"Rates",NA
+"0-34",2011,1,"All cancers",0,"Counts",322
+"0-34",2011,1,"All cancers",0,"Rates",50.6530899916317
+"0-34",2011,1,"Breast (female)",1,"Counts",NA
+"0-34",2011,1,"Breast (female)",1,"Rates",NA
+"0-34",2011,1,"Colorectal",0,"Counts",43
+"0-34",2011,1,"Colorectal",0,"Rates",6.42388432752629
+"0-34",2011,1,"Leukaemia",0,"Counts",36
+"0-34",2011,1,"Leukaemia",0,"Rates",5.28884763169554
+"0-34",2011,1,"Lung",0,"Counts",31
+"0-34",2011,1,"Lung",0,"Rates",4.58070562116506
+"0-34",2011,1,"Lymphoma",0,"Counts",29
+"0-34",2011,1,"Lymphoma",0,"Rates",4.5714943241756
+"0-34",2011,1,"Melanoma",0,"Counts",132
+"0-34",2011,1,"Melanoma",0,"Rates",20.7366728355383
+"0-34",2011,1,"Pancreatic",0,"Counts",29
+"0-34",2011,1,"Pancreatic",0,"Rates",4.63559668772104
+"0-34",2011,1,"Prostate",0,"Counts",24
+"0-34",2011,1,"Prostate",0,"Rates",3.81828902484984
+"0-34",2011,2,"All cancers",0,"Counts",349
+"0-34",2011,2,"All cancers",0,"Rates",55.4780473826958
+"0-34",2011,2,"Breast (female)",0,"Counts",91
+"0-34",2011,2,"Breast (female)",0,"Rates",14.3455361633583
+"0-34",2011,2,"Colorectal",0,"Counts",40
+"0-34",2011,2,"Colorectal",0,"Rates",6.04664883339382
+"0-34",2011,2,"Leukaemia",0,"Counts",30
+"0-34",2011,2,"Leukaemia",0,"Rates",4.71467702199952
+"0-34",2011,2,"Lung",0,"Counts",35
+"0-34",2011,2,"Lung",0,"Rates",5.61363806420496
+"0-34",2011,2,"Lymphoma",0,"Counts",40
+"0-34",2011,2,"Lymphoma",0,"Rates",6.53005800351581
+"0-34",2011,2,"Melanoma",0,"Counts",81
+"0-34",2011,2,"Melanoma",0,"Rates",13.2228042725392
+"0-34",2011,2,"Pancreatic",0,"Counts",50
+"0-34",2011,2,"Pancreatic",0,"Rates",8.1532303390631
+"0-34",2011,2,"Prostate",1,"Counts",NA
+"0-34",2011,2,"Prostate",1,"Rates",NA
+"0-34",2011,3,"All cancers",0,"Counts",671
+"0-34",2011,3,"All cancers",0,"Rates",53.0711610593435
+"0-34",2011,3,"Breast (female)",1,"Counts",NA
+"0-34",2011,3,"Breast (female)",1,"Rates",NA
+"0-34",2011,3,"Colorectal",0,"Counts",83
+"0-34",2011,3,"Colorectal",0,"Rates",6.24597577688302
+"0-34",2011,3,"Leukaemia",0,"Counts",66
+"0-34",2011,3,"Leukaemia",0,"Rates",5.0263836650994
+"0-34",2011,3,"Lung",0,"Counts",66
+"0-34",2011,3,"Lung",0,"Rates",5.08123465567295
+"0-34",2011,3,"Lymphoma",0,"Counts",69
+"0-34",2011,3,"Lymphoma",0,"Rates",5.559202436473
+"0-34",2011,3,"Melanoma",0,"Counts",213
+"0-34",2011,3,"Melanoma",0,"Rates",17.0393995681659
+"0-34",2011,3,"Pancreatic",0,"Counts",79
+"0-34",2011,3,"Pancreatic",0,"Rates",6.37072071955358
+"0-34",2011,3,"Prostate",1,"Counts",NA
+"0-34",2011,3,"Prostate",1,"Rates",NA
+"0-34",2012,1,"All cancers",0,"Counts",303
+"0-34",2012,1,"All cancers",0,"Rates",45.6342703421473
+"0-34",2012,1,"Breast (female)",1,"Counts",NA
+"0-34",2012,1,"Breast (female)",1,"Rates",NA
+"0-34",2012,1,"Colorectal",0,"Counts",63
+"0-34",2012,1,"Colorectal",0,"Rates",9.46256602776613
+"0-34",2012,1,"Leukaemia",0,"Counts",32
+"0-34",2012,1,"Leukaemia",0,"Rates",4.81147745737558
+"0-34",2012,1,"Lung",0,"Counts",26
+"0-34",2012,1,"Lung",0,"Rates",3.89695446374729
+"0-34",2012,1,"Lymphoma",0,"Counts",36
+"0-34",2012,1,"Lymphoma",0,"Rates",5.73872242192472
+"0-34",2012,1,"Melanoma",0,"Counts",74
+"0-34",2012,1,"Melanoma",0,"Rates",11.2717211446577
+"0-34",2012,1,"Pancreatic",0,"Counts",56
+"0-34",2012,1,"Pancreatic",0,"Rates",8.35610613918473
+"0-34",2012,1,"Prostate",0,"Counts",23
+"0-34",2012,1,"Prostate",0,"Rates",3.26206967864977
+"0-34",2012,2,"All cancers",0,"Counts",402
+"0-34",2012,2,"All cancers",0,"Rates",62.5885893746357
+"0-34",2012,2,"Breast (female)",0,"Counts",81
+"0-34",2012,2,"Breast (female)",0,"Rates",13.1610820407417
+"0-34",2012,2,"Colorectal",0,"Counts",66
+"0-34",2012,2,"Colorectal",0,"Rates",10.4258063211176
+"0-34",2012,2,"Leukaemia",0,"Counts",43
+"0-34",2012,2,"Leukaemia",0,"Rates",6.719856485805
+"0-34",2012,2,"Lung",0,"Counts",48
+"0-34",2012,2,"Lung",0,"Rates",7.30234310914659
+"0-34",2012,2,"Lymphoma",0,"Counts",32
+"0-34",2012,2,"Lymphoma",0,"Rates",4.96599122799997
+"0-34",2012,2,"Melanoma",0,"Counts",114
+"0-34",2012,2,"Melanoma",0,"Rates",17.5664777645399
+"0-34",2012,2,"Pancreatic",0,"Counts",38
+"0-34",2012,2,"Pancreatic",0,"Rates",5.78710791009437
+"0-34",2012,2,"Prostate",1,"Counts",NA
+"0-34",2012,2,"Prostate",1,"Rates",NA
+"0-34",2012,3,"All cancers",0,"Counts",705
+"0-34",2012,3,"All cancers",0,"Rates",54.002039729338
+"0-34",2012,3,"Breast (female)",1,"Counts",NA
+"0-34",2012,3,"Breast (female)",1,"Rates",NA
+"0-34",2012,3,"Colorectal",0,"Counts",129
+"0-34",2012,3,"Colorectal",0,"Rates",9.99452475738245
+"0-34",2012,3,"Leukaemia",0,"Counts",75
+"0-34",2012,3,"Leukaemia",0,"Rates",5.79743859026065
+"0-34",2012,3,"Lung",0,"Counts",74
+"0-34",2012,3,"Lung",0,"Rates",5.57575006286484
+"0-34",2012,3,"Lymphoma",0,"Counts",68
+"0-34",2012,3,"Lymphoma",0,"Rates",5.35184715724792
+"0-34",2012,3,"Melanoma",0,"Counts",188
+"0-34",2012,3,"Melanoma",0,"Rates",14.3978714152209
+"0-34",2012,3,"Pancreatic",0,"Counts",94
+"0-34",2012,3,"Pancreatic",0,"Rates",7.10222746811412
+"0-34",2012,3,"Prostate",1,"Counts",NA
+"0-34",2012,3,"Prostate",1,"Rates",NA
+"0-34",2013,1,"All cancers",0,"Counts",287
+"0-34",2013,1,"All cancers",0,"Rates",42.7853507363149
+"0-34",2013,1,"Breast (female)",1,"Counts",NA
+"0-34",2013,1,"Breast (female)",1,"Rates",NA
+"0-34",2013,1,"Colorectal",0,"Counts",39
+"0-34",2013,1,"Colorectal",0,"Rates",5.97245939936214
+"0-34",2013,1,"Leukaemia",0,"Counts",60
+"0-34",2013,1,"Leukaemia",0,"Rates",9.0360468975195
+"0-34",2013,1,"Lung",0,"Counts",17
+"0-34",2013,1,"Lung",0,"Rates",2.48224968511812
+"0-34",2013,1,"Lymphoma",0,"Counts",54
+"0-34",2013,1,"Lymphoma",0,"Rates",7.96443718939488
+"0-34",2013,1,"Melanoma",0,"Counts",69
+"0-34",2013,1,"Melanoma",0,"Rates",10.5671301626174
+"0-34",2013,1,"Pancreatic",0,"Counts",34
+"0-34",2013,1,"Pancreatic",0,"Rates",5.30801980420196
+"0-34",2013,1,"Prostate",0,"Counts",48
+"0-34",2013,1,"Prostate",0,"Rates",7.09347919071666
+"0-34",2013,2,"All cancers",0,"Counts",448
+"0-34",2013,2,"All cancers",0,"Rates",68.4883209101219
+"0-34",2013,2,"Breast (female)",0,"Counts",67
+"0-34",2013,2,"Breast (female)",0,"Rates",10.3976569768157
+"0-34",2013,2,"Colorectal",0,"Counts",53
+"0-34",2013,2,"Colorectal",0,"Rates",8.16080021027649
+"0-34",2013,2,"Leukaemia",0,"Counts",49
+"0-34",2013,2,"Leukaemia",0,"Rates",7.54095841068679
+"0-34",2013,2,"Lung",0,"Counts",26
+"0-34",2013,2,"Lung",0,"Rates",4.05301730832928
+"0-34",2013,2,"Lymphoma",0,"Counts",22
+"0-34",2013,2,"Lymphoma",0,"Rates",3.46521219879676
+"0-34",2013,2,"Melanoma",0,"Counts",110
+"0-34",2013,2,"Melanoma",0,"Rates",16.6612255259388
+"0-34",2013,2,"Pancreatic",0,"Counts",27
+"0-34",2013,2,"Pancreatic",0,"Rates",3.8933455157768
+"0-34",2013,2,"Prostate",1,"Counts",NA
+"0-34",2013,2,"Prostate",1,"Rates",NA
+"0-34",2013,3,"All cancers",0,"Counts",735
+"0-34",2013,3,"All cancers",0,"Rates",55.5963799036878
+"0-34",2013,3,"Breast (female)",1,"Counts",NA
+"0-34",2013,3,"Breast (female)",1,"Rates",NA
+"0-34",2013,3,"Colorectal",0,"Counts",92
+"0-34",2013,3,"Colorectal",0,"Rates",7.08312461564694
+"0-34",2013,3,"Leukaemia",0,"Counts",109
+"0-34",2013,3,"Leukaemia",0,"Rates",8.29071051668046
+"0-34",2013,3,"Lung",0,"Counts",43
+"0-34",2013,3,"Lung",0,"Rates",3.26233870520467
+"0-34",2013,3,"Lymphoma",0,"Counts",76
+"0-34",2013,3,"Lymphoma",0,"Rates",5.72573897232415
+"0-34",2013,3,"Melanoma",0,"Counts",179
+"0-34",2013,3,"Melanoma",0,"Rates",13.5957826868391
+"0-34",2013,3,"Pancreatic",0,"Counts",61
+"0-34",2013,3,"Pancreatic",0,"Rates",4.61223625849337
+"0-34",2013,3,"Prostate",1,"Counts",NA
+"0-34",2013,3,"Prostate",1,"Rates",NA
+"0-34",2014,1,"All cancers",0,"Counts",356
+"0-34",2014,1,"All cancers",0,"Rates",52.26725229283
+"0-34",2014,1,"Breast (female)",1,"Counts",NA
+"0-34",2014,1,"Breast (female)",1,"Rates",NA
+"0-34",2014,1,"Colorectal",0,"Counts",52
+"0-34",2014,1,"Colorectal",0,"Rates",7.46658574439386
+"0-34",2014,1,"Leukaemia",0,"Counts",72
+"0-34",2014,1,"Leukaemia",0,"Rates",10.3089785986744
+"0-34",2014,1,"Lung",0,"Counts",24
+"0-34",2014,1,"Lung",0,"Rates",3.27247484838424
+"0-34",2014,1,"Lymphoma",0,"Counts",68
+"0-34",2014,1,"Lymphoma",0,"Rates",9.98546607333237
+"0-34",2014,1,"Melanoma",0,"Counts",59
+"0-34",2014,1,"Melanoma",0,"Rates",8.45386402122332
+"0-34",2014,1,"Pancreatic",0,"Counts",55
+"0-34",2014,1,"Pancreatic",0,"Rates",7.71743029659097
+"0-34",2014,1,"Prostate",0,"Counts",49
+"0-34",2014,1,"Prostate",0,"Rates",6.75871866145179
+"0-34",2014,2,"All cancers",0,"Counts",403
+"0-34",2014,2,"All cancers",0,"Rates",60.3931896016465
+"0-34",2014,2,"Breast (female)",0,"Counts",73
+"0-34",2014,2,"Breast (female)",0,"Rates",11.0621545849853
+"0-34",2014,2,"Colorectal",0,"Counts",45
+"0-34",2014,2,"Colorectal",0,"Rates",6.57441507466577
+"0-34",2014,2,"Leukaemia",0,"Counts",41
+"0-34",2014,2,"Leukaemia",0,"Rates",6.40948624095498
+"0-34",2014,2,"Lung",0,"Counts",27
+"0-34",2014,2,"Lung",0,"Rates",4.17211841358703
+"0-34",2014,2,"Lymphoma",0,"Counts",91
+"0-34",2014,2,"Lymphoma",0,"Rates",13.3197304816024
+"0-34",2014,2,"Melanoma",0,"Counts",120
+"0-34",2014,2,"Melanoma",0,"Rates",17.4983236130522
+"0-34",2014,2,"Pancreatic",0,"Counts",37
+"0-34",2014,2,"Pancreatic",0,"Rates",5.7045218258554
+"0-34",2014,2,"Prostate",1,"Counts",NA
+"0-34",2014,2,"Prostate",1,"Rates",NA
+"0-34",2014,3,"All cancers",0,"Counts",759
+"0-34",2014,3,"All cancers",0,"Rates",56.377330135299
+"0-34",2014,3,"Breast (female)",1,"Counts",NA
+"0-34",2014,3,"Breast (female)",1,"Rates",NA
+"0-34",2014,3,"Colorectal",0,"Counts",97
+"0-34",2014,3,"Colorectal",0,"Rates",7.02418274624236
+"0-34",2014,3,"Leukaemia",0,"Counts",113
+"0-34",2014,3,"Leukaemia",0,"Rates",8.42344581473783
+"0-34",2014,3,"Lung",0,"Counts",51
+"0-34",2014,3,"Lung",0,"Rates",3.70974698059069
+"0-34",2014,3,"Lymphoma",0,"Counts",159
+"0-34",2014,3,"Lymphoma",0,"Rates",11.623031816216
+"0-34",2014,3,"Melanoma",0,"Counts",179
+"0-34",2014,3,"Melanoma",0,"Rates",12.9831103705393
+"0-34",2014,3,"Pancreatic",0,"Counts",92
+"0-34",2014,3,"Pancreatic",0,"Rates",6.74672671962592
+"0-34",2014,3,"Prostate",1,"Counts",NA
+"0-34",2014,3,"Prostate",1,"Rates",NA
+"0-34",2015,1,"All cancers",0,"Counts",363
+"0-34",2015,1,"All cancers",0,"Rates",52.8536048394098
+"0-34",2015,1,"Breast (female)",1,"Counts",NA
+"0-34",2015,1,"Breast (female)",1,"Rates",NA
+"0-34",2015,1,"Colorectal",1,"Counts",NA
+"0-34",2015,1,"Colorectal",1,"Rates",NA
+"0-34",2015,1,"Leukaemia",0,"Counts",39
+"0-34",2015,1,"Leukaemia",0,"Rates",5.55688041570958
+"0-34",2015,1,"Lung",0,"Counts",34
+"0-34",2015,1,"Lung",0,"Rates",4.8818270498171
+"0-34",2015,1,"Lymphoma",0,"Counts",48
+"0-34",2015,1,"Lymphoma",0,"Rates",6.59369873756658
+"0-34",2015,1,"Melanoma",0,"Counts",81
+"0-34",2015,1,"Melanoma",0,"Rates",12.1143233004318
+"0-34",2015,1,"Pancreatic",0,"Counts",11
+"0-34",2015,1,"Pancreatic",0,"Rates",1.5655813751129
+"0-34",2015,1,"Prostate",0,"Counts",68
+"0-34",2015,1,"Prostate",0,"Rates",10.0700010880801
+"0-34",2015,2,"All cancers",0,"Counts",423
+"0-34",2015,2,"All cancers",0,"Rates",62.1114278139603
+"0-34",2015,2,"Breast (female)",0,"Counts",46
+"0-34",2015,2,"Breast (female)",0,"Rates",6.88673364573926
+"0-34",2015,2,"Colorectal",0,"Counts",74
+"0-34",2015,2,"Colorectal",0,"Rates",11.0678796973194
+"0-34",2015,2,"Leukaemia",0,"Counts",35
+"0-34",2015,2,"Leukaemia",0,"Rates",5.48927530523574
+"0-34",2015,2,"Lung",0,"Counts",30
+"0-34",2015,2,"Lung",0,"Rates",4.29139509982952
+"0-34",2015,2,"Lymphoma",0,"Counts",90
+"0-34",2015,2,"Lymphoma",0,"Rates",13.2344351131479
+"0-34",2015,2,"Melanoma",0,"Counts",113
+"0-34",2015,2,"Melanoma",0,"Rates",16.4181257431325
+"0-34",2015,2,"Pancreatic",0,"Counts",71
+"0-34",2015,2,"Pancreatic",0,"Rates",10.7107621279117
+"0-34",2015,2,"Prostate",1,"Counts",NA
+"0-34",2015,2,"Prostate",1,"Rates",NA
+"0-34",2015,3,"All cancers",0,"Counts",786
+"0-34",2015,3,"All cancers",0,"Rates",57.5301002068148
+"0-34",2015,3,"Breast (female)",1,"Counts",NA
+"0-34",2015,3,"Breast (female)",1,"Rates",NA
+"0-34",2015,3,"Colorectal",0,"Counts",78
+"0-34",2015,3,"Colorectal",0,"Rates",5.73607763083784
+"0-34",2015,3,"Leukaemia",0,"Counts",74
+"0-34",2015,3,"Leukaemia",0,"Rates",5.53436629267491
+"0-34",2015,3,"Lung",0,"Counts",64
+"0-34",2015,3,"Lung",0,"Rates",4.58126042698847
+"0-34",2015,3,"Lymphoma",0,"Counts",138
+"0-34",2015,3,"Lymphoma",0,"Rates",9.93458593055135
+"0-34",2015,3,"Melanoma",0,"Counts",194
+"0-34",2015,3,"Melanoma",0,"Rates",14.3140589265524
+"0-34",2015,3,"Pancreatic",0,"Counts",82
+"0-34",2015,3,"Pancreatic",0,"Rates",6.08539876804568
+"0-34",2015,3,"Prostate",1,"Counts",NA
+"0-34",2015,3,"Prostate",1,"Rates",NA
+"0-34",2016,1,"All cancers",0,"Counts",288
+"0-34",2016,1,"All cancers",0,"Rates",41.8215980238038
+"0-34",2016,1,"Breast (female)",1,"Counts",NA
+"0-34",2016,1,"Breast (female)",1,"Rates",NA
+"0-34",2016,1,"Colorectal",0,"Counts",90
+"0-34",2016,1,"Colorectal",0,"Rates",12.9370190605985
+"0-34",2016,1,"Leukaemia",0,"Counts",66
+"0-34",2016,1,"Leukaemia",0,"Rates",9.33320783301441
+"0-34",2016,1,"Lung",0,"Counts",37
+"0-34",2016,1,"Lung",0,"Rates",5.40721100658645
+"0-34",2016,1,"Lymphoma",0,"Counts",47
+"0-34",2016,1,"Lymphoma",0,"Rates",6.41117961643534
+"0-34",2016,1,"Melanoma",0,"Counts",108
+"0-34",2016,1,"Melanoma",0,"Rates",15.8015736190179
+"0-34",2016,1,"Pancreatic",0,"Counts",23
+"0-34",2016,1,"Pancreatic",0,"Rates",3.22641719133738
+"0-34",2016,1,"Prostate",1,"Counts",NA
+"0-34",2016,1,"Prostate",1,"Rates",NA
+"0-34",2016,2,"All cancers",0,"Counts",408
+"0-34",2016,2,"All cancers",0,"Rates",59.8118971381627
+"0-34",2016,2,"Breast (female)",0,"Counts",89
+"0-34",2016,2,"Breast (female)",0,"Rates",12.9434113114247
+"0-34",2016,2,"Colorectal",0,"Counts",31
+"0-34",2016,2,"Colorectal",0,"Rates",4.66362922665595
+"0-34",2016,2,"Leukaemia",0,"Counts",45
+"0-34",2016,2,"Leukaemia",0,"Rates",6.92985525256149
+"0-34",2016,2,"Lung",0,"Counts",47
+"0-34",2016,2,"Lung",0,"Rates",6.76881834718949
+"0-34",2016,2,"Lymphoma",0,"Counts",93
+"0-34",2016,2,"Lymphoma",0,"Rates",13.6231170743903
+"0-34",2016,2,"Melanoma",0,"Counts",135
+"0-34",2016,2,"Melanoma",0,"Rates",19.5681902716624
+"0-34",2016,2,"Pancreatic",0,"Counts",24
+"0-34",2016,2,"Pancreatic",0,"Rates",3.51687627563026
+"0-34",2016,2,"Prostate",1,"Counts",NA
+"0-34",2016,2,"Prostate",1,"Rates",NA
+"0-34",2016,3,"All cancers",0,"Counts",696
+"0-34",2016,3,"All cancers",0,"Rates",50.8660733332457
+"0-34",2016,3,"Breast (female)",1,"Counts",NA
+"0-34",2016,3,"Breast (female)",1,"Rates",NA
+"0-34",2016,3,"Colorectal",0,"Counts",121
+"0-34",2016,3,"Colorectal",0,"Rates",8.85413549143887
+"0-34",2016,3,"Leukaemia",0,"Counts",111
+"0-34",2016,3,"Leukaemia",0,"Rates",8.20634350660533
+"0-34",2016,3,"Lung",0,"Counts",84
+"0-34",2016,3,"Lung",0,"Rates",6.05014362272728
+"0-34",2016,3,"Lymphoma",0,"Counts",140
+"0-34",2016,3,"Lymphoma",0,"Rates",9.99845262487196
+"0-34",2016,3,"Melanoma",0,"Counts",243
+"0-34",2016,3,"Melanoma",0,"Rates",17.6663832913425
+"0-34",2016,3,"Pancreatic",0,"Counts",47
+"0-34",2016,3,"Pancreatic",0,"Rates",3.35524555698805
+"0-34",2016,3,"Prostate",1,"Counts",NA
+"0-34",2016,3,"Prostate",1,"Rates",NA
+"0-34",2017,1,"All cancers",0,"Counts",340
+"0-34",2017,1,"All cancers",0,"Rates",48.5668236755359
+"0-34",2017,1,"Breast (female)",1,"Counts",NA
+"0-34",2017,1,"Breast (female)",1,"Rates",NA
+"0-34",2017,1,"Colorectal",0,"Counts",21
+"0-34",2017,1,"Colorectal",0,"Rates",2.93278627153583
+"0-34",2017,1,"Leukaemia",0,"Counts",49
+"0-34",2017,1,"Leukaemia",0,"Rates",7.08389717265986
+"0-34",2017,1,"Lung",0,"Counts",32
+"0-34",2017,1,"Lung",0,"Rates",4.59177200371071
+"0-34",2017,1,"Lymphoma",0,"Counts",60
+"0-34",2017,1,"Lymphoma",0,"Rates",8.52310519718066
+"0-34",2017,1,"Melanoma",0,"Counts",105
+"0-34",2017,1,"Melanoma",0,"Rates",14.9746616826332
+"0-34",2017,1,"Pancreatic",0,"Counts",28
+"0-34",2017,1,"Pancreatic",0,"Rates",4.09758816741176
+"0-34",2017,1,"Prostate",0,"Counts",16
+"0-34",2017,1,"Prostate",0,"Rates",2.21075891449714
+"0-34",2017,2,"All cancers",0,"Counts",429
+"0-34",2017,2,"All cancers",0,"Rates",61.9430540782701
+"0-34",2017,2,"Breast (female)",0,"Counts",108
+"0-34",2017,2,"Breast (female)",0,"Rates",15.4632285288601
+"0-34",2017,2,"Colorectal",0,"Counts",68
+"0-34",2017,2,"Colorectal",0,"Rates",10.1615865335001
+"0-34",2017,2,"Leukaemia",0,"Counts",49
+"0-34",2017,2,"Leukaemia",0,"Rates",6.99009766431263
+"0-34",2017,2,"Lung",0,"Counts",18
+"0-34",2017,2,"Lung",0,"Rates",2.62783777242022
+"0-34",2017,2,"Lymphoma",0,"Counts",51
+"0-34",2017,2,"Lymphoma",0,"Rates",7.39144675474513
+"0-34",2017,2,"Melanoma",0,"Counts",117
+"0-34",2017,2,"Melanoma",0,"Rates",16.7856203319375
+"0-34",2017,2,"Pancreatic",0,"Counts",84
+"0-34",2017,2,"Pancreatic",0,"Rates",12.5542806580263
+"0-34",2017,2,"Prostate",1,"Counts",NA
+"0-34",2017,2,"Prostate",1,"Rates",NA
+"0-34",2017,3,"All cancers",0,"Counts",769
+"0-34",2017,3,"All cancers",0,"Rates",55.3487073876086
+"0-34",2017,3,"Breast (female)",1,"Counts",NA
+"0-34",2017,3,"Breast (female)",1,"Rates",NA
+"0-34",2017,3,"Colorectal",0,"Counts",89
+"0-34",2017,3,"Colorectal",0,"Rates",6.48711509154712
+"0-34",2017,3,"Leukaemia",0,"Counts",98
+"0-34",2017,3,"Leukaemia",0,"Rates",7.08123395333403
+"0-34",2017,3,"Lung",0,"Counts",50
+"0-34",2017,3,"Lung",0,"Rates",3.58773561529639
+"0-34",2017,3,"Lymphoma",0,"Counts",111
+"0-34",2017,3,"Lymphoma",0,"Rates",7.93623278726685
+"0-34",2017,3,"Melanoma",0,"Counts",222
+"0-34",2017,3,"Melanoma",0,"Rates",15.9643199476353
+"0-34",2017,3,"Pancreatic",0,"Counts",112
+"0-34",2017,3,"Pancreatic",0,"Rates",8.25663340840006
+"0-34",2017,3,"Prostate",1,"Counts",NA
+"0-34",2017,3,"Prostate",1,"Rates",NA
+"0-34",2018,1,"All cancers",0,"Counts",310
+"0-34",2018,1,"All cancers",0,"Rates",43.8622588134084
+"0-34",2018,1,"Breast (female)",1,"Counts",NA
+"0-34",2018,1,"Breast (female)",1,"Rates",NA
+"0-34",2018,1,"Colorectal",0,"Counts",87
+"0-34",2018,1,"Colorectal",0,"Rates",12.439979102267
+"0-34",2018,1,"Leukaemia",0,"Counts",46
+"0-34",2018,1,"Leukaemia",0,"Rates",6.56175065581283
+"0-34",2018,1,"Lung",0,"Counts",20
+"0-34",2018,1,"Lung",0,"Rates",2.775010107334
+"0-34",2018,1,"Lymphoma",0,"Counts",68
+"0-34",2018,1,"Lymphoma",0,"Rates",9.72304521104321
+"0-34",2018,1,"Melanoma",0,"Counts",73
+"0-34",2018,1,"Melanoma",0,"Rates",10.5278103873684
+"0-34",2018,1,"Pancreatic",0,"Counts",30
+"0-34",2018,1,"Pancreatic",0,"Rates",4.19722313416554
+"0-34",2018,1,"Prostate",0,"Counts",42
+"0-34",2018,1,"Prostate",0,"Rates",5.9585232134953
+"0-34",2018,2,"All cancers",0,"Counts",418
+"0-34",2018,2,"All cancers",0,"Rates",59.2473204481024
+"0-34",2018,2,"Breast (female)",0,"Counts",92
+"0-34",2018,2,"Breast (female)",0,"Rates",13.2780492427253
+"0-34",2018,2,"Colorectal",0,"Counts",97
+"0-34",2018,2,"Colorectal",0,"Rates",13.5957707301952
+"0-34",2018,2,"Leukaemia",0,"Counts",39
+"0-34",2018,2,"Leukaemia",0,"Rates",5.71890378610368
+"0-34",2018,2,"Lung",0,"Counts",56
+"0-34",2018,2,"Lung",0,"Rates",7.88819427081459
+"0-34",2018,2,"Lymphoma",0,"Counts",51
+"0-34",2018,2,"Lymphoma",0,"Rates",7.29286447192046
+"0-34",2018,2,"Melanoma",0,"Counts",66
+"0-34",2018,2,"Melanoma",0,"Rates",9.49610976290224
+"0-34",2018,2,"Pancreatic",0,"Counts",47
+"0-34",2018,2,"Pancreatic",0,"Rates",6.67634915020499
+"0-34",2018,2,"Prostate",1,"Counts",NA
+"0-34",2018,2,"Prostate",1,"Rates",NA
+"0-34",2018,3,"All cancers",0,"Counts",728
+"0-34",2018,3,"All cancers",0,"Rates",51.7031821033138
+"0-34",2018,3,"Breast (female)",1,"Counts",NA
+"0-34",2018,3,"Breast (female)",1,"Rates",NA
+"0-34",2018,3,"Colorectal",0,"Counts",184
+"0-34",2018,3,"Colorectal",0,"Rates",13.0620306234865
+"0-34",2018,3,"Leukaemia",0,"Counts",85
+"0-34",2018,3,"Leukaemia",0,"Rates",6.10076167952829
+"0-34",2018,3,"Lung",0,"Counts",76
+"0-34",2018,3,"Lung",0,"Rates",5.31670692159894
+"0-34",2018,3,"Lymphoma",0,"Counts",119
+"0-34",2018,3,"Lymphoma",0,"Rates",8.55628877050756
+"0-34",2018,3,"Melanoma",0,"Counts",139
+"0-34",2018,3,"Melanoma",0,"Rates",10.0526642830911
+"0-34",2018,3,"Pancreatic",0,"Counts",77
+"0-34",2018,3,"Pancreatic",0,"Rates",5.44474871635527
+"0-34",2018,3,"Prostate",1,"Counts",NA
+"0-34",2018,3,"Prostate",1,"Rates",NA
+"0-34",2019,1,"All cancers",0,"Counts",372
+"0-34",2019,1,"All cancers",0,"Rates",52.1746854765227
+"0-34",2019,1,"Breast (female)",1,"Counts",NA
+"0-34",2019,1,"Breast (female)",1,"Rates",NA
+"0-34",2019,1,"Colorectal",0,"Counts",46
+"0-34",2019,1,"Colorectal",0,"Rates",6.58927762820212
+"0-34",2019,1,"Leukaemia",0,"Counts",44
+"0-34",2019,1,"Leukaemia",0,"Rates",6.17017375608259
+"0-34",2019,1,"Lung",0,"Counts",45
+"0-34",2019,1,"Lung",0,"Rates",6.18694661461317
+"0-34",2019,1,"Lymphoma",0,"Counts",25
+"0-34",2019,1,"Lymphoma",0,"Rates",3.6862378064328
+"0-34",2019,1,"Melanoma",0,"Counts",108
+"0-34",2019,1,"Melanoma",0,"Rates",15.42821929137
+"0-34",2019,1,"Pancreatic",0,"Counts",25
+"0-34",2019,1,"Pancreatic",0,"Rates",3.36049252086361
+"0-34",2019,1,"Prostate",0,"Counts",61
+"0-34",2019,1,"Prostate",0,"Rates",8.56900255569797
+"0-34",2019,2,"All cancers",0,"Counts",418
+"0-34",2019,2,"All cancers",0,"Rates",59.1542374909486
+"0-34",2019,2,"Breast (female)",0,"Counts",87
+"0-34",2019,2,"Breast (female)",0,"Rates",12.3717754779543
+"0-34",2019,2,"Colorectal",0,"Counts",40
+"0-34",2019,2,"Colorectal",0,"Rates",5.86516490673328
+"0-34",2019,2,"Leukaemia",0,"Counts",56
+"0-34",2019,2,"Leukaemia",0,"Rates",8.32471833115579
+"0-34",2019,2,"Lung",0,"Counts",65
+"0-34",2019,2,"Lung",0,"Rates",9.25690722053346
+"0-34",2019,2,"Lymphoma",0,"Counts",35
+"0-34",2019,2,"Lymphoma",0,"Rates",5.16857381936264
+"0-34",2019,2,"Melanoma",0,"Counts",111
+"0-34",2019,2,"Melanoma",0,"Rates",15.7217571082572
+"0-34",2019,2,"Pancreatic",0,"Counts",42
+"0-34",2019,2,"Pancreatic",0,"Rates",5.89016412826248
+"0-34",2019,2,"Prostate",1,"Counts",NA
+"0-34",2019,2,"Prostate",1,"Rates",NA
+"0-34",2019,3,"All cancers",0,"Counts",790
+"0-34",2019,3,"All cancers",0,"Rates",55.7814306503949
+"0-34",2019,3,"Breast (female)",1,"Counts",NA
+"0-34",2019,3,"Breast (female)",1,"Rates",NA
+"0-34",2019,3,"Colorectal",0,"Counts",86
+"0-34",2019,3,"Colorectal",0,"Rates",6.21606743051366
+"0-34",2019,3,"Leukaemia",0,"Counts",100
+"0-34",2019,3,"Leukaemia",0,"Rates",7.18253817797479
+"0-34",2019,3,"Lung",0,"Counts",110
+"0-34",2019,3,"Lung",0,"Rates",7.7252032230217
+"0-34",2019,3,"Lymphoma",0,"Counts",60
+"0-34",2019,3,"Lymphoma",0,"Rates",4.34797724662786
+"0-34",2019,3,"Melanoma",0,"Counts",219
+"0-34",2019,3,"Melanoma",0,"Rates",15.5402683385498
+"0-34",2019,3,"Pancreatic",0,"Counts",67
+"0-34",2019,3,"Pancreatic",0,"Rates",4.60244462830489
+"0-34",2019,3,"Prostate",1,"Counts",NA
+"0-34",2019,3,"Prostate",1,"Rates",NA
+"0-34",2020,1,"All cancers",0,"Counts",310
+"0-34",2020,1,"All cancers",0,"Rates",43.1836963952452
+"0-34",2020,1,"Breast (female)",1,"Counts",NA
+"0-34",2020,1,"Breast (female)",1,"Rates",NA
+"0-34",2020,1,"Colorectal",0,"Counts",31
+"0-34",2020,1,"Colorectal",0,"Rates",4.44661117416778
+"0-34",2020,1,"Leukaemia",0,"Counts",77
+"0-34",2020,1,"Leukaemia",0,"Rates",10.9213575475806
+"0-34",2020,1,"Lung",0,"Counts",48
+"0-34",2020,1,"Lung",0,"Rates",6.7205421750105
+"0-34",2020,1,"Lymphoma",0,"Counts",34
+"0-34",2020,1,"Lymphoma",0,"Rates",4.68024865249272
+"0-34",2020,1,"Melanoma",0,"Counts",92
+"0-34",2020,1,"Melanoma",0,"Rates",13.0933880680674
+"0-34",2020,1,"Pancreatic",0,"Counts",26
+"0-34",2020,1,"Pancreatic",0,"Rates",3.69496926310586
+"0-34",2020,1,"Prostate",0,"Counts",45
+"0-34",2020,1,"Prostate",0,"Rates",6.32822654856863
+"0-34",2020,2,"All cancers",0,"Counts",383
+"0-34",2020,2,"All cancers",0,"Rates",53.8142172675038
+"0-34",2020,2,"Breast (female)",0,"Counts",96
+"0-34",2020,2,"Breast (female)",0,"Rates",13.5182726359384
+"0-34",2020,2,"Colorectal",0,"Counts",56
+"0-34",2020,2,"Colorectal",0,"Rates",7.92992311616195
+"0-34",2020,2,"Leukaemia",0,"Counts",74
+"0-34",2020,2,"Leukaemia",0,"Rates",10.7423835108895
+"0-34",2020,2,"Lung",0,"Counts",61
+"0-34",2020,2,"Lung",0,"Rates",8.7693936346267
+"0-34",2020,2,"Lymphoma",0,"Counts",73
+"0-34",2020,2,"Lymphoma",0,"Rates",10.413539914397
+"0-34",2020,2,"Melanoma",0,"Counts",76
+"0-34",2020,2,"Melanoma",0,"Rates",10.9389587612223
+"0-34",2020,2,"Pancreatic",0,"Counts",57
+"0-34",2020,2,"Pancreatic",0,"Rates",8.33535739234684
+"0-34",2020,2,"Prostate",1,"Counts",NA
+"0-34",2020,2,"Prostate",1,"Rates",NA
+"0-34",2020,3,"All cancers",0,"Counts",693
+"0-34",2020,3,"All cancers",0,"Rates",48.4964648417315
+"0-34",2020,3,"Breast (female)",1,"Counts",NA
+"0-34",2020,3,"Breast (female)",1,"Rates",NA
+"0-34",2020,3,"Colorectal",0,"Counts",87
+"0-34",2020,3,"Colorectal",0,"Rates",6.12360202104702
+"0-34",2020,3,"Leukaemia",0,"Counts",151
+"0-34",2020,3,"Leukaemia",0,"Rates",10.7520955624722
+"0-34",2020,3,"Lung",0,"Counts",109
+"0-34",2020,3,"Lung",0,"Rates",7.7261424773102
+"0-34",2020,3,"Lymphoma",0,"Counts",107
+"0-34",2020,3,"Lymphoma",0,"Rates",7.50096780537867
+"0-34",2020,3,"Melanoma",0,"Counts",168
+"0-34",2020,3,"Melanoma",0,"Rates",11.9622376225819
+"0-34",2020,3,"Pancreatic",0,"Counts",83
+"0-34",2020,3,"Pancreatic",0,"Rates",5.94538465372536
+"0-34",2020,3,"Prostate",1,"Counts",NA
+"0-34",2020,3,"Prostate",1,"Rates",NA
+"0-34",2021,1,"All cancers",0,"Counts",333
+"0-34",2021,1,"All cancers",0,"Rates",46.6720563961249
+"0-34",2021,1,"Breast (female)",1,"Counts",NA
+"0-34",2021,1,"Breast (female)",1,"Rates",NA
+"0-34",2021,1,"Colorectal",0,"Counts",29
+"0-34",2021,1,"Colorectal",0,"Rates",3.96273941477927
+"0-34",2021,1,"Leukaemia",0,"Counts",111
+"0-34",2021,1,"Leukaemia",0,"Rates",15.3365996026405
+"0-34",2021,1,"Lung",0,"Counts",39
+"0-34",2021,1,"Lung",0,"Rates",5.42563266436049
+"0-34",2021,1,"Lymphoma",0,"Counts",39
+"0-34",2021,1,"Lymphoma",0,"Rates",5.3515317302252
+"0-34",2021,1,"Melanoma",0,"Counts",59
+"0-34",2021,1,"Melanoma",0,"Rates",8.33820918048534
+"0-34",2021,1,"Pancreatic",0,"Counts",32
+"0-34",2021,1,"Pancreatic",0,"Rates",4.32702143439391
+"0-34",2021,1,"Prostate",0,"Counts",51
+"0-34",2021,1,"Prostate",0,"Rates",7.24038186010907
+"0-34",2021,2,"All cancers",0,"Counts",384
+"0-34",2021,2,"All cancers",0,"Rates",54.6047171251537
+"0-34",2021,2,"Breast (female)",0,"Counts",99
+"0-34",2021,2,"Breast (female)",0,"Rates",13.8986793662674
+"0-34",2021,2,"Colorectal",0,"Counts",59
+"0-34",2021,2,"Colorectal",0,"Rates",8.4222132583646
+"0-34",2021,2,"Leukaemia",0,"Counts",46
+"0-34",2021,2,"Leukaemia",0,"Rates",6.66458061629486
+"0-34",2021,2,"Lung",0,"Counts",57
+"0-34",2021,2,"Lung",0,"Rates",8.14006935921478
+"0-34",2021,2,"Lymphoma",0,"Counts",37
+"0-34",2021,2,"Lymphoma",0,"Rates",5.19017121531464
+"0-34",2021,2,"Melanoma",0,"Counts",47
+"0-34",2021,2,"Melanoma",0,"Rates",6.72821609815988
+"0-34",2021,2,"Pancreatic",0,"Counts",34
+"0-34",2021,2,"Pancreatic",0,"Rates",4.97928957341575
+"0-34",2021,2,"Prostate",1,"Counts",NA
+"0-34",2021,2,"Prostate",1,"Rates",NA
+"0-34",2021,3,"All cancers",0,"Counts",717
+"0-34",2021,3,"All cancers",0,"Rates",50.6684994301614
+"0-34",2021,3,"Breast (female)",1,"Counts",NA
+"0-34",2021,3,"Breast (female)",1,"Rates",NA
+"0-34",2021,3,"Colorectal",0,"Counts",88
+"0-34",2021,3,"Colorectal",0,"Rates",6.09759591374752
+"0-34",2021,3,"Leukaemia",0,"Counts",157
+"0-34",2021,3,"Leukaemia",0,"Rates",10.9900522030301
+"0-34",2021,3,"Lung",0,"Counts",96
+"0-34",2021,3,"Lung",0,"Rates",6.75961622740148
+"0-34",2021,3,"Lymphoma",0,"Counts",76
+"0-34",2021,3,"Lymphoma",0,"Rates",5.35471062446572
+"0-34",2021,3,"Melanoma",0,"Counts",106
+"0-34",2021,3,"Melanoma",0,"Rates",7.55570191576165
+"0-34",2021,3,"Pancreatic",0,"Counts",66
+"0-34",2021,3,"Pancreatic",0,"Rates",4.69235279202235
+"0-34",2021,3,"Prostate",1,"Counts",NA
+"0-34",2021,3,"Prostate",1,"Rates",NA
+"0-34",2022,1,"All cancers",0,"Counts",285
+"0-34",2022,1,"All cancers",0,"Rates",39.3733070948327
+"0-34",2022,1,"Breast (female)",1,"Counts",NA
+"0-34",2022,1,"Breast (female)",1,"Rates",NA
+"0-34",2022,1,"Colorectal",0,"Counts",47
+"0-34",2022,1,"Colorectal",0,"Rates",6.48965443480549
+"0-34",2022,1,"Leukaemia",0,"Counts",17
+"0-34",2022,1,"Leukaemia",0,"Rates",2.36050035284373
+"0-34",2022,1,"Lung",0,"Counts",10
+"0-34",2022,1,"Lung",0,"Rates",1.42021793230319
+"0-34",2022,1,"Lymphoma",0,"Counts",39
+"0-34",2022,1,"Lymphoma",0,"Rates",5.3347854988915
+"0-34",2022,1,"Melanoma",0,"Counts",83
+"0-34",2022,1,"Melanoma",0,"Rates",11.5519599544005
+"0-34",2022,1,"Pancreatic",1,"Counts",NA
+"0-34",2022,1,"Pancreatic",1,"Rates",NA
+"0-34",2022,1,"Prostate",0,"Counts",25
+"0-34",2022,1,"Prostate",0,"Rates",3.35315787357652
+"0-34",2022,2,"All cancers",0,"Counts",396
+"0-34",2022,2,"All cancers",0,"Rates",55.2978817974344
+"0-34",2022,2,"Breast (female)",0,"Counts",65
+"0-34",2022,2,"Breast (female)",0,"Rates",9.07623000260701
+"0-34",2022,2,"Colorectal",0,"Counts",38
+"0-34",2022,2,"Colorectal",0,"Rates",5.20829492567261
+"0-34",2022,2,"Leukaemia",0,"Counts",92
+"0-34",2022,2,"Leukaemia",0,"Rates",13.2549788806417
+"0-34",2022,2,"Lung",0,"Counts",26
+"0-34",2022,2,"Lung",0,"Rates",3.82998355367512
+"0-34",2022,2,"Lymphoma",0,"Counts",97
+"0-34",2022,2,"Lymphoma",0,"Rates",13.7344545572313
+"0-34",2022,2,"Melanoma",0,"Counts",114
+"0-34",2022,2,"Melanoma",0,"Rates",15.7868453524327
+"0-34",2022,2,"Pancreatic",0,"Counts",21
+"0-34",2022,2,"Pancreatic",0,"Rates",3.01282858697876
+"0-34",2022,2,"Prostate",1,"Counts",NA
+"0-34",2022,2,"Prostate",1,"Rates",NA
+"0-34",2022,3,"All cancers",0,"Counts",681
+"0-34",2022,3,"All cancers",0,"Rates",47.3032094404435
+"0-34",2022,3,"Breast (female)",1,"Counts",NA
+"0-34",2022,3,"Breast (female)",1,"Rates",NA
+"0-34",2022,3,"Colorectal",0,"Counts",85
+"0-34",2022,3,"Colorectal",0,"Rates",5.88928890402863
+"0-34",2022,3,"Leukaemia",0,"Counts",109
+"0-34",2022,3,"Leukaemia",0,"Rates",7.70407642863193
+"0-34",2022,3,"Lung",0,"Counts",36
+"0-34",2022,3,"Lung",0,"Rates",2.59239031287835
+"0-34",2022,3,"Lymphoma",0,"Counts",136
+"0-34",2022,3,"Lymphoma",0,"Rates",9.46446393971012
+"0-34",2022,3,"Melanoma",0,"Counts",197
+"0-34",2022,3,"Melanoma",0,"Rates",13.6679958899405
+"0-34",2022,3,"Pancreatic",0,"Counts",25
+"0-34",2022,3,"Pancreatic",0,"Rates",1.76492686134965
+"0-34",2022,3,"Prostate",1,"Counts",NA
+"0-34",2022,3,"Prostate",1,"Rates",NA
+"35-49",2005,1,"All cancers",0,"Counts",602
+"35-49",2005,1,"All cancers",0,"Rates",233.380248431345
+"35-49",2005,1,"Breast (female)",1,"Counts",NA
+"35-49",2005,1,"Breast (female)",1,"Rates",NA
+"35-49",2005,1,"Colorectal",0,"Counts",69
+"35-49",2005,1,"Colorectal",0,"Rates",26.6820776484696
+"35-49",2005,1,"Leukaemia",0,"Counts",29
+"35-49",2005,1,"Leukaemia",0,"Rates",11.3970261838323
+"35-49",2005,1,"Lung",1,"Counts",NA
+"35-49",2005,1,"Lung",1,"Rates",NA
+"35-49",2005,1,"Lymphoma",0,"Counts",44
+"35-49",2005,1,"Lymphoma",0,"Rates",17.4209971913093
+"35-49",2005,1,"Melanoma",0,"Counts",229
+"35-49",2005,1,"Melanoma",0,"Rates",89.2692066160619
+"35-49",2005,1,"Pancreatic",1,"Counts",NA
+"35-49",2005,1,"Pancreatic",1,"Rates",NA
+"35-49",2005,1,"Prostate",0,"Counts",61
+"35-49",2005,1,"Prostate",0,"Rates",23.2700900537223
+"35-49",2005,2,"All cancers",0,"Counts",955
+"35-49",2005,2,"All cancers",0,"Rates",363.342364155355
+"35-49",2005,2,"Breast (female)",0,"Counts",412
+"35-49",2005,2,"Breast (female)",0,"Rates",156.633847065681
+"35-49",2005,2,"Colorectal",0,"Counts",70
+"35-49",2005,2,"Colorectal",0,"Rates",26.696028899668
+"35-49",2005,2,"Leukaemia",0,"Counts",51
+"35-49",2005,2,"Leukaemia",0,"Rates",19.6296961330705
+"35-49",2005,2,"Lung",0,"Counts",46
+"35-49",2005,2,"Lung",0,"Rates",17.4293416050134
+"35-49",2005,2,"Lymphoma",0,"Counts",56
+"35-49",2005,2,"Lymphoma",0,"Rates",21.615437545234
+"35-49",2005,2,"Melanoma",0,"Counts",191
+"35-49",2005,2,"Melanoma",0,"Rates",72.7405829657876
+"35-49",2005,2,"Pancreatic",0,"Counts",24
+"35-49",2005,2,"Pancreatic",0,"Rates",9.20544016055302
+"35-49",2005,2,"Prostate",1,"Counts",NA
+"35-49",2005,2,"Prostate",1,"Rates",NA
+"35-49",2005,3,"All cancers",0,"Counts",1557
+"35-49",2005,3,"All cancers",0,"Rates",299.025891328875
+"35-49",2005,3,"Breast (female)",1,"Counts",NA
+"35-49",2005,3,"Breast (female)",1,"Rates",NA
+"35-49",2005,3,"Colorectal",0,"Counts",139
+"35-49",2005,3,"Colorectal",0,"Rates",26.7016183449611
+"35-49",2005,3,"Leukaemia",0,"Counts",80
+"35-49",2005,3,"Leukaemia",0,"Rates",15.5220155023189
+"35-49",2005,3,"Lung",0,"Counts",46
+"35-49",2005,3,"Lung",0,"Rates",8.81626906046441
+"35-49",2005,3,"Lymphoma",0,"Counts",100
+"35-49",2005,3,"Lymphoma",0,"Rates",19.5252168270825
+"35-49",2005,3,"Melanoma",0,"Counts",420
+"35-49",2005,3,"Melanoma",0,"Rates",80.9114286027165
+"35-49",2005,3,"Pancreatic",0,"Counts",24
+"35-49",2005,3,"Pancreatic",0,"Rates",4.66316058940444
+"35-49",2005,3,"Prostate",1,"Counts",NA
+"35-49",2005,3,"Prostate",1,"Rates",NA
+"35-49",2006,1,"All cancers",0,"Counts",608
+"35-49",2006,1,"All cancers",0,"Rates",230.428502747955
+"35-49",2006,1,"Breast (female)",1,"Counts",NA
+"35-49",2006,1,"Breast (female)",1,"Rates",NA
+"35-49",2006,1,"Colorectal",0,"Counts",60
+"35-49",2006,1,"Colorectal",0,"Rates",22.3324326656674
+"35-49",2006,1,"Leukaemia",0,"Counts",15
+"35-49",2006,1,"Leukaemia",0,"Rates",5.88757532714949
+"35-49",2006,1,"Lung",0,"Counts",37
+"35-49",2006,1,"Lung",0,"Rates",13.9577705706909
+"35-49",2006,1,"Lymphoma",0,"Counts",36
+"35-49",2006,1,"Lymphoma",0,"Rates",13.3607532264423
+"35-49",2006,1,"Melanoma",0,"Counts",133
+"35-49",2006,1,"Melanoma",0,"Rates",50.7524946497365
+"35-49",2006,1,"Pancreatic",0,"Counts",11
+"35-49",2006,1,"Pancreatic",0,"Rates",4.31755523990963
+"35-49",2006,1,"Prostate",0,"Counts",62
+"35-49",2006,1,"Prostate",0,"Rates",23.3008562928428
+"35-49",2006,2,"All cancers",0,"Counts",954
+"35-49",2006,2,"All cancers",0,"Rates",354.281400125943
+"35-49",2006,2,"Breast (female)",0,"Counts",401
+"35-49",2006,2,"Breast (female)",0,"Rates",148.799312020178
+"35-49",2006,2,"Colorectal",0,"Counts",52
+"35-49",2006,2,"Colorectal",0,"Rates",19.4202072052656
+"35-49",2006,2,"Leukaemia",0,"Counts",19
+"35-49",2006,2,"Leukaemia",0,"Rates",6.88116916673385
+"35-49",2006,2,"Lung",0,"Counts",29
+"35-49",2006,2,"Lung",0,"Rates",10.464288558291
+"35-49",2006,2,"Lymphoma",0,"Counts",17
+"35-49",2006,2,"Lymphoma",0,"Rates",6.13423812037749
+"35-49",2006,2,"Melanoma",0,"Counts",144
+"35-49",2006,2,"Melanoma",0,"Rates",53.5044396224188
+"35-49",2006,2,"Pancreatic",0,"Counts",22
+"35-49",2006,2,"Pancreatic",0,"Rates",8.28201837893956
+"35-49",2006,2,"Prostate",1,"Counts",NA
+"35-49",2006,2,"Prostate",1,"Rates",NA
+"35-49",2006,3,"All cancers",0,"Counts",1562
+"35-49",2006,3,"All cancers",0,"Rates",293.078510818737
+"35-49",2006,3,"Breast (female)",1,"Counts",NA
+"35-49",2006,3,"Breast (female)",1,"Rates",NA
+"35-49",2006,3,"Colorectal",0,"Counts",112
+"35-49",2006,3,"Colorectal",0,"Rates",20.8528332467912
+"35-49",2006,3,"Leukaemia",0,"Counts",34
+"35-49",2006,3,"Leukaemia",0,"Rates",6.39639131877457
+"35-49",2006,3,"Lung",0,"Counts",66
+"35-49",2006,3,"Lung",0,"Rates",12.1784727563205
+"35-49",2006,3,"Lymphoma",0,"Counts",53
+"35-49",2006,3,"Lymphoma",0,"Rates",9.70802443496815
+"35-49",2006,3,"Melanoma",0,"Counts",277
+"35-49",2006,3,"Melanoma",0,"Rates",52.1322344257491
+"35-49",2006,3,"Pancreatic",0,"Counts",33
+"35-49",2006,3,"Pancreatic",0,"Rates",6.34420038920558
+"35-49",2006,3,"Prostate",1,"Counts",NA
+"35-49",2006,3,"Prostate",1,"Rates",NA
+"35-49",2007,1,"All cancers",0,"Counts",647
+"35-49",2007,1,"All cancers",0,"Rates",238.37740416936
+"35-49",2007,1,"Breast (female)",1,"Counts",NA
+"35-49",2007,1,"Breast (female)",1,"Rates",NA
+"35-49",2007,1,"Colorectal",0,"Counts",48
+"35-49",2007,1,"Colorectal",0,"Rates",17.9463150999069
+"35-49",2007,1,"Leukaemia",0,"Counts",50
+"35-49",2007,1,"Leukaemia",0,"Rates",18.6926974149187
+"35-49",2007,1,"Lung",0,"Counts",44
+"35-49",2007,1,"Lung",0,"Rates",16.4150695518786
+"35-49",2007,1,"Lymphoma",0,"Counts",71
+"35-49",2007,1,"Lymphoma",0,"Rates",26.135450998387
+"35-49",2007,1,"Melanoma",0,"Counts",140
+"35-49",2007,1,"Melanoma",0,"Rates",51.7109906109646
+"35-49",2007,1,"Pancreatic",0,"Counts",27
+"35-49",2007,1,"Pancreatic",0,"Rates",9.77142610054072
+"35-49",2007,1,"Prostate",0,"Counts",87
+"35-49",2007,1,"Prostate",0,"Rates",31.9333920352288
+"35-49",2007,2,"All cancers",0,"Counts",1024
+"35-49",2007,2,"All cancers",0,"Rates",372.329237256319
+"35-49",2007,2,"Breast (female)",0,"Counts",331
+"35-49",2007,2,"Breast (female)",0,"Rates",120.056158582921
+"35-49",2007,2,"Colorectal",0,"Counts",50
+"35-49",2007,2,"Colorectal",0,"Rates",18.5172397433138
+"35-49",2007,2,"Leukaemia",0,"Counts",21
+"35-49",2007,2,"Leukaemia",0,"Rates",7.9912386618594
+"35-49",2007,2,"Lung",1,"Counts",NA
+"35-49",2007,2,"Lung",1,"Rates",NA
+"35-49",2007,2,"Lymphoma",0,"Counts",13
+"35-49",2007,2,"Lymphoma",0,"Rates",4.70275451125481
+"35-49",2007,2,"Melanoma",0,"Counts",230
+"35-49",2007,2,"Melanoma",0,"Rates",83.7507094678985
+"35-49",2007,2,"Pancreatic",0,"Counts",34
+"35-49",2007,2,"Pancreatic",0,"Rates",12.4068283752498
+"35-49",2007,2,"Prostate",1,"Counts",NA
+"35-49",2007,2,"Prostate",1,"Rates",NA
+"35-49",2007,3,"All cancers",0,"Counts",1671
+"35-49",2007,3,"All cancers",0,"Rates",306.101110062605
+"35-49",2007,3,"Breast (female)",1,"Counts",NA
+"35-49",2007,3,"Breast (female)",1,"Rates",NA
+"35-49",2007,3,"Colorectal",0,"Counts",98
+"35-49",2007,3,"Colorectal",0,"Rates",18.2277099238035
+"35-49",2007,3,"Leukaemia",0,"Counts",71
+"35-49",2007,3,"Leukaemia",0,"Rates",13.2729037253827
+"35-49",2007,3,"Lung",0,"Counts",48
+"35-49",2007,3,"Lung",0,"Rates",8.82064911780783
+"35-49",2007,3,"Lymphoma",0,"Counts",84
+"35-49",2007,3,"Lymphoma",0,"Rates",15.2972871661926
+"35-49",2007,3,"Melanoma",0,"Counts",370
+"35-49",2007,3,"Melanoma",0,"Rates",67.8938240699431
+"35-49",2007,3,"Pancreatic",0,"Counts",61
+"35-49",2007,3,"Pancreatic",0,"Rates",11.0963844781914
+"35-49",2007,3,"Prostate",1,"Counts",NA
+"35-49",2007,3,"Prostate",1,"Rates",NA
+"35-49",2008,1,"All cancers",0,"Counts",731
+"35-49",2008,1,"All cancers",0,"Rates",264.863078010402
+"35-49",2008,1,"Breast (female)",1,"Counts",NA
+"35-49",2008,1,"Breast (female)",1,"Rates",NA
+"35-49",2008,1,"Colorectal",0,"Counts",18
+"35-49",2008,1,"Colorectal",0,"Rates",6.25980812251795
+"35-49",2008,1,"Leukaemia",0,"Counts",54
+"35-49",2008,1,"Leukaemia",0,"Rates",19.1708444243811
+"35-49",2008,1,"Lung",0,"Counts",25
+"35-49",2008,1,"Lung",0,"Rates",9.54576331096921
+"35-49",2008,1,"Lymphoma",0,"Counts",59
+"35-49",2008,1,"Lymphoma",0,"Rates",21.3954512128784
+"35-49",2008,1,"Melanoma",0,"Counts",201
+"35-49",2008,1,"Melanoma",0,"Rates",72.6426675633349
+"35-49",2008,1,"Pancreatic",0,"Counts",35
+"35-49",2008,1,"Pancreatic",0,"Rates",12.8491219470026
+"35-49",2008,1,"Prostate",0,"Counts",60
+"35-49",2008,1,"Prostate",0,"Rates",20.8083737179811
+"35-49",2008,2,"All cancers",0,"Counts",1046
+"35-49",2008,2,"All cancers",0,"Rates",373.136896391678
+"35-49",2008,2,"Breast (female)",0,"Counts",426
+"35-49",2008,2,"Breast (female)",0,"Rates",151.667686259568
+"35-49",2008,2,"Colorectal",0,"Counts",88
+"35-49",2008,2,"Colorectal",0,"Rates",31.8660498108638
+"35-49",2008,2,"Leukaemia",0,"Counts",32
+"35-49",2008,2,"Leukaemia",0,"Rates",11.4363647584374
+"35-49",2008,2,"Lung",0,"Counts",30
+"35-49",2008,2,"Lung",0,"Rates",10.5346781514374
+"35-49",2008,2,"Lymphoma",0,"Counts",15
+"35-49",2008,2,"Lymphoma",0,"Rates",5.09282987772008
+"35-49",2008,2,"Melanoma",0,"Counts",209
+"35-49",2008,2,"Melanoma",0,"Rates",75.3089154543315
+"35-49",2008,2,"Pancreatic",1,"Counts",NA
+"35-49",2008,2,"Pancreatic",1,"Rates",NA
+"35-49",2008,2,"Prostate",1,"Counts",NA
+"35-49",2008,2,"Prostate",1,"Rates",NA
+"35-49",2008,3,"All cancers",0,"Counts",1777
+"35-49",2008,3,"All cancers",0,"Rates",319.510969516059
+"35-49",2008,3,"Breast (female)",1,"Counts",NA
+"35-49",2008,3,"Breast (female)",1,"Rates",NA
+"35-49",2008,3,"Colorectal",0,"Counts",106
+"35-49",2008,3,"Colorectal",0,"Rates",19.1735443422665
+"35-49",2008,3,"Leukaemia",0,"Counts",86
+"35-49",2008,3,"Leukaemia",0,"Rates",15.2635152380758
+"35-49",2008,3,"Lung",0,"Counts",55
+"35-49",2008,3,"Lung",0,"Rates",10.0508377524927
+"35-49",2008,3,"Lymphoma",0,"Counts",74
+"35-49",2008,3,"Lymphoma",0,"Rates",13.1691438100572
+"35-49",2008,3,"Melanoma",0,"Counts",410
+"35-49",2008,3,"Melanoma",0,"Rates",73.9804996826911
+"35-49",2008,3,"Pancreatic",0,"Counts",35
+"35-49",2008,3,"Pancreatic",0,"Rates",6.36767353689596
+"35-49",2008,3,"Prostate",1,"Counts",NA
+"35-49",2008,3,"Prostate",1,"Rates",NA
+"35-49",2009,1,"All cancers",0,"Counts",712
+"35-49",2009,1,"All cancers",0,"Rates",252.348360775082
+"35-49",2009,1,"Breast (female)",1,"Counts",NA
+"35-49",2009,1,"Breast (female)",1,"Rates",NA
+"35-49",2009,1,"Colorectal",0,"Counts",97
+"35-49",2009,1,"Colorectal",0,"Rates",34.7694040405095
+"35-49",2009,1,"Leukaemia",0,"Counts",19
+"35-49",2009,1,"Leukaemia",0,"Rates",6.46511967272717
+"35-49",2009,1,"Lung",0,"Counts",17
+"35-49",2009,1,"Lung",0,"Rates",5.78458075980852
+"35-49",2009,1,"Lymphoma",0,"Counts",59
+"35-49",2009,1,"Lymphoma",0,"Rates",20.4676398767716
+"35-49",2009,1,"Melanoma",0,"Counts",176
+"35-49",2009,1,"Melanoma",0,"Rates",63.8919255844945
+"35-49",2009,1,"Pancreatic",0,"Counts",31
+"35-49",2009,1,"Pancreatic",0,"Rates",11.3714379704863
+"35-49",2009,1,"Prostate",0,"Counts",80
+"35-49",2009,1,"Prostate",0,"Rates",27.5875377323042
+"35-49",2009,2,"All cancers",0,"Counts",1053
+"35-49",2009,2,"All cancers",0,"Rates",368.980634957278
+"35-49",2009,2,"Breast (female)",0,"Counts",420
+"35-49",2009,2,"Breast (female)",0,"Rates",146.790453553943
+"35-49",2009,2,"Colorectal",0,"Counts",49
+"35-49",2009,2,"Colorectal",0,"Rates",16.9762969441494
+"35-49",2009,2,"Leukaemia",0,"Counts",20
+"35-49",2009,2,"Leukaemia",0,"Rates",6.93463179222946
+"35-49",2009,2,"Lung",0,"Counts",53
+"35-49",2009,2,"Lung",0,"Rates",18.1878684917317
+"35-49",2009,2,"Lymphoma",0,"Counts",6
+"35-49",2009,2,"Lymphoma",0,"Rates",2.0361228841342
+"35-49",2009,2,"Melanoma",0,"Counts",180
+"35-49",2009,2,"Melanoma",0,"Rates",63.3914453902855
+"35-49",2009,2,"Pancreatic",0,"Counts",9
+"35-49",2009,2,"Pancreatic",0,"Rates",3.37441182136003
+"35-49",2009,2,"Prostate",1,"Counts",NA
+"35-49",2009,2,"Prostate",1,"Rates",NA
+"35-49",2009,3,"All cancers",0,"Counts",1765
+"35-49",2009,3,"All cancers",0,"Rates",311.160462732847
+"35-49",2009,3,"Breast (female)",1,"Counts",NA
+"35-49",2009,3,"Breast (female)",1,"Rates",NA
+"35-49",2009,3,"Colorectal",0,"Counts",146
+"35-49",2009,3,"Colorectal",0,"Rates",25.7982518968233
+"35-49",2009,3,"Leukaemia",0,"Counts",39
+"35-49",2009,3,"Leukaemia",0,"Rates",6.6910645255144
+"35-49",2009,3,"Lung",0,"Counts",70
+"35-49",2009,3,"Lung",0,"Rates",12.0413752580739
+"35-49",2009,3,"Lymphoma",0,"Counts",65
+"35-49",2009,3,"Lymphoma",0,"Rates",11.1620856577649
+"35-49",2009,3,"Melanoma",0,"Counts",356
+"35-49",2009,3,"Melanoma",0,"Rates",63.6496441017339
+"35-49",2009,3,"Pancreatic",0,"Counts",40
+"35-49",2009,3,"Pancreatic",0,"Rates",7.34054607770809
+"35-49",2009,3,"Prostate",1,"Counts",NA
+"35-49",2009,3,"Prostate",1,"Rates",NA
+"35-49",2010,1,"All cancers",0,"Counts",709
+"35-49",2010,1,"All cancers",0,"Rates",251.003497473395
+"35-49",2010,1,"Breast (female)",1,"Counts",NA
+"35-49",2010,1,"Breast (female)",1,"Rates",NA
+"35-49",2010,1,"Colorectal",0,"Counts",102
+"35-49",2010,1,"Colorectal",0,"Rates",36.2931495817417
+"35-49",2010,1,"Leukaemia",0,"Counts",11
+"35-49",2010,1,"Leukaemia",0,"Rates",3.94550486735788
+"35-49",2010,1,"Lung",0,"Counts",79
+"35-49",2010,1,"Lung",0,"Rates",28.0608079970808
+"35-49",2010,1,"Lymphoma",0,"Counts",49
+"35-49",2010,1,"Lymphoma",0,"Rates",17.8265643957671
+"35-49",2010,1,"Melanoma",0,"Counts",187
+"35-49",2010,1,"Melanoma",0,"Rates",66.7630755958691
+"35-49",2010,1,"Pancreatic",1,"Counts",NA
+"35-49",2010,1,"Pancreatic",1,"Rates",NA
+"35-49",2010,1,"Prostate",0,"Counts",109
+"35-49",2010,1,"Prostate",0,"Rates",38.1276351475005
+"35-49",2010,2,"All cancers",0,"Counts",1097
+"35-49",2010,2,"All cancers",0,"Rates",379.684202756698
+"35-49",2010,2,"Breast (female)",0,"Counts",445
+"35-49",2010,2,"Breast (female)",0,"Rates",153.03726815775
+"35-49",2010,2,"Colorectal",0,"Counts",90
+"35-49",2010,2,"Colorectal",0,"Rates",30.7565686870871
+"35-49",2010,2,"Leukaemia",0,"Counts",9
+"35-49",2010,2,"Leukaemia",0,"Rates",3.23517790028919
+"35-49",2010,2,"Lung",0,"Counts",29
+"35-49",2010,2,"Lung",0,"Rates",9.61109180126202
+"35-49",2010,2,"Lymphoma",0,"Counts",21
+"35-49",2010,2,"Lymphoma",0,"Rates",7.17038449825655
+"35-49",2010,2,"Melanoma",0,"Counts",157
+"35-49",2010,2,"Melanoma",0,"Rates",54.6144011947776
+"35-49",2010,2,"Pancreatic",1,"Counts",NA
+"35-49",2010,2,"Pancreatic",1,"Rates",NA
+"35-49",2010,2,"Prostate",1,"Counts",NA
+"35-49",2010,2,"Prostate",1,"Rates",NA
+"35-49",2010,3,"All cancers",0,"Counts",1806
+"35-49",2010,3,"All cancers",0,"Rates",316.106857353642
+"35-49",2010,3,"Breast (female)",1,"Counts",NA
+"35-49",2010,3,"Breast (female)",1,"Rates",NA
+"35-49",2010,3,"Colorectal",0,"Counts",192
+"35-49",2010,3,"Colorectal",0,"Rates",33.504870330448
+"35-49",2010,3,"Leukaemia",0,"Counts",20
+"35-49",2010,3,"Leukaemia",0,"Rates",3.57839896249829
+"35-49",2010,3,"Lung",0,"Counts",108
+"35-49",2010,3,"Lung",0,"Rates",18.752704284774
+"35-49",2010,3,"Lymphoma",0,"Counts",70
+"35-49",2010,3,"Lymphoma",0,"Rates",12.4629154601227
+"35-49",2010,3,"Melanoma",0,"Counts",344
+"35-49",2010,3,"Melanoma",0,"Rates",60.6461127657383
+"35-49",2010,3,"Pancreatic",1,"Counts",NA
+"35-49",2010,3,"Pancreatic",1,"Rates",NA
+"35-49",2010,3,"Prostate",1,"Counts",NA
+"35-49",2010,3,"Prostate",1,"Rates",NA
+"35-49",2011,1,"All cancers",0,"Counts",771
+"35-49",2011,1,"All cancers",0,"Rates",271.438911871951
+"35-49",2011,1,"Breast (female)",1,"Counts",NA
+"35-49",2011,1,"Breast (female)",1,"Rates",NA
+"35-49",2011,1,"Colorectal",0,"Counts",71
+"35-49",2011,1,"Colorectal",0,"Rates",24.8052929550662
+"35-49",2011,1,"Leukaemia",0,"Counts",18
+"35-49",2011,1,"Leukaemia",0,"Rates",6.55781471721516
+"35-49",2011,1,"Lung",0,"Counts",45
+"35-49",2011,1,"Lung",0,"Rates",15.9813420003502
+"35-49",2011,1,"Lymphoma",0,"Counts",82
+"35-49",2011,1,"Lymphoma",0,"Rates",29.1625664368697
+"35-49",2011,1,"Melanoma",0,"Counts",197
+"35-49",2011,1,"Melanoma",0,"Rates",70.1024808480054
+"35-49",2011,1,"Pancreatic",0,"Counts",19
+"35-49",2011,1,"Pancreatic",0,"Rates",6.94796655087566
+"35-49",2011,1,"Prostate",0,"Counts",42
+"35-49",2011,1,"Prostate",0,"Rates",14.3309487901302
+"35-49",2011,2,"All cancers",0,"Counts",1043
+"35-49",2011,2,"All cancers",0,"Rates",361.021979817653
+"35-49",2011,2,"Breast (female)",0,"Counts",417
+"35-49",2011,2,"Breast (female)",0,"Rates",143.652783007506
+"35-49",2011,2,"Colorectal",0,"Counts",52
+"35-49",2011,2,"Colorectal",0,"Rates",18.3261299133388
+"35-49",2011,2,"Leukaemia",0,"Counts",50
+"35-49",2011,2,"Leukaemia",0,"Rates",17.38620122572
+"35-49",2011,2,"Lung",0,"Counts",24
+"35-49",2011,2,"Lung",0,"Rates",8.46161508860954
+"35-49",2011,2,"Lymphoma",0,"Counts",30
+"35-49",2011,2,"Lymphoma",0,"Rates",10.2698830079824
+"35-49",2011,2,"Melanoma",0,"Counts",233
+"35-49",2011,2,"Melanoma",0,"Rates",80.5195300045983
+"35-49",2011,2,"Pancreatic",0,"Counts",29
+"35-49",2011,2,"Pancreatic",0,"Rates",9.90084051067532
+"35-49",2011,2,"Prostate",1,"Counts",NA
+"35-49",2011,2,"Prostate",1,"Rates",NA
+"35-49",2011,3,"All cancers",0,"Counts",1814
+"35-49",2011,3,"All cancers",0,"Rates",316.643509272345
+"35-49",2011,3,"Breast (female)",1,"Counts",NA
+"35-49",2011,3,"Breast (female)",1,"Rates",NA
+"35-49",2011,3,"Colorectal",0,"Counts",123
+"35-49",2011,3,"Colorectal",0,"Rates",21.5285696124038
+"35-49",2011,3,"Leukaemia",0,"Counts",68
+"35-49",2011,3,"Leukaemia",0,"Rates",12.0207187341349
+"35-49",2011,3,"Lung",0,"Counts",69
+"35-49",2011,3,"Lung",0,"Rates",12.1795057653393
+"35-49",2011,3,"Lymphoma",0,"Counts",112
+"35-49",2011,3,"Lymphoma",0,"Rates",19.6319144831297
+"35-49",2011,3,"Melanoma",0,"Counts",430
+"35-49",2011,3,"Melanoma",0,"Rates",75.3573689867911
+"35-49",2011,3,"Pancreatic",0,"Counts",48
+"35-49",2011,3,"Pancreatic",0,"Rates",8.44401775534644
+"35-49",2011,3,"Prostate",1,"Counts",NA
+"35-49",2011,3,"Prostate",1,"Rates",NA
+"35-49",2012,1,"All cancers",0,"Counts",714
+"35-49",2012,1,"All cancers",0,"Rates",249.952837571118
+"35-49",2012,1,"Breast (female)",1,"Counts",NA
+"35-49",2012,1,"Breast (female)",1,"Rates",NA
+"35-49",2012,1,"Colorectal",0,"Counts",57
+"35-49",2012,1,"Colorectal",0,"Rates",19.8164280693106
+"35-49",2012,1,"Leukaemia",0,"Counts",39
+"35-49",2012,1,"Leukaemia",0,"Rates",13.9218201326439
+"35-49",2012,1,"Lung",0,"Counts",29
+"35-49",2012,1,"Lung",0,"Rates",9.969226621918
+"35-49",2012,1,"Lymphoma",0,"Counts",5
+"35-49",2012,1,"Lymphoma",0,"Rates",1.84471813426831
+"35-49",2012,1,"Melanoma",0,"Counts",187
+"35-49",2012,1,"Melanoma",0,"Rates",65.9078780820243
+"35-49",2012,1,"Pancreatic",0,"Counts",13
+"35-49",2012,1,"Pancreatic",0,"Rates",4.79626714909762
+"35-49",2012,1,"Prostate",0,"Counts",100
+"35-49",2012,1,"Prostate",0,"Rates",34.5033585849406
+"35-49",2012,2,"All cancers",0,"Counts",1098
+"35-49",2012,2,"All cancers",0,"Rates",375.557686551549
+"35-49",2012,2,"Breast (female)",0,"Counts",469
+"35-49",2012,2,"Breast (female)",0,"Rates",159.969463302523
+"35-49",2012,2,"Colorectal",0,"Counts",32
+"35-49",2012,2,"Colorectal",0,"Rates",10.8198014237145
+"35-49",2012,2,"Leukaemia",0,"Counts",36
+"35-49",2012,2,"Leukaemia",0,"Rates",12.7020023313259
+"35-49",2012,2,"Lung",0,"Counts",11
+"35-49",2012,2,"Lung",0,"Rates",3.68391526484183
+"35-49",2012,2,"Lymphoma",0,"Counts",69
+"35-49",2012,2,"Lymphoma",0,"Rates",23.7336167344159
+"35-49",2012,2,"Melanoma",0,"Counts",213
+"35-49",2012,2,"Melanoma",0,"Rates",73.4474974678076
+"35-49",2012,2,"Pancreatic",0,"Counts",29
+"35-49",2012,2,"Pancreatic",0,"Rates",9.7611673945796
+"35-49",2012,2,"Prostate",1,"Counts",NA
+"35-49",2012,2,"Prostate",1,"Rates",NA
+"35-49",2012,3,"All cancers",0,"Counts",1812
+"35-49",2012,3,"All cancers",0,"Rates",313.486847828651
+"35-49",2012,3,"Breast (female)",1,"Counts",NA
+"35-49",2012,3,"Breast (female)",1,"Rates",NA
+"35-49",2012,3,"Colorectal",0,"Counts",89
+"35-49",2012,3,"Colorectal",0,"Rates",15.2636035807079
+"35-49",2012,3,"Leukaemia",0,"Counts",75
+"35-49",2012,3,"Leukaemia",0,"Rates",13.3006259972018
+"35-49",2012,3,"Lung",0,"Counts",40
+"35-49",2012,3,"Lung",0,"Rates",6.78552023933171
+"35-49",2012,3,"Lymphoma",0,"Counts",74
+"35-49",2012,3,"Lymphoma",0,"Rates",12.9169906068457
+"35-49",2012,3,"Melanoma",0,"Counts",400
+"35-49",2012,3,"Melanoma",0,"Rates",69.7217332666434
+"35-49",2012,3,"Pancreatic",0,"Counts",42
+"35-49",2012,3,"Pancreatic",0,"Rates",7.32752438582008
+"35-49",2012,3,"Prostate",1,"Counts",NA
+"35-49",2012,3,"Prostate",1,"Rates",NA
+"35-49",2013,1,"All cancers",0,"Counts",746
+"35-49",2013,1,"All cancers",0,"Rates",259.924370413664
+"35-49",2013,1,"Breast (female)",1,"Counts",NA
+"35-49",2013,1,"Breast (female)",1,"Rates",NA
+"35-49",2013,1,"Colorectal",0,"Counts",92
+"35-49",2013,1,"Colorectal",0,"Rates",31.906452889539
+"35-49",2013,1,"Leukaemia",0,"Counts",33
+"35-49",2013,1,"Leukaemia",0,"Rates",11.3284521919765
+"35-49",2013,1,"Lung",0,"Counts",28
+"35-49",2013,1,"Lung",0,"Rates",9.9488639202817
+"35-49",2013,1,"Lymphoma",0,"Counts",60
+"35-49",2013,1,"Lymphoma",0,"Rates",21.0753496842285
+"35-49",2013,1,"Melanoma",0,"Counts",178
+"35-49",2013,1,"Melanoma",0,"Rates",62.1724857409267
+"35-49",2013,1,"Pancreatic",0,"Counts",13
+"35-49",2013,1,"Pancreatic",0,"Rates",4.48843001317136
+"35-49",2013,1,"Prostate",0,"Counts",70
+"35-49",2013,1,"Prostate",0,"Rates",24.009985698235
+"35-49",2013,2,"All cancers",0,"Counts",1147
+"35-49",2013,2,"All cancers",0,"Rates",390.069418845433
+"35-49",2013,2,"Breast (female)",0,"Counts",486
+"35-49",2013,2,"Breast (female)",0,"Rates",164.667377518291
+"35-49",2013,2,"Colorectal",0,"Counts",99
+"35-49",2013,2,"Colorectal",0,"Rates",33.9173105309561
+"35-49",2013,2,"Leukaemia",0,"Counts",18
+"35-49",2013,2,"Leukaemia",0,"Rates",6.55223873251592
+"35-49",2013,2,"Lung",0,"Counts",41
+"35-49",2013,2,"Lung",0,"Rates",13.9673041716555
+"35-49",2013,2,"Lymphoma",0,"Counts",54
+"35-49",2013,2,"Lymphoma",0,"Rates",17.9896744171243
+"35-49",2013,2,"Melanoma",0,"Counts",225
+"35-49",2013,2,"Melanoma",0,"Rates",76.5161957951225
+"35-49",2013,2,"Pancreatic",0,"Counts",16
+"35-49",2013,2,"Pancreatic",0,"Rates",5.3295822624923
+"35-49",2013,2,"Prostate",1,"Counts",NA
+"35-49",2013,2,"Prostate",1,"Rates",NA
+"35-49",2013,3,"All cancers",0,"Counts",1893
+"35-49",2013,3,"All cancers",0,"Rates",325.76966784016
+"35-49",2013,3,"Breast (female)",1,"Counts",NA
+"35-49",2013,3,"Breast (female)",1,"Rates",NA
+"35-49",2013,3,"Colorectal",0,"Counts",191
+"35-49",2013,3,"Colorectal",0,"Rates",32.9073349361291
+"35-49",2013,3,"Leukaemia",0,"Counts",51
+"35-49",2013,3,"Leukaemia",0,"Rates",8.88612904020092
+"35-49",2013,3,"Lung",0,"Counts",69
+"35-49",2013,3,"Lung",0,"Rates",11.9950820863814
+"35-49",2013,3,"Lymphoma",0,"Counts",114
+"35-49",2013,3,"Lymphoma",0,"Rates",19.5240932094878
+"35-49",2013,3,"Melanoma",0,"Counts",403
+"35-49",2013,3,"Melanoma",0,"Rates",69.4287787957513
+"35-49",2013,3,"Pancreatic",0,"Counts",29
+"35-49",2013,3,"Pancreatic",0,"Rates",4.91405937879156
+"35-49",2013,3,"Prostate",1,"Counts",NA
+"35-49",2013,3,"Prostate",1,"Rates",NA
+"35-49",2014,1,"All cancers",0,"Counts",719
+"35-49",2014,1,"All cancers",0,"Rates",251.145881060238
+"35-49",2014,1,"Breast (female)",1,"Counts",NA
+"35-49",2014,1,"Breast (female)",1,"Rates",NA
+"35-49",2014,1,"Colorectal",0,"Counts",98
+"35-49",2014,1,"Colorectal",0,"Rates",34.6218075677748
+"35-49",2014,1,"Leukaemia",0,"Counts",23
+"35-49",2014,1,"Leukaemia",0,"Rates",8.61346566893861
+"35-49",2014,1,"Lung",0,"Counts",28
+"35-49",2014,1,"Lung",0,"Rates",9.56851627759835
+"35-49",2014,1,"Lymphoma",0,"Counts",46
+"35-49",2014,1,"Lymphoma",0,"Rates",16.3616812611686
+"35-49",2014,1,"Melanoma",0,"Counts",214
+"35-49",2014,1,"Melanoma",0,"Rates",74.9917517756468
+"35-49",2014,1,"Pancreatic",0,"Counts",42
+"35-49",2014,1,"Pancreatic",0,"Rates",14.7487152075879
+"35-49",2014,1,"Prostate",0,"Counts",60
+"35-49",2014,1,"Prostate",0,"Rates",20.5588300923721
+"35-49",2014,2,"All cancers",0,"Counts",1155
+"35-49",2014,2,"All cancers",0,"Rates",391.032067545756
+"35-49",2014,2,"Breast (female)",0,"Counts",447
+"35-49",2014,2,"Breast (female)",0,"Rates",150.332875322859
+"35-49",2014,2,"Colorectal",0,"Counts",75
+"35-49",2014,2,"Colorectal",0,"Rates",25.5262838147365
+"35-49",2014,2,"Leukaemia",0,"Counts",34
+"35-49",2014,2,"Leukaemia",0,"Rates",11.5445032912819
+"35-49",2014,2,"Lung",0,"Counts",46
+"35-49",2014,2,"Lung",0,"Rates",15.4461929708727
+"35-49",2014,2,"Lymphoma",0,"Counts",28
+"35-49",2014,2,"Lymphoma",0,"Rates",9.97330154148186
+"35-49",2014,2,"Melanoma",0,"Counts",232
+"35-49",2014,2,"Melanoma",0,"Rates",78.7204165335281
+"35-49",2014,2,"Pancreatic",0,"Counts",19
+"35-49",2014,2,"Pancreatic",0,"Rates",6.29472804923182
+"35-49",2014,2,"Prostate",1,"Counts",NA
+"35-49",2014,2,"Prostate",1,"Rates",NA
+"35-49",2014,3,"All cancers",0,"Counts",1874
+"35-49",2014,3,"All cancers",0,"Rates",322.138385783325
+"35-49",2014,3,"Breast (female)",1,"Counts",NA
+"35-49",2014,3,"Breast (female)",1,"Rates",NA
+"35-49",2014,3,"Colorectal",0,"Counts",173
+"35-49",2014,3,"Colorectal",0,"Rates",30.0155449929382
+"35-49",2014,3,"Leukaemia",0,"Counts",57
+"35-49",2014,3,"Leukaemia",0,"Rates",10.1159395018268
+"35-49",2014,3,"Lung",0,"Counts",74
+"35-49",2014,3,"Lung",0,"Rates",12.5484413870847
+"35-49",2014,3,"Lymphoma",0,"Counts",74
+"35-49",2014,3,"Lymphoma",0,"Rates",13.1112935716492
+"35-49",2014,3,"Melanoma",0,"Counts",446
+"35-49",2014,3,"Melanoma",0,"Rates",76.8963251607068
+"35-49",2014,3,"Pancreatic",0,"Counts",61
+"35-49",2014,3,"Pancreatic",0,"Rates",10.471214455063
+"35-49",2014,3,"Prostate",1,"Counts",NA
+"35-49",2014,3,"Prostate",1,"Rates",NA
+"35-49",2015,1,"All cancers",0,"Counts",772
+"35-49",2015,1,"All cancers",0,"Rates",267.928583571782
+"35-49",2015,1,"Breast (female)",1,"Counts",NA
+"35-49",2015,1,"Breast (female)",1,"Rates",NA
+"35-49",2015,1,"Colorectal",0,"Counts",96
+"35-49",2015,1,"Colorectal",0,"Rates",32.7924285047136
+"35-49",2015,1,"Leukaemia",1,"Counts",NA
+"35-49",2015,1,"Leukaemia",1,"Rates",NA
+"35-49",2015,1,"Lung",0,"Counts",70
+"35-49",2015,1,"Lung",0,"Rates",24.2382780375644
+"35-49",2015,1,"Lymphoma",0,"Counts",62
+"35-49",2015,1,"Lymphoma",0,"Rates",21.4725663339648
+"35-49",2015,1,"Melanoma",0,"Counts",208
+"35-49",2015,1,"Melanoma",0,"Rates",72.2806756554934
+"35-49",2015,1,"Pancreatic",0,"Counts",13
+"35-49",2015,1,"Pancreatic",0,"Rates",4.45731092498606
+"35-49",2015,1,"Prostate",0,"Counts",50
+"35-49",2015,1,"Prostate",0,"Rates",17.0023903067205
+"35-49",2015,2,"All cancers",0,"Counts",1142
+"35-49",2015,2,"All cancers",0,"Rates",382.52797196152
+"35-49",2015,2,"Breast (female)",0,"Counts",455
+"35-49",2015,2,"Breast (female)",0,"Rates",150.987507117811
+"35-49",2015,2,"Colorectal",0,"Counts",80
+"35-49",2015,2,"Colorectal",0,"Rates",26.3689407400034
+"35-49",2015,2,"Leukaemia",0,"Counts",10
+"35-49",2015,2,"Leukaemia",0,"Rates",3.28002749501929
+"35-49",2015,2,"Lung",0,"Counts",39
+"35-49",2015,2,"Lung",0,"Rates",13.4304017430996
+"35-49",2015,2,"Lymphoma",1,"Counts",NA
+"35-49",2015,2,"Lymphoma",1,"Rates",NA
+"35-49",2015,2,"Melanoma",0,"Counts",216
+"35-49",2015,2,"Melanoma",0,"Rates",72.3237827946572
+"35-49",2015,2,"Pancreatic",0,"Counts",37
+"35-49",2015,2,"Pancreatic",0,"Rates",12.6891405793887
+"35-49",2015,2,"Prostate",1,"Counts",NA
+"35-49",2015,2,"Prostate",1,"Rates",NA
+"35-49",2015,3,"All cancers",0,"Counts",1914
+"35-49",2015,3,"All cancers",0,"Rates",326.20273571753
+"35-49",2015,3,"Breast (female)",1,"Counts",NA
+"35-49",2015,3,"Breast (female)",1,"Rates",NA
+"35-49",2015,3,"Colorectal",0,"Counts",176
+"35-49",2015,3,"Colorectal",0,"Rates",29.5177231740901
+"35-49",2015,3,"Leukaemia",0,"Counts",10
+"35-49",2015,3,"Leukaemia",0,"Rates",1.67050703789664
+"35-49",2015,3,"Lung",0,"Counts",109
+"35-49",2015,3,"Lung",0,"Rates",18.7154344832402
+"35-49",2015,3,"Lymphoma",0,"Counts",63
+"35-49",2015,3,"Lymphoma",0,"Rates",10.7095426299593
+"35-49",2015,3,"Melanoma",0,"Counts",424
+"35-49",2015,3,"Melanoma",0,"Rates",72.3144978667459
+"35-49",2015,3,"Pancreatic",0,"Counts",50
+"35-49",2015,3,"Pancreatic",0,"Rates",8.64046476027582
+"35-49",2015,3,"Prostate",1,"Counts",NA
+"35-49",2015,3,"Prostate",1,"Rates",NA
+"35-49",2016,1,"All cancers",0,"Counts",792
+"35-49",2016,1,"All cancers",0,"Rates",272.186752890828
+"35-49",2016,1,"Breast (female)",1,"Counts",NA
+"35-49",2016,1,"Breast (female)",1,"Rates",NA
+"35-49",2016,1,"Colorectal",0,"Counts",115
+"35-49",2016,1,"Colorectal",0,"Rates",39.3701290896321
+"35-49",2016,1,"Leukaemia",0,"Counts",41
+"35-49",2016,1,"Leukaemia",0,"Rates",14.7793613954063
+"35-49",2016,1,"Lung",0,"Counts",56
+"35-49",2016,1,"Lung",0,"Rates",19.8058358855788
+"35-49",2016,1,"Lymphoma",0,"Counts",47
+"35-49",2016,1,"Lymphoma",0,"Rates",15.8656173516666
+"35-49",2016,1,"Melanoma",0,"Counts",192
+"35-49",2016,1,"Melanoma",0,"Rates",66.2567694434822
+"35-49",2016,1,"Pancreatic",0,"Counts",35
+"35-49",2016,1,"Pancreatic",0,"Rates",11.8229294701749
+"35-49",2016,1,"Prostate",0,"Counts",77
+"35-49",2016,1,"Prostate",0,"Rates",25.7666415002605
+"35-49",2016,2,"All cancers",0,"Counts",1173
+"35-49",2016,2,"All cancers",0,"Rates",387.278371936143
+"35-49",2016,2,"Breast (female)",0,"Counts",448
+"35-49",2016,2,"Breast (female)",0,"Rates",146.463837389672
+"35-49",2016,2,"Colorectal",0,"Counts",84
+"35-49",2016,2,"Colorectal",0,"Rates",27.635242981643
+"35-49",2016,2,"Leukaemia",0,"Counts",36
+"35-49",2016,2,"Leukaemia",0,"Rates",12.678460985808
+"35-49",2016,2,"Lung",0,"Counts",39
+"35-49",2016,2,"Lung",0,"Rates",12.8451552102266
+"35-49",2016,2,"Lymphoma",0,"Counts",50
+"35-49",2016,2,"Lymphoma",0,"Rates",17.1116879652434
+"35-49",2016,2,"Melanoma",0,"Counts",215
+"35-49",2016,2,"Melanoma",0,"Rates",72.0484598130085
+"35-49",2016,2,"Pancreatic",0,"Counts",27
+"35-49",2016,2,"Pancreatic",0,"Rates",9.2973041377238
+"35-49",2016,2,"Prostate",1,"Counts",NA
+"35-49",2016,2,"Prostate",1,"Rates",NA
+"35-49",2016,3,"All cancers",0,"Counts",1965
+"35-49",2016,3,"All cancers",0,"Rates",330.852529372733
+"35-49",2016,3,"Breast (female)",1,"Counts",NA
+"35-49",2016,3,"Breast (female)",1,"Rates",NA
+"35-49",2016,3,"Colorectal",0,"Counts",199
+"35-49",2016,3,"Colorectal",0,"Rates",33.3834608842632
+"35-49",2016,3,"Leukaemia",0,"Counts",77
+"35-49",2016,3,"Leukaemia",0,"Rates",13.7202036517275
+"35-49",2016,3,"Lung",0,"Counts",95
+"35-49",2016,3,"Lung",0,"Rates",16.2853073834248
+"35-49",2016,3,"Lymphoma",0,"Counts",97
+"35-49",2016,3,"Lymphoma",0,"Rates",16.4630087392919
+"35-49",2016,3,"Melanoma",0,"Counts",407
+"35-49",2016,3,"Melanoma",0,"Rates",69.187618024374
+"35-49",2016,3,"Pancreatic",0,"Counts",62
+"35-49",2016,3,"Pancreatic",0,"Rates",10.5047084611222
+"35-49",2016,3,"Prostate",1,"Counts",NA
+"35-49",2016,3,"Prostate",1,"Rates",NA
+"35-49",2017,1,"All cancers",0,"Counts",759
+"35-49",2017,1,"All cancers",0,"Rates",255.969453883044
+"35-49",2017,1,"Breast (female)",1,"Counts",NA
+"35-49",2017,1,"Breast (female)",1,"Rates",NA
+"35-49",2017,1,"Colorectal",0,"Counts",77
+"35-49",2017,1,"Colorectal",0,"Rates",26.5814065402526
+"35-49",2017,1,"Leukaemia",0,"Counts",46
+"35-49",2017,1,"Leukaemia",0,"Rates",16.4675353707695
+"35-49",2017,1,"Lung",0,"Counts",68
+"35-49",2017,1,"Lung",0,"Rates",23.0916005954999
+"35-49",2017,1,"Lymphoma",0,"Counts",48
+"35-49",2017,1,"Lymphoma",0,"Rates",16.885631796594
+"35-49",2017,1,"Melanoma",0,"Counts",214
+"35-49",2017,1,"Melanoma",0,"Rates",72.9979775275113
+"35-49",2017,1,"Pancreatic",0,"Counts",48
+"35-49",2017,1,"Pancreatic",0,"Rates",16.1133439496534
+"35-49",2017,1,"Prostate",0,"Counts",40
+"35-49",2017,1,"Prostate",0,"Rates",12.7980815212821
+"35-49",2017,2,"All cancers",0,"Counts",1202
+"35-49",2017,2,"All cancers",0,"Rates",393.164313665316
+"35-49",2017,2,"Breast (female)",0,"Counts",452
+"35-49",2017,2,"Breast (female)",0,"Rates",146.429262587056
+"35-49",2017,2,"Colorectal",0,"Counts",86
+"35-49",2017,2,"Colorectal",0,"Rates",27.7029581013461
+"35-49",2017,2,"Leukaemia",0,"Counts",29
+"35-49",2017,2,"Leukaemia",0,"Rates",9.33049721206326
+"35-49",2017,2,"Lung",0,"Counts",66
+"35-49",2017,2,"Lung",0,"Rates",21.1533111805556
+"35-49",2017,2,"Lymphoma",0,"Counts",36
+"35-49",2017,2,"Lymphoma",0,"Rates",11.7142197324769
+"35-49",2017,2,"Melanoma",0,"Counts",230
+"35-49",2017,2,"Melanoma",0,"Rates",75.9068155756511
+"35-49",2017,2,"Pancreatic",1,"Counts",NA
+"35-49",2017,2,"Pancreatic",1,"Rates",NA
+"35-49",2017,2,"Prostate",1,"Counts",NA
+"35-49",2017,2,"Prostate",1,"Rates",NA
+"35-49",2017,3,"All cancers",0,"Counts",1961
+"35-49",2017,3,"All cancers",0,"Rates",325.7408317257
+"35-49",2017,3,"Breast (female)",1,"Counts",NA
+"35-49",2017,3,"Breast (female)",1,"Rates",NA
+"35-49",2017,3,"Colorectal",0,"Counts",163
+"35-49",2017,3,"Colorectal",0,"Rates",27.1770560267849
+"35-49",2017,3,"Leukaemia",0,"Counts",75
+"35-49",2017,3,"Leukaemia",0,"Rates",12.8653517621927
+"35-49",2017,3,"Lung",0,"Counts",134
+"35-49",2017,3,"Lung",0,"Rates",22.1179978886668
+"35-49",2017,3,"Lymphoma",0,"Counts",84
+"35-49",2017,3,"Lymphoma",0,"Rates",14.2735659961517
+"35-49",2017,3,"Melanoma",0,"Counts",444
+"35-49",2017,3,"Melanoma",0,"Rates",74.4724912408673
+"35-49",2017,3,"Pancreatic",0,"Counts",51
+"35-49",2017,3,"Pancreatic",0,"Rates",8.43368948230621
+"35-49",2017,3,"Prostate",1,"Counts",NA
+"35-49",2017,3,"Prostate",1,"Rates",NA
+"35-49",2018,1,"All cancers",0,"Counts",764
+"35-49",2018,1,"All cancers",0,"Rates",252.699625805406
+"35-49",2018,1,"Breast (female)",1,"Counts",NA
+"35-49",2018,1,"Breast (female)",1,"Rates",NA
+"35-49",2018,1,"Colorectal",0,"Counts",98
+"35-49",2018,1,"Colorectal",0,"Rates",32.7713413561408
+"35-49",2018,1,"Leukaemia",0,"Counts",39
+"35-49",2018,1,"Leukaemia",0,"Rates",12.6117926573095
+"35-49",2018,1,"Lung",0,"Counts",19
+"35-49",2018,1,"Lung",0,"Rates",5.88062244660859
+"35-49",2018,1,"Lymphoma",0,"Counts",38
+"35-49",2018,1,"Lymphoma",0,"Rates",12.7293012346937
+"35-49",2018,1,"Melanoma",0,"Counts",191
+"35-49",2018,1,"Melanoma",0,"Rates",62.8027798498607
+"35-49",2018,1,"Pancreatic",0,"Counts",10
+"35-49",2018,1,"Pancreatic",0,"Rates",3.09506444558347
+"35-49",2018,1,"Prostate",0,"Counts",93
+"35-49",2018,1,"Prostate",0,"Rates",29.9744253449242
+"35-49",2018,2,"All cancers",0,"Counts",1238
+"35-49",2018,2,"All cancers",0,"Rates",396.990662306367
+"35-49",2018,2,"Breast (female)",0,"Counts",532
+"35-49",2018,2,"Breast (female)",0,"Rates",169.699224282026
+"35-49",2018,2,"Colorectal",0,"Counts",115
+"35-49",2018,2,"Colorectal",0,"Rates",37.5728476416916
+"35-49",2018,2,"Leukaemia",0,"Counts",13
+"35-49",2018,2,"Leukaemia",0,"Rates",4.37953476575959
+"35-49",2018,2,"Lung",0,"Counts",25
+"35-49",2018,2,"Lung",0,"Rates",8.26381257530111
+"35-49",2018,2,"Lymphoma",0,"Counts",22
+"35-49",2018,2,"Lymphoma",0,"Rates",6.65926445673866
+"35-49",2018,2,"Melanoma",0,"Counts",173
+"35-49",2018,2,"Melanoma",0,"Rates",56.2913719350471
+"35-49",2018,2,"Pancreatic",0,"Counts",12
+"35-49",2018,2,"Pancreatic",0,"Rates",4.17354410597385
+"35-49",2018,2,"Prostate",1,"Counts",NA
+"35-49",2018,2,"Prostate",1,"Rates",NA
+"35-49",2018,3,"All cancers",0,"Counts",2002
+"35-49",2018,3,"All cancers",0,"Rates",326.144914068767
+"35-49",2018,3,"Breast (female)",1,"Counts",NA
+"35-49",2018,3,"Breast (female)",1,"Rates",NA
+"35-49",2018,3,"Colorectal",0,"Counts",213
+"35-49",2018,3,"Colorectal",0,"Rates",35.2091810880885
+"35-49",2018,3,"Leukaemia",0,"Counts",52
+"35-49",2018,3,"Leukaemia",0,"Rates",8.41934336001322
+"35-49",2018,3,"Lung",0,"Counts",44
+"35-49",2018,3,"Lung",0,"Rates",7.09174090112752
+"35-49",2018,3,"Lymphoma",0,"Counts",60
+"35-49",2018,3,"Lymphoma",0,"Rates",9.63785735789864
+"35-49",2018,3,"Melanoma",0,"Counts",364
+"35-49",2018,3,"Melanoma",0,"Rates",59.4683397245975
+"35-49",2018,3,"Pancreatic",0,"Counts",22
+"35-49",2018,3,"Pancreatic",0,"Rates",3.63534679580865
+"35-49",2018,3,"Prostate",1,"Counts",NA
+"35-49",2018,3,"Prostate",1,"Rates",NA
+"35-49",2019,1,"All cancers",0,"Counts",822
+"35-49",2019,1,"All cancers",0,"Rates",270.711344878287
+"35-49",2019,1,"Breast (female)",1,"Counts",NA
+"35-49",2019,1,"Breast (female)",1,"Rates",NA
+"35-49",2019,1,"Colorectal",0,"Counts",73
+"35-49",2019,1,"Colorectal",0,"Rates",24.210486074238
+"35-49",2019,1,"Leukaemia",0,"Counts",52
+"35-49",2019,1,"Leukaemia",0,"Rates",16.7203167750369
+"35-49",2019,1,"Lung",0,"Counts",9
+"35-49",2019,1,"Lung",0,"Rates",3.01638186981365
+"35-49",2019,1,"Lymphoma",0,"Counts",27
+"35-49",2019,1,"Lymphoma",0,"Rates",9.59026509639835
+"35-49",2019,1,"Melanoma",0,"Counts",184
+"35-49",2019,1,"Melanoma",0,"Rates",60.7996810332829
+"35-49",2019,1,"Pancreatic",0,"Counts",26
+"35-49",2019,1,"Pancreatic",0,"Rates",8.6486246943271
+"35-49",2019,1,"Prostate",0,"Counts",91
+"35-49",2019,1,"Prostate",0,"Rates",29.35514104874
+"35-49",2019,2,"All cancers",0,"Counts",1268
+"35-49",2019,2,"All cancers",0,"Rates",403.275653369021
+"35-49",2019,2,"Breast (female)",0,"Counts",455
+"35-49",2019,2,"Breast (female)",0,"Rates",142.728610989627
+"35-49",2019,2,"Colorectal",0,"Counts",107
+"35-49",2019,2,"Colorectal",0,"Rates",34.3296607486835
+"35-49",2019,2,"Leukaemia",0,"Counts",40
+"35-49",2019,2,"Leukaemia",0,"Rates",13.514956771024
+"35-49",2019,2,"Lung",0,"Counts",24
+"35-49",2019,2,"Lung",0,"Rates",7.15000096185233
+"35-49",2019,2,"Lymphoma",1,"Counts",NA
+"35-49",2019,2,"Lymphoma",1,"Rates",NA
+"35-49",2019,2,"Melanoma",0,"Counts",249
+"35-49",2019,2,"Melanoma",0,"Rates",80.315932675526
+"35-49",2019,2,"Pancreatic",1,"Counts",NA
+"35-49",2019,2,"Pancreatic",1,"Rates",NA
+"35-49",2019,2,"Prostate",1,"Counts",NA
+"35-49",2019,2,"Prostate",1,"Rates",NA
+"35-49",2019,3,"All cancers",0,"Counts",2090
+"35-49",2019,3,"All cancers",0,"Rates",338.28860580457
+"35-49",2019,3,"Breast (female)",1,"Counts",NA
+"35-49",2019,3,"Breast (female)",1,"Rates",NA
+"35-49",2019,3,"Colorectal",0,"Counts",180
+"35-49",2019,3,"Colorectal",0,"Rates",29.3691759388581
+"35-49",2019,3,"Leukaemia",0,"Counts",92
+"35-49",2019,3,"Leukaemia",0,"Rates",15.109304859152
+"35-49",2019,3,"Lung",0,"Counts",33
+"35-49",2019,3,"Lung",0,"Rates",5.11994920531036
+"35-49",2019,3,"Lymphoma",0,"Counts",30
+"35-49",2019,3,"Lymphoma",0,"Rates",5.14305200500519
+"35-49",2019,3,"Melanoma",0,"Counts",433
+"35-49",2019,3,"Melanoma",0,"Rates",70.7807775604726
+"35-49",2019,3,"Pancreatic",0,"Counts",26
+"35-49",2019,3,"Pancreatic",0,"Rates",4.24520950126295
+"35-49",2019,3,"Prostate",1,"Counts",NA
+"35-49",2019,3,"Prostate",1,"Rates",NA
+"35-49",2020,1,"All cancers",0,"Counts",741
+"35-49",2020,1,"All cancers",0,"Rates",240.518881460465
+"35-49",2020,1,"Breast (female)",1,"Counts",NA
+"35-49",2020,1,"Breast (female)",1,"Rates",NA
+"35-49",2020,1,"Colorectal",0,"Counts",56
+"35-49",2020,1,"Colorectal",0,"Rates",17.4638069928071
+"35-49",2020,1,"Leukaemia",0,"Counts",27
+"35-49",2020,1,"Leukaemia",0,"Rates",9.11078966571859
+"35-49",2020,1,"Lung",0,"Counts",21
+"35-49",2020,1,"Lung",0,"Rates",7.14671301550445
+"35-49",2020,1,"Lymphoma",0,"Counts",37
+"35-49",2020,1,"Lymphoma",0,"Rates",12.3216202180576
+"35-49",2020,1,"Melanoma",0,"Counts",176
+"35-49",2020,1,"Melanoma",0,"Rates",56.673476605407
+"35-49",2020,1,"Pancreatic",0,"Counts",32
+"35-49",2020,1,"Pancreatic",0,"Rates",10.9368966833199
+"35-49",2020,1,"Prostate",0,"Counts",31
+"35-49",2020,1,"Prostate",0,"Rates",9.57766293751379
+"35-49",2020,2,"All cancers",0,"Counts",1240
+"35-49",2020,2,"All cancers",0,"Rates",388.770548511143
+"35-49",2020,2,"Breast (female)",0,"Counts",459
+"35-49",2020,2,"Breast (female)",0,"Rates",143.272129383859
+"35-49",2020,2,"Colorectal",0,"Counts",91
+"35-49",2020,2,"Colorectal",0,"Rates",28.2345890737136
+"35-49",2020,2,"Leukaemia",0,"Counts",32
+"35-49",2020,2,"Leukaemia",0,"Rates",10.6642973205866
+"35-49",2020,2,"Lung",0,"Counts",37
+"35-49",2020,2,"Lung",0,"Rates",11.2021483694909
+"35-49",2020,2,"Lymphoma",0,"Counts",32
+"35-49",2020,2,"Lymphoma",0,"Rates",10.2081692087246
+"35-49",2020,2,"Melanoma",0,"Counts",227
+"35-49",2020,2,"Melanoma",0,"Rates",71.1687204595825
+"35-49",2020,2,"Pancreatic",0,"Counts",38
+"35-49",2020,2,"Pancreatic",0,"Rates",11.7012602935636
+"35-49",2020,2,"Prostate",1,"Counts",NA
+"35-49",2020,2,"Prostate",1,"Rates",NA
+"35-49",2020,3,"All cancers",0,"Counts",1981
+"35-49",2020,3,"All cancers",0,"Rates",316.1535071573
+"35-49",2020,3,"Breast (female)",1,"Counts",NA
+"35-49",2020,3,"Breast (female)",1,"Rates",NA
+"35-49",2020,3,"Colorectal",0,"Counts",147
+"35-49",2020,3,"Colorectal",0,"Rates",22.9736578633736
+"35-49",2020,3,"Leukaemia",0,"Counts",59
+"35-49",2020,3,"Leukaemia",0,"Rates",9.91347595591319
+"35-49",2020,3,"Lung",0,"Counts",58
+"35-49",2020,3,"Lung",0,"Rates",9.19082269051826
+"35-49",2020,3,"Lymphoma",0,"Counts",69
+"35-49",2020,3,"Lymphoma",0,"Rates",11.2483668472082
+"35-49",2020,3,"Melanoma",0,"Counts",403
+"35-49",2020,3,"Melanoma",0,"Rates",64.0848926409838
+"35-49",2020,3,"Pancreatic",0,"Counts",70
+"35-49",2020,3,"Pancreatic",0,"Rates",11.2960722713509
+"35-49",2020,3,"Prostate",1,"Counts",NA
+"35-49",2020,3,"Prostate",1,"Rates",NA
+"35-49",2021,1,"All cancers",0,"Counts",781
+"35-49",2021,1,"All cancers",0,"Rates",252.278324750825
+"35-49",2021,1,"Breast (female)",1,"Counts",NA
+"35-49",2021,1,"Breast (female)",1,"Rates",NA
+"35-49",2021,1,"Colorectal",0,"Counts",81
+"35-49",2021,1,"Colorectal",0,"Rates",26.2712860524448
+"35-49",2021,1,"Leukaemia",0,"Counts",46
+"35-49",2021,1,"Leukaemia",0,"Rates",15.2694396934503
+"35-49",2021,1,"Lung",0,"Counts",33
+"35-49",2021,1,"Lung",0,"Rates",10.4005870315307
+"35-49",2021,1,"Lymphoma",0,"Counts",68
+"35-49",2021,1,"Lymphoma",0,"Rates",21.7285110318031
+"35-49",2021,1,"Melanoma",0,"Counts",157
+"35-49",2021,1,"Melanoma",0,"Rates",51.3777084151595
+"35-49",2021,1,"Pancreatic",0,"Counts",6
+"35-49",2021,1,"Pancreatic",0,"Rates",1.85272549811974
+"35-49",2021,1,"Prostate",0,"Counts",67
+"35-49",2021,1,"Prostate",0,"Rates",20.9319566763208
+"35-49",2021,2,"All cancers",0,"Counts",1288
+"35-49",2021,2,"All cancers",0,"Rates",402.344839478532
+"35-49",2021,2,"Breast (female)",0,"Counts",445
+"35-49",2021,2,"Breast (female)",0,"Rates",139.59000254714
+"35-49",2021,2,"Colorectal",0,"Counts",163
+"35-49",2021,2,"Colorectal",0,"Rates",51.1785252549098
+"35-49",2021,2,"Leukaemia",0,"Counts",37
+"35-49",2021,2,"Leukaemia",0,"Rates",11.5318838606576
+"35-49",2021,2,"Lung",1,"Counts",NA
+"35-49",2021,2,"Lung",1,"Rates",NA
+"35-49",2021,2,"Lymphoma",0,"Counts",41
+"35-49",2021,2,"Lymphoma",0,"Rates",12.4524008154859
+"35-49",2021,2,"Melanoma",0,"Counts",190
+"35-49",2021,2,"Melanoma",0,"Rates",59.9269576441171
+"35-49",2021,2,"Pancreatic",0,"Counts",10
+"35-49",2021,2,"Pancreatic",0,"Rates",3.10808809851396
+"35-49",2021,2,"Prostate",1,"Counts",NA
+"35-49",2021,2,"Prostate",1,"Rates",NA
+"35-49",2021,3,"All cancers",0,"Counts",2069
+"35-49",2021,3,"All cancers",0,"Rates",328.695666551754
+"35-49",2021,3,"Breast (female)",1,"Counts",NA
+"35-49",2021,3,"Breast (female)",1,"Rates",NA
+"35-49",2021,3,"Colorectal",0,"Counts",244
+"35-49",2021,3,"Colorectal",0,"Rates",38.9530554681082
+"35-49",2021,3,"Leukaemia",0,"Counts",83
+"35-49",2021,3,"Leukaemia",0,"Rates",13.348278150997
+"35-49",2021,3,"Lung",0,"Counts",33
+"35-49",2021,3,"Lung",0,"Rates",5.11371539661711
+"35-49",2021,3,"Lymphoma",0,"Counts",109
+"35-49",2021,3,"Lymphoma",0,"Rates",16.9990303953711
+"35-49",2021,3,"Melanoma",0,"Counts",347
+"35-49",2021,3,"Melanoma",0,"Rates",55.7291400989804
+"35-49",2021,3,"Pancreatic",0,"Counts",16
+"35-49",2021,3,"Pancreatic",0,"Rates",2.49155914903965
+"35-49",2021,3,"Prostate",1,"Counts",NA
+"35-49",2021,3,"Prostate",1,"Rates",NA
+"35-49",2022,1,"All cancers",0,"Counts",784
+"35-49",2022,1,"All cancers",0,"Rates",251.655906143568
+"35-49",2022,1,"Breast (female)",1,"Counts",NA
+"35-49",2022,1,"Breast (female)",1,"Rates",NA
+"35-49",2022,1,"Colorectal",0,"Counts",94
+"35-49",2022,1,"Colorectal",0,"Rates",30.3454819742597
+"35-49",2022,1,"Leukaemia",0,"Counts",31
+"35-49",2022,1,"Leukaemia",0,"Rates",9.78563023655409
+"35-49",2022,1,"Lung",0,"Counts",53
+"35-49",2022,1,"Lung",0,"Rates",16.7549364705067
+"35-49",2022,1,"Lymphoma",0,"Counts",62
+"35-49",2022,1,"Lymphoma",0,"Rates",19.9063259834395
+"35-49",2022,1,"Melanoma",0,"Counts",179
+"35-49",2022,1,"Melanoma",0,"Rates",57.342455758397
+"35-49",2022,1,"Pancreatic",0,"Counts",34
+"35-49",2022,1,"Pancreatic",0,"Rates",10.8152447059163
+"35-49",2022,1,"Prostate",0,"Counts",62
+"35-49",2022,1,"Prostate",0,"Rates",19.8837464371755
+"35-49",2022,2,"All cancers",0,"Counts",1273
+"35-49",2022,2,"All cancers",0,"Rates",393.973785902522
+"35-49",2022,2,"Breast (female)",0,"Counts",441
+"35-49",2022,2,"Breast (female)",0,"Rates",135.942697746303
+"35-49",2022,2,"Colorectal",0,"Counts",110
+"35-49",2022,2,"Colorectal",0,"Rates",34.2741225702125
+"35-49",2022,2,"Leukaemia",0,"Counts",24
+"35-49",2022,2,"Leukaemia",0,"Rates",7.25131122662387
+"35-49",2022,2,"Lung",0,"Counts",31
+"35-49",2022,2,"Lung",0,"Rates",9.35612208303652
+"35-49",2022,2,"Lymphoma",0,"Counts",41
+"35-49",2022,2,"Lymphoma",0,"Rates",12.8562478207559
+"35-49",2022,2,"Melanoma",0,"Counts",173
+"35-49",2022,2,"Melanoma",0,"Rates",53.8395702173447
+"35-49",2022,2,"Pancreatic",0,"Counts",24
+"35-49",2022,2,"Pancreatic",0,"Rates",7.24738029061639
+"35-49",2022,2,"Prostate",1,"Counts",NA
+"35-49",2022,2,"Prostate",1,"Rates",NA
+"35-49",2022,3,"All cancers",0,"Counts",2057
+"35-49",2022,3,"All cancers",0,"Rates",324.254119649268
+"35-49",2022,3,"Breast (female)",1,"Counts",NA
+"35-49",2022,3,"Breast (female)",1,"Rates",NA
+"35-49",2022,3,"Colorectal",0,"Counts",204
+"35-49",2022,3,"Colorectal",0,"Rates",32.3536681471771
+"35-49",2022,3,"Leukaemia",0,"Counts",55
+"35-49",2022,3,"Leukaemia",0,"Rates",8.48718756594399
+"35-49",2022,3,"Lung",0,"Counts",84
+"35-49",2022,3,"Lung",0,"Rates",12.9777484961024
+"35-49",2022,3,"Lymphoma",0,"Counts",103
+"35-49",2022,3,"Lymphoma",0,"Rates",16.3175851255583
+"35-49",2022,3,"Melanoma",0,"Counts",352
+"35-49",2022,3,"Melanoma",0,"Rates",55.5713650820299
+"35-49",2022,3,"Pancreatic",0,"Counts",58
+"35-49",2022,3,"Pancreatic",0,"Rates",8.99467044161397
+"35-49",2022,3,"Prostate",1,"Counts",NA
+"35-49",2022,3,"Prostate",1,"Rates",NA
+"50-64",2005,1,"All cancers",0,"Counts",2391
+"50-64",2005,1,"All cancers",0,"Rates",1130.51113881944
+"50-64",2005,1,"Breast (female)",1,"Counts",NA
+"50-64",2005,1,"Breast (female)",1,"Rates",NA
+"50-64",2005,1,"Colorectal",0,"Counts",290
+"50-64",2005,1,"Colorectal",0,"Rates",137.436177722874
+"50-64",2005,1,"Leukaemia",0,"Counts",49
+"50-64",2005,1,"Leukaemia",0,"Rates",22.6545538872302
+"50-64",2005,1,"Lung",0,"Counts",222
+"50-64",2005,1,"Lung",0,"Rates",104.702070424794
+"50-64",2005,1,"Lymphoma",0,"Counts",112
+"50-64",2005,1,"Lymphoma",0,"Rates",53.1064057563322
+"50-64",2005,1,"Melanoma",0,"Counts",282
+"50-64",2005,1,"Melanoma",0,"Rates",133.717713723525
+"50-64",2005,1,"Pancreatic",0,"Counts",73
+"50-64",2005,1,"Pancreatic",0,"Rates",33.3477848860744
+"50-64",2005,1,"Prostate",0,"Counts",723
+"50-64",2005,1,"Prostate",0,"Rates",337.350405880389
+"50-64",2005,2,"All cancers",0,"Counts",1791
+"50-64",2005,2,"All cancers",0,"Rates",874.245490199791
+"50-64",2005,2,"Breast (female)",0,"Counts",598
+"50-64",2005,2,"Breast (female)",0,"Rates",292.949145019324
+"50-64",2005,2,"Colorectal",0,"Counts",151
+"50-64",2005,2,"Colorectal",0,"Rates",73.524839410306
+"50-64",2005,2,"Leukaemia",0,"Counts",17
+"50-64",2005,2,"Leukaemia",0,"Rates",7.64302049253313
+"50-64",2005,2,"Lung",0,"Counts",165
+"50-64",2005,2,"Lung",0,"Rates",80.0547355885094
+"50-64",2005,2,"Lymphoma",0,"Counts",68
+"50-64",2005,2,"Lymphoma",0,"Rates",32.8644182823102
+"50-64",2005,2,"Melanoma",0,"Counts",256
+"50-64",2005,2,"Melanoma",0,"Rates",125.720245089134
+"50-64",2005,2,"Pancreatic",0,"Counts",49
+"50-64",2005,2,"Pancreatic",0,"Rates",23.7629523537635
+"50-64",2005,2,"Prostate",1,"Counts",NA
+"50-64",2005,2,"Prostate",1,"Rates",NA
+"50-64",2005,3,"All cancers",0,"Counts",4182
+"50-64",2005,3,"All cancers",0,"Rates",1004.36968952209
+"50-64",2005,3,"Breast (female)",1,"Counts",NA
+"50-64",2005,3,"Breast (female)",1,"Rates",NA
+"50-64",2005,3,"Colorectal",0,"Counts",441
+"50-64",2005,3,"Colorectal",0,"Rates",105.909582734958
+"50-64",2005,3,"Leukaemia",0,"Counts",66
+"50-64",2005,3,"Leukaemia",0,"Rates",15.2857044710378
+"50-64",2005,3,"Lung",0,"Counts",387
+"50-64",2005,3,"Lung",0,"Rates",92.6074093257326
+"50-64",2005,3,"Lymphoma",0,"Counts",180
+"50-64",2005,3,"Lymphoma",0,"Rates",43.0837425178202
+"50-64",2005,3,"Melanoma",0,"Counts",538
+"50-64",2005,3,"Melanoma",0,"Rates",129.836211570276
+"50-64",2005,3,"Pancreatic",0,"Counts",122
+"50-64",2005,3,"Pancreatic",0,"Rates",28.6609984256919
+"50-64",2005,3,"Prostate",1,"Counts",NA
+"50-64",2005,3,"Prostate",1,"Rates",NA
+"50-64",2006,1,"All cancers",0,"Counts",2555
+"50-64",2006,1,"All cancers",0,"Rates",1163.21142805526
+"50-64",2006,1,"Breast (female)",1,"Counts",NA
+"50-64",2006,1,"Breast (female)",1,"Rates",NA
+"50-64",2006,1,"Colorectal",0,"Counts",319
+"50-64",2006,1,"Colorectal",0,"Rates",147.733987902511
+"50-64",2006,1,"Leukaemia",0,"Counts",85
+"50-64",2006,1,"Leukaemia",0,"Rates",39.1937449010918
+"50-64",2006,1,"Lung",0,"Counts",216
+"50-64",2006,1,"Lung",0,"Rates",96.370007739989
+"50-64",2006,1,"Lymphoma",0,"Counts",106
+"50-64",2006,1,"Lymphoma",0,"Rates",48.3120735748936
+"50-64",2006,1,"Melanoma",0,"Counts",299
+"50-64",2006,1,"Melanoma",0,"Rates",140.033103943366
+"50-64",2006,1,"Pancreatic",0,"Counts",29
+"50-64",2006,1,"Pancreatic",0,"Rates",14.3976698602257
+"50-64",2006,1,"Prostate",0,"Counts",879
+"50-64",2006,1,"Prostate",0,"Rates",394.648102502734
+"50-64",2006,2,"All cancers",0,"Counts",1964
+"50-64",2006,2,"All cancers",0,"Rates",915.129201670399
+"50-64",2006,2,"Breast (female)",0,"Counts",640
+"50-64",2006,2,"Breast (female)",0,"Rates",300.774563059658
+"50-64",2006,2,"Colorectal",0,"Counts",214
+"50-64",2006,2,"Colorectal",0,"Rates",97.8410117634277
+"50-64",2006,2,"Leukaemia",0,"Counts",36
+"50-64",2006,2,"Leukaemia",0,"Rates",17.1415597060949
+"50-64",2006,2,"Lung",0,"Counts",155
+"50-64",2006,2,"Lung",0,"Rates",71.6601700793733
+"50-64",2006,2,"Lymphoma",0,"Counts",98
+"50-64",2006,2,"Lymphoma",0,"Rates",45.4004461656156
+"50-64",2006,2,"Melanoma",0,"Counts",252
+"50-64",2006,2,"Melanoma",0,"Rates",118.143184555387
+"50-64",2006,2,"Pancreatic",0,"Counts",51
+"50-64",2006,2,"Pancreatic",0,"Rates",22.6182772432288
+"50-64",2006,2,"Prostate",1,"Counts",NA
+"50-64",2006,2,"Prostate",1,"Rates",NA
+"50-64",2006,3,"All cancers",0,"Counts",4519
+"50-64",2006,3,"All cancers",0,"Rates",1040.32432391365
+"50-64",2006,3,"Breast (female)",1,"Counts",NA
+"50-64",2006,3,"Breast (female)",1,"Rates",NA
+"50-64",2006,3,"Colorectal",0,"Counts",533
+"50-64",2006,3,"Colorectal",0,"Rates",122.838094690053
+"50-64",2006,3,"Leukaemia",0,"Counts",121
+"50-64",2006,3,"Leukaemia",0,"Rates",28.2340597103474
+"50-64",2006,3,"Lung",0,"Counts",371
+"50-64",2006,3,"Lung",0,"Rates",84.178034617306
+"50-64",2006,3,"Lymphoma",0,"Counts",204
+"50-64",2006,3,"Lymphoma",0,"Rates",46.8771079267137
+"50-64",2006,3,"Melanoma",0,"Counts",551
+"50-64",2006,3,"Melanoma",0,"Rates",129.120986832222
+"50-64",2006,3,"Pancreatic",0,"Counts",80
+"50-64",2006,3,"Pancreatic",0,"Rates",18.4153865817269
+"50-64",2006,3,"Prostate",1,"Counts",NA
+"50-64",2006,3,"Prostate",1,"Rates",NA
+"50-64",2007,1,"All cancers",0,"Counts",2749
+"50-64",2007,1,"All cancers",0,"Rates",1206.82766878293
+"50-64",2007,1,"Breast (female)",1,"Counts",NA
+"50-64",2007,1,"Breast (female)",1,"Rates",NA
+"50-64",2007,1,"Colorectal",0,"Counts",330
+"50-64",2007,1,"Colorectal",0,"Rates",143.273914575131
+"50-64",2007,1,"Leukaemia",0,"Counts",90
+"50-64",2007,1,"Leukaemia",0,"Rates",39.9523895690274
+"50-64",2007,1,"Lung",0,"Counts",205
+"50-64",2007,1,"Lung",0,"Rates",89.0273138575133
+"50-64",2007,1,"Lymphoma",0,"Counts",72
+"50-64",2007,1,"Lymphoma",0,"Rates",32.1687000870492
+"50-64",2007,1,"Melanoma",0,"Counts",326
+"50-64",2007,1,"Melanoma",0,"Rates",145.695182848117
+"50-64",2007,1,"Pancreatic",0,"Counts",70
+"50-64",2007,1,"Pancreatic",0,"Rates",30.2136656553184
+"50-64",2007,1,"Prostate",0,"Counts",962
+"50-64",2007,1,"Prostate",0,"Rates",418.849472704494
+"50-64",2007,2,"All cancers",0,"Counts",2014
+"50-64",2007,2,"All cancers",0,"Rates",911.732622246011
+"50-64",2007,2,"Breast (female)",0,"Counts",679
+"50-64",2007,2,"Breast (female)",0,"Rates",309.988257583815
+"50-64",2007,2,"Colorectal",0,"Counts",236
+"50-64",2007,2,"Colorectal",0,"Rates",107.054189629649
+"50-64",2007,2,"Leukaemia",0,"Counts",42
+"50-64",2007,2,"Leukaemia",0,"Rates",18.8214256497912
+"50-64",2007,2,"Lung",0,"Counts",125
+"50-64",2007,2,"Lung",0,"Rates",55.3266710265942
+"50-64",2007,2,"Lymphoma",0,"Counts",81
+"50-64",2007,2,"Lymphoma",0,"Rates",37.294347461305
+"50-64",2007,2,"Melanoma",0,"Counts",243
+"50-64",2007,2,"Melanoma",0,"Rates",110.81092542416
+"50-64",2007,2,"Pancreatic",0,"Counts",11
+"50-64",2007,2,"Pancreatic",0,"Rates",4.78171328791453
+"50-64",2007,2,"Prostate",1,"Counts",NA
+"50-64",2007,2,"Prostate",1,"Rates",NA
+"50-64",2007,3,"All cancers",0,"Counts",4763
+"50-64",2007,3,"All cancers",0,"Rates",1060.86334980516
+"50-64",2007,3,"Breast (female)",1,"Counts",NA
+"50-64",2007,3,"Breast (female)",1,"Rates",NA
+"50-64",2007,3,"Colorectal",0,"Counts",566
+"50-64",2007,3,"Colorectal",0,"Rates",125.403396524694
+"50-64",2007,3,"Leukaemia",0,"Counts",132
+"50-64",2007,3,"Leukaemia",0,"Rates",29.4381293761649
+"50-64",2007,3,"Lung",0,"Counts",330
+"50-64",2007,3,"Lung",0,"Rates",72.3194489206463
+"50-64",2007,3,"Lymphoma",0,"Counts",153
+"50-64",2007,3,"Lymphoma",0,"Rates",34.7522049557479
+"50-64",2007,3,"Melanoma",0,"Counts",569
+"50-64",2007,3,"Melanoma",0,"Rates",128.396983073215
+"50-64",2007,3,"Pancreatic",0,"Counts",81
+"50-64",2007,3,"Pancreatic",0,"Rates",17.5986103647656
+"50-64",2007,3,"Prostate",1,"Counts",NA
+"50-64",2007,3,"Prostate",1,"Rates",NA
+"50-64",2008,1,"All cancers",0,"Counts",2821
+"50-64",2008,1,"All cancers",0,"Rates",1193.04488820534
+"50-64",2008,1,"Breast (female)",1,"Counts",NA
+"50-64",2008,1,"Breast (female)",1,"Rates",NA
+"50-64",2008,1,"Colorectal",0,"Counts",307
+"50-64",2008,1,"Colorectal",0,"Rates",131.755523602852
+"50-64",2008,1,"Leukaemia",0,"Counts",88
+"50-64",2008,1,"Leukaemia",0,"Rates",38.3136051924447
+"50-64",2008,1,"Lung",0,"Counts",208
+"50-64",2008,1,"Lung",0,"Rates",85.204257567492
+"50-64",2008,1,"Lymphoma",0,"Counts",60
+"50-64",2008,1,"Lymphoma",0,"Rates",24.9268734522509
+"50-64",2008,1,"Melanoma",0,"Counts",410
+"50-64",2008,1,"Melanoma",0,"Rates",178.474932827545
+"50-64",2008,1,"Pancreatic",0,"Counts",70
+"50-64",2008,1,"Pancreatic",0,"Rates",30.3258890516434
+"50-64",2008,1,"Prostate",0,"Counts",999
+"50-64",2008,1,"Prostate",0,"Rates",415.991408384979
+"50-64",2008,2,"All cancers",0,"Counts",2069
+"50-64",2008,2,"All cancers",0,"Rates",903.191737020167
+"50-64",2008,2,"Breast (female)",0,"Counts",760
+"50-64",2008,2,"Breast (female)",0,"Rates",335.337729853578
+"50-64",2008,2,"Colorectal",0,"Counts",215
+"50-64",2008,2,"Colorectal",0,"Rates",92.0131017183837
+"50-64",2008,2,"Leukaemia",0,"Counts",62
+"50-64",2008,2,"Leukaemia",0,"Rates",26.666093062001
+"50-64",2008,2,"Lung",0,"Counts",165
+"50-64",2008,2,"Lung",0,"Rates",69.3818466550258
+"50-64",2008,2,"Lymphoma",0,"Counts",72
+"50-64",2008,2,"Lymphoma",0,"Rates",30.2273605466591
+"50-64",2008,2,"Melanoma",0,"Counts",270
+"50-64",2008,2,"Melanoma",0,"Rates",119.318632309168
+"50-64",2008,2,"Pancreatic",0,"Counts",24
+"50-64",2008,2,"Pancreatic",0,"Rates",12.0259521270422
+"50-64",2008,2,"Prostate",1,"Counts",NA
+"50-64",2008,2,"Prostate",1,"Rates",NA
+"50-64",2008,3,"All cancers",0,"Counts",4890
+"50-64",2008,3,"All cancers",0,"Rates",1049.65640162201
+"50-64",2008,3,"Breast (female)",1,"Counts",NA
+"50-64",2008,3,"Breast (female)",1,"Rates",NA
+"50-64",2008,3,"Colorectal",0,"Counts",522
+"50-64",2008,3,"Colorectal",0,"Rates",111.931502352161
+"50-64",2008,3,"Leukaemia",0,"Counts",150
+"50-64",2008,3,"Leukaemia",0,"Rates",32.497662618666
+"50-64",2008,3,"Lung",0,"Counts",373
+"50-64",2008,3,"Lung",0,"Rates",77.4017468621684
+"50-64",2008,3,"Lymphoma",0,"Counts",132
+"50-64",2008,3,"Lymphoma",0,"Rates",27.5665662779165
+"50-64",2008,3,"Melanoma",0,"Counts",680
+"50-64",2008,3,"Melanoma",0,"Rates",149.016764471833
+"50-64",2008,3,"Pancreatic",0,"Counts",94
+"50-64",2008,3,"Pancreatic",0,"Rates",21.2683511728983
+"50-64",2008,3,"Prostate",1,"Counts",NA
+"50-64",2008,3,"Prostate",1,"Rates",NA
+"50-64",2009,1,"All cancers",0,"Counts",2967
+"50-64",2009,1,"All cancers",0,"Rates",1227.81465487572
+"50-64",2009,1,"Breast (female)",1,"Counts",NA
+"50-64",2009,1,"Breast (female)",1,"Rates",NA
+"50-64",2009,1,"Colorectal",0,"Counts",286
+"50-64",2009,1,"Colorectal",0,"Rates",117.651210666823
+"50-64",2009,1,"Leukaemia",0,"Counts",80
+"50-64",2009,1,"Leukaemia",0,"Rates",35.4035173778187
+"50-64",2009,1,"Lung",0,"Counts",213
+"50-64",2009,1,"Lung",0,"Rates",86.7052303959236
+"50-64",2009,1,"Lymphoma",0,"Counts",72
+"50-64",2009,1,"Lymphoma",0,"Rates",31.3594553956658
+"50-64",2009,1,"Melanoma",0,"Counts",416
+"50-64",2009,1,"Melanoma",0,"Rates",174.973741417238
+"50-64",2009,1,"Pancreatic",0,"Counts",52
+"50-64",2009,1,"Pancreatic",0,"Rates",21.7195870970682
+"50-64",2009,1,"Prostate",0,"Counts",1049
+"50-64",2009,1,"Prostate",0,"Rates",427.914300899478
+"50-64",2009,2,"All cancers",0,"Counts",2096
+"50-64",2009,2,"All cancers",0,"Rates",889.465008050273
+"50-64",2009,2,"Breast (female)",0,"Counts",777
+"50-64",2009,2,"Breast (female)",0,"Rates",330.466751793116
+"50-64",2009,2,"Colorectal",0,"Counts",191
+"50-64",2009,2,"Colorectal",0,"Rates",79.7828859015372
+"50-64",2009,2,"Leukaemia",0,"Counts",50
+"50-64",2009,2,"Leukaemia",0,"Rates",22.6612316083666
+"50-64",2009,2,"Lung",0,"Counts",182
+"50-64",2009,2,"Lung",0,"Rates",75.4035461961811
+"50-64",2009,2,"Lymphoma",0,"Counts",80
+"50-64",2009,2,"Lymphoma",0,"Rates",33.1901057685381
+"50-64",2009,2,"Melanoma",0,"Counts",253
+"50-64",2009,2,"Melanoma",0,"Rates",107.341323239583
+"50-64",2009,2,"Pancreatic",0,"Counts",20
+"50-64",2009,2,"Pancreatic",0,"Rates",8.35165219274687
+"50-64",2009,2,"Prostate",1,"Counts",NA
+"50-64",2009,2,"Prostate",1,"Rates",NA
+"50-64",2009,3,"All cancers",0,"Counts",5063
+"50-64",2009,3,"All cancers",0,"Rates",1059.94819724644
+"50-64",2009,3,"Breast (female)",1,"Counts",NA
+"50-64",2009,3,"Breast (female)",1,"Rates",NA
+"50-64",2009,3,"Colorectal",0,"Counts",477
+"50-64",2009,3,"Colorectal",0,"Rates",98.8049056109168
+"50-64",2009,3,"Leukaemia",0,"Counts",130
+"50-64",2009,3,"Leukaemia",0,"Rates",29.0757234898633
+"50-64",2009,3,"Lung",0,"Counts",395
+"50-64",2009,3,"Lung",0,"Rates",81.1208331677214
+"50-64",2009,3,"Lymphoma",0,"Counts",152
+"50-64",2009,3,"Lymphoma",0,"Rates",32.2027322441957
+"50-64",2009,3,"Melanoma",0,"Counts",669
+"50-64",2009,3,"Melanoma",0,"Rates",141.266521398776
+"50-64",2009,3,"Pancreatic",0,"Counts",72
+"50-64",2009,3,"Pancreatic",0,"Rates",15.0859278439354
+"50-64",2009,3,"Prostate",1,"Counts",NA
+"50-64",2009,3,"Prostate",1,"Rates",NA
+"50-64",2010,1,"All cancers",0,"Counts",2940
+"50-64",2010,1,"All cancers",0,"Rates",1187.65765192389
+"50-64",2010,1,"Breast (female)",1,"Counts",NA
+"50-64",2010,1,"Breast (female)",1,"Rates",NA
+"50-64",2010,1,"Colorectal",0,"Counts",309
+"50-64",2010,1,"Colorectal",0,"Rates",123.595557340729
+"50-64",2010,1,"Leukaemia",0,"Counts",66
+"50-64",2010,1,"Leukaemia",0,"Rates",26.0511118226425
+"50-64",2010,1,"Lung",0,"Counts",250
+"50-64",2010,1,"Lung",0,"Rates",100.044942369934
+"50-64",2010,1,"Lymphoma",0,"Counts",92
+"50-64",2010,1,"Lymphoma",0,"Rates",38.795607075409
+"50-64",2010,1,"Melanoma",0,"Counts",387
+"50-64",2010,1,"Melanoma",0,"Rates",160.2425046962
+"50-64",2010,1,"Pancreatic",0,"Counts",70
+"50-64",2010,1,"Pancreatic",0,"Rates",30.4448740454916
+"50-64",2010,1,"Prostate",0,"Counts",981
+"50-64",2010,1,"Prostate",0,"Rates",388.910903719428
+"50-64",2010,2,"All cancers",0,"Counts",2216
+"50-64",2010,2,"All cancers",0,"Rates",917.419687652033
+"50-64",2010,2,"Breast (female)",0,"Counts",735
+"50-64",2010,2,"Breast (female)",0,"Rates",305.845201187749
+"50-64",2010,2,"Colorectal",0,"Counts",187
+"50-64",2010,2,"Colorectal",0,"Rates",76.915637364259
+"50-64",2010,2,"Leukaemia",0,"Counts",63
+"50-64",2010,2,"Leukaemia",0,"Rates",24.3624366715508
+"50-64",2010,2,"Lung",0,"Counts",161
+"50-64",2010,2,"Lung",0,"Rates",63.6449551726615
+"50-64",2010,2,"Lymphoma",0,"Counts",56
+"50-64",2010,2,"Lymphoma",0,"Rates",21.9388021268511
+"50-64",2010,2,"Melanoma",0,"Counts",282
+"50-64",2010,2,"Melanoma",0,"Rates",117.197445847594
+"50-64",2010,2,"Pancreatic",0,"Counts",23
+"50-64",2010,2,"Pancreatic",0,"Rates",10.6609325205223
+"50-64",2010,2,"Prostate",1,"Counts",NA
+"50-64",2010,2,"Prostate",1,"Rates",NA
+"50-64",2010,3,"All cancers",0,"Counts",5156
+"50-64",2010,3,"All cancers",0,"Rates",1053.40255204856
+"50-64",2010,3,"Breast (female)",1,"Counts",NA
+"50-64",2010,3,"Breast (female)",1,"Rates",NA
+"50-64",2010,3,"Colorectal",0,"Counts",496
+"50-64",2010,3,"Colorectal",0,"Rates",100.381065679855
+"50-64",2010,3,"Leukaemia",0,"Counts",129
+"50-64",2010,3,"Leukaemia",0,"Rates",25.1940265847916
+"50-64",2010,3,"Lung",0,"Counts",411
+"50-64",2010,3,"Lung",0,"Rates",81.8534902836043
+"50-64",2010,3,"Lymphoma",0,"Counts",148
+"50-64",2010,3,"Lymphoma",0,"Rates",30.3043627814773
+"50-64",2010,3,"Melanoma",0,"Counts",669
+"50-64",2010,3,"Melanoma",0,"Rates",138.735417769451
+"50-64",2010,3,"Pancreatic",0,"Counts",93
+"50-64",2010,3,"Pancreatic",0,"Rates",20.5471172567123
+"50-64",2010,3,"Prostate",1,"Counts",NA
+"50-64",2010,3,"Prostate",1,"Rates",NA
+"50-64",2011,1,"All cancers",0,"Counts",3006
+"50-64",2011,1,"All cancers",0,"Rates",1187.47296551557
+"50-64",2011,1,"Breast (female)",1,"Counts",NA
+"50-64",2011,1,"Breast (female)",1,"Rates",NA
+"50-64",2011,1,"Colorectal",0,"Counts",312
+"50-64",2011,1,"Colorectal",0,"Rates",122.697734608388
+"50-64",2011,1,"Leukaemia",0,"Counts",80
+"50-64",2011,1,"Leukaemia",0,"Rates",30.692635038708
+"50-64",2011,1,"Lung",0,"Counts",236
+"50-64",2011,1,"Lung",0,"Rates",91.4650997115438
+"50-64",2011,1,"Lymphoma",0,"Counts",106
+"50-64",2011,1,"Lymphoma",0,"Rates",42.4583375542796
+"50-64",2011,1,"Melanoma",0,"Counts",448
+"50-64",2011,1,"Melanoma",0,"Rates",179.195213844229
+"50-64",2011,1,"Pancreatic",0,"Counts",68
+"50-64",2011,1,"Pancreatic",0,"Rates",26.0620099797535
+"50-64",2011,1,"Prostate",0,"Counts",1041
+"50-64",2011,1,"Prostate",0,"Rates",404.838237960874
+"50-64",2011,2,"All cancers",0,"Counts",2158
+"50-64",2011,2,"All cancers",0,"Rates",870.221526862019
+"50-64",2011,2,"Breast (female)",0,"Counts",758
+"50-64",2011,2,"Breast (female)",0,"Rates",309.211343013265
+"50-64",2011,2,"Colorectal",0,"Counts",171
+"50-64",2011,2,"Colorectal",0,"Rates",67.9560619892626
+"50-64",2011,2,"Leukaemia",0,"Counts",38
+"50-64",2011,2,"Leukaemia",0,"Rates",13.643662446734
+"50-64",2011,2,"Lung",0,"Counts",171
+"50-64",2011,2,"Lung",0,"Rates",66.7338617393052
+"50-64",2011,2,"Lymphoma",0,"Counts",78
+"50-64",2011,2,"Lymphoma",0,"Rates",31.947225797696
+"50-64",2011,2,"Melanoma",0,"Counts",282
+"50-64",2011,2,"Melanoma",0,"Rates",112.642715660444
+"50-64",2011,2,"Pancreatic",0,"Counts",7
+"50-64",2011,2,"Pancreatic",0,"Rates",2.51330624018785
+"50-64",2011,2,"Prostate",1,"Counts",NA
+"50-64",2011,2,"Prostate",1,"Rates",NA
+"50-64",2011,3,"All cancers",0,"Counts",5164
+"50-64",2011,3,"All cancers",0,"Rates",1029.52956908281
+"50-64",2011,3,"Breast (female)",1,"Counts",NA
+"50-64",2011,3,"Breast (female)",1,"Rates",NA
+"50-64",2011,3,"Colorectal",0,"Counts",483
+"50-64",2011,3,"Colorectal",0,"Rates",95.3798845800942
+"50-64",2011,3,"Leukaemia",0,"Counts",118
+"50-64",2011,3,"Leukaemia",0,"Rates",22.1561544679994
+"50-64",2011,3,"Lung",0,"Counts",407
+"50-64",2011,3,"Lung",0,"Rates",79.1299207471007
+"50-64",2011,3,"Lymphoma",0,"Counts",184
+"50-64",2011,3,"Lymphoma",0,"Rates",37.2260658277844
+"50-64",2011,3,"Melanoma",0,"Counts",730
+"50-64",2011,3,"Melanoma",0,"Rates",145.915853733891
+"50-64",2011,3,"Pancreatic",0,"Counts",75
+"50-64",2011,3,"Pancreatic",0,"Rates",14.3162723892602
+"50-64",2011,3,"Prostate",1,"Counts",NA
+"50-64",2011,3,"Prostate",1,"Rates",NA
+"50-64",2012,1,"All cancers",0,"Counts",3001
+"50-64",2012,1,"All cancers",0,"Rates",1176.08621058421
+"50-64",2012,1,"Breast (female)",1,"Counts",NA
+"50-64",2012,1,"Breast (female)",1,"Rates",NA
+"50-64",2012,1,"Colorectal",0,"Counts",316
+"50-64",2012,1,"Colorectal",0,"Rates",123.295191681724
+"50-64",2012,1,"Leukaemia",0,"Counts",94
+"50-64",2012,1,"Leukaemia",0,"Rates",35.7577180205569
+"50-64",2012,1,"Lung",0,"Counts",153
+"50-64",2012,1,"Lung",0,"Rates",58.6889993486224
+"50-64",2012,1,"Lymphoma",0,"Counts",110
+"50-64",2012,1,"Lymphoma",0,"Rates",44.2753352392215
+"50-64",2012,1,"Melanoma",0,"Counts",387
+"50-64",2012,1,"Melanoma",0,"Rates",155.592372357185
+"50-64",2012,1,"Pancreatic",0,"Counts",59
+"50-64",2012,1,"Pancreatic",0,"Rates",21.6668371058783
+"50-64",2012,1,"Prostate",0,"Counts",1000
+"50-64",2012,1,"Prostate",0,"Rates",386.08002767014
+"50-64",2012,2,"All cancers",0,"Counts",2330
+"50-64",2012,2,"All cancers",0,"Rates",924.619873555537
+"50-64",2012,2,"Breast (female)",0,"Counts",787
+"50-64",2012,2,"Breast (female)",0,"Rates",315.778894864262
+"50-64",2012,2,"Colorectal",0,"Counts",206
+"50-64",2012,2,"Colorectal",0,"Rates",82.9528883529208
+"50-64",2012,2,"Leukaemia",0,"Counts",56
+"50-64",2012,2,"Leukaemia",0,"Rates",21.3964237785446
+"50-64",2012,2,"Lung",0,"Counts",171
+"50-64",2012,2,"Lung",0,"Rates",66.044327930791
+"50-64",2012,2,"Lymphoma",0,"Counts",99
+"50-64",2012,2,"Lymphoma",0,"Rates",40.3447229792918
+"50-64",2012,2,"Melanoma",0,"Counts",243
+"50-64",2012,2,"Melanoma",0,"Rates",95.9158788791379
+"50-64",2012,2,"Pancreatic",0,"Counts",13
+"50-64",2012,2,"Pancreatic",0,"Rates",5.13766153325851
+"50-64",2012,2,"Prostate",1,"Counts",NA
+"50-64",2012,2,"Prostate",1,"Rates",NA
+"50-64",2012,3,"All cancers",0,"Counts",5331
+"50-64",2012,3,"All cancers",0,"Rates",1050.48948841003
+"50-64",2012,3,"Breast (female)",1,"Counts",NA
+"50-64",2012,3,"Breast (female)",1,"Rates",NA
+"50-64",2012,3,"Colorectal",0,"Counts",522
+"50-64",2012,3,"Colorectal",0,"Rates",103.160730289415
+"50-64",2012,3,"Leukaemia",0,"Counts",150
+"50-64",2012,3,"Leukaemia",0,"Rates",28.5553464126398
+"50-64",2012,3,"Lung",0,"Counts",324
+"50-64",2012,3,"Lung",0,"Rates",62.3967476914665
+"50-64",2012,3,"Lymphoma",0,"Counts",209
+"50-64",2012,3,"Lymphoma",0,"Rates",42.3322167961546
+"50-64",2012,3,"Melanoma",0,"Counts",630
+"50-64",2012,3,"Melanoma",0,"Rates",125.565366113233
+"50-64",2012,3,"Pancreatic",0,"Counts",72
+"50-64",2012,3,"Pancreatic",0,"Rates",13.4317502682146
+"50-64",2012,3,"Prostate",1,"Counts",NA
+"50-64",2012,3,"Prostate",1,"Rates",NA
+"50-64",2013,1,"All cancers",0,"Counts",3014
+"50-64",2013,1,"All cancers",0,"Rates",1172.87540429298
+"50-64",2013,1,"Breast (female)",1,"Counts",NA
+"50-64",2013,1,"Breast (female)",1,"Rates",NA
+"50-64",2013,1,"Colorectal",0,"Counts",327
+"50-64",2013,1,"Colorectal",0,"Rates",128.232965950717
+"50-64",2013,1,"Leukaemia",0,"Counts",48
+"50-64",2013,1,"Leukaemia",0,"Rates",18.1544852540676
+"50-64",2013,1,"Lung",0,"Counts",216
+"50-64",2013,1,"Lung",0,"Rates",83.9147249365069
+"50-64",2013,1,"Lymphoma",0,"Counts",91
+"50-64",2013,1,"Lymphoma",0,"Rates",35.4881705985207
+"50-64",2013,1,"Melanoma",0,"Counts",435
+"50-64",2013,1,"Melanoma",0,"Rates",170.602751963545
+"50-64",2013,1,"Pancreatic",0,"Counts",36
+"50-64",2013,1,"Pancreatic",0,"Rates",13.0366719920672
+"50-64",2013,1,"Prostate",0,"Counts",937
+"50-64",2013,1,"Prostate",0,"Rates",359.576625704394
+"50-64",2013,2,"All cancers",0,"Counts",2343
+"50-64",2013,2,"All cancers",0,"Rates",914.133255033965
+"50-64",2013,2,"Breast (female)",0,"Counts",817
+"50-64",2013,2,"Breast (female)",0,"Rates",321.994175645909
+"50-64",2013,2,"Colorectal",0,"Counts",154
+"50-64",2013,2,"Colorectal",0,"Rates",59.1012802162355
+"50-64",2013,2,"Leukaemia",0,"Counts",27
+"50-64",2013,2,"Leukaemia",0,"Rates",10.5549668462621
+"50-64",2013,2,"Lung",0,"Counts",185
+"50-64",2013,2,"Lung",0,"Rates",71.6554548290922
+"50-64",2013,2,"Lymphoma",0,"Counts",89
+"50-64",2013,2,"Lymphoma",0,"Rates",34.8180042027912
+"50-64",2013,2,"Melanoma",0,"Counts",281
+"50-64",2013,2,"Melanoma",0,"Rates",111.824692427997
+"50-64",2013,2,"Pancreatic",0,"Counts",55
+"50-64",2013,2,"Pancreatic",0,"Rates",21.1954027335683
+"50-64",2013,2,"Prostate",1,"Counts",NA
+"50-64",2013,2,"Prostate",1,"Rates",NA
+"50-64",2013,3,"All cancers",0,"Counts",5357
+"50-64",2013,3,"All cancers",0,"Rates",1042.74869403398
+"50-64",2013,3,"Breast (female)",1,"Counts",NA
+"50-64",2013,3,"Breast (female)",1,"Rates",NA
+"50-64",2013,3,"Colorectal",0,"Counts",481
+"50-64",2013,3,"Colorectal",0,"Rates",93.3318700972777
+"50-64",2013,3,"Leukaemia",0,"Counts",75
+"50-64",2013,3,"Leukaemia",0,"Rates",14.3405593189878
+"50-64",2013,3,"Lung",0,"Counts",401
+"50-64",2013,3,"Lung",0,"Rates",77.7676847618324
+"50-64",2013,3,"Lymphoma",0,"Counts",180
+"50-64",2013,3,"Lymphoma",0,"Rates",35.1370624870466
+"50-64",2013,3,"Melanoma",0,"Counts",716
+"50-64",2013,3,"Melanoma",0,"Rates",141.021608067536
+"50-64",2013,3,"Pancreatic",0,"Counts",91
+"50-64",2013,3,"Pancreatic",0,"Rates",17.1952633413373
+"50-64",2013,3,"Prostate",1,"Counts",NA
+"50-64",2013,3,"Prostate",1,"Rates",NA
+"50-64",2014,1,"All cancers",0,"Counts",3033
+"50-64",2014,1,"All cancers",0,"Rates",1158.4130587142
+"50-64",2014,1,"Breast (female)",1,"Counts",NA
+"50-64",2014,1,"Breast (female)",1,"Rates",NA
+"50-64",2014,1,"Colorectal",0,"Counts",343
+"50-64",2014,1,"Colorectal",0,"Rates",132.661828331441
+"50-64",2014,1,"Leukaemia",0,"Counts",74
+"50-64",2014,1,"Leukaemia",0,"Rates",28.5039045478956
+"50-64",2014,1,"Lung",0,"Counts",233
+"50-64",2014,1,"Lung",0,"Rates",87.4073835622522
+"50-64",2014,1,"Lymphoma",0,"Counts",112
+"50-64",2014,1,"Lymphoma",0,"Rates",42.729155982253
+"50-64",2014,1,"Melanoma",0,"Counts",452
+"50-64",2014,1,"Melanoma",0,"Rates",174.761526242917
+"50-64",2014,1,"Pancreatic",0,"Counts",46
+"50-64",2014,1,"Pancreatic",0,"Rates",16.7604483487641
+"50-64",2014,1,"Prostate",0,"Counts",884
+"50-64",2014,1,"Prostate",0,"Rates",331.015863874136
+"50-64",2014,2,"All cancers",0,"Counts",2339
+"50-64",2014,2,"All cancers",0,"Rates",892.301834540859
+"50-64",2014,2,"Breast (female)",0,"Counts",840
+"50-64",2014,2,"Breast (female)",0,"Rates",322.983296335202
+"50-64",2014,2,"Colorectal",0,"Counts",220
+"50-64",2014,2,"Colorectal",0,"Rates",83.2486159358443
+"50-64",2014,2,"Leukaemia",0,"Counts",44
+"50-64",2014,2,"Leukaemia",0,"Rates",18.0158243587382
+"50-64",2014,2,"Lung",0,"Counts",164
+"50-64",2014,2,"Lung",0,"Rates",61.9715354591136
+"50-64",2014,2,"Lymphoma",0,"Counts",99
+"50-64",2014,2,"Lymphoma",0,"Rates",37.5797915158195
+"50-64",2014,2,"Melanoma",0,"Counts",325
+"50-64",2014,2,"Melanoma",0,"Rates",125.422622605575
+"50-64",2014,2,"Pancreatic",0,"Counts",47
+"50-64",2014,2,"Pancreatic",0,"Rates",17.8376178025373
+"50-64",2014,2,"Prostate",1,"Counts",NA
+"50-64",2014,2,"Prostate",1,"Rates",NA
+"50-64",2014,3,"All cancers",0,"Counts",5372
+"50-64",2014,3,"All cancers",0,"Rates",1024.31121398568
+"50-64",2014,3,"Breast (female)",1,"Counts",NA
+"50-64",2014,3,"Breast (female)",1,"Rates",NA
+"50-64",2014,3,"Colorectal",0,"Counts",563
+"50-64",2014,3,"Colorectal",0,"Rates",107.696564289645
+"50-64",2014,3,"Leukaemia",0,"Counts",118
+"50-64",2014,3,"Leukaemia",0,"Rates",23.2293214794565
+"50-64",2014,3,"Lung",0,"Counts",397
+"50-64",2014,3,"Lung",0,"Rates",74.5981530563997
+"50-64",2014,3,"Lymphoma",0,"Counts",211
+"50-64",2014,3,"Lymphoma",0,"Rates",40.1396893259801
+"50-64",2014,3,"Melanoma",0,"Counts",777
+"50-64",2014,3,"Melanoma",0,"Rates",149.876610238438
+"50-64",2014,3,"Pancreatic",0,"Counts",93
+"50-64",2014,3,"Pancreatic",0,"Rates",17.3223477860715
+"50-64",2014,3,"Prostate",1,"Counts",NA
+"50-64",2014,3,"Prostate",1,"Rates",NA
+"50-64",2015,1,"All cancers",0,"Counts",2977
+"50-64",2015,1,"All cancers",0,"Rates",1128.00300667141
+"50-64",2015,1,"Breast (female)",1,"Counts",NA
+"50-64",2015,1,"Breast (female)",1,"Rates",NA
+"50-64",2015,1,"Colorectal",0,"Counts",300
+"50-64",2015,1,"Colorectal",0,"Rates",115.835699940888
+"50-64",2015,1,"Leukaemia",0,"Counts",90
+"50-64",2015,1,"Leukaemia",0,"Rates",33.9986893313199
+"50-64",2015,1,"Lung",0,"Counts",214
+"50-64",2015,1,"Lung",0,"Rates",80.7137121918774
+"50-64",2015,1,"Lymphoma",0,"Counts",105
+"50-64",2015,1,"Lymphoma",0,"Rates",38.7980086167405
+"50-64",2015,1,"Melanoma",0,"Counts",454
+"50-64",2015,1,"Melanoma",0,"Rates",174.92874581419
+"50-64",2015,1,"Pancreatic",0,"Counts",67
+"50-64",2015,1,"Pancreatic",0,"Rates",23.9162703145824
+"50-64",2015,1,"Prostate",0,"Counts",839
+"50-64",2015,1,"Prostate",0,"Rates",310.21754771495
+"50-64",2015,2,"All cancers",0,"Counts",2468
+"50-64",2015,2,"All cancers",0,"Rates",924.805263282286
+"50-64",2015,2,"Breast (female)",0,"Counts",833
+"50-64",2015,2,"Breast (female)",0,"Rates",311.901840809178
+"50-64",2015,2,"Colorectal",0,"Counts",203
+"50-64",2015,2,"Colorectal",0,"Rates",74.5325969945306
+"50-64",2015,2,"Leukaemia",0,"Counts",16
+"50-64",2015,2,"Leukaemia",0,"Rates",5.78584471104859
+"50-64",2015,2,"Lung",0,"Counts",165
+"50-64",2015,2,"Lung",0,"Rates",60.4303013660439
+"50-64",2015,2,"Lymphoma",0,"Counts",83
+"50-64",2015,2,"Lymphoma",0,"Rates",31.1696886982237
+"50-64",2015,2,"Melanoma",0,"Counts",332
+"50-64",2015,2,"Melanoma",0,"Rates",125.768371141022
+"50-64",2015,2,"Pancreatic",0,"Counts",33
+"50-64",2015,2,"Pancreatic",0,"Rates",11.1391887086174
+"50-64",2015,2,"Prostate",1,"Counts",NA
+"50-64",2015,2,"Prostate",1,"Rates",NA
+"50-64",2015,3,"All cancers",0,"Counts",5445
+"50-64",2015,3,"All cancers",0,"Rates",1024.92567763138
+"50-64",2015,3,"Breast (female)",1,"Counts",NA
+"50-64",2015,3,"Breast (female)",1,"Rates",NA
+"50-64",2015,3,"Colorectal",0,"Counts",503
+"50-64",2015,3,"Colorectal",0,"Rates",94.8587824755868
+"50-64",2015,3,"Leukaemia",0,"Counts",106
+"50-64",2015,3,"Leukaemia",0,"Rates",19.6825838021923
+"50-64",2015,3,"Lung",0,"Counts",379
+"50-64",2015,3,"Lung",0,"Rates",70.4114169442964
+"50-64",2015,3,"Lymphoma",0,"Counts",188
+"50-64",2015,3,"Lymphoma",0,"Rates",34.9400096322331
+"50-64",2015,3,"Melanoma",0,"Counts",786
+"50-64",2015,3,"Melanoma",0,"Rates",149.960551826157
+"50-64",2015,3,"Pancreatic",0,"Counts",100
+"50-64",2015,3,"Pancreatic",0,"Rates",17.430402069144
+"50-64",2015,3,"Prostate",1,"Counts",NA
+"50-64",2015,3,"Prostate",1,"Rates",NA
+"50-64",2016,1,"All cancers",0,"Counts",3013
+"50-64",2016,1,"All cancers",0,"Rates",1125.28564258655
+"50-64",2016,1,"Breast (female)",1,"Counts",NA
+"50-64",2016,1,"Breast (female)",1,"Rates",NA
+"50-64",2016,1,"Colorectal",0,"Counts",317
+"50-64",2016,1,"Colorectal",0,"Rates",119.277753601155
+"50-64",2016,1,"Leukaemia",0,"Counts",82
+"50-64",2016,1,"Leukaemia",0,"Rates",29.0525617161117
+"50-64",2016,1,"Lung",0,"Counts",265
+"50-64",2016,1,"Lung",0,"Rates",98.3463195325619
+"50-64",2016,1,"Lymphoma",0,"Counts",99
+"50-64",2016,1,"Lymphoma",0,"Rates",36.7196462570709
+"50-64",2016,1,"Melanoma",0,"Counts",436
+"50-64",2016,1,"Melanoma",0,"Rates",165.542349764066
+"50-64",2016,1,"Pancreatic",0,"Counts",79
+"50-64",2016,1,"Pancreatic",0,"Rates",29.2972528407619
+"50-64",2016,1,"Prostate",0,"Counts",851
+"50-64",2016,1,"Prostate",0,"Rates",312.773907635829
+"50-64",2016,2,"All cancers",0,"Counts",2516
+"50-64",2016,2,"All cancers",0,"Rates",929.668872748777
+"50-64",2016,2,"Breast (female)",0,"Counts",850
+"50-64",2016,2,"Breast (female)",0,"Rates",315.816538666513
+"50-64",2016,2,"Colorectal",0,"Counts",191
+"50-64",2016,2,"Colorectal",0,"Rates",68.5445019440286
+"50-64",2016,2,"Leukaemia",0,"Counts",35
+"50-64",2016,2,"Leukaemia",0,"Rates",13.7135066991412
+"50-64",2016,2,"Lung",0,"Counts",191
+"50-64",2016,2,"Lung",0,"Rates",67.7540580064793
+"50-64",2016,2,"Lymphoma",0,"Counts",139
+"50-64",2016,2,"Lymphoma",0,"Rates",51.5232358531951
+"50-64",2016,2,"Melanoma",0,"Counts",336
+"50-64",2016,2,"Melanoma",0,"Rates",125.035023247754
+"50-64",2016,2,"Pancreatic",0,"Counts",54
+"50-64",2016,2,"Pancreatic",0,"Rates",20.4481208363017
+"50-64",2016,2,"Prostate",1,"Counts",NA
+"50-64",2016,2,"Prostate",1,"Rates",NA
+"50-64",2016,3,"All cancers",0,"Counts",5529
+"50-64",2016,3,"All cancers",0,"Rates",1025.85090624578
+"50-64",2016,3,"Breast (female)",1,"Counts",NA
+"50-64",2016,3,"Breast (female)",1,"Rates",NA
+"50-64",2016,3,"Colorectal",0,"Counts",508
+"50-64",2016,3,"Colorectal",0,"Rates",93.4518739103367
+"50-64",2016,3,"Leukaemia",0,"Counts",117
+"50-64",2016,3,"Leukaemia",0,"Rates",21.2608042785684
+"50-64",2016,3,"Lung",0,"Counts",456
+"50-64",2016,3,"Lung",0,"Rates",82.7759365531441
+"50-64",2016,3,"Lymphoma",0,"Counts",238
+"50-64",2016,3,"Lymphoma",0,"Rates",44.2615479528175
+"50-64",2016,3,"Melanoma",0,"Counts",772
+"50-64",2016,3,"Melanoma",0,"Rates",144.9328592092
+"50-64",2016,3,"Pancreatic",0,"Counts",133
+"50-64",2016,3,"Pancreatic",0,"Rates",24.800148099622
+"50-64",2016,3,"Prostate",1,"Counts",NA
+"50-64",2016,3,"Prostate",1,"Rates",NA
+"50-64",2017,1,"All cancers",0,"Counts",3096
+"50-64",2017,1,"All cancers",0,"Rates",1143.43669190633
+"50-64",2017,1,"Breast (female)",1,"Counts",NA
+"50-64",2017,1,"Breast (female)",1,"Rates",NA
+"50-64",2017,1,"Colorectal",0,"Counts",308
+"50-64",2017,1,"Colorectal",0,"Rates",113.855764399383
+"50-64",2017,1,"Leukaemia",0,"Counts",114
+"50-64",2017,1,"Leukaemia",0,"Rates",40.8197936384442
+"50-64",2017,1,"Lung",0,"Counts",216
+"50-64",2017,1,"Lung",0,"Rates",78.3677654263549
+"50-64",2017,1,"Lymphoma",0,"Counts",98
+"50-64",2017,1,"Lymphoma",0,"Rates",38.1430263653673
+"50-64",2017,1,"Melanoma",0,"Counts",517
+"50-64",2017,1,"Melanoma",0,"Rates",194.839735900401
+"50-64",2017,1,"Pancreatic",0,"Counts",37
+"50-64",2017,1,"Pancreatic",0,"Rates",14.9689726824043
+"50-64",2017,1,"Prostate",0,"Counts",888
+"50-64",2017,1,"Prostate",0,"Rates",322.708375858344
+"50-64",2017,2,"All cancers",0,"Counts",2559
+"50-64",2017,2,"All cancers",0,"Rates",923.126431157666
+"50-64",2017,2,"Breast (female)",0,"Counts",847
+"50-64",2017,2,"Breast (female)",0,"Rates",307.255977103917
+"50-64",2017,2,"Colorectal",0,"Counts",229
+"50-64",2017,2,"Colorectal",0,"Rates",83.9696656563202
+"50-64",2017,2,"Leukaemia",0,"Counts",55
+"50-64",2017,2,"Leukaemia",0,"Rates",18.6706871686013
+"50-64",2017,2,"Lung",0,"Counts",216
+"50-64",2017,2,"Lung",0,"Rates",75.0160990479828
+"50-64",2017,2,"Lymphoma",0,"Counts",130
+"50-64",2017,2,"Lymphoma",0,"Rates",47.6143205741842
+"50-64",2017,2,"Melanoma",0,"Counts",318
+"50-64",2017,2,"Melanoma",0,"Rates",115.328495399674
+"50-64",2017,2,"Pancreatic",0,"Counts",62
+"50-64",2017,2,"Pancreatic",0,"Rates",22.446751345711
+"50-64",2017,2,"Prostate",1,"Counts",NA
+"50-64",2017,2,"Prostate",1,"Rates",NA
+"50-64",2017,3,"All cancers",0,"Counts",5655
+"50-64",2017,3,"All cancers",0,"Rates",1030.92971508439
+"50-64",2017,3,"Breast (female)",1,"Counts",NA
+"50-64",2017,3,"Breast (female)",1,"Rates",NA
+"50-64",2017,3,"Colorectal",0,"Counts",537
+"50-64",2017,3,"Colorectal",0,"Rates",98.5972052116249
+"50-64",2017,3,"Leukaemia",0,"Counts",169
+"50-64",2017,3,"Leukaemia",0,"Rates",29.5110093139235
+"50-64",2017,3,"Lung",0,"Counts",432
+"50-64",2017,3,"Lung",0,"Rates",76.6509957770645
+"50-64",2017,3,"Lymphoma",0,"Counts",228
+"50-64",2017,3,"Lymphoma",0,"Rates",42.9715793082175
+"50-64",2017,3,"Melanoma",0,"Counts",835
+"50-64",2017,3,"Melanoma",0,"Rates",154.232556996079
+"50-64",2017,3,"Pancreatic",0,"Counts",99
+"50-64",2017,3,"Pancreatic",0,"Rates",18.7792334546889
+"50-64",2017,3,"Prostate",1,"Counts",NA
+"50-64",2017,3,"Prostate",1,"Rates",NA
+"50-64",2018,1,"All cancers",0,"Counts",3235
+"50-64",2018,1,"All cancers",0,"Rates",1173.59793058588
+"50-64",2018,1,"Breast (female)",1,"Counts",NA
+"50-64",2018,1,"Breast (female)",1,"Rates",NA
+"50-64",2018,1,"Colorectal",0,"Counts",277
+"50-64",2018,1,"Colorectal",0,"Rates",100.303802130874
+"50-64",2018,1,"Leukaemia",0,"Counts",88
+"50-64",2018,1,"Leukaemia",0,"Rates",31.3813075521665
+"50-64",2018,1,"Lung",0,"Counts",265
+"50-64",2018,1,"Lung",0,"Rates",93.7595121722362
+"50-64",2018,1,"Lymphoma",0,"Counts",145
+"50-64",2018,1,"Lymphoma",0,"Rates",53.8310032042859
+"50-64",2018,1,"Melanoma",0,"Counts",422
+"50-64",2018,1,"Melanoma",0,"Rates",155.886172683629
+"50-64",2018,1,"Pancreatic",0,"Counts",95
+"50-64",2018,1,"Pancreatic",0,"Rates",35.3645851785456
+"50-64",2018,1,"Prostate",0,"Counts",916
+"50-64",2018,1,"Prostate",0,"Rates",323.31391166735
+"50-64",2018,2,"All cancers",0,"Counts",2667
+"50-64",2018,2,"All cancers",0,"Rates",943.952360967315
+"50-64",2018,2,"Breast (female)",0,"Counts",895
+"50-64",2018,2,"Breast (female)",0,"Rates",322.847811544066
+"50-64",2018,2,"Colorectal",0,"Counts",252
+"50-64",2018,2,"Colorectal",0,"Rates",90.4362470544035
+"50-64",2018,2,"Leukaemia",0,"Counts",40
+"50-64",2018,2,"Leukaemia",0,"Rates",13.5070841190769
+"50-64",2018,2,"Lung",0,"Counts",223
+"50-64",2018,2,"Lung",0,"Rates",75.6534844263337
+"50-64",2018,2,"Lymphoma",0,"Counts",65
+"50-64",2018,2,"Lymphoma",0,"Rates",22.054488234659
+"50-64",2018,2,"Melanoma",0,"Counts",392
+"50-64",2018,2,"Melanoma",0,"Rates",140.617354328597
+"50-64",2018,2,"Pancreatic",0,"Counts",35
+"50-64",2018,2,"Pancreatic",0,"Rates",13.1934951269173
+"50-64",2018,2,"Prostate",1,"Counts",NA
+"50-64",2018,2,"Prostate",1,"Rates",NA
+"50-64",2018,3,"All cancers",0,"Counts",5902
+"50-64",2018,3,"All cancers",0,"Rates",1056.07493471416
+"50-64",2018,3,"Breast (female)",1,"Counts",NA
+"50-64",2018,3,"Breast (female)",1,"Rates",NA
+"50-64",2018,3,"Colorectal",0,"Counts",529
+"50-64",2018,3,"Colorectal",0,"Rates",95.2466788745992
+"50-64",2018,3,"Leukaemia",0,"Counts",128
+"50-64",2018,3,"Leukaemia",0,"Rates",22.2356928009168
+"50-64",2018,3,"Lung",0,"Counts",488
+"50-64",2018,3,"Lung",0,"Rates",84.4960618266296
+"50-64",2018,3,"Lymphoma",0,"Counts",210
+"50-64",2018,3,"Lymphoma",0,"Rates",37.5892007817202
+"50-64",2018,3,"Melanoma",0,"Counts",814
+"50-64",2018,3,"Melanoma",0,"Rates",148.068485110167
+"50-64",2018,3,"Pancreatic",0,"Counts",130
+"50-64",2018,3,"Pancreatic",0,"Rates",24.0251775440239
+"50-64",2018,3,"Prostate",1,"Counts",NA
+"50-64",2018,3,"Prostate",1,"Rates",NA
+"50-64",2019,1,"All cancers",0,"Counts",3301
+"50-64",2019,1,"All cancers",0,"Rates",1173.65554566346
+"50-64",2019,1,"Breast (female)",1,"Counts",NA
+"50-64",2019,1,"Breast (female)",1,"Rates",NA
+"50-64",2019,1,"Colorectal",0,"Counts",371
+"50-64",2019,1,"Colorectal",0,"Rates",134.553114779009
+"50-64",2019,1,"Leukaemia",0,"Counts",95
+"50-64",2019,1,"Leukaemia",0,"Rates",32.9553466262332
+"50-64",2019,1,"Lung",0,"Counts",242
+"50-64",2019,1,"Lung",0,"Rates",84.20868223417
+"50-64",2019,1,"Lymphoma",0,"Counts",104
+"50-64",2019,1,"Lymphoma",0,"Rates",36.4962740984139
+"50-64",2019,1,"Melanoma",0,"Counts",495
+"50-64",2019,1,"Melanoma",0,"Rates",177.960818225613
+"50-64",2019,1,"Pancreatic",0,"Counts",67
+"50-64",2019,1,"Pancreatic",0,"Rates",22.4405031271344
+"50-64",2019,1,"Prostate",0,"Counts",1008
+"50-64",2019,1,"Prostate",0,"Rates",349.932949027389
+"50-64",2019,2,"All cancers",0,"Counts",2688
+"50-64",2019,2,"All cancers",0,"Rates",935.359735239211
+"50-64",2019,2,"Breast (female)",0,"Counts",910
+"50-64",2019,2,"Breast (female)",0,"Rates",320.41623493142
+"50-64",2019,2,"Colorectal",0,"Counts",237
+"50-64",2019,2,"Colorectal",0,"Rates",81.1490795109272
+"50-64",2019,2,"Leukaemia",0,"Counts",26
+"50-64",2019,2,"Leukaemia",0,"Rates",8.98120264365361
+"50-64",2019,2,"Lung",0,"Counts",245
+"50-64",2019,2,"Lung",0,"Rates",81.8401447262639
+"50-64",2019,2,"Lymphoma",0,"Counts",112
+"50-64",2019,2,"Lymphoma",0,"Rates",40.0510438223298
+"50-64",2019,2,"Melanoma",0,"Counts",358
+"50-64",2019,2,"Melanoma",0,"Rates",124.471945949635
+"50-64",2019,2,"Pancreatic",0,"Counts",16
+"50-64",2019,2,"Pancreatic",0,"Rates",4.90611705693212
+"50-64",2019,2,"Prostate",1,"Counts",NA
+"50-64",2019,2,"Prostate",1,"Rates",NA
+"50-64",2019,3,"All cancers",0,"Counts",5989
+"50-64",2019,3,"All cancers",0,"Rates",1051.76102544414
+"50-64",2019,3,"Breast (female)",1,"Counts",NA
+"50-64",2019,3,"Breast (female)",1,"Rates",NA
+"50-64",2019,3,"Colorectal",0,"Counts",608
+"50-64",2019,3,"Colorectal",0,"Rates",107.277589859872
+"50-64",2019,3,"Leukaemia",0,"Counts",121
+"50-64",2019,3,"Leukaemia",0,"Rates",20.6997573030544
+"50-64",2019,3,"Lung",0,"Counts",487
+"50-64",2019,3,"Lung",0,"Rates",82.9890175389641
+"50-64",2019,3,"Lymphoma",0,"Counts",216
+"50-64",2019,3,"Lymphoma",0,"Rates",38.2971007844368
+"50-64",2019,3,"Melanoma",0,"Counts",853
+"50-64",2019,3,"Melanoma",0,"Rates",150.621100368913
+"50-64",2019,3,"Pancreatic",0,"Counts",83
+"50-64",2019,3,"Pancreatic",0,"Rates",13.4811942757802
+"50-64",2019,3,"Prostate",1,"Counts",NA
+"50-64",2019,3,"Prostate",1,"Rates",NA
+"50-64",2020,1,"All cancers",0,"Counts",3200
+"50-64",2020,1,"All cancers",0,"Rates",1112.66548667641
+"50-64",2020,1,"Breast (female)",1,"Counts",NA
+"50-64",2020,1,"Breast (female)",1,"Rates",NA
+"50-64",2020,1,"Colorectal",0,"Counts",330
+"50-64",2020,1,"Colorectal",0,"Rates",117.487844046905
+"50-64",2020,1,"Leukaemia",0,"Counts",83
+"50-64",2020,1,"Leukaemia",0,"Rates",27.0006292241536
+"50-64",2020,1,"Lung",0,"Counts",243
+"50-64",2020,1,"Lung",0,"Rates",83.9887465971888
+"50-64",2020,1,"Lymphoma",0,"Counts",111
+"50-64",2020,1,"Lymphoma",0,"Rates",38.8557322364096
+"50-64",2020,1,"Melanoma",0,"Counts",424
+"50-64",2020,1,"Melanoma",0,"Rates",149.690461094163
+"50-64",2020,1,"Pancreatic",0,"Counts",62
+"50-64",2020,1,"Pancreatic",0,"Rates",20.8817139755049
+"50-64",2020,1,"Prostate",0,"Counts",932
+"50-64",2020,1,"Prostate",0,"Rates",314.396353204406
+"50-64",2020,2,"All cancers",0,"Counts",2722
+"50-64",2020,2,"All cancers",0,"Rates",923.102926087504
+"50-64",2020,2,"Breast (female)",0,"Counts",899
+"50-64",2020,2,"Breast (female)",0,"Rates",309.845563617405
+"50-64",2020,2,"Colorectal",0,"Counts",164
+"50-64",2020,2,"Colorectal",0,"Rates",53.8761768196837
+"50-64",2020,2,"Leukaemia",0,"Counts",54
+"50-64",2020,2,"Leukaemia",0,"Rates",17.7646659355907
+"50-64",2020,2,"Lung",0,"Counts",192
+"50-64",2020,2,"Lung",0,"Rates",60.8640893442057
+"50-64",2020,2,"Lymphoma",0,"Counts",97
+"50-64",2020,2,"Lymphoma",0,"Rates",34.0224174692944
+"50-64",2020,2,"Melanoma",0,"Counts",346
+"50-64",2020,2,"Melanoma",0,"Rates",119.559611013552
+"50-64",2020,2,"Pancreatic",0,"Counts",46
+"50-64",2020,2,"Pancreatic",0,"Rates",16.887499022919
+"50-64",2020,2,"Prostate",1,"Counts",NA
+"50-64",2020,2,"Prostate",1,"Rates",NA
+"50-64",2020,3,"All cancers",0,"Counts",5922
+"50-64",2020,3,"All cancers",0,"Rates",1015.40691150801
+"50-64",2020,3,"Breast (female)",1,"Counts",NA
+"50-64",2020,3,"Breast (female)",1,"Rates",NA
+"50-64",2020,3,"Colorectal",0,"Counts",494
+"50-64",2020,3,"Colorectal",0,"Rates",84.937020137097
+"50-64",2020,3,"Leukaemia",0,"Counts",137
+"50-64",2020,3,"Leukaemia",0,"Rates",22.2553698433745
+"50-64",2020,3,"Lung",0,"Counts",435
+"50-64",2020,3,"Lung",0,"Rates",72.1650308751563
+"50-64",2020,3,"Lymphoma",0,"Counts",208
+"50-64",2020,3,"Lymphoma",0,"Rates",36.3666331500437
+"50-64",2020,3,"Melanoma",0,"Counts",770
+"50-64",2020,3,"Melanoma",0,"Rates",134.242122745131
+"50-64",2020,3,"Pancreatic",0,"Counts",108
+"50-64",2020,3,"Pancreatic",0,"Rates",18.8146793334023
+"50-64",2020,3,"Prostate",1,"Counts",NA
+"50-64",2020,3,"Prostate",1,"Rates",NA
+"50-64",2021,1,"All cancers",0,"Counts",3238
+"50-64",2021,1,"All cancers",0,"Rates",1096.62191354764
+"50-64",2021,1,"Breast (female)",1,"Counts",NA
+"50-64",2021,1,"Breast (female)",1,"Rates",NA
+"50-64",2021,1,"Colorectal",0,"Counts",325
+"50-64",2021,1,"Colorectal",0,"Rates",114.218369166331
+"50-64",2021,1,"Leukaemia",0,"Counts",104
+"50-64",2021,1,"Leukaemia",0,"Rates",35.9823344478927
+"50-64",2021,1,"Lung",0,"Counts",256
+"50-64",2021,1,"Lung",0,"Rates",85.5929891621553
+"50-64",2021,1,"Lymphoma",0,"Counts",136
+"50-64",2021,1,"Lymphoma",0,"Rates",46.2796574253287
+"50-64",2021,1,"Melanoma",0,"Counts",417
+"50-64",2021,1,"Melanoma",0,"Rates",144.516200021888
+"50-64",2021,1,"Pancreatic",0,"Counts",41
+"50-64",2021,1,"Pancreatic",0,"Rates",12.527251171032
+"50-64",2021,1,"Prostate",0,"Counts",1047
+"50-64",2021,1,"Prostate",0,"Rates",348.987058375175
+"50-64",2021,2,"All cancers",0,"Counts",2755
+"50-64",2021,2,"All cancers",0,"Rates",916.801206563313
+"50-64",2021,2,"Breast (female)",0,"Counts",899
+"50-64",2021,2,"Breast (female)",0,"Rates",304.078815375987
+"50-64",2021,2,"Colorectal",0,"Counts",211
+"50-64",2021,2,"Colorectal",0,"Rates",67.0705615199288
+"50-64",2021,2,"Leukaemia",0,"Counts",78
+"50-64",2021,2,"Leukaemia",0,"Rates",24.7711283574084
+"50-64",2021,2,"Lung",0,"Counts",212
+"50-64",2021,2,"Lung",0,"Rates",67.3952241299744
+"50-64",2021,2,"Lymphoma",0,"Counts",102
+"50-64",2021,2,"Lymphoma",0,"Rates",34.1539591922997
+"50-64",2021,2,"Melanoma",0,"Counts",315
+"50-64",2021,2,"Melanoma",0,"Rates",106.52441585307
+"50-64",2021,2,"Pancreatic",0,"Counts",30
+"50-64",2021,2,"Pancreatic",0,"Rates",10.1945877033182
+"50-64",2021,2,"Prostate",1,"Counts",NA
+"50-64",2021,2,"Prostate",1,"Rates",NA
+"50-64",2021,3,"All cancers",0,"Counts",5993
+"50-64",2021,3,"All cancers",0,"Rates",1004.53617650564
+"50-64",2021,3,"Breast (female)",1,"Counts",NA
+"50-64",2021,3,"Breast (female)",1,"Rates",NA
+"50-64",2021,3,"Colorectal",0,"Counts",536
+"50-64",2021,3,"Colorectal",0,"Rates",90.2454276005306
+"50-64",2021,3,"Leukaemia",0,"Counts",182
+"50-64",2021,3,"Leukaemia",0,"Rates",30.2836989667986
+"50-64",2021,3,"Lung",0,"Counts",468
+"50-64",2021,3,"Lung",0,"Rates",76.3131105412769
+"50-64",2021,3,"Lymphoma",0,"Counts",238
+"50-64",2021,3,"Lymphoma",0,"Rates",40.0804497843575
+"50-64",2021,3,"Melanoma",0,"Counts",732
+"50-64",2021,3,"Melanoma",0,"Rates",125.117222125517
+"50-64",2021,3,"Pancreatic",0,"Counts",71
+"50-64",2021,3,"Pancreatic",0,"Rates",11.3099115015464
+"50-64",2021,3,"Prostate",1,"Counts",NA
+"50-64",2021,3,"Prostate",1,"Rates",NA
+"50-64",2022,1,"All cancers",0,"Counts",3581
+"50-64",2022,1,"All cancers",0,"Rates",1181.32681279039
+"50-64",2022,1,"Breast (female)",1,"Counts",NA
+"50-64",2022,1,"Breast (female)",1,"Rates",NA
+"50-64",2022,1,"Colorectal",0,"Counts",278
+"50-64",2022,1,"Colorectal",0,"Rates",92.0319455104487
+"50-64",2022,1,"Leukaemia",0,"Counts",79
+"50-64",2022,1,"Leukaemia",0,"Rates",26.1326681403921
+"50-64",2022,1,"Lung",0,"Counts",212
+"50-64",2022,1,"Lung",0,"Rates",69.0263588599312
+"50-64",2022,1,"Lymphoma",0,"Counts",89
+"50-64",2022,1,"Lymphoma",0,"Rates",28.9019586769331
+"50-64",2022,1,"Melanoma",0,"Counts",454
+"50-64",2022,1,"Melanoma",0,"Rates",153.73087185936
+"50-64",2022,1,"Pancreatic",0,"Counts",60
+"50-64",2022,1,"Pancreatic",0,"Rates",19.2235189959637
+"50-64",2022,1,"Prostate",0,"Counts",1352
+"50-64",2022,1,"Prostate",0,"Rates",438.143498571074
+"50-64",2022,2,"All cancers",0,"Counts",2636
+"50-64",2022,2,"All cancers",0,"Rates",861.349662047748
+"50-64",2022,2,"Breast (female)",0,"Counts",933
+"50-64",2022,2,"Breast (female)",0,"Rates",309.068035333716
+"50-64",2022,2,"Colorectal",0,"Counts",208
+"50-64",2022,2,"Colorectal",0,"Rates",67.2668802819474
+"50-64",2022,2,"Leukaemia",0,"Counts",34
+"50-64",2022,2,"Leukaemia",0,"Rates",10.7912936518977
+"50-64",2022,2,"Lung",0,"Counts",212
+"50-64",2022,2,"Lung",0,"Rates",67.9616899414226
+"50-64",2022,2,"Lymphoma",0,"Counts",119
+"50-64",2022,2,"Lymphoma",0,"Rates",39.4213526946703
+"50-64",2022,2,"Melanoma",0,"Counts",328
+"50-64",2022,2,"Melanoma",0,"Rates",108.075299231948
+"50-64",2022,2,"Pancreatic",0,"Counts",60
+"50-64",2022,2,"Pancreatic",0,"Rates",20.7153334178619
+"50-64",2022,2,"Prostate",1,"Counts",NA
+"50-64",2022,2,"Prostate",1,"Rates",NA
+"50-64",2022,3,"All cancers",0,"Counts",6217
+"50-64",2022,3,"All cancers",0,"Rates",1017.60687662763
+"50-64",2022,3,"Breast (female)",1,"Counts",NA
+"50-64",2022,3,"Breast (female)",1,"Rates",NA
+"50-64",2022,3,"Colorectal",0,"Counts",486
+"50-64",2022,3,"Colorectal",0,"Rates",79.3820485503159
+"50-64",2022,3,"Leukaemia",0,"Counts",113
+"50-64",2022,3,"Leukaemia",0,"Rates",18.3061995950716
+"50-64",2022,3,"Lung",0,"Counts",424
+"50-64",2022,3,"Lung",0,"Rates",68.4384121409103
+"50-64",2022,3,"Lymphoma",0,"Counts",208
+"50-64",2022,3,"Lymphoma",0,"Rates",34.228895555812
+"50-64",2022,3,"Melanoma",0,"Counts",782
+"50-64",2022,3,"Melanoma",0,"Rates",130.441573171282
+"50-64",2022,3,"Pancreatic",0,"Counts",120
+"50-64",2022,3,"Pancreatic",0,"Rates",19.9449192127632
+"50-64",2022,3,"Prostate",1,"Counts",NA
+"50-64",2022,3,"Prostate",1,"Rates",NA
+"65+",2005,1,"All cancers",0,"Counts",4458
+"65+",2005,1,"All cancers",0,"Rates",3499.64580095288
+"65+",2005,1,"Breast (female)",1,"Counts",NA
+"65+",2005,1,"Breast (female)",1,"Rates",NA
+"65+",2005,1,"Colorectal",0,"Counts",647
+"65+",2005,1,"Colorectal",0,"Rates",511.124167482065
+"65+",2005,1,"Leukaemia",0,"Counts",120
+"65+",2005,1,"Leukaemia",0,"Rates",95.9976826265346
+"65+",2005,1,"Lung",0,"Counts",561
+"65+",2005,1,"Lung",0,"Rates",439.251888965883
+"65+",2005,1,"Lymphoma",0,"Counts",91
+"65+",2005,1,"Lymphoma",0,"Rates",69.6196812579936
+"65+",2005,1,"Melanoma",0,"Counts",447
+"65+",2005,1,"Melanoma",0,"Rates",352.978879471934
+"65+",2005,1,"Pancreatic",0,"Counts",100
+"65+",2005,1,"Pancreatic",0,"Rates",80.3690386065785
+"65+",2005,1,"Prostate",0,"Counts",1281
+"65+",2005,1,"Prostate",0,"Rates",994.808149224313
+"65+",2005,2,"All cancers",0,"Counts",2964
+"65+",2005,2,"All cancers",0,"Rates",1921.50044850938
+"65+",2005,2,"Breast (female)",0,"Counts",521
+"65+",2005,2,"Breast (female)",0,"Rates",350.360025093883
+"65+",2005,2,"Colorectal",0,"Counts",556
+"65+",2005,2,"Colorectal",0,"Rates",360.656358637759
+"65+",2005,2,"Leukaemia",0,"Counts",75
+"65+",2005,2,"Leukaemia",0,"Rates",49.040148842854
+"65+",2005,2,"Lung",0,"Counts",265
+"65+",2005,2,"Lung",0,"Rates",174.434708750553
+"65+",2005,2,"Lymphoma",0,"Counts",172
+"65+",2005,2,"Lymphoma",0,"Rates",109.029564197138
+"65+",2005,2,"Melanoma",0,"Counts",197
+"65+",2005,2,"Melanoma",0,"Rates",130.75452617751
+"65+",2005,2,"Pancreatic",0,"Counts",73
+"65+",2005,2,"Pancreatic",0,"Rates",47.1504753786115
+"65+",2005,2,"Prostate",1,"Counts",NA
+"65+",2005,2,"Prostate",1,"Rates",NA
+"65+",2005,3,"All cancers",0,"Counts",7422
+"65+",2005,3,"All cancers",0,"Rates",2635.27053467728
+"65+",2005,3,"Breast (female)",1,"Counts",NA
+"65+",2005,3,"Breast (female)",1,"Rates",NA
+"65+",2005,3,"Colorectal",0,"Counts",1203
+"65+",2005,3,"Colorectal",0,"Rates",428.013078139941
+"65+",2005,3,"Leukaemia",0,"Counts",195
+"65+",2005,3,"Leukaemia",0,"Rates",68.3497854377837
+"65+",2005,3,"Lung",0,"Counts",826
+"65+",2005,3,"Lung",0,"Rates",293.347947100959
+"65+",2005,3,"Lymphoma",0,"Counts",263
+"65+",2005,3,"Lymphoma",0,"Rates",91.9419906448857
+"65+",2005,3,"Melanoma",0,"Counts",644
+"65+",2005,3,"Melanoma",0,"Rates",229.032674396222
+"65+",2005,3,"Pancreatic",0,"Counts",173
+"65+",2005,3,"Pancreatic",0,"Rates",61.6656990463673
+"65+",2005,3,"Prostate",1,"Counts",NA
+"65+",2005,3,"Prostate",1,"Rates",NA
+"65+",2006,1,"All cancers",0,"Counts",4730
+"65+",2006,1,"All cancers",0,"Rates",3581.74839690327
+"65+",2006,1,"Breast (female)",1,"Counts",NA
+"65+",2006,1,"Breast (female)",1,"Rates",NA
+"65+",2006,1,"Colorectal",0,"Counts",656
+"65+",2006,1,"Colorectal",0,"Rates",499.072355086004
+"65+",2006,1,"Leukaemia",0,"Counts",111
+"65+",2006,1,"Leukaemia",0,"Rates",79.6790265929055
+"65+",2006,1,"Lung",0,"Counts",600
+"65+",2006,1,"Lung",0,"Rates",461.837128445056
+"65+",2006,1,"Lymphoma",0,"Counts",124
+"65+",2006,1,"Lymphoma",0,"Rates",92.3248871287639
+"65+",2006,1,"Melanoma",0,"Counts",519
+"65+",2006,1,"Melanoma",0,"Rates",398.714505068692
+"65+",2006,1,"Pancreatic",0,"Counts",77
+"65+",2006,1,"Pancreatic",0,"Rates",56.5205290898328
+"65+",2006,1,"Prostate",0,"Counts",1412
+"65+",2006,1,"Prostate",0,"Rates",1053.81423603366
+"65+",2006,2,"All cancers",0,"Counts",2952
+"65+",2006,2,"All cancers",0,"Rates",1865.89540523611
+"65+",2006,2,"Breast (female)",0,"Counts",589
+"65+",2006,2,"Breast (female)",0,"Rates",378.839141277405
+"65+",2006,2,"Colorectal",0,"Counts",628
+"65+",2006,2,"Colorectal",0,"Rates",399.049374948304
+"65+",2006,2,"Leukaemia",0,"Counts",99
+"65+",2006,2,"Leukaemia",0,"Rates",63.3695219775053
+"65+",2006,2,"Lung",0,"Counts",231
+"65+",2006,2,"Lung",0,"Rates",144.699885398751
+"65+",2006,2,"Lymphoma",0,"Counts",81
+"65+",2006,2,"Lymphoma",0,"Rates",52.8587748142807
+"65+",2006,2,"Melanoma",0,"Counts",246
+"65+",2006,2,"Melanoma",0,"Rates",153.95453020653
+"65+",2006,2,"Pancreatic",0,"Counts",63
+"65+",2006,2,"Pancreatic",0,"Rates",36.571118059874
+"65+",2006,2,"Prostate",1,"Counts",NA
+"65+",2006,2,"Prostate",1,"Rates",NA
+"65+",2006,3,"All cancers",0,"Counts",7682
+"65+",2006,3,"All cancers",0,"Rates",2645.61797838981
+"65+",2006,3,"Breast (female)",1,"Counts",NA
+"65+",2006,3,"Breast (female)",1,"Rates",NA
+"65+",2006,3,"Colorectal",0,"Counts",1284
+"65+",2006,3,"Colorectal",0,"Rates",444.257783941139
+"65+",2006,3,"Leukaemia",0,"Counts",210
+"65+",2006,3,"Leukaemia",0,"Rates",73.3932523757981
+"65+",2006,3,"Lung",0,"Counts",831
+"65+",2006,3,"Lung",0,"Rates",287.044959616006
+"65+",2006,3,"Lymphoma",0,"Counts",205
+"65+",2006,3,"Lymphoma",0,"Rates",70.8918456742938
+"65+",2006,3,"Melanoma",0,"Counts",765
+"65+",2006,3,"Melanoma",0,"Rates",262.978116311105
+"65+",2006,3,"Pancreatic",0,"Counts",140
+"65+",2006,3,"Pancreatic",0,"Rates",47.5230023596963
+"65+",2006,3,"Prostate",1,"Counts",NA
+"65+",2006,3,"Prostate",1,"Rates",NA
+"65+",2007,1,"All cancers",0,"Counts",4936
+"65+",2007,1,"All cancers",0,"Rates",3594.14989529141
+"65+",2007,1,"Breast (female)",1,"Counts",NA
+"65+",2007,1,"Breast (female)",1,"Rates",NA
+"65+",2007,1,"Colorectal",0,"Counts",623
+"65+",2007,1,"Colorectal",0,"Rates",454.956756967264
+"65+",2007,1,"Leukaemia",0,"Counts",169
+"65+",2007,1,"Leukaemia",0,"Rates",127.40693752041
+"65+",2007,1,"Lung",0,"Counts",549
+"65+",2007,1,"Lung",0,"Rates",403.448059806245
+"65+",2007,1,"Lymphoma",0,"Counts",164
+"65+",2007,1,"Lymphoma",0,"Rates",123.432333898951
+"65+",2007,1,"Melanoma",0,"Counts",555
+"65+",2007,1,"Melanoma",0,"Rates",405.09428875713
+"65+",2007,1,"Pancreatic",0,"Counts",74
+"65+",2007,1,"Pancreatic",0,"Rates",55.9820302970083
+"65+",2007,1,"Prostate",0,"Counts",1536
+"65+",2007,1,"Prostate",0,"Rates",1099.41972769991
+"65+",2007,2,"All cancers",0,"Counts",3115
+"65+",2007,2,"All cancers",0,"Rates",1914.78327436269
+"65+",2007,2,"Breast (female)",0,"Counts",574
+"65+",2007,2,"Breast (female)",0,"Rates",359.558922780183
+"65+",2007,2,"Colorectal",0,"Counts",584
+"65+",2007,2,"Colorectal",0,"Rates",359.89382047944
+"65+",2007,2,"Leukaemia",0,"Counts",118
+"65+",2007,2,"Leukaemia",0,"Rates",74.462399329859
+"65+",2007,2,"Lung",0,"Counts",303
+"65+",2007,2,"Lung",0,"Rates",195.561717956478
+"65+",2007,2,"Lymphoma",0,"Counts",134
+"65+",2007,2,"Lymphoma",0,"Rates",83.1074409194342
+"65+",2007,2,"Melanoma",0,"Counts",249
+"65+",2007,2,"Melanoma",0,"Rates",157.227521039998
+"65+",2007,2,"Pancreatic",0,"Counts",145
+"65+",2007,2,"Pancreatic",0,"Rates",87.255750696517
+"65+",2007,2,"Prostate",1,"Counts",NA
+"65+",2007,2,"Prostate",1,"Rates",NA
+"65+",2007,3,"All cancers",0,"Counts",8051
+"65+",2007,3,"All cancers",0,"Rates",2684.44283151544
+"65+",2007,3,"Breast (female)",1,"Counts",NA
+"65+",2007,3,"Breast (female)",1,"Rates",NA
+"65+",2007,3,"Colorectal",0,"Counts",1207
+"65+",2007,3,"Colorectal",0,"Rates",402.591146512593
+"65+",2007,3,"Leukaemia",0,"Counts",287
+"65+",2007,3,"Leukaemia",0,"Rates",97.0789041747568
+"65+",2007,3,"Lung",0,"Counts",852
+"65+",2007,3,"Lung",0,"Rates",288.531528084745
+"65+",2007,3,"Lymphoma",0,"Counts",298
+"65+",2007,3,"Lymphoma",0,"Rates",100.73051720628
+"65+",2007,3,"Melanoma",0,"Counts",804
+"65+",2007,3,"Melanoma",0,"Rates",269.201978431846
+"65+",2007,3,"Pancreatic",0,"Counts",219
+"65+",2007,3,"Pancreatic",0,"Rates",72.5622299449153
+"65+",2007,3,"Prostate",1,"Counts",NA
+"65+",2007,3,"Prostate",1,"Rates",NA
+"65+",2008,1,"All cancers",0,"Counts",5161
+"65+",2008,1,"All cancers",0,"Rates",3632.19277369469
+"65+",2008,1,"Breast (female)",1,"Counts",NA
+"65+",2008,1,"Breast (female)",1,"Rates",NA
+"65+",2008,1,"Colorectal",0,"Counts",670
+"65+",2008,1,"Colorectal",0,"Rates",468.981261355235
+"65+",2008,1,"Leukaemia",0,"Counts",226
+"65+",2008,1,"Leukaemia",0,"Rates",162.297934692261
+"65+",2008,1,"Lung",0,"Counts",599
+"65+",2008,1,"Lung",0,"Rates",424.986726464542
+"65+",2008,1,"Lymphoma",0,"Counts",111
+"65+",2008,1,"Lymphoma",0,"Rates",75.9076780495959
+"65+",2008,1,"Melanoma",0,"Counts",555
+"65+",2008,1,"Melanoma",0,"Rates",395.940428497989
+"65+",2008,1,"Pancreatic",0,"Counts",105
+"65+",2008,1,"Pancreatic",0,"Rates",77.4735904347158
+"65+",2008,1,"Prostate",0,"Counts",1569
+"65+",2008,1,"Prostate",0,"Rates",1081.89812941404
+"65+",2008,2,"All cancers",0,"Counts",3213
+"65+",2008,2,"All cancers",0,"Rates",1913.81078650461
+"65+",2008,2,"Breast (female)",0,"Counts",694
+"65+",2008,2,"Breast (female)",0,"Rates",419.729843975239
+"65+",2008,2,"Colorectal",0,"Counts",602
+"65+",2008,2,"Colorectal",0,"Rates",362.576666765022
+"65+",2008,2,"Leukaemia",0,"Counts",123
+"65+",2008,2,"Leukaemia",0,"Rates",71.9282563850075
+"65+",2008,2,"Lung",0,"Counts",336
+"65+",2008,2,"Lung",0,"Rates",198.803166412393
+"65+",2008,2,"Lymphoma",0,"Counts",118
+"65+",2008,2,"Lymphoma",0,"Rates",64.4846595861811
+"65+",2008,2,"Melanoma",0,"Counts",256
+"65+",2008,2,"Melanoma",0,"Rates",152.199319932761
+"65+",2008,2,"Pancreatic",0,"Counts",142
+"65+",2008,2,"Pancreatic",0,"Rates",79.3376589691303
+"65+",2008,2,"Prostate",1,"Counts",NA
+"65+",2008,2,"Prostate",1,"Rates",NA
+"65+",2008,3,"All cancers",0,"Counts",8374
+"65+",2008,3,"All cancers",0,"Rates",2707.96122213335
+"65+",2008,3,"Breast (female)",1,"Counts",NA
+"65+",2008,3,"Breast (female)",1,"Rates",NA
+"65+",2008,3,"Colorectal",0,"Counts",1272
+"65+",2008,3,"Colorectal",0,"Rates",411.86153464366
+"65+",2008,3,"Leukaemia",0,"Counts",349
+"65+",2008,3,"Leukaemia",0,"Rates",110.726124391195
+"65+",2008,3,"Lung",0,"Counts",935
+"65+",2008,3,"Lung",0,"Rates",303.185819924588
+"65+",2008,3,"Lymphoma",0,"Counts",229
+"65+",2008,3,"Lymphoma",0,"Rates",73.6229457541035
+"65+",2008,3,"Melanoma",0,"Counts",811
+"65+",2008,3,"Melanoma",0,"Rates",263.734275885553
+"65+",2008,3,"Pancreatic",0,"Counts",247
+"65+",2008,3,"Pancreatic",0,"Rates",78.4274256337392
+"65+",2008,3,"Prostate",1,"Counts",NA
+"65+",2008,3,"Prostate",1,"Rates",NA
+"65+",2009,1,"All cancers",0,"Counts",5197
+"65+",2009,1,"All cancers",0,"Rates",3564.82089103433
+"65+",2009,1,"Breast (female)",1,"Counts",NA
+"65+",2009,1,"Breast (female)",1,"Rates",NA
+"65+",2009,1,"Colorectal",0,"Counts",683
+"65+",2009,1,"Colorectal",0,"Rates",476.678945490185
+"65+",2009,1,"Leukaemia",0,"Counts",130
+"65+",2009,1,"Leukaemia",0,"Rates",89.2682547222292
+"65+",2009,1,"Lung",0,"Counts",587
+"65+",2009,1,"Lung",0,"Rates",403.845899572966
+"65+",2009,1,"Lymphoma",0,"Counts",169
+"65+",2009,1,"Lymphoma",0,"Rates",116.672051250714
+"65+",2009,1,"Melanoma",0,"Counts",521
+"65+",2009,1,"Melanoma",0,"Rates",359.672087566536
+"65+",2009,1,"Pancreatic",0,"Counts",96
+"65+",2009,1,"Pancreatic",0,"Rates",67.0027946561868
+"65+",2009,1,"Prostate",0,"Counts",1599
+"65+",2009,1,"Prostate",0,"Rates",1061.78631510399
+"65+",2009,2,"All cancers",0,"Counts",3520
+"65+",2009,2,"All cancers",0,"Rates",2023.03161308826
+"65+",2009,2,"Breast (female)",0,"Counts",674
+"65+",2009,2,"Breast (female)",0,"Rates",392.663664482062
+"65+",2009,2,"Colorectal",0,"Counts",610
+"65+",2009,2,"Colorectal",0,"Rates",351.695384343711
+"65+",2009,2,"Leukaemia",0,"Counts",39
+"65+",2009,2,"Leukaemia",0,"Rates",23.1403888450304
+"65+",2009,2,"Lung",0,"Counts",381
+"65+",2009,2,"Lung",0,"Rates",222.176892973384
+"65+",2009,2,"Lymphoma",0,"Counts",136
+"65+",2009,2,"Lymphoma",0,"Rates",81.7676020996253
+"65+",2009,2,"Melanoma",0,"Counts",300
+"65+",2009,2,"Melanoma",0,"Rates",171.996594266593
+"65+",2009,2,"Pancreatic",0,"Counts",94
+"65+",2009,2,"Pancreatic",0,"Rates",49.9882800442222
+"65+",2009,2,"Prostate",1,"Counts",NA
+"65+",2009,2,"Prostate",1,"Rates",NA
+"65+",2009,3,"All cancers",0,"Counts",8717
+"65+",2009,3,"All cancers",0,"Rates",2723.35166549266
+"65+",2009,3,"Breast (female)",1,"Counts",NA
+"65+",2009,3,"Breast (female)",1,"Rates",NA
+"65+",2009,3,"Colorectal",0,"Counts",1293
+"65+",2009,3,"Colorectal",0,"Rates",406.367812072829
+"65+",2009,3,"Leukaemia",0,"Counts",169
+"65+",2009,3,"Leukaemia",0,"Rates",53.0764274928343
+"65+",2009,3,"Lung",0,"Counts",968
+"65+",2009,3,"Lung",0,"Rates",303.241416933452
+"65+",2009,3,"Lymphoma",0,"Counts",305
+"65+",2009,3,"Lymphoma",0,"Rates",97.2574022482869
+"65+",2009,3,"Melanoma",0,"Counts",821
+"65+",2009,3,"Melanoma",0,"Rates",257.193134155231
+"65+",2009,3,"Pancreatic",0,"Counts",190
+"65+",2009,3,"Pancreatic",0,"Rates",60.4692192191343
+"65+",2009,3,"Prostate",1,"Counts",NA
+"65+",2009,3,"Prostate",1,"Rates",NA
+"65+",2010,1,"All cancers",0,"Counts",5314
+"65+",2010,1,"All cancers",0,"Rates",3482.01069558747
+"65+",2010,1,"Breast (female)",1,"Counts",NA
+"65+",2010,1,"Breast (female)",1,"Rates",NA
+"65+",2010,1,"Colorectal",0,"Counts",660
+"65+",2010,1,"Colorectal",0,"Rates",434.635635689734
+"65+",2010,1,"Leukaemia",0,"Counts",227
+"65+",2010,1,"Leukaemia",0,"Rates",152.537816732765
+"65+",2010,1,"Lung",0,"Counts",611
+"65+",2010,1,"Lung",0,"Rates",409.266343521192
+"65+",2010,1,"Lymphoma",0,"Counts",173
+"65+",2010,1,"Lymphoma",0,"Rates",110.715110821584
+"65+",2010,1,"Melanoma",0,"Counts",571
+"65+",2010,1,"Melanoma",0,"Rates",376.253277872989
+"65+",2010,1,"Pancreatic",0,"Counts",159
+"65+",2010,1,"Pancreatic",0,"Rates",106.629141163626
+"65+",2010,1,"Prostate",0,"Counts",1525
+"65+",2010,1,"Prostate",0,"Rates",971.339002692665
+"65+",2010,2,"All cancers",0,"Counts",3521
+"65+",2010,2,"All cancers",0,"Rates",1970.43677249068
+"65+",2010,2,"Breast (female)",0,"Counts",700
+"65+",2010,2,"Breast (female)",0,"Rates",399.216831598439
+"65+",2010,2,"Colorectal",0,"Counts",566
+"65+",2010,2,"Colorectal",0,"Rates",316.596629644181
+"65+",2010,2,"Leukaemia",0,"Counts",89
+"65+",2010,2,"Leukaemia",0,"Rates",50.319930066819
+"65+",2010,2,"Lung",0,"Counts",368
+"65+",2010,2,"Lung",0,"Rates",212.839251340875
+"65+",2010,2,"Lymphoma",0,"Counts",132
+"65+",2010,2,"Lymphoma",0,"Rates",73.2951618404689
+"65+",2010,2,"Melanoma",0,"Counts",302
+"65+",2010,2,"Melanoma",0,"Rates",166.745740044246
+"65+",2010,2,"Pancreatic",0,"Counts",111
+"65+",2010,2,"Pancreatic",0,"Rates",61.6697458577709
+"65+",2010,2,"Prostate",1,"Counts",NA
+"65+",2010,2,"Prostate",1,"Rates",NA
+"65+",2010,3,"All cancers",0,"Counts",8835
+"65+",2010,3,"All cancers",0,"Rates",2665.61947994697
+"65+",2010,3,"Breast (female)",1,"Counts",NA
+"65+",2010,3,"Breast (female)",1,"Rates",NA
+"65+",2010,3,"Colorectal",0,"Counts",1226
+"65+",2010,3,"Colorectal",0,"Rates",373.745171115415
+"65+",2010,3,"Leukaemia",0,"Counts",316
+"65+",2010,3,"Leukaemia",0,"Rates",96.4751993745901
+"65+",2010,3,"Lung",0,"Counts",979
+"65+",2010,3,"Lung",0,"Rates",298.634301167398
+"65+",2010,3,"Lymphoma",0,"Counts",305
+"65+",2010,3,"Lymphoma",0,"Rates",92.7075600743803
+"65+",2010,3,"Melanoma",0,"Counts",873
+"65+",2010,3,"Melanoma",0,"Rates",263.106422061853
+"65+",2010,3,"Pancreatic",0,"Counts",270
+"65+",2010,3,"Pancreatic",0,"Rates",81.2314231089769
+"65+",2010,3,"Prostate",1,"Counts",NA
+"65+",2010,3,"Prostate",1,"Rates",NA
+"65+",2011,1,"All cancers",0,"Counts",5602
+"65+",2011,1,"All cancers",0,"Rates",3541.22750336103
+"65+",2011,1,"Breast (female)",1,"Counts",NA
+"65+",2011,1,"Breast (female)",1,"Rates",NA
+"65+",2011,1,"Colorectal",0,"Counts",680
+"65+",2011,1,"Colorectal",0,"Rates",431.349350543509
+"65+",2011,1,"Leukaemia",0,"Counts",170
+"65+",2011,1,"Leukaemia",0,"Rates",112.736297046382
+"65+",2011,1,"Lung",0,"Counts",618
+"65+",2011,1,"Lung",0,"Rates",390.348922203066
+"65+",2011,1,"Lymphoma",0,"Counts",200
+"65+",2011,1,"Lymphoma",0,"Rates",125.778269036185
+"65+",2011,1,"Melanoma",0,"Counts",607
+"65+",2011,1,"Melanoma",0,"Rates",380.036439478171
+"65+",2011,1,"Pancreatic",0,"Counts",138
+"65+",2011,1,"Pancreatic",0,"Rates",87.7223532269645
+"65+",2011,1,"Prostate",0,"Counts",1652
+"65+",2011,1,"Prostate",0,"Rates",1011.62108324828
+"65+",2011,2,"All cancers",0,"Counts",3552
+"65+",2011,2,"All cancers",0,"Rates",1907.60686469559
+"65+",2011,2,"Breast (female)",0,"Counts",714
+"65+",2011,2,"Breast (female)",0,"Rates",391.718654581758
+"65+",2011,2,"Colorectal",0,"Counts",584
+"65+",2011,2,"Colorectal",0,"Rates",314.074427214284
+"65+",2011,2,"Leukaemia",0,"Counts",109
+"65+",2011,2,"Leukaemia",0,"Rates",61.0493047538573
+"65+",2011,2,"Lung",0,"Counts",292
+"65+",2011,2,"Lung",0,"Rates",160.688954725056
+"65+",2011,2,"Lymphoma",0,"Counts",152
+"65+",2011,2,"Lymphoma",0,"Rates",87.5023684997759
+"65+",2011,2,"Melanoma",0,"Counts",318
+"65+",2011,2,"Melanoma",0,"Rates",172.322112729477
+"65+",2011,2,"Pancreatic",0,"Counts",117
+"65+",2011,2,"Pancreatic",0,"Rates",60.1729139613773
+"65+",2011,2,"Prostate",1,"Counts",NA
+"65+",2011,2,"Prostate",1,"Rates",NA
+"65+",2011,3,"All cancers",0,"Counts",9154
+"65+",2011,3,"All cancers",0,"Rates",2662.24982836402
+"65+",2011,3,"Breast (female)",1,"Counts",NA
+"65+",2011,3,"Breast (female)",1,"Rates",NA
+"65+",2011,3,"Colorectal",0,"Counts",1264
+"65+",2011,3,"Colorectal",0,"Rates",371.294923321007
+"65+",2011,3,"Leukaemia",0,"Counts",279
+"65+",2011,3,"Leukaemia",0,"Rates",81.6751255557507
+"65+",2011,3,"Lung",0,"Counts",910
+"65+",2011,3,"Lung",0,"Rates",264.40327094102
+"65+",2011,3,"Lymphoma",0,"Counts",352
+"65+",2011,3,"Lymphoma",0,"Rates",105.586078115859
+"65+",2011,3,"Melanoma",0,"Counts",925
+"65+",2011,3,"Melanoma",0,"Rates",267.5617984957
+"65+",2011,3,"Pancreatic",0,"Counts",255
+"65+",2011,3,"Pancreatic",0,"Rates",71.345854299586
+"65+",2011,3,"Prostate",1,"Counts",NA
+"65+",2011,3,"Prostate",1,"Rates",NA
+"65+",2012,1,"All cancers",0,"Counts",5994
+"65+",2012,1,"All cancers",0,"Rates",3590.96420267175
+"65+",2012,1,"Breast (female)",1,"Counts",NA
+"65+",2012,1,"Breast (female)",1,"Rates",NA
+"65+",2012,1,"Colorectal",0,"Counts",736
+"65+",2012,1,"Colorectal",0,"Rates",451.129969556558
+"65+",2012,1,"Leukaemia",0,"Counts",172
+"65+",2012,1,"Leukaemia",0,"Rates",110.406459618991
+"65+",2012,1,"Lung",0,"Counts",643
+"65+",2012,1,"Lung",0,"Rates",389.897199293983
+"65+",2012,1,"Lymphoma",0,"Counts",254
+"65+",2012,1,"Lymphoma",0,"Rates",153.82762069687
+"65+",2012,1,"Melanoma",0,"Counts",706
+"65+",2012,1,"Melanoma",0,"Rates",424.399022206219
+"65+",2012,1,"Pancreatic",0,"Counts",120
+"65+",2012,1,"Pancreatic",0,"Rates",75.9757772512186
+"65+",2012,1,"Prostate",0,"Counts",1716
+"65+",2012,1,"Prostate",0,"Rates",987.61630244539
+"65+",2012,2,"All cancers",0,"Counts",3913
+"65+",2012,2,"All cancers",0,"Rates",2014.4005012222
+"65+",2012,2,"Breast (female)",0,"Counts",829
+"65+",2012,2,"Breast (female)",0,"Rates",428.403299102489
+"65+",2012,2,"Colorectal",0,"Counts",563
+"65+",2012,2,"Colorectal",0,"Rates",288.950355570895
+"65+",2012,2,"Leukaemia",0,"Counts",123
+"65+",2012,2,"Leukaemia",0,"Rates",60.0326532405103
+"65+",2012,2,"Lung",0,"Counts",351
+"65+",2012,2,"Lung",0,"Rates",188.185846302959
+"65+",2012,2,"Lymphoma",0,"Counts",132
+"65+",2012,2,"Lymphoma",0,"Rates",71.9602537461446
+"65+",2012,2,"Melanoma",0,"Counts",418
+"65+",2012,2,"Melanoma",0,"Rates",216.787273781114
+"65+",2012,2,"Pancreatic",0,"Counts",135
+"65+",2012,2,"Pancreatic",0,"Rates",66.8687115297582
+"65+",2012,2,"Prostate",1,"Counts",NA
+"65+",2012,2,"Prostate",1,"Rates",NA
+"65+",2012,3,"All cancers",0,"Counts",9907
+"65+",2012,3,"All cancers",0,"Rates",2746.71352439786
+"65+",2012,3,"Breast (female)",1,"Counts",NA
+"65+",2012,3,"Breast (female)",1,"Rates",NA
+"65+",2012,3,"Colorectal",0,"Counts",1299
+"65+",2012,3,"Colorectal",0,"Rates",362.929720697239
+"65+",2012,3,"Leukaemia",0,"Counts",295
+"65+",2012,3,"Leukaemia",0,"Rates",82.4345408384133
+"65+",2012,3,"Lung",0,"Counts",994
+"65+",2012,3,"Lung",0,"Rates",281.338236812962
+"65+",2012,3,"Lymphoma",0,"Counts",386
+"65+",2012,3,"Lymphoma",0,"Rates",109.824643157579
+"65+",2012,3,"Melanoma",0,"Counts",1124
+"65+",2012,3,"Melanoma",0,"Rates",311.139100556212
+"65+",2012,3,"Pancreatic",0,"Counts",255
+"65+",2012,3,"Pancreatic",0,"Rates",71.9431812883501
+"65+",2012,3,"Prostate",1,"Counts",NA
+"65+",2012,3,"Prostate",1,"Rates",NA
+"65+",2013,1,"All cancers",0,"Counts",6080
+"65+",2013,1,"All cancers",0,"Rates",3502.74857367983
+"65+",2013,1,"Breast (female)",1,"Counts",NA
+"65+",2013,1,"Breast (female)",1,"Rates",NA
+"65+",2013,1,"Colorectal",0,"Counts",705
+"65+",2013,1,"Colorectal",0,"Rates",415.695930613312
+"65+",2013,1,"Leukaemia",0,"Counts",197
+"65+",2013,1,"Leukaemia",0,"Rates",111.750826024029
+"65+",2013,1,"Lung",0,"Counts",662
+"65+",2013,1,"Lung",0,"Rates",387.729208852936
+"65+",2013,1,"Lymphoma",0,"Counts",287
+"65+",2013,1,"Lymphoma",0,"Rates",166.946193329635
+"65+",2013,1,"Melanoma",0,"Counts",719
+"65+",2013,1,"Melanoma",0,"Rates",407.985679793687
+"65+",2013,1,"Pancreatic",0,"Counts",132
+"65+",2013,1,"Pancreatic",0,"Rates",76.2024058752428
+"65+",2013,1,"Prostate",0,"Counts",1750
+"65+",2013,1,"Prostate",0,"Rates",971.664445572255
+"65+",2013,2,"All cancers",0,"Counts",4033
+"65+",2013,2,"All cancers",0,"Rates",2011.23113823368
+"65+",2013,2,"Breast (female)",0,"Counts",910
+"65+",2013,2,"Breast (female)",0,"Rates",455.080539539451
+"65+",2013,2,"Colorectal",0,"Counts",592
+"65+",2013,2,"Colorectal",0,"Rates",298.631378445702
+"65+",2013,2,"Leukaemia",0,"Counts",102
+"65+",2013,2,"Leukaemia",0,"Rates",49.2547999635646
+"65+",2013,2,"Lung",0,"Counts",474
+"65+",2013,2,"Lung",0,"Rates",239.188350135077
+"65+",2013,2,"Lymphoma",0,"Counts",181
+"65+",2013,2,"Lymphoma",0,"Rates",96.6210438851535
+"65+",2013,2,"Melanoma",0,"Counts",386
+"65+",2013,2,"Melanoma",0,"Rates",191.583675010801
+"65+",2013,2,"Pancreatic",0,"Counts",85
+"65+",2013,2,"Pancreatic",0,"Rates",40.7030163057535
+"65+",2013,2,"Prostate",1,"Counts",NA
+"65+",2013,2,"Prostate",1,"Rates",NA
+"65+",2013,3,"All cancers",0,"Counts",10113
+"65+",2013,3,"All cancers",0,"Rates",2707.6498079617
+"65+",2013,3,"Breast (female)",1,"Counts",NA
+"65+",2013,3,"Breast (female)",1,"Rates",NA
+"65+",2013,3,"Colorectal",0,"Counts",1297
+"65+",2013,3,"Colorectal",0,"Rates",353.800433527454
+"65+",2013,3,"Leukaemia",0,"Counts",299
+"65+",2013,3,"Leukaemia",0,"Rates",78.8856030527693
+"65+",2013,3,"Lung",0,"Counts",1136
+"65+",2013,3,"Lung",0,"Rates",307.617817001637
+"65+",2013,3,"Lymphoma",0,"Counts",468
+"65+",2013,3,"Lymphoma",0,"Rates",129.636803837325
+"65+",2013,3,"Melanoma",0,"Counts",1105
+"65+",2013,3,"Melanoma",0,"Rates",294.591870512496
+"65+",2013,3,"Pancreatic",0,"Counts",217
+"65+",2013,3,"Pancreatic",0,"Rates",57.7411977367699
+"65+",2013,3,"Prostate",1,"Counts",NA
+"65+",2013,3,"Prostate",1,"Rates",NA
+"65+",2014,1,"All cancers",0,"Counts",6271
+"65+",2014,1,"All cancers",0,"Rates",3453.12805993697
+"65+",2014,1,"Breast (female)",1,"Counts",NA
+"65+",2014,1,"Breast (female)",1,"Rates",NA
+"65+",2014,1,"Colorectal",0,"Counts",751
+"65+",2014,1,"Colorectal",0,"Rates",423.643018117634
+"65+",2014,1,"Leukaemia",0,"Counts",185
+"65+",2014,1,"Leukaemia",0,"Rates",103.600499349757
+"65+",2014,1,"Lung",0,"Counts",676
+"65+",2014,1,"Lung",0,"Rates",373.81821703825
+"65+",2014,1,"Lymphoma",0,"Counts",218
+"65+",2014,1,"Lymphoma",0,"Rates",120.878890988734
+"65+",2014,1,"Melanoma",0,"Counts",765
+"65+",2014,1,"Melanoma",0,"Rates",425.115054705054
+"65+",2014,1,"Pancreatic",0,"Counts",172
+"65+",2014,1,"Pancreatic",0,"Rates",96.4138247498279
+"65+",2014,1,"Prostate",0,"Counts",1692
+"65+",2014,1,"Prostate",0,"Rates",902.578076430463
+"65+",2014,2,"All cancers",0,"Counts",4240
+"65+",2014,2,"All cancers",0,"Rates",2043.43035642393
+"65+",2014,2,"Breast (female)",0,"Counts",962
+"65+",2014,2,"Breast (female)",0,"Rates",463.869815460489
+"65+",2014,2,"Colorectal",0,"Counts",622
+"65+",2014,2,"Colorectal",0,"Rates",303.946488765325
+"65+",2014,2,"Leukaemia",0,"Counts",85
+"65+",2014,2,"Leukaemia",0,"Rates",38.5101979788382
+"65+",2014,2,"Lung",0,"Counts",410
+"65+",2014,2,"Lung",0,"Rates",200.468083087701
+"65+",2014,2,"Lymphoma",0,"Counts",223
+"65+",2014,2,"Lymphoma",0,"Rates",108.628410982119
+"65+",2014,2,"Melanoma",0,"Counts",391
+"65+",2014,2,"Melanoma",0,"Rates",189.456140659287
+"65+",2014,2,"Pancreatic",0,"Counts",130
+"65+",2014,2,"Pancreatic",0,"Rates",64.2180695760355
+"65+",2014,2,"Prostate",1,"Counts",NA
+"65+",2014,2,"Prostate",1,"Rates",NA
+"65+",2014,3,"All cancers",0,"Counts",10511
+"65+",2014,3,"All cancers",0,"Rates",2696.72741164083
+"65+",2014,3,"Breast (female)",1,"Counts",NA
+"65+",2014,3,"Breast (female)",1,"Rates",NA
+"65+",2014,3,"Colorectal",0,"Counts",1373
+"65+",2014,3,"Colorectal",0,"Rates",360.979067217989
+"65+",2014,3,"Leukaemia",0,"Counts",270
+"65+",2014,3,"Leukaemia",0,"Rates",69.4367331904812
+"65+",2014,3,"Lung",0,"Counts",1086
+"65+",2014,3,"Lung",0,"Rates",278.867717131724
+"65+",2014,3,"Lymphoma",0,"Counts",441
+"65+",2014,3,"Lymphoma",0,"Rates",115.458212767118
+"65+",2014,3,"Melanoma",0,"Counts",1156
+"65+",2014,3,"Melanoma",0,"Rates",297.230873916559
+"65+",2014,3,"Pancreatic",0,"Counts",302
+"65+",2014,3,"Pancreatic",0,"Rates",80.044665111942
+"65+",2014,3,"Prostate",1,"Counts",NA
+"65+",2014,3,"Prostate",1,"Rates",NA
+"65+",2015,1,"All cancers",0,"Counts",6422
+"65+",2015,1,"All cancers",0,"Rates",3393.99936474474
+"65+",2015,1,"Breast (female)",1,"Counts",NA
+"65+",2015,1,"Breast (female)",1,"Rates",NA
+"65+",2015,1,"Colorectal",0,"Counts",818
+"65+",2015,1,"Colorectal",0,"Rates",444.327693964052
+"65+",2015,1,"Leukaemia",0,"Counts",231
+"65+",2015,1,"Leukaemia",0,"Rates",121.858732053814
+"65+",2015,1,"Lung",0,"Counts",703
+"65+",2015,1,"Lung",0,"Rates",376.022422221394
+"65+",2015,1,"Lymphoma",0,"Counts",238
+"65+",2015,1,"Lymphoma",0,"Rates",129.840565638029
+"65+",2015,1,"Melanoma",0,"Counts",693
+"65+",2015,1,"Melanoma",0,"Rates",367.92104499292
+"65+",2015,1,"Pancreatic",0,"Counts",179
+"65+",2015,1,"Pancreatic",0,"Rates",94.4476857735589
+"65+",2015,1,"Prostate",0,"Counts",1791
+"65+",2015,1,"Prostate",0,"Rates",910.11384370151
+"65+",2015,2,"All cancers",0,"Counts",4337
+"65+",2015,2,"All cancers",0,"Rates",2024.2520141589
+"65+",2015,2,"Breast (female)",0,"Counts",912
+"65+",2015,2,"Breast (female)",0,"Rates",427.270561548934
+"65+",2015,2,"Colorectal",0,"Counts",653
+"65+",2015,2,"Colorectal",0,"Rates",308.538212423247
+"65+",2015,2,"Leukaemia",0,"Counts",66
+"65+",2015,2,"Leukaemia",0,"Rates",31.6914219503539
+"65+",2015,2,"Lung",0,"Counts",493
+"65+",2015,2,"Lung",0,"Rates",231.947799685385
+"65+",2015,2,"Lymphoma",0,"Counts",154
+"65+",2015,2,"Lymphoma",0,"Rates",71.0223835127766
+"65+",2015,2,"Melanoma",0,"Counts",450
+"65+",2015,2,"Melanoma",0,"Rates",208.364346590012
+"65+",2015,2,"Pancreatic",0,"Counts",183
+"65+",2015,2,"Pancreatic",0,"Rates",83.5079986447209
+"65+",2015,2,"Prostate",1,"Counts",NA
+"65+",2015,2,"Prostate",1,"Rates",NA
+"65+",2015,3,"All cancers",0,"Counts",10759
+"65+",2015,3,"All cancers",0,"Rates",2663.0638561579
+"65+",2015,3,"Breast (female)",1,"Counts",NA
+"65+",2015,3,"Breast (female)",1,"Rates",NA
+"65+",2015,3,"Colorectal",0,"Counts",1471
+"65+",2015,3,"Colorectal",0,"Rates",372.397496646663
+"65+",2015,3,"Leukaemia",0,"Counts",297
+"65+",2015,3,"Leukaemia",0,"Rates",73.1877712837263
+"65+",2015,3,"Lung",0,"Counts",1196
+"65+",2015,3,"Lung",0,"Rates",298.923365573426
+"65+",2015,3,"Lymphoma",0,"Counts",392
+"65+",2015,3,"Lymphoma",0,"Rates",99.1745578071763
+"65+",2015,3,"Melanoma",0,"Counts",1143
+"65+",2015,3,"Melanoma",0,"Rates",283.193164257916
+"65+",2015,3,"Pancreatic",0,"Counts",362
+"65+",2015,3,"Pancreatic",0,"Rates",88.8280780518016
+"65+",2015,3,"Prostate",1,"Counts",NA
+"65+",2015,3,"Prostate",1,"Rates",NA
+"65+",2016,1,"All cancers",0,"Counts",6760
+"65+",2016,1,"All cancers",0,"Rates",3446.18544470354
+"65+",2016,1,"Breast (female)",1,"Counts",NA
+"65+",2016,1,"Breast (female)",1,"Rates",NA
+"65+",2016,1,"Colorectal",0,"Counts",783
+"65+",2016,1,"Colorectal",0,"Rates",405.702815845695
+"65+",2016,1,"Leukaemia",0,"Counts",239
+"65+",2016,1,"Leukaemia",0,"Rates",120.476975237249
+"65+",2016,1,"Lung",0,"Counts",739
+"65+",2016,1,"Lung",0,"Rates",383.585679989913
+"65+",2016,1,"Lymphoma",0,"Counts",265
+"65+",2016,1,"Lymphoma",0,"Rates",139.32089527637
+"65+",2016,1,"Melanoma",0,"Counts",901
+"65+",2016,1,"Melanoma",0,"Rates",459.901242112401
+"65+",2016,1,"Pancreatic",0,"Counts",151
+"65+",2016,1,"Pancreatic",0,"Rates",75.9827548708323
+"65+",2016,1,"Prostate",0,"Counts",1799
+"65+",2016,1,"Prostate",0,"Rates",881.099193588674
+"65+",2016,2,"All cancers",0,"Counts",4616
+"65+",2016,2,"All cancers",0,"Rates",2063.30647882989
+"65+",2016,2,"Breast (female)",0,"Counts",1009
+"65+",2016,2,"Breast (female)",0,"Rates",450.123239547528
+"65+",2016,2,"Colorectal",0,"Counts",676
+"65+",2016,2,"Colorectal",0,"Rates",301.482098378424
+"65+",2016,2,"Leukaemia",0,"Counts",176
+"65+",2016,2,"Leukaemia",0,"Rates",77.4531974070933
+"65+",2016,2,"Lung",0,"Counts",553
+"65+",2016,2,"Lung",0,"Rates",251.044436924115
+"65+",2016,2,"Lymphoma",0,"Counts",232
+"65+",2016,2,"Lymphoma",0,"Rates",102.857308594833
+"65+",2016,2,"Melanoma",0,"Counts",495
+"65+",2016,2,"Melanoma",0,"Rates",218.637423193465
+"65+",2016,2,"Pancreatic",0,"Counts",190
+"65+",2016,2,"Pancreatic",0,"Rates",85.4134748369559
+"65+",2016,2,"Prostate",1,"Counts",NA
+"65+",2016,2,"Prostate",1,"Rates",NA
+"65+",2016,3,"All cancers",0,"Counts",11376
+"65+",2016,3,"All cancers",0,"Rates",2709.1961288539
+"65+",2016,3,"Breast (female)",1,"Counts",NA
+"65+",2016,3,"Breast (female)",1,"Rates",NA
+"65+",2016,3,"Colorectal",0,"Counts",1459
+"65+",2016,3,"Colorectal",0,"Rates",352.45357419608
+"65+",2016,3,"Leukaemia",0,"Counts",415
+"65+",2016,3,"Leukaemia",0,"Rates",98.1762393946976
+"65+",2016,3,"Lung",0,"Counts",1292
+"65+",2016,3,"Lung",0,"Rates",309.949481095288
+"65+",2016,3,"Lymphoma",0,"Counts",497
+"65+",2016,3,"Lymphoma",0,"Rates",120.428944038314
+"65+",2016,3,"Melanoma",0,"Counts",1396
+"65+",2016,3,"Melanoma",0,"Rates",331.580640886026
+"65+",2016,3,"Pancreatic",0,"Counts",341
+"65+",2016,3,"Pancreatic",0,"Rates",81.7332083974781
+"65+",2016,3,"Prostate",1,"Counts",NA
+"65+",2016,3,"Prostate",1,"Rates",NA
+"65+",2017,1,"All cancers",0,"Counts",7185
+"65+",2017,1,"All cancers",0,"Rates",3489.38575022317
+"65+",2017,1,"Breast (female)",1,"Counts",NA
+"65+",2017,1,"Breast (female)",1,"Rates",NA
+"65+",2017,1,"Colorectal",0,"Counts",746
+"65+",2017,1,"Colorectal",0,"Rates",369.415671193325
+"65+",2017,1,"Leukaemia",0,"Counts",262
+"65+",2017,1,"Leukaemia",0,"Rates",128.022866664241
+"65+",2017,1,"Lung",0,"Counts",794
+"65+",2017,1,"Lung",0,"Rates",393.056534691221
+"65+",2017,1,"Lymphoma",0,"Counts",262
+"65+",2017,1,"Lymphoma",0,"Rates",123.980913786932
+"65+",2017,1,"Melanoma",0,"Counts",916
+"65+",2017,1,"Melanoma",0,"Rates",445.885495005678
+"65+",2017,1,"Pancreatic",0,"Counts",194
+"65+",2017,1,"Pancreatic",0,"Rates",96.5652775491253
+"65+",2017,1,"Prostate",0,"Counts",2025
+"65+",2017,1,"Prostate",0,"Rates",952.061501631288
+"65+",2017,2,"All cancers",0,"Counts",4749
+"65+",2017,2,"All cancers",0,"Rates",2050.33951625495
+"65+",2017,2,"Breast (female)",0,"Counts",1060
+"65+",2017,2,"Breast (female)",0,"Rates",456.184107362953
+"65+",2017,2,"Colorectal",0,"Counts",618
+"65+",2017,2,"Colorectal",0,"Rates",263.469766798705
+"65+",2017,2,"Leukaemia",0,"Counts",147
+"65+",2017,2,"Leukaemia",0,"Rates",63.5661059917673
+"65+",2017,2,"Lung",0,"Counts",556
+"65+",2017,2,"Lung",0,"Rates",241.178283329654
+"65+",2017,2,"Lymphoma",0,"Counts",202
+"65+",2017,2,"Lymphoma",0,"Rates",88.4289942418282
+"65+",2017,2,"Melanoma",0,"Counts",501
+"65+",2017,2,"Melanoma",0,"Rates",217.499763812341
+"65+",2017,2,"Pancreatic",0,"Counts",176
+"65+",2017,2,"Pancreatic",0,"Rates",76.1507361034107
+"65+",2017,2,"Prostate",1,"Counts",NA
+"65+",2017,2,"Prostate",1,"Rates",NA
+"65+",2017,3,"All cancers",0,"Counts",11934
+"65+",2017,3,"All cancers",0,"Rates",2726.4211100858
+"65+",2017,3,"Breast (female)",1,"Counts",NA
+"65+",2017,3,"Breast (female)",1,"Rates",NA
+"65+",2017,3,"Colorectal",0,"Counts",1364
+"65+",2017,3,"Colorectal",0,"Rates",314.067007098542
+"65+",2017,3,"Leukaemia",0,"Counts",409
+"65+",2017,3,"Leukaemia",0,"Rates",93.6558047940697
+"65+",2017,3,"Lung",0,"Counts",1350
+"65+",2017,3,"Lung",0,"Rates",309.443083085928
+"65+",2017,3,"Lymphoma",0,"Counts",464
+"65+",2017,3,"Lymphoma",0,"Rates",105.15160697445
+"65+",2017,3,"Melanoma",0,"Counts",1417
+"65+",2017,3,"Melanoma",0,"Rates",324.26010662537
+"65+",2017,3,"Pancreatic",0,"Counts",370
+"65+",2017,3,"Pancreatic",0,"Rates",86.2810165978509
+"65+",2017,3,"Prostate",1,"Counts",NA
+"65+",2017,3,"Prostate",1,"Rates",NA
+"65+",2018,1,"All cancers",0,"Counts",7449
+"65+",2018,1,"All cancers",0,"Rates",3471.14506400119
+"65+",2018,1,"Breast (female)",1,"Counts",NA
+"65+",2018,1,"Breast (female)",1,"Rates",NA
+"65+",2018,1,"Colorectal",0,"Counts",769
+"65+",2018,1,"Colorectal",0,"Rates",361.567217266069
+"65+",2018,1,"Leukaemia",0,"Counts",210
+"65+",2018,1,"Leukaemia",0,"Rates",99.3604636331184
+"65+",2018,1,"Lung",0,"Counts",756
+"65+",2018,1,"Lung",0,"Rates",356.48167167318
+"65+",2018,1,"Lymphoma",0,"Counts",329
+"65+",2018,1,"Lymphoma",0,"Rates",155.932998181154
+"65+",2018,1,"Melanoma",0,"Counts",834
+"65+",2018,1,"Melanoma",0,"Rates",392.63182175552
+"65+",2018,1,"Pancreatic",0,"Counts",227
+"65+",2018,1,"Pancreatic",0,"Rates",110.734782021737
+"65+",2018,1,"Prostate",0,"Counts",2231
+"65+",2018,1,"Prostate",0,"Rates",1004.17386432394
+"65+",2018,2,"All cancers",0,"Counts",5001
+"65+",2018,2,"All cancers",0,"Rates",2067.94677328826
+"65+",2018,2,"Breast (female)",0,"Counts",1056
+"65+",2018,2,"Breast (female)",0,"Rates",433.631379673098
+"65+",2018,2,"Colorectal",0,"Counts",585
+"65+",2018,2,"Colorectal",0,"Rates",242.047478423389
+"65+",2018,2,"Leukaemia",0,"Counts",153
+"65+",2018,2,"Leukaemia",0,"Rates",65.5648933707647
+"65+",2018,2,"Lung",0,"Counts",627
+"65+",2018,2,"Lung",0,"Rates",261.742620477742
+"65+",2018,2,"Lymphoma",0,"Counts",272
+"65+",2018,2,"Lymphoma",0,"Rates",115.493677481363
+"65+",2018,2,"Melanoma",0,"Counts",506
+"65+",2018,2,"Melanoma",0,"Rates",210.24916604309
+"65+",2018,2,"Pancreatic",0,"Counts",144
+"65+",2018,2,"Pancreatic",0,"Rates",60.0710724897547
+"65+",2018,2,"Prostate",1,"Counts",NA
+"65+",2018,2,"Prostate",1,"Rates",NA
+"65+",2018,3,"All cancers",0,"Counts",12450
+"65+",2018,3,"All cancers",0,"Rates",2734.25759013909
+"65+",2018,3,"Breast (female)",1,"Counts",NA
+"65+",2018,3,"Breast (female)",1,"Rates",NA
+"65+",2018,3,"Colorectal",0,"Counts",1354
+"65+",2018,3,"Colorectal",0,"Rates",298.777708170303
+"65+",2018,3,"Leukaemia",0,"Counts",363
+"65+",2018,3,"Leukaemia",0,"Rates",81.7755738746703
+"65+",2018,3,"Lung",0,"Counts",1383
+"65+",2018,3,"Lung",0,"Rates",306.394241435479
+"65+",2018,3,"Lymphoma",0,"Counts",601
+"65+",2018,3,"Lymphoma",0,"Rates",134.474425586388
+"65+",2018,3,"Melanoma",0,"Counts",1340
+"65+",2018,3,"Melanoma",0,"Rates",293.950300867431
+"65+",2018,3,"Pancreatic",0,"Counts",371
+"65+",2018,3,"Pancreatic",0,"Rates",83.1895466691429
+"65+",2018,3,"Prostate",1,"Counts",NA
+"65+",2018,3,"Prostate",1,"Rates",NA
+"65+",2019,1,"All cancers",0,"Counts",7791
+"65+",2019,1,"All cancers",0,"Rates",3501.46486397094
+"65+",2019,1,"Breast (female)",1,"Counts",NA
+"65+",2019,1,"Breast (female)",1,"Rates",NA
+"65+",2019,1,"Colorectal",0,"Counts",836
+"65+",2019,1,"Colorectal",0,"Rates",384.473941926017
+"65+",2019,1,"Leukaemia",0,"Counts",269
+"65+",2019,1,"Leukaemia",0,"Rates",124.897729653771
+"65+",2019,1,"Lung",0,"Counts",800
+"65+",2019,1,"Lung",0,"Rates",364.180016761583
+"65+",2019,1,"Lymphoma",0,"Counts",318
+"65+",2019,1,"Lymphoma",0,"Rates",143.764992613308
+"65+",2019,1,"Melanoma",0,"Counts",979
+"65+",2019,1,"Melanoma",0,"Rates",436.380415705828
+"65+",2019,1,"Pancreatic",0,"Counts",188
+"65+",2019,1,"Pancreatic",0,"Rates",84.9038979021137
+"65+",2019,1,"Prostate",0,"Counts",2216
+"65+",2019,1,"Prostate",0,"Rates",970.118086171959
+"65+",2019,2,"All cancers",0,"Counts",5143
+"65+",2019,2,"All cancers",0,"Rates",2053.54441695804
+"65+",2019,2,"Breast (female)",0,"Counts",1108
+"65+",2019,2,"Breast (female)",0,"Rates",439.187537491014
+"65+",2019,2,"Colorectal",0,"Counts",685
+"65+",2019,2,"Colorectal",0,"Rates",271.75016500975
+"65+",2019,2,"Leukaemia",0,"Counts",173
+"65+",2019,2,"Leukaemia",0,"Rates",69.0332515618435
+"65+",2019,2,"Lung",0,"Counts",536
+"65+",2019,2,"Lung",0,"Rates",217.79098893599
+"65+",2019,2,"Lymphoma",0,"Counts",300
+"65+",2019,2,"Lymphoma",0,"Rates",121.469233610291
+"65+",2019,2,"Melanoma",0,"Counts",582
+"65+",2019,2,"Melanoma",0,"Rates",232.800416712238
+"65+",2019,2,"Pancreatic",0,"Counts",159
+"65+",2019,2,"Pancreatic",0,"Rates",63.6805054410922
+"65+",2019,2,"Prostate",1,"Counts",NA
+"65+",2019,2,"Prostate",1,"Rates",NA
+"65+",2019,3,"All cancers",0,"Counts",12934
+"65+",2019,3,"All cancers",0,"Rates",2731.67199762909
+"65+",2019,3,"Breast (female)",1,"Counts",NA
+"65+",2019,3,"Breast (female)",1,"Rates",NA
+"65+",2019,3,"Colorectal",0,"Counts",1521
+"65+",2019,3,"Colorectal",0,"Rates",324.063016209754
+"65+",2019,3,"Leukaemia",0,"Counts",442
+"65+",2019,3,"Leukaemia",0,"Rates",94.5862675396345
+"65+",2019,3,"Lung",0,"Counts",1336
+"65+",2019,3,"Lung",0,"Rates",283.938560256216
+"65+",2019,3,"Lymphoma",0,"Counts",618
+"65+",2019,3,"Lymphoma",0,"Rates",131.333207559477
+"65+",2019,3,"Melanoma",0,"Counts",1561
+"65+",2019,3,"Melanoma",0,"Rates",329.797517199348
+"65+",2019,3,"Pancreatic",0,"Counts",347
+"65+",2019,3,"Pancreatic",0,"Rates",73.6778508006473
+"65+",2019,3,"Prostate",1,"Counts",NA
+"65+",2019,3,"Prostate",1,"Rates",NA
+"65+",2020,1,"All cancers",0,"Counts",7928
+"65+",2020,1,"All cancers",0,"Rates",3411.46791534477
+"65+",2020,1,"Breast (female)",1,"Counts",NA
+"65+",2020,1,"Breast (female)",1,"Rates",NA
+"65+",2020,1,"Colorectal",0,"Counts",678
+"65+",2020,1,"Colorectal",0,"Rates",297.025652153662
+"65+",2020,1,"Leukaemia",0,"Counts",275
+"65+",2020,1,"Leukaemia",0,"Rates",122.013657383533
+"65+",2020,1,"Lung",0,"Counts",800
+"65+",2020,1,"Lung",0,"Rates",346.743807179009
+"65+",2020,1,"Lymphoma",0,"Counts",360
+"65+",2020,1,"Lymphoma",0,"Rates",156.795999008455
+"65+",2020,1,"Melanoma",0,"Counts",919
+"65+",2020,1,"Melanoma",0,"Rates",395.393982802286
+"65+",2020,1,"Pancreatic",0,"Counts",218
+"65+",2020,1,"Pancreatic",0,"Rates",96.532873924922
+"65+",2020,1,"Prostate",0,"Counts",2395
+"65+",2020,1,"Prostate",0,"Rates",1003.22165604234
+"65+",2020,2,"All cancers",0,"Counts",5311
+"65+",2020,2,"All cancers",0,"Rates",2026.73657115939
+"65+",2020,2,"Breast (female)",0,"Counts",1110
+"65+",2020,2,"Breast (female)",0,"Rates",423.182404829577
+"65+",2020,2,"Colorectal",0,"Counts",656
+"65+",2020,2,"Colorectal",0,"Rates",248.841123076808
+"65+",2020,2,"Leukaemia",0,"Counts",160
+"65+",2020,2,"Leukaemia",0,"Rates",61.7029644583101
+"65+",2020,2,"Lung",0,"Counts",712
+"65+",2020,2,"Lung",0,"Rates",274.69125970214
+"65+",2020,2,"Lymphoma",0,"Counts",250
+"65+",2020,2,"Lymphoma",0,"Rates",95.9057085941302
+"65+",2020,2,"Melanoma",0,"Counts",564
+"65+",2020,2,"Melanoma",0,"Rates",214.47912159224
+"65+",2020,2,"Pancreatic",0,"Counts",157
+"65+",2020,2,"Pancreatic",0,"Rates",57.9504066885643
+"65+",2020,2,"Prostate",1,"Counts",NA
+"65+",2020,2,"Prostate",1,"Rates",NA
+"65+",2020,3,"All cancers",0,"Counts",13239
+"65+",2020,3,"All cancers",0,"Rates",2679.05343854444
+"65+",2020,3,"Breast (female)",1,"Counts",NA
+"65+",2020,3,"Breast (female)",1,"Rates",NA
+"65+",2020,3,"Colorectal",0,"Counts",1334
+"65+",2020,3,"Colorectal",0,"Rates",272.988766971955
+"65+",2020,3,"Leukaemia",0,"Counts",435
+"65+",2020,3,"Leukaemia",0,"Rates",89.8338560805039
+"65+",2020,3,"Lung",0,"Counts",1512
+"65+",2020,3,"Lung",0,"Rates",307.896371739167
+"65+",2020,3,"Lymphoma",0,"Counts",610
+"65+",2020,3,"Lymphoma",0,"Rates",124.072351422934
+"65+",2020,3,"Melanoma",0,"Counts",1483
+"65+",2020,3,"Melanoma",0,"Rates",299.132564150591
+"65+",2020,3,"Pancreatic",0,"Counts",375
+"65+",2020,3,"Pancreatic",0,"Rates",75.6506142362723
+"65+",2020,3,"Prostate",1,"Counts",NA
+"65+",2020,3,"Prostate",1,"Rates",NA
+"65+",2021,1,"All cancers",0,"Counts",8222
+"65+",2021,1,"All cancers",0,"Rates",3410.14239721441
+"65+",2021,1,"Breast (female)",1,"Counts",NA
+"65+",2021,1,"Breast (female)",1,"Rates",NA
+"65+",2021,1,"Colorectal",0,"Counts",660
+"65+",2021,1,"Colorectal",0,"Rates",278.82291146289
+"65+",2021,1,"Leukaemia",0,"Counts",263
+"65+",2021,1,"Leukaemia",0,"Rates",111.341142955679
+"65+",2021,1,"Lung",0,"Counts",843
+"65+",2021,1,"Lung",0,"Rates",353.937945517694
+"65+",2021,1,"Lymphoma",0,"Counts",327
+"65+",2021,1,"Lymphoma",0,"Rates",136.829652683458
+"65+",2021,1,"Melanoma",0,"Counts",975
+"65+",2021,1,"Melanoma",0,"Rates",406.947140609095
+"65+",2021,1,"Pancreatic",0,"Counts",216
+"65+",2021,1,"Pancreatic",0,"Rates",91.2112615139245
+"65+",2021,1,"Prostate",0,"Counts",2480
+"65+",2021,1,"Prostate",0,"Rates",1002.02468170728
+"65+",2021,2,"All cancers",0,"Counts",5356
+"65+",2021,2,"All cancers",0,"Rates",1968.15056441909
+"65+",2021,2,"Breast (female)",0,"Counts",1211
+"65+",2021,2,"Breast (female)",0,"Rates",443.328939517555
+"65+",2021,2,"Colorectal",0,"Counts",572
+"65+",2021,2,"Colorectal",0,"Rates",206.351905085162
+"65+",2021,2,"Leukaemia",0,"Counts",173
+"65+",2021,2,"Leukaemia",0,"Rates",62.6503814349685
+"65+",2021,2,"Lung",0,"Counts",673
+"65+",2021,2,"Lung",0,"Rates",250.838658515418
+"65+",2021,2,"Lymphoma",0,"Counts",236
+"65+",2021,2,"Lymphoma",0,"Rates",86.7736044952078
+"65+",2021,2,"Melanoma",0,"Counts",554
+"65+",2021,2,"Melanoma",0,"Rates",204.234338895004
+"65+",2021,2,"Pancreatic",0,"Counts",203
+"65+",2021,2,"Pancreatic",0,"Rates",75.8704331430915
+"65+",2021,2,"Prostate",1,"Counts",NA
+"65+",2021,2,"Prostate",1,"Rates",NA
+"65+",2021,3,"All cancers",0,"Counts",13578
+"65+",2021,3,"All cancers",0,"Rates",2644.61257841169
+"65+",2021,3,"Breast (female)",1,"Counts",NA
+"65+",2021,3,"Breast (female)",1,"Rates",NA
+"65+",2021,3,"Colorectal",0,"Counts",1232
+"65+",2021,3,"Colorectal",0,"Rates",240.911750399734
+"65+",2021,3,"Leukaemia",0,"Counts",436
+"65+",2021,3,"Leukaemia",0,"Rates",85.1085451920604
+"65+",2021,3,"Lung",0,"Counts",1516
+"65+",2021,3,"Lung",0,"Rates",297.56243123357
+"65+",2021,3,"Lymphoma",0,"Counts",563
+"65+",2021,3,"Lymphoma",0,"Rates",109.932670469803
+"65+",2021,3,"Melanoma",0,"Counts",1529
+"65+",2021,3,"Melanoma",0,"Rates",298.137940537701
+"65+",2021,3,"Pancreatic",0,"Counts",419
+"65+",2021,3,"Pancreatic",0,"Rates",82.3705564521488
+"65+",2021,3,"Prostate",1,"Counts",NA
+"65+",2021,3,"Prostate",1,"Rates",NA
+"65+",2022,1,"All cancers",0,"Counts",9195
+"65+",2022,1,"All cancers",0,"Rates",3650.57951757965
+"65+",2022,1,"Breast (female)",1,"Counts",NA
+"65+",2022,1,"Breast (female)",1,"Rates",NA
+"65+",2022,1,"Colorectal",0,"Counts",613
+"65+",2022,1,"Colorectal",0,"Rates",246.038921282711
+"65+",2022,1,"Leukaemia",0,"Counts",262
+"65+",2022,1,"Leukaemia",0,"Rates",106.637454136931
+"65+",2022,1,"Lung",0,"Counts",855
+"65+",2022,1,"Lung",0,"Rates",342.966186598239
+"65+",2022,1,"Lymphoma",0,"Counts",400
+"65+",2022,1,"Lymphoma",0,"Rates",161.429354783452
+"65+",2022,1,"Melanoma",0,"Counts",1019
+"65+",2022,1,"Melanoma",0,"Rates",407.644619553213
+"65+",2022,1,"Pancreatic",0,"Counts",177
+"65+",2022,1,"Pancreatic",0,"Rates",73.0074831260075
+"65+",2022,1,"Prostate",0,"Counts",3528
+"65+",2022,1,"Prostate",0,"Rates",1368.59459692335
+"65+",2022,2,"All cancers",0,"Counts",5382
+"65+",2022,2,"All cancers",0,"Rates",1903.95147779064
+"65+",2022,2,"Breast (female)",0,"Counts",1098
+"65+",2022,2,"Breast (female)",0,"Rates",390.012704114015
+"65+",2022,2,"Colorectal",0,"Counts",651
+"65+",2022,2,"Colorectal",0,"Rates",228.726197526313
+"65+",2022,2,"Leukaemia",0,"Counts",209
+"65+",2022,2,"Leukaemia",0,"Rates",74.61649885636
+"65+",2022,2,"Lung",0,"Counts",686
+"65+",2022,2,"Lung",0,"Rates",244.89486515672
+"65+",2022,2,"Lymphoma",0,"Counts",292
+"65+",2022,2,"Lymphoma",0,"Rates",102.802341015078
+"65+",2022,2,"Melanoma",0,"Counts",567
+"65+",2022,2,"Melanoma",0,"Rates",201.283495355603
+"65+",2022,2,"Pancreatic",0,"Counts",206
+"65+",2022,2,"Pancreatic",0,"Rates",72.9038214876485
+"65+",2022,2,"Prostate",1,"Counts",NA
+"65+",2022,2,"Prostate",1,"Rates",NA
+"65+",2022,3,"All cancers",0,"Counts",14577
+"65+",2022,3,"All cancers",0,"Rates",2732.25466582661
+"65+",2022,3,"Breast (female)",1,"Counts",NA
+"65+",2022,3,"Breast (female)",1,"Rates",NA
+"65+",2022,3,"Colorectal",0,"Counts",1264
+"65+",2022,3,"Colorectal",0,"Rates",237.887216799103
+"65+",2022,3,"Leukaemia",0,"Counts",471
+"65+",2022,3,"Leukaemia",0,"Rates",89.096542361015
+"65+",2022,3,"Lung",0,"Counts",1541
+"65+",2022,3,"Lung",0,"Rates",290.809186408707
+"65+",2022,3,"Lymphoma",0,"Counts",692
+"65+",2022,3,"Lymphoma",0,"Rates",129.788856500668
+"65+",2022,3,"Melanoma",0,"Counts",1586
+"65+",2022,3,"Melanoma",0,"Rates",297.850785847984
+"65+",2022,3,"Pancreatic",0,"Counts",383
+"65+",2022,3,"Pancreatic",0,"Rates",71.8189829923372
+"65+",2022,3,"Prostate",1,"Counts",NA
+"65+",2022,3,"Prostate",1,"Rates",NA
