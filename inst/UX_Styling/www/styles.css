@@ -114,7 +114,7 @@ h1 {font-size: 7rem;}
 /* h2 {font-size: 3rem;} */
 h2 {font-size: clamp(32px, 5vh, 48px)}
 h3 {font-size: 2rem;}
-h4 {font-size: 1.5rem;}
+h4 {font-size: clamp(18px, 2vh, 24px);}
 h5 {font-size: 1.1rem;}
 h6 {font-size: 1rem;}
 
@@ -305,43 +305,49 @@ ol {
 .panel-body-3, .cond-panel {
   display: flex;
   flex-direction: row;
+  height: 100%;
   gap: 4rem;
 }
 
 .select-div {
-  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20%;
 }
 
 .upload-div, .menu-div {
   display: flex;
   flex-direction: column;
-  /*gap: 10px;*/
+  width: 25%;
 }
 
 .content-panel {
   display: flex;
   flex-direction: column;
   gap: 5%;
-  height: 85%;
+  height: 100%;
 }
 
-.panel-base {
-  display: flex;
-  flex-direction: row;
-  gap: 5%;
-  margin-top: auto;
-}
-
-.panel-base div {
+.hint-div {
   background: linear-gradient(45deg, #D4E927, transparent);
   border-radius: 16px;
-  width: 20%;
-  padding: 1rem;
+  width: 100%;
+  padding: 1.2rem;
 }
 
-.panel-base div p {
+.hint-div p {
   line-height: 2rem;
   font-weight: 500;
+  clamp(12px, 1.9vh, 14px)
+}
+
+@media (max-height: 775px) {
+
+  .hint-div p {
+    line-height: 1.2rem;
+  }
+
 }
 
 /*----------------------------------------------------------------------------*/

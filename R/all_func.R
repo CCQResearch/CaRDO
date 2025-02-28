@@ -167,7 +167,6 @@ create_dashboard <- function(){
             p(HTML("Page 2 of ", length(pages)-1)),
             h2("Load your dataset."),
             h4("Do you have Incidence, or Mortality data, or both?")
-            #h6(HTML("<i>R saves these files to a temporary folder on your computer, which is immediately deleted by R.</i>"))
           ),
 
           div(
@@ -178,7 +177,11 @@ create_dashboard <- function(){
                                  label = "Please select",
                                  choiceNames = c("Incidence", "Mortality (optional)", "Population (optional)"),
                                  choiceValues = c("Incidence", "Mortality", "Population"),
-                                 selected = NULL)
+                                 selected = NULL),
+              div(
+                class = "hint-div",
+                p("For age standarised rates check 'Population' and upload a population file then select a standard from the menu!")
+              )
             ),
             div(
               class = "upload-div",
@@ -923,7 +926,11 @@ create_dashboard <- function(){
           selectInput(inputId = "var_select_inc_sex",
                       choices = variable_names,
                       label = HTML("Select <b>sex</b> variable"),
-                      NA)
+                      NA),
+          div(
+            class = "hint-div",
+            p("Here, we standardise the variable names. Please match your variables with these listed above")
+          )
           # conditionalPanel(
           #   condition = "input.variables_inc.includes('geographical location')",
           #   selectInput(inputId = "var_select_inc_geog.loc",
