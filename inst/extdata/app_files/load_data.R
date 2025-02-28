@@ -54,17 +54,17 @@ lifetime_risk <- inc_annual_counts %>%
          measure == "ltr") %>%
   pull(obs)
 
-counts_limit <- inc_counts %>%
-  filter(cancer.type != "All cancers",
-         sex == 3,
+counts_limit <- inc_averages %>%
+  filter(cancer.type != all_cancers_name,
+         #sex == 3,
          measure == "Counts") %>%
   pull(obs) %>%
   max(., na.rm = TRUE)
 
 rates_limit <- if(length(measure_choices) != 1){
-  inc_annual_counts %>%
-    filter(cancer.type != "All cancers",
-           sex == 3,
+  inc_averages %>%
+    filter(cancer.type != all_cancers_name,
+           #sex == 3,
            measure == "Rates") %>%
     pull(obs) %>%
     max(., na.rm = TRUE)
