@@ -90,7 +90,7 @@ b, strong {
 }
 
 .navbar-brand:hover {
-  color: var(--input-primary) !important; /* Disabling the hover effect */ 
+  color: var(--input-primary) !important; /* Disabling the hover effect */
 }
 
 .nav-link:hover {
@@ -128,6 +128,11 @@ b, strong {
   padding: 5px 10px;
 }
 
+.cancer-menu {
+  display: flex;
+  flex-direction: row;
+}
+
 /* Ensures the page heading is centered */
 .cancer-menu, .gender-measure {
   width: 40%;
@@ -161,14 +166,28 @@ b, strong {
   color: var(--input-primary);
 }
 
-/* Targets JUST the menu parent div */
-.shiny-input-container:not(.shiny-input-container-inline) {
-  width: 100% !important;
-}
-
 /* This is the starting width of the cancer menu */
 .form-group.shiny-input-container > div {
   width: 50%;
+}
+
+*[id$="-report"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--input-primary);
+  color: var(--input-secondary);
+  border-color: var(--input-secondary);
+  margin-right: 0.5em;
+  gap: 10px;
+  width: 100px;
+}
+
+.shiny-download-link:hover {
+  background-color: var(--input-secondary);
+  color: var(--input-primary);
+  border-color: var(--input-secondary);
 }
 
 /* Radio Button Options */
@@ -357,11 +376,17 @@ b, strong {
 }
 
 .heading-bracket {
+  display: flex;
+  gap: 0.5em;
   font-weight: 400;
   font-style: italic;
 }
 
-
+.info_tooltip > .tooltip-inner {
+  font-family: 'Barlow';
+  color: var(--input-secondary);
+  background-color: rgb(46, 46, 46);
+}
 
 /* Ultra-wide Monitor Layout (not longer necessary) */
 
@@ -373,7 +398,7 @@ b, strong {
     overflow-x: auto;
     white-space: nowrap;
   }
-  
+
   .bslib-grid-item {
     flex: 0 0 100%;
     height: 100%;
@@ -433,32 +458,32 @@ b, strong {
 
 /* Media Queries (METHODS PAGE ONLY) */
 @media (max-width: 1300px) {
-  
+
     /* Methods Page */
   .methods-panel {
     width: 60%;
   }
-  
+
 }
 
 @media (max-width: 800px) {
-  
+
   .methods-panel {
     width: 80%;
   }
-  
+
 }
 
 @media (max-width: 500px) {
-  
+
   .methods-panel {
     width: 100%;
   }
-  
+
   p .MathJax_Display {
     display: none !important;
   }
-  
+
 }
 
 
@@ -490,11 +515,11 @@ body.methods-active nav.navbar.navbar-default {
 /* Removes the Summary Title div and flexes the lifetime-risk div */
 
 @media (max-width: 1600px) {
-  
+
   .summary-title {
     display: none !important;
   }
-  
+
   .lifetime-risk {
     flex: 1 !important;
   }
@@ -504,12 +529,12 @@ body.methods-active nav.navbar.navbar-default {
 /* Starts the space saving for the Header sections by removing labels */
 
 @media (max-width: 1300px) {
-  
+
   /* Header Section */
   .gender-measure {
     gap: 0rem;
   }
-  
+
   .control-label {
     display: none;
   }
@@ -517,95 +542,95 @@ body.methods-active nav.navbar.navbar-default {
   .form-group.shiny-input-container > div {
     width: 70% !important;
   }
-  
+
 }
 
 /* 1111px width breakpoint -------- */
 /* Ensuring the lifetime risk visualisation and information is readable */
 
 @media (max-width: 1111px), (max-height: 600px) {
-  
+
   .lifetime-risk {
     padding: 0 !important;
     border: none !important;
     gap: 1rem !important;
   }
-  
+
   .ltr-vis {
     display: none !important;
   }
-  
+
 }
 
 /* 991px width breakpoint -------- */
 /* Resizes the dashboard title once the `navbar` becomes a menu */
 
 @media (max-width: 991px) {
-  
+
   .navbar-brand {
     font-size: max(2.5vw, 24px) !important;
   }
-  
+
 }
 
 /* 946px width breakpoint -------- */
 /* Reduces spacing as screen size decreases */
 
 @media (max-width: 946px), (max-height: 600px) {
-  
+
   /* Text Sizes */
   h1 {
     font-size: 2em;
     margin: 0;
   }
-  
+
   /* Header Section */
   .btn {
     padding: 0.3rem 0.5rem !important;
   }
-  
+
   /* Content Section */
   .card-body {
     padding: 0;
   }
-  
+
   .card.bslib-card {
     margin: 1rem !important;
   }
-  
+
   .summary-container {
     gap: 1rem;
   }
-  
+
   .summary-content {
     padding: 0rem 0rem 1rem 0.5rem;
   }
-  
+
 }
 
 /* 868px width breakpoint -------- */
 /* Adjusting the spacing as the header starts to wrap elements */
 
 @media (max-width: 868px), (max-height: 600px) {
-  
+
   /* Header Section */
   .gender-measure {
     gap: 5px;
   }
-  
+
   /* Content Section */
   .card-header {
     border-width: 1px !important;
     padding: 0.2rem 0.1rem !important;
   }
-  
+
 }
 
 /* 770px width breakpoint -------- */
 /* Breakpoint where the grid goes from 2x2 to 4x1 */
 
 @media (max-width: 770px) {
-  
+
   /* Header Section */
   .header-options {
     padding: 5px;
@@ -613,12 +638,12 @@ body.methods-active nav.navbar.navbar-default {
     top: 46px;
     z-index: 1;
   }
-  
+
   .cancer-menu, .gender-measure {
     gap: 5px;
     width: 100%;
   }
-  
+
   /* Content Section */
   .bslib-page-fill {
     height: auto !important;
@@ -632,20 +657,20 @@ body.methods-active nav.navbar.navbar-default {
   .html-fill-container > .html-fill-item {
     min-height: auto;
   }
-  
+
 }
 
 /* 700px width breakpoint -------- */
 /* Breakpoint for when the header completely wraps */
 
 @media (max-width: 700px) {
-  
+
   /* Text Sizes */
   h1, .h1 {
     text-align: left !important;
     margin: 0;
   }
-  
+
   /* Header Section */
   .header-options {
     display: flex !important;
@@ -657,11 +682,11 @@ body.methods-active nav.navbar.navbar-default {
   .header-options div:first-child {
     order: 2;
   }
-  
+
   .gender-measure {
     justify-content: flex-start !important;
   }
-  
+
   .form-group.shiny-input-container {
     gap: 0 !important;
   }
@@ -672,15 +697,15 @@ body.methods-active nav.navbar.navbar-default {
 /* Final breakpoint, adjusts the summary panel to read better at the smallest screen size */
 
 @media (max-width: 470px) {
-  
+
   .summary-container {
     flex-direction: column;
   }
-  
+
   .lifetime-risk {
     padding: 0rem 0rem 1rem 1rem !important;
   }
-  
+
 }
 
 /* -------------------------------------------------------------------------- */

@@ -11,7 +11,7 @@
 
 # ##### TEMPORARY - TO DELETE #####
 # setwd("C:/Users/SeanFrancis/OneDrive - Cancer Council Queensland/Shiny App")
-# setwd("C:/Users/JamesREne/OneDrive - Cancer Council Queensland/Desktop/James Braid/candor/Shiny App")
+# setwd("C:/Users/JamesREne/OneDrive - Cancer Council Queensland/Desktop/James Braid/CaRDO/Shiny App")
 # ##### #####
 
 
@@ -29,13 +29,13 @@ library(markdown)
 
 
 # Then we will "source", or load in the modules
-# source("K:/EPI/R-Shiny Projects/CanDOR/Testing/Testing Development/inst/extdata/app_files/module.R", local = TRUE)
-# source("K:/EPI/R-Shiny Projects/CanDOR/Testing/Testing Development/inst/extdata/app_files/load_data.R", local = TRUE)
+# source("K:/EPI/R-Shiny Projects/CaRDO/Testing/Testing Development/inst/extdata/app_files/module.R", local = TRUE)
+# source("K:/EPI/R-Shiny Projects/CaRDO/Testing/Testing Development/inst/extdata/app_files/load_data.R", local = TRUE)
 source("module.R", local = TRUE)
 source("load_data.R", local = TRUE)
 
 # ##### TEMPORARY - TO DELETE #####
-# setwd("K:/EPI/R-Shiny Projects/CanDOR/Testing/Testing Development")
+# setwd("K:/EPI/R-Shiny Projects/CaRDO/Testing/Testing Development")
 # ##### #####
 
 
@@ -77,6 +77,10 @@ server <- function(input, output, session){
   if(!no_mrt){
     server_module("Deaths")
   }
+  
+  output$report <- downloadHandler(
+    filename = ""
+  )
 
 }
 

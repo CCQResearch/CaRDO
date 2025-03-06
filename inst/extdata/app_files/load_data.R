@@ -80,3 +80,47 @@ plotly_btns_rm <- c("zoom2d", "pan2d", "select2d", "lasso2d", "zoomIn2d", "zoomO
                     "zoomOutGeo", "resetGeo", "hoverClosestGeo",
                     "sendDataToCloud", "hoverClosestGl2d", "hoverClosestPie",
                     "toggleHover", "resetViews", "toggleSpikelines", "resetViewMapbox")
+
+
+##### Auxiliary / Helper Functions #####
+dwnldButtonUI <- function(id){
+  ns <- NS(id)
+  tagList(
+    downloadButton(
+      outputId = ns("dwnldBtn"),
+      label = "",
+      icon = icon(
+        name = NULL,
+        style="
+               background: url('downArrow5.png');
+               background-size: contain;
+               background-position: center;
+               background-repeat: no-repeat;
+               height: 12px;
+               width: 12px;
+               display: block;
+              "
+      )
+    )
+  )
+}
+
+dwnldButtonServer <- function(id, file_name, graph_df){
+
+  moduleServer(
+    id,
+    function(input, output, session){
+
+      output$dwnldBtn <- downloadHandler(
+
+        filename = function() {
+          paste(file_name(), ".csv", sep = "")
+        },
+
+        content = function(file) {
+          write.csv(graph_df(), file, row.names = FALSE)
+        }
+      )
+    }
+  )
+}

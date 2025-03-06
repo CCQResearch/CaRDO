@@ -1,6 +1,6 @@
 UI_module <- function(id){
   ns <- NS(id)
-  
+
   tagList(
     page_fillable(
       ## Dashboard Header & Controls ----
@@ -11,12 +11,18 @@ UI_module <- function(id){
           class = "cancer-menu",
           selectInput(inputId = ns("cancer.type"),
                       choices = if (id == "Diagnosis") {cancer_choices_inc} else {cancer_choices_mrt},
-                      label = "Cancer type")
+                      label = "Cancer type"),
+          downloadButton(outputId = ns("report"),
+                         label = "Report") %>%
+            tooltip("Download a '.html' report of the selected cancer",
+                    placement = "right",
+                    options = list(customClass = "info_tooltip")
+            )
         ),
-        
+
         ### Element 2 - Panel Title ----
         h1(id, style = "color: white !important;"),
-        
+
         ### Element 3 - Radio Buttons ----
         div(
           class = "gender-measure",
@@ -24,14 +30,14 @@ UI_module <- function(id){
                             # choices = sex_choices,
                             choices = c("Persons" = 3, "Males" = 1, "Females" = 2),
                             label = "Sex"),
-          
+
           radioGroupButtons(inputId = ns("measure"),
                             choices = measure_choices,
                             label = "Measure")
         )
       ),
       # ---------------------------------------------------------------------- #
-      
+
       ## Dashboard Content / Grid ----
       layout_columns(
         col_widths = c(6, 6, 6, 6),
@@ -123,7 +129,9 @@ server_module <- function(id){
   moduleServer(
     id,
     function(input, output, session){
-      
+
+      ns <- session$ns
+
       counts_rates_labs <- reactive({
         paste0(
           ifelse(id == "Diagnosis",
@@ -134,11 +142,11 @@ server_module <- function(id){
                  no = " per 100,000 pop.")
         )
       })
-      
+
       ## Data loading ----
-      
+
       if(id == "Diagnosis"){
-        
+
         data_topleft <- reactive({
           inc_annual_counts %>%
             filter(year == max(year),
@@ -147,7 +155,7 @@ server_module <- function(id){
             group_by(year, sex) %>%
             summarise(obs = sum(obs), .groups = 'drop')
         })
-        
+
         lifetime_risk <- reactive({
           # browser()
           tmp <- inc_annual_counts %>%
@@ -156,10 +164,10 @@ server_module <- function(id){
                    sex == input$sex,
                    measure == "ltr") %>%
             pull(obs)
-          
+
           if(is_empty(tmp)){return(0)}else{return(tmp)}
         })
-        
+
         data_topright <- reactive({
           inc_annual_counts %>%
             filter(cancer.type == input$cancer.type,
@@ -167,7 +175,7 @@ server_module <- function(id){
           # %>%
           #   pivot_wider(names_from = 'sex', values_from = 'obs')
         })
-        
+
         # DELETE IF AVERAGES IS OKAY
         # data_bottomleft <- reactive({
         #   inc_annual_counts %>%
@@ -179,7 +187,7 @@ server_module <- function(id){
         #     slice_max(order_by = obs,
         #               n = 5)
         # })
-        
+
         data_bottomleft <- reactive({
           inc_averages %>%
             filter(sex == input$sex,
@@ -188,7 +196,7 @@ server_module <- function(id){
             slice_max(order_by = obs,
                       n = 5)
         })
-        
+
         data_bottomright <- reactive({
           inc_counts %>%
             filter(sex == input$sex,
@@ -204,12 +212,12 @@ server_module <- function(id){
                      )
             ) %>%
             ungroup()
-          
+
         })
-        
+
       }
       else if (id == "Deaths"){
-        
+
         data_topleft <- reactive({
           mrt_annual_counts %>%
             filter(year == max(year),
@@ -218,7 +226,7 @@ server_module <- function(id){
             group_by(year, sex) %>%
             summarise(obs = sum(obs), .groups = 'drop')
         })
-        
+
         lifetime_risk <- reactive({
           tmp <- mrt_annual_counts %>%
             filter(year == most_recent_year,
@@ -226,10 +234,10 @@ server_module <- function(id){
                    sex == input$sex,
                    measure == "ltr") %>%
             pull(obs)
-          
+
           if(is_empty(tmp)){return(0)}else{return(tmp)}
         })
-        
+
         data_topright <- reactive({
           mrt_annual_counts %>%
             filter(measure == input$measure,
@@ -237,7 +245,7 @@ server_module <- function(id){
           # %>%
           #   pivot_wider(names_from = 'sex', values_from = 'obs')
         })
-        
+
         # DELETE IF AVERAGES IS OKAY
         # data_bottomleft <- reactive({
         #   mrt_annual_counts %>%
@@ -249,7 +257,7 @@ server_module <- function(id){
         #     slice_max(order_by = obs,
         #               n = 5)
         # })
-        
+
         data_bottomleft <- reactive({
           mrt_averages %>%
             filter(sex == input$sex,
@@ -258,7 +266,7 @@ server_module <- function(id){
             slice_max(order_by = obs,
                       n = 5)
         })
-        
+
         data_bottomright <- reactive({
           mrt_counts %>%
             filter(sex == input$sex,
@@ -274,10 +282,10 @@ server_module <- function(id){
                      )
             ) %>%
             ungroup()
-          
+
         })
       }
-      
+
       time_hovertemplate <- reactive({
         paste0(
           if_else(input$measure == "Counts", paste0("%{y:,}"), paste0("%{y:,.1f}")),
@@ -285,15 +293,35 @@ server_module <- function(id){
           if_else(input$measure == "Counts", "", " per 100,000 pop.")
         )
       })
-      
+
       # ---------------------------------------------------------------------- #
-      
+
       ## Outputs ----
-      
-      # output$title_topleft <- renderUI({})
-      #
-      # output$topleft <- renderPlotly({})
-      
+
+      ### Generate Report ----
+      output$report <- downloadHandler(
+        filename = paste(input$cancer.type, "-report.html"),
+        content = function(file) {
+          tempReport <- file.path(tempdir(), "CaRDO report template.Rmd")
+          
+          file.copy("CaRDO report template.Rmd", tempReport, overwrite = TRUE)
+          
+          params <- list(cancer = input$cancer.type,
+                         location = location_name,
+                         year = most_recent_year,
+                         incidence = inc_annual_counts,
+                         mortality = if (no_mrt) {NA} else {mrt_annual_counts}
+                         #survival = something
+          )
+          
+          rmarkdown::render(
+            tempReport, output_file = file,
+            params = params,
+            envir = new.env(parent = globalenv())
+          )
+        }
+      )
+
       ### TL-Summary Outputs ----
       output$all_text <- renderUI({
         HTML(
@@ -331,7 +359,7 @@ server_module <- function(id){
           "<h3>Female cancer", tolower(counts_rates_labs()), "</h3>"
         )
       })
-      
+
       output$ltr_vis <- renderUI({
         tags$svg(class = "ltr-matrix",
                  width = "100%",
@@ -346,18 +374,18 @@ server_module <- function(id){
                  })
         )
       })
-      
+
       output$ltr_text <- renderUI({
-        
+
         ltr_stat <- if (lifetime_risk() * 10 < 1 & lifetime_risk() * 10 != 0) {"< 1"} else {round(lifetime_risk() * 10)}
-        
+
         stat_text <- if(lifetime_risk() == 0){
           "<span>No <b>"
         }else{
           paste0(
             "<span>Approximately 1 in <b>",round(10/(10 * lifetime_risk()), 1))
         }
-        
+
         div(
           HTML(paste(span(class = "ltr-stat", ltr_stat), " out of 10")),
           div(
@@ -373,11 +401,10 @@ server_module <- function(id){
           )
         )
       })
-      
+
       # ---------------------------------------------------------------------- #
-      
       ### TR-Time Outputs ----
-      output$title_topright <- renderUI({
+      title_topright <- reactive({
         heading_title <- if(input$measure == "Counts") {
           if(id == "Diagnosis") "Number of diagnoses" else "Number of deaths"
         } else {
@@ -389,37 +416,53 @@ server_module <- function(id){
         } else {
           if(input$sex == 1) " in males" else " in females"
         }
+
+        return (
+          paste0(heading_title, " for ", heading_cancer, heading_sex, " (", location_name, ")")
+        )
+      })
+
+      output$title_topright <- renderUI({
+
         heading_bracket <- if(input$measure == "Counts") "" else " (Age Standarised)"
-        
+
         div(
           class = "custom-heading",
           span(
             class = "heading-bold",
-            paste0(heading_title, " for ", heading_cancer, heading_sex, " (", location_name, ")")
+            title_topright()
           ),
           span(
             class = "heading-bracket",
+            span(
+              class = 'dl_pos',
+              dwnldButtonUI(id = ns("topright_dwnld")) %>%
+                tooltip("Download plot data",
+                        placement = "bottom",
+                        options = list(customClass = "info_tooltip")
+                )
+            ),
             paste0(heading_bracket)
           )
         )
       })
-      
+
       output$topright <- renderPlotly({
-        
+
         sufficient_data_cond <- (data_topright() %>%
                                    filter(sex == input$sex) %>%
                                    nrow) == 0
-        
+
         validate(
           need(
             !sufficient_data_cond,
             message = "Data unavailable"
           )
         )
-        
+
         categories <- c("1", "2", "3")
         plot_colour <- if(id == "Diagnosis") "#1C54A8" else "#8E3E39"
-        
+
         line_styles <- sapply(categories, function(cat) {
           if (cat == input$sex) {
             list(color = plot_colour)
@@ -427,7 +470,7 @@ server_module <- function(id){
             list(color = "#E6E6E6", dash = "dot")
           }
         }, simplify = FALSE)
-        
+
         marker_styles <- sapply(categories, function(cat) {
           if (cat == input$sex) {
             list(
@@ -438,17 +481,16 @@ server_module <- function(id){
             list(opacity = 0)
           }
         })
-        
+
         plot <- plot_ly(
           hovertemplate = time_hovertemplate()
-        )  %>%
+        ) %>%
           config(
             modeBarButtonsToRemove = plotly_btns_rm,
             displaylogo = FALSE,
             toImageButtonOptions = list(
-              format = "svg"
-              # ,
-              # filename = labs$rel_surv_title
+              format = "svg",
+              filename = title_topright()
             ),
             # displaylogo = FALSE,
             # displayModeBar = FALSE,
@@ -491,9 +533,9 @@ server_module <- function(id){
               activecolor = '#111111'
             )
           )
-        
+
         # browser()
-        
+
         for(sex_num in unique(data_topright()$sex)){
           plot <- plot %>%
             add_trace(
@@ -517,7 +559,7 @@ server_module <- function(id){
               showlegend = FALSE
             )
         }
-        
+
         plot
         # %>%
         #   add_trace(
@@ -544,44 +586,64 @@ server_module <- function(id){
         #     line = line_styles[[2]]
         #     #marker =marker_styles[[2]]
         #   )
-        
+
       })
-      
+
+      dwnldButtonServer(id = "topright_dwnld",
+                        file_name = title_topright,
+                        graph_df = data_topright)
+
       # ---------------------------------------------------------------------- #
-      
+
       ### BL-Cancer Outputs ----
-      output$title_bottomleft <- renderUI({
+      title_bottomleft <- reactive({
         heading_title <- if(id == "Diagnosis") "diagnoses" else "deaths"
         heading_sex <- if(input$sex == 3) {
           " "
         } else {
           if(input$sex == 1) " in males" else " in females"
         }
+
+        return(
+          paste0("The five most common cancer ", heading_title, heading_sex, " (", location_name, ")")
+        )
+      })
+
+      output$title_bottomleft <- renderUI({
+
         heading_bracket <- if(input$measure == "Counts") {
           paste0("(Counts, 5 year average ", most_recent_year-4, "-", most_recent_year, ")")
         } else {
           paste0("(5 years ", most_recent_year-4, "-", most_recent_year, ", Age Standarised)")
         }
-        
+
         div(
           class = "custom-heading",
           span(
             class = "heading-bold",
-            paste0("The five most common cancer ", heading_title, heading_sex, " (", location_name, ")")
+            title_bottomleft()
           ),
           span(
             class = "heading-bracket",
+            span(
+              class = 'dl_pos',
+              dwnldButtonUI(id = ns("bottomleft_dwnld")) %>%
+                tooltip("Download plot data",
+                        placement = "bottom",
+                        options = list(customClass = "info_tooltip")
+                )
+            ),
             paste0(heading_bracket)
           )
         )
       })
-      
+
       output$bottomleft <- renderPlotly({
-        
+
         plot_colour <- if(id == "Diagnosis") "#335C98" else "#8E3E39"
-        
+
         cancer_axis_limit <- if(input$measure == "Counts") {counts_limit} else {rates_limit}
-        
+
         plot_ly(data = data_bottomleft())%>%
           add_bars(
             x = ~obs,
@@ -596,8 +658,14 @@ server_module <- function(id){
             )
           ) %>%
           config(
+            modeBarButtonsToRemove = plotly_btns_rm,
             displaylogo = FALSE,
-            displayModeBar = FALSE,
+            toImageButtonOptions = list(
+              format = "svg",
+              filename = title_bottomleft()
+            ),
+            # displaylogo = FALSE,
+            # displayModeBar = FALSE,
             scrollZoom = FALSE
           ) %>%
           layout(
@@ -626,13 +694,17 @@ server_module <- function(id){
               activecolor = '#111111'
             )
           )
-        
+
       })
-      
+
+      dwnldButtonServer(id = "bottomleft_dwnld",
+                        file_name = title_bottomleft,
+                        graph_df = data_bottomleft)
+
       # ---------------------------------------------------------------------- #
-      
+
       ### BR-Age Outputs ----
-      output$title_bottomright <- renderUI({
+      title_bottomright <- reactive({
         heading_title <- if(input$measure == "Counts") {
           if(id == "Diagnosis") "Number of diagnoses" else "Number of deaths"
         } else {
@@ -644,16 +716,32 @@ server_module <- function(id){
         } else {
           if(input$sex == 1) " in males" else " in females"
         }
+
+        return(
+          paste0(heading_title, ", by age group, for ", heading_cancer, heading_sex, " (", location_name, ")")
+        )
+      })
+
+      output$title_bottomright <- renderUI({
+
         heading_bracket <- if(input$measure == "Counts") "" else " (Age Standarised)"
-        
+
         div(
           class = "custom-heading",
           span(
             class = "heading-bold",
-            paste0(heading_title, ", by age group, for ", heading_cancer, heading_sex, " (", location_name, ")")
+            title_bottomright()
           ),
           span(
             class = "heading-bracket",
+            span(
+              class = 'dl_pos',
+              dwnldButtonUI(id = ns("bottomright_dwnld")) %>%
+                tooltip("Download plot data",
+                        placement = "bottom",
+                        options = list(customClass = "info_tooltip")
+                )
+            ),
             paste0(heading_bracket)
           )
         )
@@ -661,22 +749,22 @@ server_module <- function(id){
         #   id, " by age group, for ", tolower(input$cancer.type), " in ", tolower(sex_name[[input$sex]]), " (", location_name, ")"
         # )
       })
-      
+
       output$bottomright <- renderPlotly({
-        
+
         sufficient_data_cond <- sum(is.na(data_bottomright()$obs)) == nrow(data_bottomright())
-        
+
         validate(
           need(
             !sufficient_data_cond,
             message = "Data unavailable"
           )
         )
-        
+
         age_colours <- c("#FF9F1C", "#7DDE9D", "#3A8592", "#042A2B")
         age_groups <- unique(data_bottomright()$age.grp_string) %>%
           sort
-        
+
         plot <- plot_ly() %>%
           layout(
             xaxis = list(
@@ -713,29 +801,28 @@ server_module <- function(id){
             modeBarButtonsToRemove = plotly_btns_rm,
             displaylogo = FALSE,
             toImageButtonOptions = list(
-              format = "svg"
-              # ,
-              # filename = labs$rel_surv_title
+              format = "svg",
+              filename = title_bottomright()
             ),
             # displaylogo = FALSE,
             # displayModeBar = FALSE,
             scrollZoom = FALSE
           )
-        
-        
+
+
         for (i in rev(seq_along(age_groups))) {
-          
+
           # browser()
           selected_colour <- age_colours
-          
+
           filt_df <- data_bottomright() %>%
             # cbind(data.frame("tooltip" = tooltip)) %>%
             filter(age.grp_string == age_groups[i]) %>%
             # mutate("tooltip_trend" = paste("Trend: ",trend_private_string)) %>%
             arrange(year) %>%
             rowwise()
-          
-          
+
+
           plot <- plot %>%
             add_trace(
               data = filt_df,
@@ -755,11 +842,15 @@ server_module <- function(id){
               # hoverinfo = "text"
             )
         }
-        
+
         plot
       })
-      
-      
+
+      dwnldButtonServer(id = "bottomright_dwnld",
+                        file_name = title_bottomright,
+                        graph_df = data_bottomright)
+
+
     }
   )
 }

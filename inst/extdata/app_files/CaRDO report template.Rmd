@@ -1,0 +1,205 @@
+---
+title: "CaRDO Dashboard Report"
+author: "James Rene"
+date: "2025-03-03"
+output: html_document
+params:
+  cancer: NA
+  location: NA
+  year: NA
+  incidence: NA
+  mortality: NA
+  survival: NA
+---
+
+```{css, echo = FALSE}
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+
+/* 
+body {
+  background-image: url("1.png");
+  background-size: 20% auto;
+  background-position: calc(50% + 100px) top;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.9);
+  background-blend-mode: overlay;
+}
+*/
+
+h1 {
+  font-family: 'Oswald';
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: 'Barlow';
+  font-weight: 500;
+  font-size: 28px;
+}
+
+h3 {
+  font-family: 'Barlow';
+  font-weight: 400;
+  font-size: 22px;
+}
+
+h4 {
+  font-family: 'Barlow';
+  font-weight: 400;
+  font-size: 18px;
+}
+
+p {
+  font-family: 'Barlow';
+  font-weight: 400;
+  font-size: 14px;
+}
+
+#header {
+  display: none;
+  margin-bottom: 64px;
+}
+
+#titleblock {
+  margin-bottom: 48px;
+}
+
+#titleblock h2 {
+  font-weight: 400;
+  font-size: 30px;
+  color: #006176;
+  margin: 1rem 0rem;
+}
+
+.section.level1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 30px;
+  margin-bottom: 3rem;
+}
+
+```
+
+```{r, echo = FALSE}
+
+diagnosis <- params$incidence %>%
+  filter(year == params$year,
+         cancer.type == params$cancer)
+
+inc_all <- diagnosis$obs[diagnosis$sex == 3 & diagnosis$measure == "Counts"]
+inc_male <- diagnosis$obs[diagnosis$sex == 1 & diagnosis$measure == "Counts"]
+inc_female <- diagnosis$obs[diagnosis$sex == 2 & diagnosis$measure == "Counts"]
+inc_all_rates <- diagnosis$obs[diagnosis$sex == 3 & diagnosis$measure == "Rates"]
+inc_male_rates <- diagnosis$obs[diagnosis$sex == 1 & diagnosis$measure == "Rates"]
+inc_female_rates <- diagnosis$obs[diagnosis$sex == 2 & diagnosis$measure == "Rates"]
+inc_all_ltr <- 1 / diagnosis$obs[diagnosis$sex == 3 & diagnosis$measure == "ltr"]
+inc_male_ltr <- 1 / diagnosis$obs[diagnosis$sex == 1 & diagnosis$measure == "ltr"]
+inc_female_ltr <- 1 / diagnosis$obs[diagnosis$sex == 2 & diagnosis$measure == "ltr"]
+
+deaths <- params$mortality %>%
+  filter(year == params$year,
+         cancer.type == params$cancer)
+
+mrt_all <- deaths$obs[deaths$sex == 3 & deaths$measure == "Counts"]
+mrt_male <- deaths$obs[deaths$sex == 1 & deaths$measure == "Counts"]
+mrt_female <- deaths$obs[deaths$sex == 2 & deaths$measure == "Counts"]
+mrt_all_rates <- deaths$obs[deaths$sex == 3 & deaths$measure == "Rates"]
+mrt_male_rates <- deaths$obs[deaths$sex == 1 & deaths$measure == "Rates"]
+mrt_female_rates <- deaths$obs[deaths$sex == 2 & deaths$measure == "Rates"]
+mrt_all_ltr <- 1 / deaths$obs[deaths$sex == 3 & deaths$measure == "ltr"]
+mrt_male_ltr <- 1 / deaths$obs[deaths$sex == 1 & deaths$measure == "ltr"]
+mrt_female_ltr <- 1 / deaths$obs[deaths$sex == 2 & deaths$measure == "ltr"]
+
+
+```
+
+::: {#titleblock}
+# **`r params$cancer`**
+## `r params$location` **`r params$year`**
+:::
+
+## Diagnosis
+
+::: {#diagnosis .summary}
+## Counts
+
+### `r inc_all`
+Total diagnoses for **`r params$cancer`**
+
+### `r inc_male`
+Male diagnoses
+
+### `r inc_female`
+Female diagnoses
+
+### 1 in `r inc_all_ltr`
+persons are expected to be diagnosed with **`r params$cancer`** by age 85
+
+## Rates
+
+### `r inc_all_rates`
+Total diagnoses for **`r params$cancer`**
+
+### `r inc_male_rates`
+Male diagnoses
+
+### `r inc_female_rates`
+Female diagnoses
+:::
+
+```{r, echo = FALSE, results = "asis"}
+
+if (is.data.frame(params$mortality)) {
+  knitr::asis_output(paste0("
+## Deaths
+
+:::{#deaths .summary}
+## Counts
+
+### ", mrt_all, "
+Total deaths for **", params$cancer, "**
+
+### ", mrt_male, "
+Male deaths
+
+### ", mrt_female, "
+Female deaths
+
+### 1 in ", round(mrt_all_ltr, 1), "
+persons are expected to be die from **", params$cancer, "** by age 85
+
+## Rates
+
+### ", mrt_all_rates, "
+Total deaths for **", params$cancer, "**
+
+### ", mrt_male_rates, "
+Male deaths
+
+### ", mrt_female_rates, "
+Female deaths
+:::
+  ")
+  )
+}
+
+```
+
+## Survival
+
+### 74.9%
+**`r params$cancer`** has a 5 year relative survival rate of 75% for the years `r params$year - 4` to `r params$year`
+
+### 70.4%
+is the previous 5 year relative survival rate (2008 - 2012)
+
+---
