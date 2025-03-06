@@ -61,6 +61,7 @@ body::before {
   width: 300px;
 }
 
+/*
 #threshold-div p {
   background-color: #FAF9F6;
   font-size: 0.8rem;
@@ -71,6 +72,7 @@ body::before {
   border-radius: 8px;
   width: 330px;
 }
+*/
 
 /* general font for all shiny inputs (menus/checkboxes etc.) */
 .form-group.shiny-input-container {
@@ -95,7 +97,7 @@ body::before {
 
 p {
   font-family: 'Barlow';
-  font-size: clamp(14px, 1.9vh, 18px);
+  font-size: clamp(12px, 1.9vh, 18px);
   font-weight: 400;
   margin: 0px;
 }
@@ -329,17 +331,26 @@ ol {
   height: 100%;
 }
 
+.menu-inline {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-inline .hint-div {
+  margin-top: auto;
+}
+
 .hint-div {
   background: linear-gradient(45deg, #D4E927, transparent);
   border-radius: 16px;
-  width: 100%;
+  width: 330px;
   padding: 1.2rem;
 }
 
 .hint-div p {
   line-height: 2rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  clamp(12px, 1.9vh, 14px)
 }
 
 @media (max-height: 775px) {
@@ -421,10 +432,10 @@ ol {
 }
 */
 
-#clipbtn:focus, #understand:focus {
+#clipbtn:focus, #understand:focus,  #clipbtn:visited, #understand:visited {
   color: black;
-  border-color: #bea540 !important;
-  background-color: #bea540 !important; /* Darker shade for active state */
+  border-color: #BEA540 !important;
+  background-color: #BEA540 !important; /* Darker shade for active state */
   transform: scale(0.98); /* Slightly shrink the button */
 }
 

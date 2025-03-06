@@ -25,9 +25,9 @@
 #' @import shiny
 #' @import bslib
 #' @import shinyWidgets
-#' @import rclipboard
 #' @import dplyr
 #' @importFrom shinyjs useShinyjs enable disable
+#' @importFrom rclipboard rclipboardSetup rclipButton
 #' @importFrom tools file_ext
 #' @importFrom data.table fread
 #' @importFrom vroom vroom
@@ -113,13 +113,11 @@ create_dashboard <- function(){
         pages[[2]],
         div(
           class = pages[[2]],
-
           div(
             class = "panel-title",
             p(HTML("Page 1 of ", length(pages)-1)),
             h2("Disclaimer")
           ),
-
           div(
             class = "panel-body-2",
             div(
@@ -127,14 +125,17 @@ create_dashboard <- function(){
               HTML(
                 paste(
                   p("Any data loaded into CaRDO will be stored and processed locally. ",
-                  "The processing happens to a copy of the data you load and that copy is deleted once the processing is complete."),
+                    "The processing happens to a copy of the data you load and that copy is deleted once the processing is complete."),
+                  p("We recommend setting the working directory to a local drive (not OneDrive or a cloud system). Information on how to change the working directory is available in the",
+                    tags$a("handbook", href = "https://ccqresearch.github.io/CaRDO-Handbook/", target = "_blank"),
+                    "under 'Build Your Dashboard'."),
                   p("If you choose to publish the dashboard (e.g. share it online) the data that is uploaded will be the processed version and displayed as it appears in the dashboard. ",
-                  "It is your responsibility to ensure that all displayed data is appropriate for sharing before publishing publicly."),
+                    "It is your responsibility to ensure that all displayed data is appropriate for sharing before publishing publicly."),
                   p("For the dashboard to work appropriately, there are three key requirements for any cancer dataset that is loaded into CaRDO. ",
                     br(),
-                  tags$b("Please read through the requirements outlined on this page before continuing.")),
+                    tags$b("Please read through the requirements outlined on this page before continuing.")),
                   p("Further details on data requirements and building a CaRDO dashboard are available",
-                    tags$a("here", href = "https://ccqresearch.github.io/CaRDO-Handbook/"),
+                    tags$a("here", href = "https://ccqresearch.github.io/CaRDO-Handbook/", target = "_blank"),
                     ". If you have any other questions or concerns, please reach out to us at",
                     tags$a("statistics@qldcancer.org.au", href = "mailto:statistics@qldcancer.org.au"))
                 )
@@ -142,9 +143,18 @@ create_dashboard <- function(){
             ),
             div(
               class = "requirements-list",
-              div(class = "rl-div", p("You must have a single column for each variable and outcome you wish to report, and each row in your dataset should correspond to a unique combination of each variable.")),
-              div(class = "rl-div", p("Cancer-type values must be coded as you wish them to be displayed.")),
-              div(class = "rl-div", p("Cancer counts and any population data must be aggregated by 5-year age groups, with age groups coded numerically from 1 – 18.")),
+              div(
+                class = "rl-div",
+                p("You must have a single column for each variable and outcome you wish to report, and each row in your dataset should correspond to a unique combination of each variable.")
+              ),
+              div(
+                class = "rl-div",
+                p("Cancer-type values must be coded as you wish them to be displayed.")
+              ),
+              div(
+                class = "rl-div",
+                p("Cancer counts and any population data must be aggregated by 5-year age groups, with age groups coded numerically from 1 – 18.")
+              ),
               div(
                 class = "understand-button",
                 actionButton(inputId = "understand", label = "Okay, I understand")
@@ -154,7 +164,7 @@ create_dashboard <- function(){
         )
       ),
 
-      ### UI-Data Upload ----
+      ### UI-Data Load ----
 
       nav_panel_hidden(
         pages[[3]],
@@ -166,7 +176,7 @@ create_dashboard <- function(){
             class = "panel-title",
             p(HTML("Page 2 of ", length(pages)-1)),
             h2("Load your dataset."),
-            h4("Do you have Incidence, or Mortality data, or both?")
+            h4("Select the datasets you can provide.")
           ),
 
           div(
@@ -180,7 +190,7 @@ create_dashboard <- function(){
                                  selected = NULL),
               div(
                 class = "hint-div",
-                p("For age standarised rates check 'Population' and upload a population file then select a standard from the menu!")
+                p("For age standarised rates check 'Population' and load a population file then select a standard from the menu!")
               )
             ),
             div(
@@ -211,7 +221,7 @@ create_dashboard <- function(){
                 selectInput(inputId = "std_pop_name",
                             label = HTML("Select the standard <b>population</b> to use."),
                             choices = std_pop_names,
-                            selected = NULL)
+                            selected = "World (WHO) Std Million")
 
               )
             )
@@ -326,7 +336,7 @@ create_dashboard <- function(){
             class = "panel-title",
             p(HTML("Page 6 of ", length(pages)-1)),
             h2("Finalising a few things."),
-            h6("These will be parameters that will be carried through to the dashboard.")
+            h4("These will be parameters that will be carried through to the dashboard.")
           ),
 
           div(
@@ -347,20 +357,16 @@ create_dashboard <- function(){
             div(
               id = "threshold-div",
               class = "final-panel-div",
-              # sliderInput(inputId = "dashboard_suppression_threshold",
-              #             label = "Select suppression threshold",
-              #             min = 5, max = 30,
-              #             value = 5,
-              #             step = 1),
               sliderInput(inputId = "dashboard_suppression_threshold",
                           label = "Select suppression threshold",
                           min = 1, max = 10,
                           # ticks = FALSE,
                           value = 5,
                           step = 1),
-              p(
-                paste("If there are counts in your data that are below this value",
-                      "they will not show in the dashboard. They are 'suppressed' after all necessary calculations are made.")
+              div(
+                class = "hint-div",
+                p("If there are counts in your data that are below this value",
+                  "they will not show in the dashboard. They are 'suppressed' after all necessary calculations are made.")
               )
             )
           )
@@ -401,8 +407,6 @@ create_dashboard <- function(){
   server <- function(input, output, session){
 
     is_na_char <- function(x){x=="NA"}
-
-    # need_geog <- reactive(!is_na_char(input$var_select_inc_geog.loc))
 
 
     # need_geog <- reactive({
@@ -674,7 +678,8 @@ create_dashboard <- function(){
                   tmp <- data_pop %>%
                     mutate("sex" = 3) %>%
                     group_by(across(-population)) %>%
-                    summarise("population" = sum(population)) %>%
+                    summarise("population" = sum(population),
+                              .groups = 'drop') %>%
                     ungroup()
 
                   # Add back in to population file
@@ -701,7 +706,8 @@ create_dashboard <- function(){
                   #geog.loc_var,
                   suppress_threshold)
 
-              },
+              }
+              ,
               error = function(e){e},
               warning = function(w){w}
             )
@@ -750,8 +756,27 @@ create_dashboard <- function(){
 
       }else{
 
+        adder <- 1
+
         # Update the current page index - this will in turn update current_page() when it is called
-        current_page_index(current_page_index()+1)
+        if( current_page() == "variable_select_inc"){ # Use the page we're jumping from
+          # If BOTH mortality and population data pages are to be skipped, skip both
+          if (!req_population_data()  & !req_mortality_data()){
+            adder <- 3
+          # Else if we're only skipping mortality, skip mortality
+          } else if(!req_mortality_data()){
+            adder <- 2
+          }
+        # If we're currently on mortality, and DON'T require population, skip that
+        } else if(current_page() == "variable_select_mrt"){
+          if(!req_population_data()){
+            adder <- 2
+          }
+        }
+
+        current_page_index(current_page_index() + adder)
+
+
 
         nav_select(
           id = "container",
@@ -766,8 +791,27 @@ create_dashboard <- function(){
       # Don't execute unless allowed
       req(current_page_index() > 1)
 
+
+      subtractor <- 1
+
       # Update the current page index - this will in turn update current_page() when it is called
-      current_page_index(current_page_index()-1)
+      if( current_page() == "supplied_params"){ # Use the page we're jumping from
+        # If BOTH mortality and population data pages are to be skipped, skip both
+        if (!req_population_data()  & !req_mortality_data()){
+          subtractor <- 3
+          # Else if we're only skipping population, skip population
+        } else if(!req_population_data()){
+          subtractor <- 2
+        }
+        # If we're currently on population, and DON'T require mortality, skip that
+      } else if(current_page() == "variable_select_pop"){
+        if(!req_mortality_data()){
+          subtractor <- 2
+        }
+      }
+
+      current_page_index(current_page_index() - subtractor)
+
 
       nav_select(
         id = "container",
@@ -783,7 +827,7 @@ create_dashboard <- function(){
       if(current_page_index() == length(pages)){
         updateActionButton(inputId = "next_page",
                            label = "Create Dashboard")
-      }else if (current_page_index()+1 == length(pages)){
+      }else{
         updateActionButton(inputId = "next_page",
                            label = "Next")
       }
@@ -815,14 +859,14 @@ create_dashboard <- function(){
       ext <- file_ext(input$data_inc_upload$name)
 
       # Save the ID for removal later
-      id_inc <- showNotification(paste("Upload completed, now processing the data"), duration = 0)
+      id_inc <- showNotification(paste("Load completed, now processing the data"), duration = 0)
 
       data <- switch(
         ext,
         "dta" = read_dta(input$data_inc_upload$datapath),
         "csv" = fread(input$data_inc_upload$datapath),
         "tsv" = vroom(input$data_inc_upload$datapath, delim = "\t"),
-        validate("Invalid file; Please upload a .csv, .tsv or .dta file")
+        validate("Invalid file; Please load a .csv, .tsv or .dta file")
       )
 
       removeNotification(id_inc)
@@ -842,14 +886,14 @@ create_dashboard <- function(){
       ext <- file_ext(input$data_mrt_upload$name)
 
       # Save the ID for removal later
-      id_mrt <- showNotification(paste("Upload completed, now processing the data"), duration = 0)
+      id_mrt <- showNotification(paste("Load completed, now processing the data"), duration = 0)
 
       data <- switch(
         ext,
         "dta" = read_dta(input$data_mrt_upload$datapath),
         "csv" = fread(input$data_mrt_upload$datapath),
         "tsv" = vroom(input$data_mrt_upload$datapath, delim = "\t"),
-        validate("Invalid file; Please upload a .csv, .tsv or .dta file")
+        validate("Invalid file; Please load a .csv, .tsv or .dta file")
       )
 
       removeNotification(id_mrt)
@@ -870,14 +914,14 @@ create_dashboard <- function(){
       ext <- file_ext(input$pop_data_upload$name)
 
       # Save the ID for removal later
-      id_pop <- showNotification(paste("Upload completed, now processing the data"), duration = 0)
+      id_pop <- showNotification(paste("Load completed, now processing the data"), duration = 0)
 
       data <- switch(
         ext,
         "dta" = read_dta(input$pop_data_upload$datapath),
         "csv" = fread(input$pop_data_upload$datapath),
         "tsv" = vroom(input$pop_data_upload$datapath, delim = "\t"),
-        validate("Invalid file; Please upload a .csv, .tsv or .dta file")
+        validate("Invalid file; Please load a .csv, .tsv or .dta file")
       )
 
       removeNotification(id_pop)
@@ -988,7 +1032,11 @@ create_dashboard <- function(){
             selectInput(inputId = "var_select_mrt_sex",
                         choices = variable_names,
                         label = HTML("Select <b>sex</b> variable"),
-                        NA)
+                        NA),
+            div(
+              class = "hint-div",
+              p("Here, we standardise the variable names. Please match your variables with these listed above")
+            )
             # conditionalPanel(
             #   condition = "input.variables_inc.includes('geographical location')",
             #   selectInput(inputId = "var_select_mrt_geog.loc",
@@ -1006,7 +1054,7 @@ create_dashboard <- function(){
           )
         )
       }else{
-        h5("Not required, as a mortality file has not been uploaded.")
+        h5("Not required, as a mortality file has not been loaded.")
       }
     })
 
@@ -1053,7 +1101,11 @@ create_dashboard <- function(){
             selectInput(inputId = "var_select_pop_sex",
                         choices = variable_names,
                         label = HTML("Select <b>sex</b> variable"),
-                        NA)
+                        NA),
+            div(
+              class = "hint-div",
+              p("Here, we standardise the variable names. Please match your variables with these listed above")
+            )
             # conditionalPanel(
             #   condition = "input.variables_inc.includes('geographical location')",
             #   selectInput(inputId = "var_select_pop_geog.loc",
@@ -1073,7 +1125,7 @@ create_dashboard <- function(){
 
         )
       }else{
-        h5("Not required, as a population file has not been uploaded.")
+        h5("Not required, as a population file has not been loaded.")
       }
     })
 
@@ -1108,6 +1160,13 @@ create_dashboard <- function(){
             selectInput(inputId = "all_canc_name",
                         label = "Select the cancer category indicating 'all cancers'",
                         choices = unique(data_incidence()[[input$var_select_inc_cancer.type]]) %>% sort)
+          ),
+          conditionalPanel(
+            condition = "input.bool_all_canc == 'No'",
+            div(
+              class = "hint-div",
+              p("CaRDO automatically adds an 'all reported cancers' category but this will be misleading. If your data does NOT contain an 'all cancers' category please consider including one.")
+            )
           )
         )
       )
@@ -1140,7 +1199,8 @@ create_dashboard <- function(){
   }
 
   # shinyApp(ui, server)
-  runApp(shinyApp(ui, server), launch.browser = browserViewer())#("", width = 1200, height = 800))
+  runApp(shinyApp(ui, server), launch.browser = browserViewer())
+  #runApp(shinyApp(ui, server), launch.browser = dialogViewer("", width = 1200, height = 800))
 
 }
 
@@ -1190,7 +1250,8 @@ transform_data <- function(req_mortality_data, req_population_data,
   # Check for sex-specific cancers (then later, remove the persons options from them)
   sex_specific_cancers <- data_inc %>%
     group_by(cancer.type) %>%
-    summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1)) %>%
+    summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1),
+              .groups = 'drop') %>%
     filter(sex_specific == 1) %>%
     pull(cancer.type)
 
@@ -1213,7 +1274,8 @@ transform_data <- function(req_mortality_data, req_population_data,
 
     sex_specific_cancers_mrt <- data_mrt %>%
       group_by(cancer.type) %>%
-      summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1)) %>%
+      summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1),
+                .groups = 'drop') %>%
       filter(sex_specific == 1) %>%
       pull(cancer.type)
 
@@ -1368,13 +1430,15 @@ transform_data <- function(req_mortality_data, req_population_data,
       group_by(sex, age.grp, cancer.type) %>%
       summarise("counts" = sum(counts),
                 "population" = sum(population),
-                "year" = paste0(min(year), "-", max(year))) %>%
+                "year" = paste0(min(year), "-", max(year)),
+                .groups = 'drop') %>%
       merge(std_pop) %>%
       mutate("Rates" = counts / population * wght * 100000) %>%
       rename("Counts" = counts) %>%
       group_by(year, sex, cancer.type) %>%
       summarise("Counts" = sum(Counts)/5,
-                "Rates" = sum(Rates)) %>%
+                "Rates" = sum(Rates),
+                .groups = 'drop') %>%
       ungroup() %>%
       pivot_longer(cols = c("Counts", "Rates"),
                    names_to = "measure",
@@ -1525,13 +1589,15 @@ transform_data <- function(req_mortality_data, req_population_data,
         group_by(sex, age.grp, cancer.type) %>%
         summarise("counts" = sum(counts),
                   "population" = sum(population),
-                  "year" = paste0(min(year), "-", max(year))) %>%
+                  "year" = paste0(min(year), "-", max(year)),
+                  .groups = 'drop') %>%
         merge(std_pop) %>%
         mutate("Rates" = counts / population * wght * 100000) %>%
         rename("Counts" = counts) %>%
         group_by(year, sex, cancer.type) %>%
         summarise("Counts" = sum(Counts)/5,
-                  "Rates" = sum(Rates)) %>%
+                  "Rates" = sum(Rates),
+                  .groups = 'drop') %>%
         ungroup() %>%
         pivot_longer(cols = c("Counts", "Rates"),
                      names_to = "measure",
@@ -1589,7 +1655,8 @@ transform_data <- function(req_mortality_data, req_population_data,
       filter(year >= max(year) - 4) %>%
       group_by(sex, cancer.type, measure) %>%
       summarise("year" = paste0(min(year), "-", max(year)),
-                "obs" = sum(obs)/5)
+                "obs" = sum(obs)/5,
+                .groups = 'drop')
 
     # Add in trends - need to do for each cancer type, for each sex
     data_inc_annual_tmp <- data.frame()
@@ -1645,7 +1712,8 @@ transform_data <- function(req_mortality_data, req_population_data,
         filter(year >= max(year) - 4) %>%
         group_by(sex, cancer.type, measure) %>%
         summarise("year" = paste0(min(year), "-", max(year)),
-                  "obs" = sum(obs)/5)
+                  "obs" = sum(obs)/5,
+                  .groups = 'drop')
 
       # Add in trends - need to do for each cancer type, for each sex
       data_mrt_annual_tmp <- data.frame()

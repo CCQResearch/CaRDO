@@ -303,9 +303,9 @@ server_module <- function(id){
         filename = paste(input$cancer.type, "-report.html"),
         content = function(file) {
           tempReport <- file.path(tempdir(), "CaRDO report template.Rmd")
-          
+
           file.copy("CaRDO report template.Rmd", tempReport, overwrite = TRUE)
-          
+
           params <- list(cancer = input$cancer.type,
                          location = location_name,
                          year = most_recent_year,
@@ -313,7 +313,7 @@ server_module <- function(id){
                          mortality = if (no_mrt) {NA} else {mrt_annual_counts}
                          #survival = something
           )
-          
+
           rmarkdown::render(
             tempReport, output_file = file,
             params = params,
@@ -370,7 +370,7 @@ server_module <- function(id){
                    color <- ifelse(i <= round(lifetime_risk() * 10),
                                    if(id == "Diagnosis") "#1C54A8" else "#8E3E39",
                                    "#E6E6E6")
-                   tags$circle(class = "data-circle", `data-info` = "Each circle represents 1 person out of 10 people", cx = "50%", cy = (10 - i) * 10 + 5, r = 3, fill = color)
+                   tags$circle(class = "data-circle", `data-info` = "Each circle represents 1 in 10 persons", cx = "50%", cy = (10 - i) * 10 + 5, r = 3, fill = color)
                  })
         )
       })
