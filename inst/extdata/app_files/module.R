@@ -11,13 +11,13 @@ UI_module <- function(id){
           class = "cancer-menu",
           selectInput(inputId = ns("cancer.type"),
                       choices = if (id == "Diagnosis") {cancer_choices_inc} else {cancer_choices_mrt},
-                      label = "Cancer type"),
-          downloadButton(outputId = ns("report"),
-                         label = "Report") %>%
-            tooltip("Download a '.html' report of the selected cancer",
-                    placement = "right",
-                    options = list(customClass = "info_tooltip")
-            )
+                      label = "Cancer type")
+          # downloadButton(outputId = ns("report"),
+          #                label = "Report") %>%
+          #   tooltip("Download a '.html' report of the selected cancer",
+          #           placement = "right",
+          #           options = list(customClass = "info_tooltip")
+          #   )
         ),
 
         ### Element 2 - Panel Title ----
@@ -190,11 +190,11 @@ server_module <- function(id){
 
         data_bottomleft <- reactive({
           inc_averages %>%
-            filter(sex == input$sex,
+            filter(#sex == input$sex,
                    measure == input$measure,
-                   cancer.type != all_cancers_name) %>%
-            slice_max(order_by = obs,
-                      n = 5)
+                   cancer.type != all_cancers_name) #%>%
+            # slice_max(order_by = obs,
+            #           n = 5)
         })
 
         data_bottomright <- reactive({
@@ -260,11 +260,11 @@ server_module <- function(id){
 
         data_bottomleft <- reactive({
           mrt_averages %>%
-            filter(sex == input$sex,
+            filter(#sex == input$sex,
                    measure == input$measure,
-                   cancer.type != all_cancers_name) %>%
-            slice_max(order_by = obs,
-                      n = 5)
+                   cancer.type != all_cancers_name) #%>%
+            # slice_max(order_by = obs,
+            #           n = 5)
         })
 
         data_bottomright <- reactive({
@@ -288,7 +288,7 @@ server_module <- function(id){
 
       time_hovertemplate <- reactive({
         paste0(
-          if_else(input$measure == "Counts", paste0("%{y:,}"), paste0("%{y:,.1f}")),
+          if_else(input$measure == "Counts", paste0("%{y:,.1f}"), paste0("%{y:,.1f}")),
           if_else(id == "Diagnosis", " diagnoses", " deaths"),
           if_else(input$measure == "Counts", "", " per 100,000 pop.")
         )
@@ -299,28 +299,28 @@ server_module <- function(id){
       ## Outputs ----
 
       ### Generate Report ----
-      output$report <- downloadHandler(
-        filename = paste(input$cancer.type, "-report.html"),
-        content = function(file) {
-          tempReport <- file.path(tempdir(), "CaRDO report template.Rmd")
-
-          file.copy("CaRDO report template.Rmd", tempReport, overwrite = TRUE)
-
-          params <- list(cancer = input$cancer.type,
-                         location = location_name,
-                         year = most_recent_year,
-                         incidence = inc_annual_counts,
-                         mortality = if (no_mrt) {NA} else {mrt_annual_counts}
-                         #survival = something
-          )
-
-          rmarkdown::render(
-            tempReport, output_file = file,
-            params = params,
-            envir = new.env(parent = globalenv())
-          )
-        }
-      )
+      # output$report <- downloadHandler(
+      #   filename = paste(input$cancer.type, "-report.html"),
+      #   content = function(file) {
+      #     tempReport <- file.path(tempdir(), "CaRDO report template.Rmd")
+      # 
+      #     file.copy("CaRDO report template.Rmd", tempReport, overwrite = TRUE)
+      # 
+      #     params <- list(cancer = input$cancer.type,
+      #                    location = location_name,
+      #                    year = most_recent_year,
+      #                    incidence = inc_annual_counts,
+      #                    mortality = if (no_mrt) {NA} else {mrt_annual_counts}
+      #                    #survival = something
+      #     )
+      # 
+      #     rmarkdown::render(
+      #       tempReport, output_file = file,
+      #       params = params,
+      #       envir = new.env(parent = globalenv())
+      #     )
+      #   }
+      # )
 
       ### TL-Summary Outputs ----
       output$all_text <- renderUI({
@@ -643,8 +643,27 @@ server_module <- function(id){
         plot_colour <- if(id == "Diagnosis") "#335C98" else "#8E3E39"
 
         cancer_axis_limit <- if(input$measure == "Counts") {counts_limit} else {rates_limit}
+        
+        data_bl <- 
+        
+        # Ensuring sex-specific cancers show up in when Persons is selected
+        # while ignoring them for the opposite when Male/Female is selected
 
-        plot_ly(data = data_bottomleft())%>%
+        data_bl <- if (input$sex == 3) {
+          data_bottomleft() %>%
+            filter(sex == 3) %>%
+            bind_rows(if (id == "Diagnosis") {inc_sex_specific} else {mrt_sex_specific}) %>%
+            filter(measure == input$measure) %>%
+            slice_max(order_by = obs,
+                      n = 5)
+        } else {
+          data_bottomleft() %>%
+            filter(sex == input$sex) %>%
+            slice_max(order_by = obs,
+                      n = 5)
+        }
+        
+        plot_ly(data = data_bl)%>%
           add_bars(
             x = ~obs,
             y = ~reorder(cancer.type, obs),

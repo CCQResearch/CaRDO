@@ -95,29 +95,29 @@ diagnosis <- params$incidence %>%
   filter(year == params$year,
          cancer.type == params$cancer)
 
-inc_all <- diagnosis$obs[diagnosis$sex == 3 & diagnosis$measure == "Counts"]
-inc_male <- diagnosis$obs[diagnosis$sex == 1 & diagnosis$measure == "Counts"]
-inc_female <- diagnosis$obs[diagnosis$sex == 2 & diagnosis$measure == "Counts"]
-inc_all_rates <- diagnosis$obs[diagnosis$sex == 3 & diagnosis$measure == "Rates"]
-inc_male_rates <- diagnosis$obs[diagnosis$sex == 1 & diagnosis$measure == "Rates"]
-inc_female_rates <- diagnosis$obs[diagnosis$sex == 2 & diagnosis$measure == "Rates"]
-inc_all_ltr <- 1 / diagnosis$obs[diagnosis$sex == 3 & diagnosis$measure == "ltr"]
-inc_male_ltr <- 1 / diagnosis$obs[diagnosis$sex == 1 & diagnosis$measure == "ltr"]
-inc_female_ltr <- 1 / diagnosis$obs[diagnosis$sex == 2 & diagnosis$measure == "ltr"]
+inc_all <- formatC(diagnosis$obs[diagnosis$sex == 3 & diagnosis$measure == "Counts"], format = "f", big.mark = ",", digits = 0)
+inc_male <- formatC(diagnosis$obs[diagnosis$sex == 1 & diagnosis$measure == "Counts"], format = "f", big.mark = ",", digits = 0)
+inc_female <- formatC(diagnosis$obs[diagnosis$sex == 2 & diagnosis$measure == "Counts"], format = "f", big.mark = ",", digits = 0)
+inc_all_rates <- formatC(diagnosis$obs[diagnosis$sex == 3 & diagnosis$measure == "Rates"], format = "f", big.mark = ",", digits = 0)
+inc_male_rates <- formatC(diagnosis$obs[diagnosis$sex == 1 & diagnosis$measure == "Rates"], format = "f", big.mark = ",", digits = 0)
+inc_female_rates <- formatC(diagnosis$obs[diagnosis$sex == 2 & diagnosis$measure == "Rates"], format = "f", big.mark = ",", digits = 0)
+inc_all_ltr <- formatC(1 / diagnosis$obs[diagnosis$sex == 3 & diagnosis$measure == "ltr"], format = "f", big.mark = ",", digits = 0)
+inc_male_ltr <- formatC(1 / diagnosis$obs[diagnosis$sex == 1 & diagnosis$measure == "ltr"], format = "f", big.mark = ",", digits = 0)
+inc_female_ltr <- formatC(1 / diagnosis$obs[diagnosis$sex == 2 & diagnosis$measure == "ltr"], format = "f", big.mark = ",", digits = 0)
 
 deaths <- params$mortality %>%
   filter(year == params$year,
          cancer.type == params$cancer)
 
-mrt_all <- deaths$obs[deaths$sex == 3 & deaths$measure == "Counts"]
-mrt_male <- deaths$obs[deaths$sex == 1 & deaths$measure == "Counts"]
-mrt_female <- deaths$obs[deaths$sex == 2 & deaths$measure == "Counts"]
-mrt_all_rates <- deaths$obs[deaths$sex == 3 & deaths$measure == "Rates"]
-mrt_male_rates <- deaths$obs[deaths$sex == 1 & deaths$measure == "Rates"]
-mrt_female_rates <- deaths$obs[deaths$sex == 2 & deaths$measure == "Rates"]
-mrt_all_ltr <- 1 / deaths$obs[deaths$sex == 3 & deaths$measure == "ltr"]
-mrt_male_ltr <- 1 / deaths$obs[deaths$sex == 1 & deaths$measure == "ltr"]
-mrt_female_ltr <- 1 / deaths$obs[deaths$sex == 2 & deaths$measure == "ltr"]
+mrt_all <- formatC(deaths$obs[deaths$sex == 3 & deaths$measure == "Counts"], format = "f", big.mark = ",", digits = 0)
+mrt_male <- formatC(deaths$obs[deaths$sex == 1 & deaths$measure == "Counts"], format = "f", big.mark = ",", digits = 0)
+mrt_female <- formatC(deaths$obs[deaths$sex == 2 & deaths$measure == "Counts"], format = "f", big.mark = ",", digits = 0)
+mrt_all_rates <- formatC(deaths$obs[deaths$sex == 3 & deaths$measure == "Rates"], format = "f", big.mark = ",", digits = 0)
+mrt_male_rates <- formatC(deaths$obs[deaths$sex == 1 & deaths$measure == "Rates"], format = "f", big.mark = ",", digits = 0)
+mrt_female_rates <- formatC(deaths$obs[deaths$sex == 2 & deaths$measure == "Rates"], format = "f", big.mark = ",", digits = 0)
+mrt_all_ltr <- formatC(1 / deaths$obs[deaths$sex == 3 & deaths$measure == "ltr"], format = "f", big.mark = ",", digits = 0)
+mrt_male_ltr <- formatC(1 / deaths$obs[deaths$sex == 1 & deaths$measure == "ltr"], format = "f", big.mark = ",", digits = 0)
+mrt_female_ltr <- formatC(1 / deaths$obs[deaths$sex == 2 & deaths$measure == "ltr"], format = "f", big.mark = ",", digits = 0)
 
 
 ```
@@ -174,7 +174,7 @@ Male deaths
 ### ", mrt_female, "
 Female deaths
 
-### 1 in ", round(mrt_all_ltr, 1), "
+### 1 in ", mrt_all_ltr, "
 persons are expected to be die from **", params$cancer, "** by age 85
 
 ## Rates
