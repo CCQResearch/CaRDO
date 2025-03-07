@@ -137,7 +137,7 @@ create_dashboard <- function(){
                   p("Further details on data requirements and building a CaRDO dashboard are available",
                     tags$a("here", href = "https://ccqresearch.github.io/CaRDO-Handbook/", target = "_blank"),
                     ". If you have any other questions or concerns, please reach out to us at",
-                    tags$a("statistics@qldcancer.org.au", href = "mailto:statistics@qldcancer.org.au"))
+                    tags$a("statistics@cancerqld.org.au", href = "mailto:statistics@cancerqld.org.au"))
                 )
               )
             ),
@@ -730,11 +730,7 @@ create_dashboard <- function(){
                 text = tagList(
                   div(
                     class = "directory-copy",
-                    div(
-                      class = "file-path",
-                      file.path(getwd(), "Shiny App")
-                    ),
-                    tags$p("Copy and run this command into the console to open the application in RStudio"),
+                    tags$p("Copy and run this command into the console to open the application in RStudio. Make sure to hit Exit before executing the command."),
                     div(
                       class = "file-path",
                       tags$code(id = "r-code", "file.edit(.../Shiny App/app.R)")
@@ -744,6 +740,11 @@ create_dashboard <- function(){
                       label = "Copy to clipboard",
                       clipText = paste0("file.edit('", file.path(getwd(), "Shiny App/app.R"), "')"),
                       icon = icon("clipboard")
+                    ),
+                    tags$p("Alternatively, the application can be located by navigating to the file path below."),
+                    div(
+                      class = "file-path",
+                      file.path(getwd(), "Shiny App")
                     )
                   )
                 ),
@@ -1301,7 +1302,7 @@ transform_data <- function(req_mortality_data, req_population_data,
     rename("age.grp" = values,
            "age.grp_string" = ind)
 
-  # Generate rates if required
+  # Generate rates if required ----
   if (req_population_data){
 
     std_pop <- standard_pop %>%
@@ -1315,7 +1316,7 @@ transform_data <- function(req_mortality_data, req_population_data,
       mutate("wt" = wght / sum(wght))
 
 
-    ## Incidence ##
+    ## Incidence ## ----
     data_inc_pop <- data.frame()
 
     for (canc in unique(data_inc$cancer.type)){
@@ -1475,7 +1476,7 @@ transform_data <- function(req_mortality_data, req_population_data,
     incProgress(1/8)
 
 
-    ## Mortality ##
+    # Mortality ## ----
     if (req_mortality_data){
       data_mrt_pop <- data.frame()
 
@@ -1633,9 +1634,9 @@ transform_data <- function(req_mortality_data, req_population_data,
     incProgress(1/8)
   }
 
-  # If rates are not required
+  # If rates are not required ----
   else{
-
+    ## Incidence ## ----
     data_inc_annual <- data_inc %>%
       group_by(year, sex, cancer.type) %>%
       summarise("obs" = sum(counts),
@@ -1690,7 +1691,7 @@ transform_data <- function(req_mortality_data, req_population_data,
       mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
              "obs" = if_else(suppress == 1, true = NA, false = obs))
 
-
+    # Mortality ## ----
     if (req_mortality_data){
 
       data_mrt_annual <- data_mrt %>%
