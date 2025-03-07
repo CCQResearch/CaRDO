@@ -78,20 +78,34 @@ inc_temporary <- inc_averages %>%
          obs == 0) %>%
   pull(unique(cancer.type))
 
-mrt_temporary <- mrt_averages %>%
-  filter(sex == 3,
-         obs == 0) %>%
-  pull(unique(cancer.type))
+mrt_temporary <- tryCatch(
+  {
+    suppressWarnings(
+      mrt_temporary <- mrt_averages %>%
+        filter(sex == 3,
+               obs == 0) %>%
+        pull(unique(cancer.type))
+    )
+  },
+  error = function(e) {no_mrt <<- TRUE; return(NULL)}
+)
 
 inc_sex_specific <- inc_averages %>%
   filter(sex != 3,
          cancer.type %in% inc_temporary,
          obs != 0)
 
-mrt_sex_specific <- mrt_averages %>%
-  filter(sex != 3,
-         cancer.type %in% mrt_temporary,
-         obs != 0)
+mrt_temporary <- tryCatch(
+  {
+    suppressWarnings(
+      mrt_sex_specific <- mrt_averages %>%
+        filter(sex != 3,
+               cancer.type %in% mrt_temporary,
+               obs != 0)
+    )
+  },
+  error = function(e) {no_mrt <<- TRUE; return(NULL)}
+)
 
 plotly_btns_rm <- c("zoom2d", "pan2d", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
                     "autoScale2d", "resetScale2d", "hoverClosestCartesian", "hoverCompareCartesian",
