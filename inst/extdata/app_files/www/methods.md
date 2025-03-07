@@ -19,3 +19,7 @@ where $a_{j}$ are the age-specific rates (5-year age groups) per 100,000 for age
 ## Incidence & Mortality Trends {#trends}
 
 *This is not complete. We need to detail how trends are calculated and what packages are used etc.*
+
+---
+
+*CaRDO (https://github.com/CCQResearch/CaRDO). Cancer Council Queensland: The Viertel Cancer Research Centre. Version 06-2025.*
