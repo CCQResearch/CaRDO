@@ -557,22 +557,22 @@ server_module <- function(id){
             add_trace(
               data = data_topright() %>% filter(sex == sex_num),
               x = ~year,
-              y = ~obs,
-              name = sex_name[[sex_num]],
-              type = "scatter",
-              mode = "markers", #add +lines for trends
-              #line = line_styles[[sex_num]]
-              marker = marker_styles[[sex_num]]
-            ) %>%
-            add_trace(
-              data = data_topright() %>% filter(sex == sex_num),
-              x = ~year,
               y = ~obs_trend,
               name = paste(sex_name[[sex_num]], "trends"),
               type = "scatter",
               mode = "lines",
               line = line_styles[[sex_num]],
               showlegend = FALSE
+            ) %>%
+            add_trace(
+              data = data_topright() %>% filter(sex == sex_num),
+              x = ~year,
+              y = ~obs,
+              name = sex_name[[sex_num]],
+              type = "scatter",
+              mode = "markers",
+              #line = line_styles[[sex_num]]
+              marker = marker_styles[[sex_num]]
             )
         }
 
