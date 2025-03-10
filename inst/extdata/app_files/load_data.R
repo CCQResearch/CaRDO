@@ -72,40 +72,56 @@ rates_limit <- if(length(measure_choices) != 1){
   NULL
 }
 
+
+
+# Check for sex-specific cancers (then later, remove the persons options from them)
+sex_specific_cancers <- inc_annual_counts %>%
+  group_by(cancer.type) %>%
+  summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1),
+            .groups = 'drop') %>%
+  filter(sex_specific == 1) %>%
+  pull(cancer.type)
+
+top_5_cancers_inc <- inc_averages %>%
+  filter(measure == "Counts",
+         cancer.type != "All cancers") %>%
+  arrange(desc(obs)) %>%
+  pull(cancer.type) %>%
+  unique() %>%
+  head(5)
+
+top5_inc <- inc_averages %>%
+  filter(cancer.type %in% top_5_cancers_inc,
+         obs != 0,
+         !(!(cancer.type %in% sex_specific_cancers) & sex != 3)
+         )
+
 # Handling of sex-specific cancers in top 5 counts/rates
-inc_temporary <- inc_averages %>%
-  filter(sex == 3,
-         obs == 0) %>%
-  pull(unique(cancer.type))
 
-mrt_temporary <- tryCatch(
-  {
-    suppressWarnings(
-      mrt_temporary <- mrt_averages %>%
-        filter(sex == 3,
-               obs == 0) %>%
-        pull(unique(cancer.type))
+if(!no_mrt){
+  sex_specific_cancers <- mrt_annual_counts %>%
+    group_by(cancer.type) %>%
+    summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1),
+              .groups = 'drop') %>%
+    filter(sex_specific == 1) %>%
+    pull(cancer.type)
+
+  top_5_cancers_mrt <- mrt_averages %>%
+    filter(measure == "Counts",
+           cancer.type != "All cancers") %>%
+    arrange(desc(obs)) %>%
+    pull(cancer.type) %>%
+    unique() %>%
+    head(5)
+
+  top5_mrt <- mrt_averages %>%
+    filter(cancer.type %in% top_5_cancers_mrt,
+           obs != 0,
+           !(!(cancer.type %in% sex_specific_cancers) & sex != 3)
     )
-  },
-  error = function(e) {no_mrt <<- TRUE; return(NULL)}
-)
+}
 
-inc_sex_specific <- inc_averages %>%
-  filter(sex != 3,
-         cancer.type %in% inc_temporary,
-         obs != 0)
 
-mrt_temporary <- tryCatch(
-  {
-    suppressWarnings(
-      mrt_sex_specific <- mrt_averages %>%
-        filter(sex != 3,
-               cancer.type %in% mrt_temporary,
-               obs != 0)
-    )
-  },
-  error = function(e) {no_mrt <<- TRUE; return(NULL)}
-)
 
 plotly_btns_rm <- c("zoom2d", "pan2d", "select2d", "lasso2d", "zoomIn2d", "zoomOut2d",
                     "autoScale2d", "resetScale2d", "hoverClosestCartesian", "hoverCompareCartesian",

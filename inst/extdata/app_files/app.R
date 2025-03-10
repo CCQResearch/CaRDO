@@ -11,7 +11,7 @@
 
 # ##### TEMPORARY - TO DELETE #####
 # setwd("C:/Users/SeanFrancis/OneDrive - Cancer Council Queensland/Shiny App")
-# setwd("C:/Users/JamesREne/OneDrive - Cancer Council Queensland/Desktop/James Braid/CaRDO/Shiny App")
+# setwd("K:/EPI/R-Shiny Projects/Sean/CaRDO Data/Data NO RATES")
 # ##### #####
 
 
@@ -77,7 +77,7 @@ server <- function(input, output, session){
   if(!no_mrt){
     server_module("Deaths")
   }
-  
+
   output$report <- downloadHandler(
     filename = ""
   )
