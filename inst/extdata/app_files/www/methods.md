@@ -18,7 +18,9 @@ where $a_{j}$ are the age-specific rates (5-year age groups) per 100,000 for age
 
 ## Incidence & Mortality Trends {#trends}
 
-*This is not complete. We need to detail how trends are calculated and what packages are used etc.*
+Incidence and mortality trends were calculated by fitting piece-wise functions, composed of splines and linear models, to the data. 
+
+Break points were identified using the `strucchange` package, specifically the function `breakpoints()`. The data was then segmented by these breakpoints. A maximum number of 3 breakpoints were set, with a minimum number of 5 observations within each segment. Then, a spline and linear model was fit to each segment using the `mgcv` package. The model with the lowest AIC was chosen for each given segment.
 
 ---
 
