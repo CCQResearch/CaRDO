@@ -1,12 +1,13 @@
 Package: CaRDO
 Type: Package
-Title: TESTING VERSION - Create Your Own Cancer Shiny Dashboard
+Title: CaRDO: Cancer Registry Data Online
 Version: 0.0.1
 Authors@R:
     c(
-      person("Sean", "Francis", ,"statistics@cancerqld.org.au", role = c("aut", "cre")),
-      person("James", "Rene", , "statistics@cancerqld.org.au", role = c("aut")),
-      person("James", "Retell", , "statistics@cancerqld.org.au", role = c("aut"))
+      person("Sean", "Francis", role = c("aut")),
+      person("James","D", "Retell", role = c("aut"))  ,    
+      person("James", "B", "Rene", role = c("aut")),
+      person("Peter, "D", "Baade", role = c("aut", "cre"))
     )
 Description: What the package does (one paragraph).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
