@@ -15,6 +15,9 @@
 # ##### #####
 
 
+# Web Browser Only
+options(shiny.launch.browser = TRUE)
+
 
 
 # Let's now load in the required packages
