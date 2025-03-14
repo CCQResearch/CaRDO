@@ -527,8 +527,8 @@ create_dashboard <- function(){
 
             #geog.loc_var = if(need_geog()){input$var_select_pop_geog.loc}else{NULL}
 
-            out <- tryCatch(
-              {
+            # out <- tryCatch(
+            #   {
 
                 if (input$male_val == input$female_val){
                   stop("Sex specified for male and female Incidence/count data is identical - please select different values")
@@ -706,39 +706,39 @@ create_dashboard <- function(){
                   #geog.loc_var,
                   suppress_threshold)
 
-              }
-              ,
-              error = function(e){e},
-              warning = function(w){w}
-            )
+            #   }
+            #   ,
+            #   error = function(e){e},
+            #   warning = function(w){w}
+            # )
 
-            if(is(out, "warning") | is(out, "error")){
-              # print(out$message)
-              showModal(
-                modalDialog(
-                  title = "Oops! Something went wrong",
-                  "Perhaps variables selected were duplicated."
-                )
-              )
-              unlink("Shiny App")
-              unlink("tmp")
-            }else{
+            # if(is(out, "warning") | is(out, "error")){
+            #   # print(out$message)
+            #   showModal(
+            #     modalDialog(
+            #       title = "Oops! Something went wrong",
+            #       "Perhaps variables selected were duplicated."
+            #     )
+            #   )
+            #   unlink("Shiny App")
+            #   unlink("tmp")
+            # }else{
               confirmSweetAlert(
                 type = NULL,
                 inputId = "confirm",
-                title = HTML("Dashboard Created!<br>Your dashboard folder can be found below."),
+                title = HTML("Dashboard Created!"),
                 text = tagList(
                   div(
                     class = "directory-copy",
-                    tags$p("Copy and run this command into the console to open the application in RStudio. Make sure to hit Exit before executing the command."),
+                    tags$p("Copy and run this command into the console to preview your new dashboard. Make sure to hit Exit before executing the command."),
                     div(
                       class = "file-path",
-                      tags$code(id = "r-code", "file.edit(.../Shiny App/app.R)")
+                      tags$code(id = "r-code", "shiny::runApp(.../Shiny App/app.R)")
                     ),
                     rclipButton(
                       inputId = "clipbtn",
                       label = "Copy to clipboard",
-                      clipText = paste0("file.edit('", file.path(getwd(), "Shiny App/app.R"), "')"),
+                      clipText = paste0("shiny::runApp('", file.path(getwd(), "Shiny App/app.R"), "')"),
                       icon = icon("clipboard")
                     ),
                     tags$p("Alternatively, the application can be located by navigating to the file path below."),
@@ -751,7 +751,7 @@ create_dashboard <- function(){
                 btn_labels = c("Redo", "Exit")
               )
             }
-          }
+          # }
         )
 
 
