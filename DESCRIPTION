@@ -1,13 +1,13 @@
 Package: CaRDO
 Type: Package
 Title: CaRDO: Cancer Registry Data Online
-Version: 0.0.1
+Version: 1.0.0
 Authors@R:
     c(
-      person("Sean", "Francis", role = c("aut")),
-      person("James","D", "Retell", role = c("aut"))  ,    
-      person("James", "B", "Rene", role = c("aut")),
-      person("Peter", "D", "Baade", "statistics@cancerqld.org.au", role = c("aut", "cre"))
+      person(given = "Sean", middle = "I", family = "Francis", "statistics@cancerqld.org.au", role = c("aut", "cre")),
+      person(given = "James", middle = "D", family = "Retell", role = c("aut")),    
+      person(given = "James", middle = "B", family = "Rene", role = c("aut")),
+      person(given = "Peter", middle = "D", family = "Baade", role = c("aut"))
     )
 Description: What the package does (one paragraph).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
@@ -32,3 +32,4 @@ Imports:
     tidyselect,
     tools,
     vroom
+    
