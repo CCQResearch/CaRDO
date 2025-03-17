@@ -1,0 +1,15 @@
+bibentry(
+  bibtype = "Manual",
+  title = "CaRDO: Cancer Registry Data Online",
+  author = c(
+	person("James D Retell", role = c("aut", "cre")),
+  	person("Sean Francis", role = c("aut")),
+  	person("James Rene", role = c("aut")),
+  	person("Peter D Baade", role = c("aut", "dir")),
+	person("Cancer Council Queensland", role = c("org"))
+  ),
+  year = "2025",
+  note = "R package version 1.0.0",
+  institution = "Cancer Council Queesland",
+  url = "https://github.com/CCQResearch/CaRDO"
+)
