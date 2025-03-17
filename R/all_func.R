@@ -726,14 +726,14 @@ create_dashboard <- function(){
               confirmSweetAlert(
                 type = NULL,
                 inputId = "confirm",
-                title = HTML("Dashboard Created!"),
+                title = HTML("Dashboard Created!<br>Your dashboard folder can be found below."),
                 text = tagList(
                   div(
                     class = "directory-copy",
-                    tags$p("Copy and run this command into the console to preview your new dashboard. Make sure to hit Exit before executing the command."),
+                    tags$p("Copy and run this command into the console to open the application in RStudio. Make sure to hit Exit before executing the command."),
                     div(
                       class = "file-path",
-                      tags$code(id = "r-code", "shiny::runApp(.../Shiny App/app.R)")
+                      tags$code(id = "r-code", "file.edit(.../Shiny App/app.R)")
                     ),
                     rclipButton(
                       inputId = "clipbtn",
