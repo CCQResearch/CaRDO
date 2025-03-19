@@ -124,8 +124,9 @@ create_dashboard <- function(){
               class = "disc-content",
               HTML(
                 paste(
-                  p("Any data loaded into CaRDO will be stored and processed locally. ",
-                    "The processing happens to a copy of the data you load and that copy is deleted once the processing is complete."),
+                  p("Any data loaded into CaRDO will be stored and processed on your local network. ",
+                    "A temporary copy of the data is created for processing and generating the final statistics to be reported. ",
+                    "This copy is deleted once the dissemination tool has been generated."),
                   p("We recommend setting the working directory to a local drive (not OneDrive or a cloud system). Information on how to change the working directory is available in the",
                     tags$a("handbook", href = "https://ccqresearch.github.io/CaRDO-Handbook/", target = "_blank"),
                     "under 'Build Your Dashboard'."),
@@ -527,8 +528,8 @@ create_dashboard <- function(){
 
             #geog.loc_var = if(need_geog()){input$var_select_pop_geog.loc}else{NULL}
 
-            # out <- tryCatch(
-            #   {
+            out <- tryCatch(
+              {
 
                 if (input$male_val == input$female_val){
                   stop("Sex specified for male and female Incidence/count data is identical - please select different values")
@@ -706,23 +707,23 @@ create_dashboard <- function(){
                   #geog.loc_var,
                   suppress_threshold)
 
-            #   }
-            #   ,
-            #   error = function(e){e},
-            #   warning = function(w){w}
-            # )
+              }
+              ,
+              error = function(e){e},
+              warning = function(w){w}
+            )
 
-            # if(is(out, "warning") | is(out, "error")){
-            #   # print(out$message)
-            #   showModal(
-            #     modalDialog(
-            #       title = "Oops! Something went wrong",
-            #       "Perhaps variables selected were duplicated."
-            #     )
-            #   )
-            #   unlink("Shiny App")
-            #   unlink("tmp")
-            # }else{
+            if(is(out, "warning") | is(out, "error")){
+              # print(out$message)
+              showModal(
+                modalDialog(
+                  title = "Oops! Something went wrong",
+                  "Perhaps variables selected were duplicated."
+                )
+              )
+              unlink("Shiny App")
+              unlink("tmp")
+            }else{
               confirmSweetAlert(
                 type = NULL,
                 inputId = "confirm",
@@ -730,7 +731,7 @@ create_dashboard <- function(){
                 text = tagList(
                   div(
                     class = "directory-copy",
-                    tags$p("Copy and run this command into the console to preview your new dashboard. Make sure to hit Exit before executing the command."),
+                    tags$p("Copy and run this command into the console (the RStudio window where you opened this app from) to preview your new dashboard. Make sure to hit Exit in this window before running the command in RStudio."),
                     div(
                       class = "file-path",
                       tags$code(id = "r-code", "shiny::runApp(.../Shiny App/app.R)")
@@ -751,7 +752,7 @@ create_dashboard <- function(){
                 btn_labels = c("Redo", "Exit")
               )
             }
-          # }
+          }
         )
 
 
@@ -764,11 +765,11 @@ create_dashboard <- function(){
           # If BOTH mortality and population data pages are to be skipped, skip both
           if (!req_population_data()  & !req_mortality_data()){
             adder <- 3
-          # Else if we're only skipping mortality, skip mortality
+            # Else if we're only skipping mortality, skip mortality
           } else if(!req_mortality_data()){
             adder <- 2
           }
-        # If we're currently on mortality, and DON'T require population, skip that
+          # If we're currently on mortality, and DON'T require population, skip that
         } else if(current_page() == "variable_select_mrt"){
           if(!req_population_data()){
             adder <- 2
@@ -1309,6 +1310,13 @@ transform_data <- function(req_mortality_data, req_population_data,
       filter(std_name == std_pop_name) %>%
       mutate("age.grp" = ragegrp) %>%
       select(age.grp, wght)
+
+    # If there isn't 18 age groups, we need to rescale them to sum to 1
+    if(length(unique(data_inc$age.grp)) != 18){
+      std_pop <- std_pop %>%
+        filter(age.grp %in% unique(data_inc$age.grp)) %>%
+        mutate("wght" = wght / sum(wght))
+    }
 
     std_pop_grouped <- std_pop %>%
       merge(age_grps) %>%
