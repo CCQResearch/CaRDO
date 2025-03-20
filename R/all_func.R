@@ -530,7 +530,6 @@ create_dashboard <- function(){
 
             out <- tryCatch(
               {
-
                 if (input$male_val == input$female_val){
                   stop("Sex specified for male and female Incidence/count data is identical - please select different values")
                 }

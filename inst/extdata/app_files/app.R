@@ -14,10 +14,8 @@
 # setwd("K:/EPI/R-Shiny Projects/Sean/CaRDO Data/Data NO RATES")
 # ##### #####
 
-
 # Web Browser Only
 options(shiny.launch.browser = TRUE)
-
 
 
 # Let's now load in the required packages
@@ -64,6 +62,11 @@ ui <- page_navbar(
       UI_module("Deaths")
     )
   },
+  nav_panel(
+    title = "Survival",
+    id = "survival",
+    surv_module("Survival")
+  ),
   nav_spacer(),
   nav_panel(
     title = "Methods",
@@ -80,6 +83,8 @@ server <- function(input, output, session){
   if(!no_mrt){
     server_module("Deaths")
   }
+  
+  server_module("Survival")
 
   output$report <- downloadHandler(
     filename = ""

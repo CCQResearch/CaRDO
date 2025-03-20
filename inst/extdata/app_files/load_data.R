@@ -6,6 +6,16 @@ supplied_params <- readRDS("Data/supplied_params.RDS")
 all_cancers_name <- supplied_params[["All cancers"]] # <-- Don't Change This
 dashboard_title <- supplied_params[["Dashboard title"]] # <-- You can change this
 location_name <- supplied_params[["Dashboard catchment"]]
+survival_data <- read.csv("K:/EPI/R-Shiny Projects/CaRDO/Development Data/Survival/KapM_site_1822.csv") %>%
+  mutate(site10group = recode(site10group,
+                              `14` = "Colorectal", `20` = "Pancreatic", `23` = "Lung",
+                              `27` = "Melanoma", `33` = "Breast (female)", `39` = "Prostate",
+                              `51` = "Lymphoma", `54` = "Leukaemia", `64` = "All cancers"))
+survival_age <- read.csv("K:/EPI/R-Shiny Projects/CaRDO/Development Data/Survival/KapM_agegrp_1822.csv") %>%
+  mutate(site10group = recode(site10group,
+                              `14` = "Colorectal", `20` = "Pancreatic", `23` = "Lung",
+                              `27` = "Melanoma", `33` = "Breast (female)", `39` = "Prostate",
+                              `51` = "Lymphoma", `54` = "Leukaemia", `64` = "All cancers"))
 
 
 # Define a variable that says whether mortality files are present, initialise to TRUE
