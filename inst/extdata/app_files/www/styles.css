@@ -413,47 +413,6 @@ b, strong {
 
 
 
-/* Survival Page ------------------------------------------------------------- */
-
-.rsurv-summary {
-  display: flex;
-  flex-direction: row;
-  background-image: linear-gradient(to right, var(--input-primary), transparent);
-  border-radius: 16px 0px 0px 16px;
-  height: 100%;
-}
-
-.rsurv-vis {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  width: 40%;
-}
-
-.rsurv-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: var(--font-colour-header);
-}
-
-.survival-stat {
-  font-size: clamp(30px, 1.9vw, 48px);
-}
-
-.rsurv-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* -------------------------------------------------------------------------- */
-
-
-
-
-
-
 /* Methods ------------------------------------------------------------------ */
 
 .methods-panel {
