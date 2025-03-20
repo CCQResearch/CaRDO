@@ -11,11 +11,13 @@
 
 # ##### TEMPORARY - TO DELETE #####
 # setwd("C:/Users/SeanFrancis/OneDrive - Cancer Council Queensland/Shiny App")
-# setwd("K:/EPI/R-Shiny Projects/Sean/CaRDO Data/Data NO RATES")
+# setwd("K:/EPI/R-Shiny Projects/Sean/CaRDO Data/Data FULL")
 # ##### #####
+
 
 # Web Browser Only
 options(shiny.launch.browser = TRUE)
+
 
 
 # Let's now load in the required packages
@@ -30,13 +32,13 @@ library(markdown)
 
 
 # Then we will "source", or load in the modules
-# source("K:/EPI/R-Shiny Projects/CaRDO/Testing/Testing Development/inst/extdata/app_files/module.R", local = TRUE)
-# source("K:/EPI/R-Shiny Projects/CaRDO/Testing/Testing Development/inst/extdata/app_files/load_data.R", local = TRUE)
+# source("K:/EPI/R-Shiny Projects/CaRDO/Package Development/Current/inst/extdata/app_files/module.R", local = TRUE)
+# source("K:/EPI/R-Shiny Projects/CaRDO/Package Development/Current/inst/extdata/app_files/load_data.R", local = TRUE)
 source("module.R", local = TRUE)
 source("load_data.R", local = TRUE)
 
 # ##### TEMPORARY - TO DELETE #####
-# setwd("K:/EPI/R-Shiny Projects/CaRDO/Testing/Testing Development")
+# setwd("K:/EPI/R-Shiny Projects/CaRDO/Package Development/Current")
 # ##### #####
 
 
@@ -62,17 +64,16 @@ ui <- page_navbar(
       UI_module("Deaths")
     )
   },
-  nav_panel(
-    title = "Survival",
-    id = "survival",
-    surv_module("Survival")
-  ),
   nav_spacer(),
   nav_panel(
     title = "Methods",
     id = "methods",
     class = "methods-panel",
-    includeMarkdown("www/methods.md")
+    if(length(measure_choices) != 1){
+      includeMarkdown("www/methods_rates.md")
+    }else{
+      includeMarkdown("www/methods_no_rates.md")
+    }
   )
 )
 
@@ -83,8 +84,6 @@ server <- function(input, output, session){
   if(!no_mrt){
     server_module("Deaths")
   }
-  
-  server_module("Survival")
 
   output$report <- downloadHandler(
     filename = ""
