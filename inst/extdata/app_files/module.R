@@ -473,7 +473,7 @@ server_module <- function(id){
 
         line_styles <- sapply(categories, function(cat) {
           if (cat == input$sex) {
-            list(color = "#808080")
+            list(color = plot_colour)
           } else {
             list(color = "#DBDBDB", dash = "dash")
           }
@@ -557,22 +557,12 @@ server_module <- function(id){
             add_trace(
               data = data_topright() %>% filter(sex == sex_num),
               x = ~year,
-              y = ~obs_trend,
-              name = paste(sex_name[[sex_num]], "trends"),
+              y = ~obs,
+              name = paste(sex_name[[sex_num]]),
               type = "scatter",
               mode = "lines",
               line = line_styles[[sex_num]],
-              showlegend = FALSE
-            ) %>%
-            add_trace(
-              data = data_topright() %>% filter(sex == sex_num),
-              x = ~year,
-              y = ~obs,
-              name = sex_name[[sex_num]],
-              type = "scatter",
-              mode = "markers",
-              #line = line_styles[[sex_num]]
-              marker = marker_styles[[sex_num]]
+              showlegend = TRUE
             )
         }
 
@@ -828,7 +818,7 @@ server_module <- function(id){
           )
 
 
-        for (i in rev(seq_along(age_groups))) {
+        for (i in seq_along(age_groups)) {
 
           # browser()
           selected_colour <- age_colours
