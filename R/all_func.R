@@ -407,14 +407,12 @@ create_dashboard <- function(){
 
   server <- function(input, output, session){
 
-    is_na_char <- function(x){x=="NA"}
-
+    is_na_char <- function(x) { x=="NA" }
 
     # need_geog <- reactive({
     #   if(is.null(input$variables_inc)){return(FALSE)}
     #   else {return("geographical location" %in% input$variables_inc)}
     # })
-
 
     # Initialise the current page index to the first value
     current_page_index <- reactiveVal(1)
@@ -428,7 +426,7 @@ create_dashboard <- function(){
       else{ return("Mortality" %in% input$select_data) }
     })
 
-    # Create a bool that keeps track of whether mortality data has been uploaded
+    # Create a bool that keeps track of whether population data has been uploaded
     req_population_data <- reactive({
       if(is.null(input$select_data)) { return(FALSE) }
       else{ return("Population" %in% input$select_data) }
@@ -515,220 +513,233 @@ create_dashboard <- function(){
 
     ### Observe Event Section ----
 
-    # Change the page when the "next" button is clicked
+    #### EVENT: Next Button Clicked ----
     observeEvent(input$next_page, {
 
-      if (current_page_index() == length(pages)){
+      if (current_page_index() == length(pages)) {
 
+        ##### Last Page ----
         withProgress(
           message = "Transforming your data ...",
           detail = "Please wait",
           value = 0,
           {
+            #geog.loc_var = if(need_geog()) {input$var_select_pop_geog.loc} else {NULL}
 
-            #geog.loc_var = if(need_geog()){input$var_select_pop_geog.loc}else{NULL}
+            ##### tryCatch ----
+            out <- tryCatch({
+              ####### ERROR: Sex Specification ----
+              if (input$male_val == input$female_val) {
+                stop("Sex specified for male and female Incidence/count data is identical - please select different values")
+              }
 
-            out <- tryCatch(
-              {
+              ####### ERROR: Sex Specification ----
+              if (req_population_data() & length(unique(c(input$male_val_pop, input$female_val_pop))) != 2) {#, input$persons_val_pop))) != 3){
+                stop("Sex specified for persons, male and female are duplicated - please select different values")
+              }
 
-                if (input$male_val == input$female_val){
-                  stop("Sex specified for male and female Incidence/count data is identical - please select different values")
+              ####### Temp directory check ----
+              if(!dir.exists("tmp")) {
+                dir.create("tmp", recursive = TRUE)
+              }
+
+              ####### Save Uploaded Incidence Data ----
+              if(!is.null(data_incidence())) {
+
+                cols_inc <- c("year", "cancer.type", "sex", "age.grp",
+                              #"geog.loc",
+                              "counts")
+
+                names(cols_inc) <- c(input$var_select_inc_year,
+                                     input$var_select_inc_cancer.type,
+                                     input$var_select_inc_sex,
+                                     input$var_select_inc_age.group,
+                                     #input$var_select_inc_geog.loc,
+                                     input$var_select_inc_counts)
+
+                cols_inc <- cols_inc[names(cols_inc) != "NA"]
+
+                data_inc <- data_incidence() %>%
+                  select(all_of(names(cols_inc)))
+
+                names(data_inc)[names(data_inc) %in% names(cols_inc)] <- unname(cols_inc)
+
+                data_inc <- data_inc %>%
+                  mutate(
+                    "sex" = case_when(
+                      sex == input$male_val ~ 1,
+                      sex == input$female_val ~ 2,
+                      .default = NA
+                    )
+                  ) %>%
+                  filter(!is.na(sex))
+
+                data_inc$cancer.type <- as.character(data_inc$cancer.type)
+
+
+                # Generate all cancers if not given
+                if(input$bool_all_canc == "No"){
+                  tmp <- data_inc %>%
+                    mutate("cancer.type" = "All cancers") %>%
+                    group_by(across(-counts)) %>%
+                    summarise("counts" = sum(counts),
+                              .groups = 'drop')
+
+                  data_inc <- bind_rows(data_inc, tmp)
                 }
 
-                if (req_population_data() & length(unique(c(input$male_val_pop, input$female_val_pop))) != 2){#, input$persons_val_pop))) != 3){
-                  stop("Sex specified for persons, male and female are duplicated - please select different values")
-                }
-
-
-                if(!dir.exists("tmp")){
-                  dir.create("tmp", recursive = TRUE)
-                }
-
-                # Save uploaded data
-                if(!is.null(data_incidence())){
-
-                  cols_inc <- c("year", "cancer.type", "sex", "age.grp",
-                                #"geog.loc",
-                                "counts")
-
-                  names(cols_inc) <- c(input$var_select_inc_year,
-                                       input$var_select_inc_cancer.type,
-                                       input$var_select_inc_sex,
-                                       input$var_select_inc_age.group,
-                                       #input$var_select_inc_geog.loc,
-                                       input$var_select_inc_counts)
-
-                  cols_inc <- cols_inc[names(cols_inc) != "NA"]
-
-                  data_inc <- data_incidence() %>%
-                    select(all_of(names(cols_inc)))
-
-                  names(data_inc)[names(data_inc) %in% names(cols_inc)] <- unname(cols_inc)
-
-                  data_inc <- data_inc %>%
-                    mutate(
-                      "sex" = case_when(
-                        sex == input$male_val ~ 1,
-                        sex == input$female_val ~ 2,
-                        .default = NA
-                      )
-                    ) %>%
-                    filter(!is.na(sex))
-
-                  data_inc$cancer.type <- as.character(data_inc$cancer.type)
-
-
-                  # Generate all cancers if not given
-                  if(input$bool_all_canc == "No"){
-                    tmp <- data_inc %>%
-                      mutate("cancer.type" = "All cancers") %>%
-                      group_by(across(-counts)) %>%
-                      summarise("counts" = sum(counts),
-                                .groups = 'drop')
-
-                    data_inc <- bind_rows(data_inc, tmp)
-                  }
-
-                  saveRDS(data_inc, "tmp/data_inc.RDS")
-
-                }
-
-                if(!is.null(data_mortality())){
-
-                  cols_mrt <- c("year", "cancer.type", "sex", "age.grp",
-                                #"geog.loc",
-                                "counts")
-
-                  names(cols_mrt) <- c(input$var_select_mrt_year,
-                                       input$var_select_mrt_cancer.type,
-                                       input$var_select_mrt_sex,
-                                       input$var_select_mrt_age.group,
-                                       #input$var_select_mrt_geog.loc,
-                                       input$var_select_mrt_counts)
-
-                  cols_mrt <- cols_mrt[names(cols_mrt) != "NA"]
-
-
-                  data_mrt <- data_mortality() %>%
-                    select(all_of(names(cols_mrt)))
-
-                  names(data_mrt)[names(data_mrt) %in% names(cols_mrt)] <- cols_mrt
-
-
-                  data_mrt <- data_mrt %>%
-                    mutate(
-                      "sex" = case_when(
-                        sex == input$male_val ~ 1,
-                        sex == input$female_val ~ 2,
-                        .default = NA
-                      )
-                    ) %>%
-                    filter(!is.na(sex))
-
-                  data_mrt$cancer.type <- as.character(data_mrt$cancer.type)
-
-                  # Generate all cancers if not given
-                  if(input$bool_all_canc == "No"){
-                    tmp <- data_mrt %>%
-                      mutate("cancer.type" = "All cancers") %>%
-                      group_by(across(-counts)) %>%
-                      summarise("counts" = sum(counts),
-                                .groups = 'drop')
-
-                    data_mrt <- bind_rows(data_mrt, tmp)
-                  }
-
-                  saveRDS(data_mrt, "tmp/data_mrt.RDS")
-                }
-
-                # Save uploaded data
-                if(!is.null(data_population())){
-
-                  cols_pop <- c("year", "sex", "age.grp",
-                                #"geog.loc",
-                                "population")
-
-                  names(cols_pop) <- c(input$var_select_pop_year,
-                                       input$var_select_pop_sex,
-                                       input$var_select_pop_age.group,
-                                       #ifelse(is.null(input$var_select_pop_geog.loc), "NA", input$var_select_pop_geog.loc),
-                                       input$var_select_pop_population)
-
-                  cols_pop <- cols_pop[names(cols_pop) != "NA"]
-
-
-                  data_pop <- data_population() %>%
-                    select(all_of(names(cols_pop)))
-
-
-                  names(data_pop)[names(data_pop) %in% names(cols_pop)] <- cols_pop
-
-
-                  data_pop <- data_pop %>%
-                    mutate(
-                      "sex" = case_when(
-                        sex == input$male_val_pop ~ 1,
-                        sex == input$female_val_pop ~ 2,
-                        .default = NA
-                        # sex == input$persons_val_pop ~ 3
-                      )
-                    ) %>%
-                    filter(!is.na(sex))
-
-                  # Generate sex == 3
-                  tmp <- data_pop %>%
-                    mutate("sex" = 3) %>%
-                    group_by(across(-population)) %>%
-                    summarise("population" = sum(population),
-                              .groups = 'drop') %>%
-                    ungroup()
-
-                  # Add back in to population file
-                  data_pop <- data_pop %>% bind_rows(tmp)
-
-
-                  saveRDS(data_pop, "tmp/data_pop.RDS")
-
-                }
-
-                suppress_threshold <- input$dashboard_suppression_threshold
-
-                supplied_params <- list(
-                  "All cancers" = if(input$bool_all_canc == "No") {"All cancers"}else{input$all_canc_name},
-                  "Dashboard title" = input$dashboard_title,
-                  "Dashboard catchment" = input$dashboard_location,
-                  "Suppression threshold" = suppress_threshold
-                )
-
-                transform_data(
-                  req_mortality_data(), req_population_data(),
-                  standard_pop, input$std_pop_name,
-                  supplied_params,
-                  #geog.loc_var,
-                  suppress_threshold)
+                saveRDS(data_inc, "tmp/data_inc.RDS")
 
               }
-              ,
-              error = function(e){e},
-              warning = function(w){w}
-            )
 
+              ####### Save Uploaded Mortality Data ----
+              if(!is.null(data_mortality())){
+
+                cols_mrt <- c("year", "cancer.type", "sex", "age.grp",
+                              #"geog.loc",
+                              "counts")
+
+                names(cols_mrt) <- c(input$var_select_mrt_year,
+                                     input$var_select_mrt_cancer.type,
+                                     input$var_select_mrt_sex,
+                                     input$var_select_mrt_age.group,
+                                     #input$var_select_mrt_geog.loc,
+                                     input$var_select_mrt_counts)
+
+                cols_mrt <- cols_mrt[names(cols_mrt) != "NA"]
+
+
+                data_mrt <- data_mortality() %>%
+                  select(all_of(names(cols_mrt)))
+
+                names(data_mrt)[names(data_mrt) %in% names(cols_mrt)] <- cols_mrt
+
+
+                data_mrt <- data_mrt %>%
+                  mutate(
+                    "sex" = case_when(
+                      sex == input$male_val ~ 1,
+                      sex == input$female_val ~ 2,
+                      .default = NA
+                    )
+                  ) %>%
+                  filter(!is.na(sex))
+
+                data_mrt$cancer.type <- as.character(data_mrt$cancer.type)
+
+                # Generate all cancers if not given
+                if(input$bool_all_canc == "No"){
+                  tmp <- data_mrt %>%
+                    mutate("cancer.type" = "All cancers") %>%
+                    group_by(across(-counts)) %>%
+                    summarise("counts" = sum(counts),
+                              .groups = 'drop')
+
+                  data_mrt <- bind_rows(data_mrt, tmp)
+                }
+
+                saveRDS(data_mrt, "tmp/data_mrt.RDS")
+              }
+
+              ####### Save Uploaded Population Data ----
+              if(!is.null(data_population())){
+
+                cols_pop <- c("year", "sex", "age.grp",
+                              #"geog.loc",
+                              "population")
+
+                names(cols_pop) <- c(input$var_select_pop_year,
+                                     input$var_select_pop_sex,
+                                     input$var_select_pop_age.group,
+                                     #ifelse(is.null(input$var_select_pop_geog.loc), "NA", input$var_select_pop_geog.loc),
+                                     input$var_select_pop_population)
+
+                cols_pop <- cols_pop[names(cols_pop) != "NA"]
+
+
+                data_pop <- data_population() %>%
+                  select(all_of(names(cols_pop)))
+
+
+                names(data_pop)[names(data_pop) %in% names(cols_pop)] <- cols_pop
+
+
+                data_pop <- data_pop %>%
+                  mutate(
+                    "sex" = case_when(
+                      sex == input$male_val_pop ~ 1,
+                      sex == input$female_val_pop ~ 2,
+                      .default = NA
+                      # sex == input$persons_val_pop ~ 3
+                    )
+                  ) %>%
+                  filter(!is.na(sex))
+
+                # Generate sex == 3
+                tmp <- data_pop %>%
+                  mutate("sex" = 3) %>%
+                  group_by(across(-population)) %>%
+                  summarise("population" = sum(population),
+                            .groups = 'drop') %>%
+                  ungroup()
+
+                # Add back in to population file
+                data_pop <- data_pop %>% bind_rows(tmp)
+
+
+                saveRDS(data_pop, "tmp/data_pop.RDS")
+
+              }
+
+              ####### Save Threshold Value ----
+              suppress_threshold <- input$dashboard_suppression_threshold
+
+              ####### Save All Other Inputs ----
+              supplied_params <- list(
+                "All cancers" = if(input$bool_all_canc == "No") {"All cancers"}else{input$all_canc_name},
+                "Dashboard title" = input$dashboard_title,
+                "Dashboard catchment" = input$dashboard_location,
+                "Suppression threshold" = suppress_threshold
+              )
+
+              ####### Transform Data ----
+              transform_data(
+                req_mortality_data(), req_population_data(),
+                standard_pop, input$std_pop_name,
+                supplied_params,
+                #geog.loc_var,
+                suppress_threshold)
+
+            },
+
+            error = function(e){e},
+            warning = function(w){w}
+
+            ) # tryCatch
+
+            ##### errorhandling ----
             if(is(out, "warning") | is(out, "error")){
+
               # print(out$message)
+
               showModal(
                 modalDialog(
                   title = "Oops! Something went wrong",
                   "Perhaps variables selected were duplicated."
                 )
               )
+
               unlink("Shiny App")
               unlink("tmp")
-            }else{
+
+            } else {
+
               confirmSweetAlert(
                 type = NULL,
                 inputId = "confirm",
                 title = HTML("Dashboard Created!"),
                 text = tagList(
+
                   div(
                     class = "directory-copy",
                     tags$p("Copy and run this command into the console (the RStudio window where you opened this app from) to preview your new dashboard. Make sure to hit Exit in this window before running the command in RStudio."),
@@ -748,25 +759,28 @@ create_dashboard <- function(){
                       file.path(getwd(), "Shiny App")
                     )
                   )
+
                 ),
                 btn_labels = c("Redo", "Exit")
               )
+
             }
-          }
-        )
 
+          } # withProgress }
+        ) # withProgress )
 
-      }else{
+      } else {
 
+        ##### Next Page ----
         adder <- 1
 
         # Update the current page index - this will in turn update current_page() when it is called
         if( current_page() == "variable_select_inc"){ # Use the page we're jumping from
           # If BOTH mortality and population data pages are to be skipped, skip both
-          if (!req_population_data()  & !req_mortality_data()){
+          if (!req_population_data()  & !req_mortality_data()) {
             adder <- 3
             # Else if we're only skipping mortality, skip mortality
-          } else if(!req_mortality_data()){
+          } else if(!req_mortality_data()) {
             adder <- 2
           }
           # If we're currently on mortality, and DON'T require population, skip that
@@ -778,8 +792,6 @@ create_dashboard <- function(){
 
         current_page_index(current_page_index() + adder)
 
-
-
         nav_select(
           id = "container",
           selected = current_page()
@@ -788,32 +800,31 @@ create_dashboard <- function(){
       }
     })
 
+    #### EVENT: Previous Button Clicked ----
     observeEvent(input$previous_page, {
 
       # Don't execute unless allowed
       req(current_page_index() > 1)
-
 
       subtractor <- 1
 
       # Update the current page index - this will in turn update current_page() when it is called
       if( current_page() == "supplied_params"){ # Use the page we're jumping from
         # If BOTH mortality and population data pages are to be skipped, skip both
-        if (!req_population_data()  & !req_mortality_data()){
+        if (!req_population_data()  & !req_mortality_data()) {
           subtractor <- 3
           # Else if we're only skipping population, skip population
-        } else if(!req_population_data()){
+        } else if(!req_population_data()) {
           subtractor <- 2
         }
         # If we're currently on population, and DON'T require mortality, skip that
-      } else if(current_page() == "variable_select_pop"){
+      } else if(current_page() == "variable_select_pop") {
         if(!req_mortality_data()){
           subtractor <- 2
         }
       }
 
       current_page_index(current_page_index() - subtractor)
-
 
       nav_select(
         id = "container",
@@ -823,7 +834,7 @@ create_dashboard <- function(){
     })
 
 
-    # Disable/enable next/previous page when needed
+    #### EVENT: Disabling Next/Previous ----
     observe({
 
       if(current_page_index() == length(pages)){
