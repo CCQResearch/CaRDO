@@ -447,6 +447,7 @@ ol {
   border-color: #BEA540 !important;
   background-color: #BEA540 !important; /* Darker shade for active state */
   transform: scale(0.98); /* Slightly shrink the button */
+  box-shadow: inset 0 0 10px #494949;
 }
 
 #previous_page_div, #next_page_div {

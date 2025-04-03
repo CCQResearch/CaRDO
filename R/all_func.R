@@ -176,8 +176,8 @@ create_dashboard <- function(){
           div(
             class = "panel-title",
             p(HTML("Page 2 of ", length(pages)-1)),
-            h2("Load your dataset."),
-            h4("Select the datasets you can provide.")
+            h2("Load your datasets."),
+            h4("Select all the datasets you can provide.")
           ),
 
           div(
@@ -186,12 +186,12 @@ create_dashboard <- function(){
               class = "select-div",
               checkboxGroupInput(inputId = "select_data",
                                  label = "Please select",
-                                 choiceNames = c("Incidence", "Mortality (optional)", "Population (optional)"),
+                                 choiceNames = c("Incidence (required)", "Mortality (optional)", "Population (optional)"),
                                  choiceValues = c("Incidence", "Mortality", "Population"),
                                  selected = NULL),
               div(
                 class = "hint-div",
-                p("For age standarised rates check 'Population' and load a population file then select a standard from the menu!")
+                p("For age standarised rates check 'Population' and load a population file then select a standard from the menu")
               )
             ),
             div(
@@ -628,7 +628,7 @@ create_dashboard <- function(){
                 data_mrt$cancer.type <- as.character(data_mrt$cancer.type)
 
                 # Generate all cancers if not given
-                if(input$bool_all_canc == "No"){
+                if(input$bool_all_canc == "No") {
                   tmp <- data_mrt %>%
                     mutate("cancer.type" = "All cancers") %>%
                     group_by(across(-counts)) %>%
@@ -833,9 +833,14 @@ create_dashboard <- function(){
 
     })
 
-
     #### EVENT: Disabling Next/Previous ----
     observe({
+
+      if(current_page_index() == 1) {
+        shinyjs::hide("previous_page_div")
+      } else {
+        shinyjs::show("previous_page_div")
+      }
 
       if(current_page_index() == length(pages)){
         updateActionButton(inputId = "next_page",
