@@ -4,7 +4,7 @@
 \alias{fit_trendline}
 \title{Fits trendline to the data}
 \usage{
-fit_trendline(data, x_val, y_val)
+fit_trendline(data, x_val, y_val, rates_req)
 }
 \arguments{
 \item{data}{The dataset to regress from}
@@ -12,6 +12,8 @@ fit_trendline(data, x_val, y_val)
 \item{x_val}{The x value of the dataset, to be used in regression}
 
 \item{y_val}{The y value of the dataset, to be used in regression}
+
+\item{rates_req}{A boolean indicating whether rates or counts are supplied}
 }
 \description{
 Fits trendline to the data
