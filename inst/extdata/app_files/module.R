@@ -81,6 +81,7 @@ UI_module <- function(id){
                 ),
                 div(
                   class = "ltr-text",
+                  uiOutput(ns("ltr_cancer")),
                   h2("Lifetime Risk"),
                   uiOutput(ns("ltr_text"))
                 ),
@@ -352,7 +353,7 @@ server_module <- function(id){
               pull(obs) %>%
               format(big.mark = ",", scientific = FALSE)
           ),
-          "<h3>Male cancer", tolower(counts_rates_labs()), "</h3>"
+          "<h3>All male cancer", tolower(counts_rates_labs()), "</h3>"
         )
       })
       output$female_text <- renderUI({
@@ -364,7 +365,7 @@ server_module <- function(id){
               pull(obs) %>%
               format(big.mark = ",", scientific = FALSE)
           ),
-          "<h3>Female cancer", tolower(counts_rates_labs()), "</h3>"
+          "<h3>All female cancer", tolower(counts_rates_labs()), "</h3>"
         )
       })
 
@@ -395,6 +396,7 @@ server_module <- function(id){
         }
 
         div(
+          p(style = "font-size: clamp(14px, 1vw, 18px); margin-bottom: 1rem;", input$cancer.type),
           HTML(paste(span(class = "ltr-stat", ltr_stat), " out of 10")),
           div(
             class = "ltr-info",
