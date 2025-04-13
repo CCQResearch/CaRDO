@@ -1570,6 +1570,7 @@ transform_data <- function(req_mortality_data, req_population_data,
       pivot_wider(names_from = measure, values_from = obs) %>%
       mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
              "Counts" = if_else(suppress == 1, true = NA, false = Counts),
+             "Rates" = if_else(suppress == 1, true = NA, false = Rates)
       ) %>%
       pivot_longer(cols = c("Counts", "Rates"),
                    names_to = "measure",
