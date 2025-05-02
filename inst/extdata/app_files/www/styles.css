@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 
 :root {
   --regular-font: 'Barlow';
@@ -405,6 +407,84 @@ b, strong {
   }
 }
 */
+
+/* -------------------------------------------------------------------------- */
+
+
+
+
+
+
+/* Survival Page ------------------------------------------------------------- */
+
+.survival-left-column {
+  padding: 2rem 1rem;
+}
+
+.ranks {
+  padding: 1rem;
+}
+
+.ranks-heading {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.hline {
+  background: #000000;
+  height: 1px;
+  width: 60%;
+  justify-self: center;
+  margin: 1rem;
+}
+
+.survival-summary {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+}
+
+.survival-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.individual-rank {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.4rem;
+}
+
+.individual-rank span:nth-child(2) {
+  font-weight: 600;
+}
+
+.rsurv-vis {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 50%;
+}
+
+.rsurv-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--input-primary);
+}
+
+.survival-stat {
+  font-size: clamp(30px, 3vw, 48px);
+}
+
+.rsurv-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+}
 
 /* -------------------------------------------------------------------------- */
 
