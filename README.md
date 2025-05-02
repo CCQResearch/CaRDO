@@ -21,7 +21,7 @@ target="_blank">here</a>
 1.  CaRDO requires the following packages installed before launching
 
 ``` r
-install.packages("devtools")
+install.packages("remotes")
 install.packages("tidyverse")
 install.packages("plotly")
 install.packages("markdown")
@@ -30,7 +30,7 @@ install.packages("markdown")
 2.  Install CaRDO using
 
 ``` r
-devtools::install_github("https://github.com/CCQResearch/CaRDO")
+remotes::install_github("https://github.com/CCQResearch/CaRDO", dependencies = TRUE)
 ```
 
 3.  Load CaRDO using
