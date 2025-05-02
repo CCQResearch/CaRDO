@@ -12,7 +12,6 @@
 options(shiny.launch.browser = TRUE)
 
 
-
 # Let's now load in the required packages
 library(shiny)
 library(bslib)
@@ -20,11 +19,9 @@ library(shinyWidgets)
 library(tidyverse)
 library(plotly)
 library(markdown)
+library(haven)
 
 
-
-
-# Then we will "source", or load in the modules
 source("module.R", local = TRUE)
 source("load_data.R", local = TRUE)
 
@@ -51,16 +48,17 @@ ui <- page_navbar(
       UI_module("Deaths")
     )
   },
+  nav_panel(
+    title = "Survival",
+    id = "survival",
+    surv_module("Survival")
+  ),
   nav_spacer(),
   nav_panel(
     title = "Methods",
     id = "methods",
     class = "methods-panel",
-    if(length(measure_choices) != 1){
-      includeMarkdown("www/methods_rates.md")
-    }else{
-      includeMarkdown("www/methods_no_rates.md")
-    }
+    includeMarkdown("www/methods.md")
   )
 )
 
@@ -71,6 +69,8 @@ server <- function(input, output, session){
   if(!no_mrt){
     server_module("Deaths")
   }
+  
+  server_module("Survival")
 
   output$report <- downloadHandler(
     filename = ""

@@ -6,7 +6,9 @@ supplied_params <- readRDS("Data/supplied_params.RDS")
 all_cancers_name <- supplied_params[["All cancers"]] # <-- Don't Change This
 dashboard_title <- supplied_params[["Dashboard title"]] # <-- You can change this
 location_name <- supplied_params[["Dashboard catchment"]]
-
+survival_data <- read.csv("Data/data_srv_1822.csv")
+survival_age <- read.csv("Data/data_srv_age.csv")
+survival_time <- read.csv("Data/data_srv_time.csv")
 
 # Define a variable that says whether mortality files are present, initialise to TRUE
 no_mrt <<- FALSE
