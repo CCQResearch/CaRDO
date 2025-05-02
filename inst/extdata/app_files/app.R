@@ -8,13 +8,6 @@
 # https://shiny.posit.co/r/articles/improve/modules/
 
 
-
-# ##### TEMPORARY - TO DELETE #####
-# setwd("C:/Users/SeanFrancis/OneDrive - Cancer Council Queensland/Shiny App")
-# setwd("K:/EPI/R-Shiny Projects/Sean/CaRDO Data/Data FULL")
-# ##### #####
-
-
 # Web Browser Only
 options(shiny.launch.browser = TRUE)
 
@@ -32,14 +25,8 @@ library(markdown)
 
 
 # Then we will "source", or load in the modules
-# source("K:/EPI/R-Shiny Projects/CaRDO/Package Development/Current/inst/extdata/app_files/module.R", local = TRUE)
-# source("K:/EPI/R-Shiny Projects/CaRDO/Package Development/Current/inst/extdata/app_files/load_data.R", local = TRUE)
 source("module.R", local = TRUE)
 source("load_data.R", local = TRUE)
-
-# ##### TEMPORARY - TO DELETE #####
-# setwd("K:/EPI/R-Shiny Projects/CaRDO/Package Development/Current")
-# ##### #####
 
 
 # UI (User Interface)
