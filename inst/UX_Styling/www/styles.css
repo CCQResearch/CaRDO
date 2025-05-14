@@ -40,6 +40,24 @@ body::before {
 
 
 
+/*  Error Modal --------------------------------------------------*/
+
+.error-details {
+  background-color: #F9F9F9;
+  border-left: 4px solid #E74C3C;
+  padding: 1em;
+  margin-top: 1em;
+  font-family: 'Barlow';
+  white-space: pre-wrap;
+  color: #333;
+  font-size: 0.9em;
+}
+
+/*----------------------------------------------------------------------------*/
+
+
+
+
 /*  Shiny Input Options --------------------------------------------------*/
 
 .shiny-input-container:not(.shiny-input-container-inline) {

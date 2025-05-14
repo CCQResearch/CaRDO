@@ -10,7 +10,8 @@ transform_data(
   standard_pop,
   std_pop_name,
   supplied_params,
-  suppress_threshold
+  suppress_threshold,
+  aggregate_option
 )
 }
 \description{

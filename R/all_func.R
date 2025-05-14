@@ -366,6 +366,9 @@ create_dashboard <- function(){
                           # ticks = FALSE,
                           value = 5,
                           step = 1),
+              checkboxInput(inputId = "aggregate_option",
+                            label = "Do you want to aggregate the years?",
+                            value = FALSE),
               div(
                 class = "hint-div",
                 p("If there are counts in your data that are below this value",
@@ -552,7 +555,7 @@ create_dashboard <- function(){
 
               ####### Save Uploaded Incidence Data ----
               tryCatch({
-                if(!is.null(data_incidence())){
+                if(!is.null(data_incidence())) {
 
                   cols_inc <- c("year", "cancer.type", "sex", "age.grp",
                                 #"geog.loc",
@@ -600,7 +603,8 @@ create_dashboard <- function(){
 
                 }
               },
-              error = function(e) {stop("Error processing your INCIDENCE data. Please check you've matched your variables correctly.")}
+              error = function(e) {stop("Error processing your INCIDENCE data. Please check you've matched your variables correctly.")},
+              warning = function(w) {stop("Warning processing your INCIDENCE data. Please check you've matched your variables correctly.")}
               )
 
               ####### Save Uploaded Mortality Data ----
@@ -624,8 +628,7 @@ create_dashboard <- function(){
                   data_mrt <- data_mortality() %>%
                     dplyr::select(all_of(names(cols_mrt)))
 
-                  names(data_mrt)[names(data_mrt) %in% names(cols_mrt)] <- cols_mrt
-
+                  # names(data_mrt)[names(data_mrt) %in% names(cols_mrt)] <- cols_mrt
 
                   data_mrt <- data_mrt %>%
                     mutate(
@@ -653,627 +656,636 @@ create_dashboard <- function(){
                   saveRDS(data_mrt, "tmp/data_mrt.RDS")
                 }
               },
-              error = function(e) {stop("Error processing your MORTALITY data. Please check you've matched your variables correctly.")}
+              error = function(e) {stop("Error processing your MORTALITY data. Please check you've matched your variables correctly.")},
+              warning = function(w) {stop("Warning processing your MORTALITY data. Please check you've matched your variables correctly."}
               )
 
-              ####### Save Uploaded Population Data ----
-              tryCatch({
-                if(!is.null(data_population())){
+                ####### Save Uploaded Population Data ----
+                tryCatch({
+                  if(!is.null(data_population())){
 
-                  cols_pop <- c("year", "sex", "age.grp",
-                                #"geog.loc",
-                                "population")
+                    cols_pop <- c("year", "sex", "age.grp",
+                                  #"geog.loc",
+                                  "population")
 
-                  names(cols_pop) <- c(input$var_select_pop_year,
-                                       input$var_select_pop_sex,
-                                       input$var_select_pop_age.group,
-                                       #ifelse(is.null(input$var_select_pop_geog.loc), "NA", input$var_select_pop_geog.loc),
-                                       input$var_select_pop_population)
+                    names(cols_pop) <- c(input$var_select_pop_year,
+                                         input$var_select_pop_sex,
+                                         input$var_select_pop_age.group,
+                                         #ifelse(is.null(input$var_select_pop_geog.loc), "NA", input$var_select_pop_geog.loc),
+                                         input$var_select_pop_population)
 
-                  cols_pop <- cols_pop[names(cols_pop) != "NA"]
-
-
-                  data_pop <- data_population() %>%
-                    dplyr::select(all_of(names(cols_pop)))
+                    cols_pop <- cols_pop[names(cols_pop) != "NA"]
 
 
-                  names(data_pop)[names(data_pop) %in% names(cols_pop)] <- cols_pop
+                    data_pop <- data_population() %>%
+                      dplyr::select(all_of(names(cols_pop)))
+
+                    names(data_pop)[names(data_pop) %in% names(cols_pop)] <- cols_pop
+
+                    data_pop <- data_pop %>%
+                      mutate(
+                        "sex" = case_when(
+                          sex == input$male_val_pop ~ 1,
+                          sex == input$female_val_pop ~ 2,
+                          .default = NA
+                          # sex == input$persons_val_pop ~ 3
+                        )
+                      ) %>%
+                      filter(!is.na(sex))
+
+                    # Generate sex == 3
+                    tmp <- data_pop %>%
+                      mutate("sex" = 3) %>%
+                      group_by(across(-population)) %>%
+                      summarise("population" = sum(population),
+                                .groups = 'drop') %>%
+                      ungroup()
+
+                    # Add back in to population file
+                    data_pop <- data_pop %>% bind_rows(tmp)
 
 
-                  data_pop <- data_pop %>%
-                    mutate(
-                      "sex" = case_when(
-                        sex == input$male_val_pop ~ 1,
-                        sex == input$female_val_pop ~ 2,
-                        .default = NA
-                        # sex == input$persons_val_pop ~ 3
+                    saveRDS(data_pop, "tmp/data_pop.RDS")
+
+                  }
+                },
+                error = function(e) {stop("Error processing your POPULATION data. Please check you've matched your variables correctly.")},
+                warning = function(w) {stop("Warning processing your POPULATION data. Please check you've matched your variables correctly.")}
+                )
+
+                ####### Save Threshold Value ----
+                suppress_threshold <- input$dashboard_suppression_threshold
+
+                aggregate_option <- input$aggregate_option
+
+                ####### Save All Other Inputs ----
+                supplied_params <- list(
+                  "All cancers" = if(input$bool_all_canc == "No") {"All cancers"}else{input$all_canc_name},
+                  "Dashboard title" = input$dashboard_title,
+                  "Dashboard catchment" = input$dashboard_location,
+                  "Suppression threshold" = suppress_threshold,
+                  "aggregate_option" = aggregate_option
+                )
+
+                ####### Transform Data ----
+                tryCatch({
+
+                  transform_data(
+                    req_mortality_data(), req_population_data(),
+                    standard_pop, input$std_pop_name,
+                    supplied_params,
+                    #geog.loc_var,
+                    suppress_threshold,
+                    aggregate_option
+                  )
+
+                },
+                error = function(e) {stop("Error Transforming Data. Please check your data frame.")},
+                warning = function(w) {stop("Warning Transforming Data. Please check your data frame.")}
+                )
+
+                },
+
+              error = function(e){e},
+              warning = function(w){w}
+
+              ) # tryCatch
+
+              ##### errorhandling ----
+              if(inherits(out, "warning") | inherits(out, "error")) {
+
+                showModal(
+                  modalDialog(
+                    title = "Oops! Something went wrong",
+                    tagList(
+                      p(out$message)
+                      # div(
+                      #   class = "error-details",
+                      #   detailed_message
+                      # )
+                    )
+                  )
+                )
+
+                unlink("Shiny App")
+                unlink("tmp")
+
+              } else {
+
+                confirmSweetAlert(
+                  type = NULL,
+                  inputId = "confirm",
+                  title = HTML("Dashboard Created!"),
+                  text = tagList(
+
+                    div(
+                      class = "directory-copy",
+                      span("So, what's next?"),
+                      tags$ol(
+                        tags$li("Copy and paste the code below into RStudio's", tags$a("console", href = "https://ccqresearch.github.io/CaRDO-Handbook/build-your-dashboard.html", target = "_blank"), "."),
+                        tags$li("Make sure to click", strong("Exit"), "in this window before hitting enter.")
+                      ),
+                      div(
+                        class = "file-path",
+                        tags$code(id = "r-code", "shiny::runApp(.../Shiny App/app.R)")
+                      ),
+                      rclipButton(
+                        inputId = "clipbtn",
+                        label = "Copy to clipboard",
+                        clipText = paste0("shiny::runApp('", file.path(getwd(), "Shiny App/app.R"), "')"),
+                        icon = icon("clipboard")
                       )
-                    ) %>%
-                    filter(!is.na(sex))
+                    ),
 
-                  # Generate sex == 3
-                  tmp <- data_pop %>%
-                    mutate("sex" = 3) %>%
-                    group_by(across(-population)) %>%
-                    summarise("population" = sum(population),
-                              .groups = 'drop') %>%
-                    ungroup()
+                    hr(),
 
-                  # Add back in to population file
-                  data_pop <- data_pop %>% bind_rows(tmp)
+                    div(
+                      class = "file-path-div",
+                      tags$p("Alternatively, the application can be located by navigating to the file path below."),
+                      div(
+                        class = "file-path",
+                        file.path(getwd(), "Shiny App")
+                      )
+                    )
 
-
-                  saveRDS(data_pop, "tmp/data_pop.RDS")
-
-                }
-              },
-              error = function(e) {stop("Error processing your POPULATION data. Please check you've matched your variables correctly.")}
-              )
-
-              ####### Save Threshold Value ----
-              suppress_threshold <- input$dashboard_suppression_threshold
-
-              ####### Save All Other Inputs ----
-              supplied_params <- list(
-                "All cancers" = if(input$bool_all_canc == "No") {"All cancers"}else{input$all_canc_name},
-                "Dashboard title" = input$dashboard_title,
-                "Dashboard catchment" = input$dashboard_location,
-                "Suppression threshold" = suppress_threshold
-              )
-
-              ####### Transform Data ----
-              tryCatch({
-
-                transform_data(
-                  req_mortality_data(), req_population_data(),
-                  standard_pop, input$std_pop_name,
-                  supplied_params,
-                  #geog.loc_var,
-                  suppress_threshold
+                  ),
+                  btn_labels = c("Redo", "Exit")
                 )
 
-              },
-              error = function(e) {stop("Error Transforming Data. Please check variables.")}
-              )
+              }
 
-            },
-
-            error = function(e){e},
-            warning = function(w){w}
-
-            ) # tryCatch
-
-            ##### errorhandling ----
-            if(is(out, "warning") | is(out, "error")){
-
-              # print(out$message)
-
-              showModal(
-                modalDialog(
-                  title = "Oops! Something went wrong",
-                  paste(out$message)
-                )
-              )
-
-              unlink("Shiny App")
-              unlink("tmp")
+} # withProgress }
+) # withProgress )
 
             } else {
 
-              confirmSweetAlert(
-                type = NULL,
-                inputId = "confirm",
-                title = HTML("Dashboard Created!"),
-                text = tagList(
+              ##### Next Page ----
+              adder <- 1
 
-                  div(
-                    class = "directory-copy",
-                    span("So, what's next?"),
-                    tags$ol(
-                      tags$li("Copy and paste the code below into RStudio's", tags$a("console", href = "https://ccqresearch.github.io/CaRDO-Handbook/build-your-dashboard.html", target = "_blank"), "."),
-                      tags$li("Make sure to click", strong("Exit"), "in this window before hitting enter.")
-                    ),
-                    div(
-                      class = "file-path",
-                      tags$code(id = "r-code", "shiny::runApp(.../Shiny App/app.R)")
-                    ),
-                    rclipButton(
-                      inputId = "clipbtn",
-                      label = "Copy to clipboard",
-                      clipText = paste0("shiny::runApp('", file.path(getwd(), "Shiny App/app.R"), "')"),
-                      icon = icon("clipboard")
-                    )
-                  ),
+              # Update the current page index - this will in turn update current_page() when it is called
+              if( current_page() == "variable_select_inc"){ # Use the page we're jumping from
+                # If BOTH mortality and population data pages are to be skipped, skip both
+                if (!req_population_data()  & !req_mortality_data()) {
+                  adder <- 3
+                  # Else if we're only skipping mortality, skip mortality
+                } else if(!req_mortality_data()) {
+                  adder <- 2
+                }
+                # If we're currently on mortality, and DON'T require population, skip that
+              } else if(current_page() == "variable_select_mrt"){
+                if(!req_population_data()){
+                  adder <- 2
+                }
+              }
 
-                  hr(),
+              current_page_index(current_page_index() + adder)
 
-                  div(
-                    class = "file-path-div",
-                    tags$p("Alternatively, the application can be located by navigating to the file path below."),
-                    div(
-                      class = "file-path",
-                      file.path(getwd(), "Shiny App")
-                    )
-                  )
-
-                ),
-                btn_labels = c("Redo", "Exit")
+              nav_select(
+                id = "container",
+                selected = current_page()
               )
 
             }
+      })
 
-          } # withProgress }
-        ) # withProgress )
+        #### EVENT: Previous Button Clicked ----
+        observeEvent(input$previous_page, {
 
-      } else {
+          # Don't execute unless allowed
+          req(current_page_index() > 1)
 
-        ##### Next Page ----
-        adder <- 1
+          subtractor <- 1
 
-        # Update the current page index - this will in turn update current_page() when it is called
-        if( current_page() == "variable_select_inc"){ # Use the page we're jumping from
-          # If BOTH mortality and population data pages are to be skipped, skip both
-          if (!req_population_data()  & !req_mortality_data()) {
-            adder <- 3
-            # Else if we're only skipping mortality, skip mortality
-          } else if(!req_mortality_data()) {
-            adder <- 2
+          # Update the current page index - this will in turn update current_page() when it is called
+          if( current_page() == "supplied_params"){ # Use the page we're jumping from
+            # If BOTH mortality and population data pages are to be skipped, skip both
+            if (!req_population_data()  & !req_mortality_data()) {
+              subtractor <- 3
+              # Else if we're only skipping population, skip population
+            } else if(!req_population_data()) {
+              subtractor <- 2
+            }
+            # If we're currently on population, and DON'T require mortality, skip that
+          } else if(current_page() == "variable_select_pop") {
+            if(!req_mortality_data()){
+              subtractor <- 2
+            }
           }
-          # If we're currently on mortality, and DON'T require population, skip that
-        } else if(current_page() == "variable_select_mrt"){
-          if(!req_population_data()){
-            adder <- 2
+
+          current_page_index(current_page_index() - subtractor)
+
+          nav_select(
+            id = "container",
+            selected = current_page()
+          )
+
+        })
+
+        #### EVENT: Hide Previous Button on First Page ----
+        output$to_hide_previous_btn <- reactive({
+          if(current_page_index() == 1) {
+            return(TRUE)
+          } else {
+            return(FALSE)
           }
-        }
-
-        current_page_index(current_page_index() + adder)
-
-        nav_select(
-          id = "container",
-          selected = current_page()
-        )
-
-      }
-    })
-
-    #### EVENT: Previous Button Clicked ----
-    observeEvent(input$previous_page, {
-
-      # Don't execute unless allowed
-      req(current_page_index() > 1)
-
-      subtractor <- 1
-
-      # Update the current page index - this will in turn update current_page() when it is called
-      if( current_page() == "supplied_params"){ # Use the page we're jumping from
-        # If BOTH mortality and population data pages are to be skipped, skip both
-        if (!req_population_data()  & !req_mortality_data()) {
-          subtractor <- 3
-          # Else if we're only skipping population, skip population
-        } else if(!req_population_data()) {
-          subtractor <- 2
-        }
-        # If we're currently on population, and DON'T require mortality, skip that
-      } else if(current_page() == "variable_select_pop") {
-        if(!req_mortality_data()){
-          subtractor <- 2
-        }
-      }
-
-      current_page_index(current_page_index() - subtractor)
-
-      nav_select(
-        id = "container",
-        selected = current_page()
-      )
-
-    })
-
-    #### EVENT: Hide Previous Button on First Page ----
-    output$to_hide_previous_btn <- reactive({
-      if(current_page_index() == 1) {
-        return(TRUE)
-      } else {
-        return(FALSE)
-      }
-    })
-    outputOptions(output, 'to_hide_previous_btn', suspendWhenHidden = FALSE)
+        })
+        outputOptions(output, 'to_hide_previous_btn', suspendWhenHidden = FALSE)
 
 
-    #### EVENT: Disabling Next/Previous ----
-    observe({
+        #### EVENT: Disabling Next/Previous ----
+        observe({
 
-      if(current_page_index() == length(pages)){
-        updateActionButton(inputId = "next_page",
-                           label = "Create Dashboard")
-      }else{
-        updateActionButton(inputId = "next_page",
-                           label = "Next")
-      }
+          if(current_page_index() == length(pages)){
+            updateActionButton(inputId = "next_page",
+                               label = "Create Dashboard")
+          }else{
+            updateActionButton(inputId = "next_page",
+                               label = "Next")
+          }
 
-      if (current_page_index() > 1){
-        enable("previous_page")
-      }else{
-        disable("previous_page")
-      }
+          if (current_page_index() > 1){
+            enable("previous_page")
+          }else{
+            disable("previous_page")
+          }
 
-      if (!completed_page()){
-        disable("next_page")
-      }else{
-        enable("next_page")
-      }
+          if (!completed_page()){
+            disable("next_page")
+          }else{
+            enable("next_page")
+          }
 
-    })
+        })
 
-    ### Data Section ----
+        ### Data Section ----
 
-    #### Incidence ----
+        #### Incidence ----
 
-    data_incidence <- reactive({
+        data_incidence <- reactive({
 
-      if(is.null(input$data_inc_upload)){
-        return(NULL)
-      }
+          if(is.null(input$data_inc_upload)){
+            return(NULL)
+          }
 
-      ext <- file_ext(input$data_inc_upload$name)
+          ext <- file_ext(input$data_inc_upload$name)
 
-      # Save the ID for removal later
-      id_inc <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+          # Save the ID for removal later
+          id_inc <- showNotification(paste("Load completed, now processing the data"), duration = 0)
 
-      data <- switch(
-        ext,
-        "dta" = read_dta(input$data_inc_upload$datapath),
-        "csv" = fread(input$data_inc_upload$datapath),
-        "tsv" = vroom(input$data_inc_upload$datapath, delim = "\t"),
-        validate("Invalid file; Please load a .csv, .tsv or .dta file")
-      )
-
-      removeNotification(id_inc)
-
-      return(data)
-
-    })
-
-    #### Mortality ----
-
-    data_mortality <- reactive({
-
-      if(is.null(input$data_mrt_upload)){
-        return(NULL)
-      }
-
-      ext <- file_ext(input$data_mrt_upload$name)
-
-      # Save the ID for removal later
-      id_mrt <- showNotification(paste("Load completed, now processing the data"), duration = 0)
-
-      data <- switch(
-        ext,
-        "dta" = read_dta(input$data_mrt_upload$datapath),
-        "csv" = fread(input$data_mrt_upload$datapath),
-        "tsv" = vroom(input$data_mrt_upload$datapath, delim = "\t"),
-        validate("Invalid file; Please load a .csv, .tsv or .dta file")
-      )
-
-      removeNotification(id_mrt)
-
-      return(data)
-
-
-    })
-
-    #### Population ----
-
-    data_population <- reactive({
-
-      if(is.null(input$pop_data_upload)){
-        return(NULL)
-      }
-
-      ext <- file_ext(input$pop_data_upload$name)
-
-      # Save the ID for removal later
-      id_pop <- showNotification(paste("Load completed, now processing the data"), duration = 0)
-
-      data <- switch(
-        ext,
-        "dta" = read_dta(input$pop_data_upload$datapath),
-        "csv" = fread(input$pop_data_upload$datapath),
-        "tsv" = vroom(input$pop_data_upload$datapath, delim = "\t"),
-        validate("Invalid file; Please load a .csv, .tsv or .dta file")
-      )
-
-      removeNotification(id_pop)
-
-      return(data)
-
-    })
-
-    ### Outputs Section ----
-
-    #### Specify Incidence Outputs ----
-
-    output$select_var_inc <- renderUI({
-      variable_names <- c(NA, names(data_incidence()))
-      tagList(
-        # Check-Panel
-        # div(
-        #   class = "checkbox-panel",
-        #   checkboxGroupInput(
-        #     inputId = "variables_inc",
-        #     label = "Does your data have:",
-        #     # choices = data_var_list,
-        #     choices = "geographical location",
-        #     NA)
-        # ),
-        # Menu-Panel
-        div(
-          class = "menu-inline",
-          selectInput(inputId = "var_select_inc_counts",
-                      choices = variable_names,
-                      label = HTML("Select your <b>count</b> variable"),
-                      NA),
-
-          selectInput(inputId = "var_select_inc_year",
-                      choices = variable_names,
-                      label = HTML("Select your <b>year</b> variable"),
-                      NA),
-          selectInput(inputId = "var_select_inc_cancer.type",
-                      choices = variable_names,
-                      label = HTML("Select your <b>cancer name</b> variable"),
-                      NA),
-          selectInput(inputId = "var_select_inc_age.group",
-                      choices = variable_names,
-                      label = HTML("Select your <b>age group</b> variable"),
-                      NA),
-          selectInput(inputId = "var_select_inc_sex",
-                      choices = variable_names,
-                      label = HTML("Select your <b>sex</b> variable"),
-                      NA),
-          div(
-            class = "hint-div",
-            p("Here, we standardise the variable names. Please match your variables with these listed above")
+          data <- switch(
+            ext,
+            "dta" = read_dta(input$data_inc_upload$datapath),
+            "csv" = fread(input$data_inc_upload$datapath),
+            "tsv" = vroom(input$data_inc_upload$datapath, delim = "\t"),
+            validate("Invalid file; Please load a .csv, .tsv or .dta file")
           )
-          # conditionalPanel(
-          #   condition = "input.variables_inc.includes('geographical location')",
-          #   selectInput(inputId = "var_select_inc_geog.loc",
-          #               choices = variable_names,
-          #               label = "Select 'geographical location' variable",
-          #               NA)
-          # )
-        ),
-        div(
-          class = "menu-div",
-          conditionalPanel(
-            condition = "input.var_select_inc_sex != 'NA'",
-            uiOutput(outputId = "select_var_inc_sex")
+
+          removeNotification(id_inc)
+
+          return(data)
+
+        })
+
+        #### Mortality ----
+
+        data_mortality <- reactive({
+
+          if(is.null(input$data_mrt_upload)){
+            return(NULL)
+          }
+
+          ext <- file_ext(input$data_mrt_upload$name)
+
+          # Save the ID for removal later
+          id_mrt <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+
+          data <- switch(
+            ext,
+            "dta" = read_dta(input$data_mrt_upload$datapath),
+            "csv" = fread(input$data_mrt_upload$datapath),
+            "tsv" = vroom(input$data_mrt_upload$datapath, delim = "\t"),
+            validate("Invalid file; Please load a .csv, .tsv or .dta file")
           )
-        )
-      )
-    })
 
-    output$select_var_inc_sex <- renderUI({
-      tagList(
-        selectInput(inputId = "male_val",
-                    label = HTML("Which value in your 'sex' column represents <b>males</b>?"),
-                    choices = unique(data_incidence()[[input$var_select_inc_sex]])),
-        selectInput(inputId = "female_val",
-                    label = HTML("Which value in your 'sex' column represents <b>females</b>?"),
-                    choices = unique(data_incidence()[[input$var_select_inc_sex]]))
-      )
-    })
+          removeNotification(id_mrt)
 
-    #### Specify Mortality Outputs ----
+          return(data)
 
-    output$select_var_mrt <- renderUI({
-      if(req_mortality_data()){
-        variable_names <- c(NA, names(data_mortality()))
-        tagList(
-          # Menu-Panel
-          div(
-            class = "menu-inline",
-            selectInput(inputId = "var_select_mrt_counts",
-                        choices = variable_names,
-                        label = HTML("Select your <b>count</b> variable"),
-                        NA),
-            selectInput(inputId = "var_select_mrt_year",
-                        choices = variable_names,
-                        label = HTML("Select your <b>year</b> variable"),
-                        NA),
-            selectInput(inputId = "var_select_mrt_cancer.type",
-                        choices = variable_names,
-                        label = HTML("Select your <b>cancer name</b> variable"),
-                        NA),
-            selectInput(inputId = "var_select_mrt_age.group",
-                        choices = variable_names,
-                        label = HTML("Select your <b>age group</b> variable"),
-                        NA),
-            selectInput(inputId = "var_select_mrt_sex",
-                        choices = variable_names,
-                        label = HTML("Select your <b>sex</b> variable"),
-                        NA),
+
+        })
+
+        #### Population ----
+
+        data_population <- reactive({
+
+          if(is.null(input$pop_data_upload)){
+            return(NULL)
+          }
+
+          ext <- file_ext(input$pop_data_upload$name)
+
+          # Save the ID for removal later
+          id_pop <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+
+          data <- switch(
+            ext,
+            "dta" = read_dta(input$pop_data_upload$datapath),
+            "csv" = fread(input$pop_data_upload$datapath),
+            "tsv" = vroom(input$pop_data_upload$datapath, delim = "\t"),
+            validate("Invalid file; Please load a .csv, .tsv or .dta file")
+          )
+
+          removeNotification(id_pop)
+
+          return(data)
+
+        })
+
+        ### Outputs Section ----
+
+        #### Specify Incidence Outputs ----
+
+        output$select_var_inc <- renderUI({
+          variable_names <- c(NA, names(data_incidence()))
+          tagList(
+            # Check-Panel
+            # div(
+            #   class = "checkbox-panel",
+            #   checkboxGroupInput(
+            #     inputId = "variables_inc",
+            #     label = "Does your data have:",
+            #     # choices = data_var_list,
+            #     choices = "geographical location",
+            #     NA)
+            # ),
+            # Menu-Panel
             div(
-              class = "hint-div",
-              p("Here, we standardise the variable names. Please match your variables with these listed above")
-            )
-            # conditionalPanel(
-            #   condition = "input.variables_inc.includes('geographical location')",
-            #   selectInput(inputId = "var_select_mrt_geog.loc",
-            #               choices = variable_names,
-            #               label = "Select 'geographical location' variable",
-            #               NA)
-            # )
-          ),
-          div(
-            class = "menu-div",
-            conditionalPanel(
-              condition = "input.var_select_mrt_sex != 'NA'",
-              uiOutput(outputId = "select_var_mrt_sex")
+              class = "menu-inline",
+              selectInput(inputId = "var_select_inc_counts",
+                          choices = variable_names,
+                          label = HTML("Select your <b>count</b> variable"),
+                          NA),
+
+              selectInput(inputId = "var_select_inc_year",
+                          choices = variable_names,
+                          label = HTML("Select your <b>year</b> variable"),
+                          NA),
+              selectInput(inputId = "var_select_inc_cancer.type",
+                          choices = variable_names,
+                          label = HTML("Select your <b>cancer name</b> variable"),
+                          NA),
+              selectInput(inputId = "var_select_inc_age.group",
+                          choices = variable_names,
+                          label = HTML("Select your <b>age group</b> variable"),
+                          NA),
+              selectInput(inputId = "var_select_inc_sex",
+                          choices = variable_names,
+                          label = HTML("Select your <b>sex</b> variable"),
+                          NA),
+              div(
+                class = "hint-div",
+                p("Here, we standardise the variable names. Please match your variables with these listed above")
+              )
+              # conditionalPanel(
+              #   condition = "input.variables_inc.includes('geographical location')",
+              #   selectInput(inputId = "var_select_inc_geog.loc",
+              #               choices = variable_names,
+              #               label = "Select 'geographical location' variable",
+              #               NA)
+              # )
+            ),
+            div(
+              class = "menu-div",
+              conditionalPanel(
+                condition = "input.var_select_inc_sex != 'NA'",
+                uiOutput(outputId = "select_var_inc_sex")
+              )
             )
           )
-        )
-      }else{
-        h5("Not required, as a mortality file has not been loaded.")
-      }
-    })
+        })
 
-    output$select_var_mrt_sex <- renderUI({
-      tagList(
-        selectInput(inputId = "male_val",
-                    label = HTML("Which value in your 'sex' column represents <b>males</b>?"),
-                    choices = unique(data_mortality()[[input$var_select_mrt_sex]])),
-        selectInput(inputId = "female_val",
-                    label = HTML("Which value in your 'sex' column represents <b>females</b>?"),
-                    choices = unique(data_mortality()[[input$var_select_mrt_sex]]))
-      )
-    })
-
-
-    # output$select_std_pop <- renderUI({
-    #   if(req_population_data()){
-    #
-    #   }
-    # })
-
-    #### Specify Population Outputs ----
-
-    output$select_var_pop <- renderUI({
-      variable_names <- c(NA, names(data_population()))
-      # required_vars <- c('population', 'year', 'age group', 'sex', 'geographical location')
-      if(req_population_data()){
-        tagList(
-          div(
-            class = "menu-inline",
-            selectInput(inputId = "var_select_pop_population",
-                        choices = variable_names,
-                        label = HTML("Select your <b>population</b> variable"),
-                        NA),
-            condition = "input.variables_pop.includes('year')",
-            selectInput(inputId = "var_select_pop_year",
-                        choices = variable_names,
-                        label = HTML("Select your <b>year</b> variable"),
-                        NA),
-            selectInput(inputId = "var_select_pop_age.group",
-                        choices = variable_names,
-                        label = HTML("Select your <b>age group</b> variable"),
-                        NA),
-            selectInput(inputId = "var_select_pop_sex",
-                        choices = variable_names,
-                        label = HTML("Select your <b>sex</b> variable"),
-                        NA),
-            div(
-              class = "hint-div",
-              p("Here, we standardise the variable names. Please match your variables with these listed above")
-            )
-            # conditionalPanel(
-            #   condition = "input.variables_inc.includes('geographical location')",
-            #   selectInput(inputId = "var_select_pop_geog.loc",
-            #               choices = variable_names,
-            #               label = "Select 'geographical location' variable",
-            #               NA)
-            #
-            # )
-          ),
-          div(
-            class = "menu-div",
-            conditionalPanel(
-              condition = "input.var_select_pop_sex != 'NA'",
-              uiOutput(outputId = "select_var_pop_sex")
-            )
+        output$select_var_inc_sex <- renderUI({
+          tagList(
+            selectInput(inputId = "male_val",
+                        label = HTML("Which value in your 'sex' column represents <b>males</b>?"),
+                        choices = unique(data_incidence()[[input$var_select_inc_sex]])),
+            selectInput(inputId = "female_val",
+                        label = HTML("Which value in your 'sex' column represents <b>females</b>?"),
+                        choices = unique(data_incidence()[[input$var_select_inc_sex]]))
           )
+        })
 
-        )
-      }else{
-        h5("Not required, as a population file has not been loaded.")
-      }
-    })
+        #### Specify Mortality Outputs ----
 
-    output$select_var_pop_sex <- renderUI({
-      tagList(
-        selectInput(inputId = "male_val_pop",
-                    label = HTML("Which value in your 'sex' column represents <b>males?</b>"),
-                    choices = unique(data_population()[[input$var_select_pop_sex]])),
-        selectInput(inputId = "female_val_pop",
-                    label = HTML("Which value in your 'sex' column represents <b>females?</b>"),
-                    choices = unique(data_population()[[input$var_select_pop_sex]]))
-        # ,
-        # selectInput(inputId = "persons_val_pop",
-        #             label = HTML("Which value in your 'sex' column represents <b>persons?</b>"),
-        #             choices = unique(data_population()[[input$var_select_pop_sex]]))
-      )
-    })
+        output$select_var_mrt <- renderUI({
+          if(req_mortality_data()){
+            variable_names <- c(NA, names(data_mortality()))
+            tagList(
+              # Menu-Panel
+              div(
+                class = "menu-inline",
+                selectInput(inputId = "var_select_mrt_counts",
+                            choices = variable_names,
+                            label = HTML("Select your <b>count</b> variable"),
+                            NA),
+                selectInput(inputId = "var_select_mrt_year",
+                            choices = variable_names,
+                            label = HTML("Select your <b>year</b> variable"),
+                            NA),
+                selectInput(inputId = "var_select_mrt_cancer.type",
+                            choices = variable_names,
+                            label = HTML("Select your <b>cancer name</b> variable"),
+                            NA),
+                selectInput(inputId = "var_select_mrt_age.group",
+                            choices = variable_names,
+                            label = HTML("Select your <b>age group</b> variable"),
+                            NA),
+                selectInput(inputId = "var_select_mrt_sex",
+                            choices = variable_names,
+                            label = HTML("Select your <b>sex</b> variable"),
+                            NA),
+                div(
+                  class = "hint-div",
+                  p("Here, we standardise the variable names. Please match your variables with these listed above")
+                )
+                # conditionalPanel(
+                #   condition = "input.variables_inc.includes('geographical location')",
+                #   selectInput(inputId = "var_select_mrt_geog.loc",
+                #               choices = variable_names,
+                #               label = "Select 'geographical location' variable",
+                #               NA)
+                # )
+              ),
+              div(
+                class = "menu-div",
+                conditionalPanel(
+                  condition = "input.var_select_mrt_sex != 'NA'",
+                  uiOutput(outputId = "select_var_mrt_sex")
+                )
+              )
+            )
+          }else{
+            h5("Not required, as a mortality file has not been loaded.")
+          }
+        })
+
+        output$select_var_mrt_sex <- renderUI({
+          tagList(
+            selectInput(inputId = "male_val",
+                        label = HTML("Which value in your 'sex' column represents <b>males</b>?"),
+                        choices = unique(data_mortality()[[input$var_select_mrt_sex]])),
+            selectInput(inputId = "female_val",
+                        label = HTML("Which value in your 'sex' column represents <b>females</b>?"),
+                        choices = unique(data_mortality()[[input$var_select_mrt_sex]]))
+          )
+        })
 
 
-    # This code gets run on app startup due to the outputOptions(suspendWhenHidden=FALSE)
-    output$select_all_canc_var <- renderUI({
-      # However, this now causes an issue, whereby input$var_select_inc_cancer.type does not exist yet,
-      # So we put req() to say, "Hey don't run what's below until this variable exists".
-      req(input$var_select_inc_cancer.type)
-      variable_names <- c("Please specify ..", unique(data_incidence()[[input$var_select_inc_cancer.type]]) %>% sort)
-      tagList(
-        div(
-          class = "panel-body",
-          prettyRadioButtons(inputId = "bool_all_canc",
-                             label = "Do you have a cancer category indicating all cancers?",
-                             choices = c("No", "Yes"),
-                             shape = "square",
-                             icon = icon("check"),
-                             selected = "Yes"),
-          conditionalPanel(
-            condition = "input.bool_all_canc == 'Yes'",
-            selectInput(inputId = "all_canc_name",
-                        label = "Select the cancer category indicating 'all cancers'",
-                        choices = variable_names,
-                        selected = "Please specify ..")
-          ),
-          conditionalPanel(
-            condition = "input.bool_all_canc == 'No'",
+        # output$select_std_pop <- renderUI({
+        #   if(req_population_data()){
+        #
+        #   }
+        # })
+
+        #### Specify Population Outputs ----
+
+        output$select_var_pop <- renderUI({
+          variable_names <- c(NA, names(data_population()))
+          # required_vars <- c('population', 'year', 'age group', 'sex', 'geographical location')
+          if(req_population_data()){
+            tagList(
+              div(
+                class = "menu-inline",
+                selectInput(inputId = "var_select_pop_population",
+                            choices = variable_names,
+                            label = HTML("Select your <b>population</b> variable"),
+                            NA),
+                condition = "input.variables_pop.includes('year')",
+                selectInput(inputId = "var_select_pop_year",
+                            choices = variable_names,
+                            label = HTML("Select your <b>year</b> variable"),
+                            NA),
+                selectInput(inputId = "var_select_pop_age.group",
+                            choices = variable_names,
+                            label = HTML("Select your <b>age group</b> variable"),
+                            NA),
+                selectInput(inputId = "var_select_pop_sex",
+                            choices = variable_names,
+                            label = HTML("Select your <b>sex</b> variable"),
+                            NA),
+                div(
+                  class = "hint-div",
+                  p("Here, we standardise the variable names. Please match your variables with these listed above")
+                )
+                # conditionalPanel(
+                #   condition = "input.variables_inc.includes('geographical location')",
+                #   selectInput(inputId = "var_select_pop_geog.loc",
+                #               choices = variable_names,
+                #               label = "Select 'geographical location' variable",
+                #               NA)
+                #
+                # )
+              ),
+              div(
+                class = "menu-div",
+                conditionalPanel(
+                  condition = "input.var_select_pop_sex != 'NA'",
+                  uiOutput(outputId = "select_var_pop_sex")
+                )
+              )
+
+            )
+          }else{
+            h5("Not required, as a population file has not been loaded.")
+          }
+        })
+
+        output$select_var_pop_sex <- renderUI({
+          tagList(
+            selectInput(inputId = "male_val_pop",
+                        label = HTML("Which value in your 'sex' column represents <b>males?</b>"),
+                        choices = unique(data_population()[[input$var_select_pop_sex]])),
+            selectInput(inputId = "female_val_pop",
+                        label = HTML("Which value in your 'sex' column represents <b>females?</b>"),
+                        choices = unique(data_population()[[input$var_select_pop_sex]]))
+            # ,
+            # selectInput(inputId = "persons_val_pop",
+            #             label = HTML("Which value in your 'sex' column represents <b>persons?</b>"),
+            #             choices = unique(data_population()[[input$var_select_pop_sex]]))
+          )
+        })
+
+
+        # This code gets run on app startup due to the outputOptions(suspendWhenHidden=FALSE)
+        output$select_all_canc_var <- renderUI({
+          # However, this now causes an issue, whereby input$var_select_inc_cancer.type does not exist yet,
+          # So we put req() to say, "Hey don't run what's below until this variable exists".
+          req(input$var_select_inc_cancer.type)
+          variable_names <- c("Please specify ..", unique(data_incidence()[[input$var_select_inc_cancer.type]]) %>% sort)
+          tagList(
             div(
-              class = "hint-div",
-              p("CaRDO will report statistics for 'all cancers'.
+              class = "panel-body",
+              prettyRadioButtons(inputId = "bool_all_canc",
+                                 label = "Do you have a cancer category indicating all cancers?",
+                                 choices = c("No", "Yes"),
+                                 shape = "square",
+                                 icon = icon("check"),
+                                 selected = "Yes"),
+              conditionalPanel(
+                condition = "input.bool_all_canc == 'Yes'",
+                selectInput(inputId = "all_canc_name",
+                            label = "Select the cancer category indicating 'all cancers'",
+                            choices = variable_names,
+                            selected = "Please specify ..")
+              ),
+              conditionalPanel(
+                condition = "input.bool_all_canc == 'No'",
+                div(
+                  class = "hint-div",
+                  p("CaRDO will report statistics for 'all cancers'.
                 If you select no, CaRDO will calculate 'all cancers reported' by summing the cancer data you provide.
                 To ensure CaRDO reports accurate information,
                 only click Yes if your 'All cancers' category sums up ALL cancers and not just the ones you supply.")
+                )
+              )
             )
           )
-        )
-      )
-    })
+        })
 
-    # Render this output on app startup
-    outputOptions(output, "select_all_canc_var", suspendWhenHidden = FALSE)
+        # Render this output on app startup
+        outputOptions(output, "select_all_canc_var", suspendWhenHidden = FALSE)
 
 
-    # Ensure if "geographical location" is not selected in input$variables_inc,
-    # then set input$var_select_pop_geog.loc to NA
-    # observe({
-    #   # print(input$variables_inc)
-    #   if(is.null(input$variables_inc)){
-    #     updateSelectInput(session = session,
-    #                       inputId = "var_select_inc_geog.loc",
-    #                       selected = "NA")
-    #
-    #   }
-    # })
+        # Ensure if "geographical location" is not selected in input$variables_inc,
+        # then set input$var_select_pop_geog.loc to NA
+        # observe({
+        #   # print(input$variables_inc)
+        #   if(is.null(input$variables_inc)){
+        #     updateSelectInput(session = session,
+        #                       inputId = "var_select_inc_geog.loc",
+        #                       selected = "NA")
+        #
+        #   }
+        # })
 
-    observeEvent(input$clipbtn, {
-      updateActionButton(session, inputId = "clipbtn",
-                         label = "Copied!")
-    })
+        observeEvent(input$clipbtn, {
+          updateActionButton(session, inputId = "clipbtn",
+                             label = "Copied!")
+        })
 
 
-    # Finalise everything, and exit
-    observeEvent(input$confirm, {
-      if(input$confirm){stopApp()}
-    })
+        # Finalise everything, and exit
+        observeEvent(input$confirm, {
+          if(input$confirm){stopApp()}
+        })
 
-  }
+        }
 
   # shinyApp(ui, server)
   runApp(shinyApp(ui, server), launch.browser = browserViewer())
   #runApp(shinyApp(ui, server), launch.browser = dialogViewer("", width = 1200, height = 800))
 
-}
+            }
 
 
 
@@ -1286,30 +1298,49 @@ create_dashboard <- function(){
 #' @author Sean Francis
 transform_data <- function(req_mortality_data, req_population_data,
                            standard_pop, std_pop_name,
-                           supplied_params,
-                           #geog.loc_var,
-                           suppress_threshold){
+                           supplied_params, suppress_threshold,
+                           aggregate_option){
 
+  # There are three main datasets that are needed to create the dashboard:
+  #   1.  'Annual' - This will have the measure (counts/rates) for each year
+  #   2.  'Age' - This will have the measures by broad age group
+  #   3.  'Average' - This is an aggregation of the most recent 5 years
+  #
+  # The base is Incidence -> Counts
+
+  # Initialising Directories ----
 
   output_path <- "Shiny App/Data"
 
-  # Delete the directory if it exists
+  # Remove the existing `Data` folder, if it exists
   if(dir.exists(output_path)){
     unlink(output_path, recursive = TRUE)
   }
 
-  # Create a new one
+  # Create a new `Data` folder to save the transformed data
   dir.create(output_path, recursive = TRUE)
 
-  # Save the inputs to a variable
+  # Saving the supplied input parameters to an RDS file in the new `Data` folder
+  # The supplied parameters include:
+  # Dashboard title & location, a suppression threshold, and an aggregate number
   saveRDS(
     supplied_params,
     file.path(output_path, "supplied_params.RDS")
   )
 
-  # Load in the data
+  # -~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~-~ #
+
+  # COUNTS ----
+
+  ## Transforming Incidence Counts ----
+
+  # Reading in the Incidence data file provided by the user
   data_inc <- readRDS("tmp/data_inc.RDS")
 
+
+  # Collapsing `Diagnoses` counts to create a `Persons` sex category
+  # `Persons` or `3` is just the sum of males and females (or 1 and 2)
+  # Stitches it back to the original `data_inc` data frame
   tmp <- data_inc %>%
     mutate('sex' = 3) %>%
     group_by(across(-c(counts))) %>%
@@ -1319,7 +1350,10 @@ transform_data <- function(req_mortality_data, req_population_data,
 
   data_inc <- bind_rows(tmp, data_inc)
 
-  # Check for sex-specific cancers (then later, remove the persons options from them)
+
+  # Identifying the cancer types that don't have all three sex categories
+  # This are assumed to be sex-specific cancers (i.e. Breast cancer)
+  # Once sex-specific cancers are identified, they are removed
   sex_specific_cancers <- data_inc %>%
     group_by(cancer.type) %>%
     summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1),
@@ -1327,14 +1361,53 @@ transform_data <- function(req_mortality_data, req_population_data,
     filter(sex_specific == 1) %>%
     pull(cancer.type)
 
-  # Remove sex-specific cancers from "persons"
   data_inc <- data_inc %>%
     filter(!(cancer.type %in% sex_specific_cancers & sex == 3))
 
+  # If an aggregation number is supplied, the data and counts need to collapse
+  # across year to create year ranges that match that number
+  # Aggregation is done by removing the earliest year(s) that don't fit nicely
+  # into a multiple of the aggregate number.
+  # Labels are created and matched to corresponding years
+  if (aggregate_option) {
+    start_year <- min(data_inc$year)
+    end_year <- max(data_inc$year)
 
+    new_start_year <- start_year + ((end_year - start_year + 1) %% 5)
+
+    breaks <- seq(new_start_year, end_year + 1, by = 5)
+    lefts <- head(breaks, -1)
+    rights <- tail(breaks, -1) - 1
+    labels <- paste0(lefts, "-", rights)
+
+    data_inc <- data_inc %>%
+      filter(year >= new_start_year & year <= end_year) %>%
+      mutate(
+        "year_labs" = cut(
+          year,
+          breaks = breaks,
+          right = FALSE,
+          include.lowest = TRUE,
+          labels = labels
+        ) %>% as.character(),
+        "max_year" = max(rights)
+      )
+  }
+
+  # -~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~-~ #
+
+
+
+  ## Transforming Mortality Counts ----
   if (req_mortality_data){
+
+    # Reading in the Mortality data file provided by the user
     data_mrt <- readRDS("tmp/data_mrt.RDS")
 
+
+    # Collapsing `Death` counts to create a `Persons` sex category
+    # `Persons` or `3` is just the sum of males and females (or 1 and 2)
+    # Stitches it back to the original `data_inc` data frame
     tmp <- data_mrt %>%
       mutate('sex' = 3) %>%
       group_by(across(-c(counts))) %>%
@@ -1344,6 +1417,10 @@ transform_data <- function(req_mortality_data, req_population_data,
 
     data_mrt <- bind_rows(tmp, data_mrt)
 
+
+    # Identifying the cancer types that don't have all three sex categories
+    # This are assumed to be sex-specific cancers (i.e. Breast cancer)
+    # Once sex-specific cancers are identified, they are removed
     sex_specific_cancers_mrt <- data_mrt %>%
       group_by(cancer.type) %>%
       summarise("sex_specific" = if_else(length(unique(sex)) == 3, true = 0, false = 1),
@@ -1351,18 +1428,55 @@ transform_data <- function(req_mortality_data, req_population_data,
       filter(sex_specific == 1) %>%
       pull(cancer.type)
 
-    # Remove sex-specific cancers from "persons"
     data_mrt <- data_mrt %>%
       filter(!(cancer.type %in% sex_specific_cancers_mrt & sex == 3))
+
+
+    # If an aggregation number is supplied, the data and counts need to collapse
+    # across year to create year ranges that match that number
+    # Aggregation is done by removing the earliest year(s) that don't fit nicely
+    # into a multiple of the aggregate number.
+    # Labels are created and matched to corresponding years
+    if (aggregate_option) {
+      start_year <- min(data_mrt$year)
+      end_year <- max(data_mrt$year)
+
+      new_start_year <- start_year + ((end_year - start_year + 1) %% 5)
+
+      breaks <- seq(new_start_year, end_year + 1, by = 5)
+      lefts <- head(breaks, -1)
+      rights <- tail(breaks, -1) - 1
+      labels <- paste0(lefts, "-", rights)
+
+      data_mrt <- data_mrt %>%
+        filter(year >= new_start_year & year <= end_year) %>%
+        mutate(
+          "year_labs" = cut(
+            year,
+            breaks = breaks,
+            right = FALSE,
+            include.lowest = TRUE,
+            labels = labels
+          ) %>% as.character(),
+          "max_year" = max(rights)
+        )
+    }
+
   }
 
+  # -~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~-~ #
+
+
+
+  # RATES ----
+
+  # Reading in the Population data file provided by the user
   if (req_population_data){
     data_pop <- readRDS("tmp/data_pop.RDS")
   }
 
   # Delete the temporary directory
   unlink("tmp", recursive = TRUE)
-
 
   incProgress(1/4)
 
@@ -1373,9 +1487,10 @@ transform_data <- function(req_mortality_data, req_population_data,
     rename("age.grp" = values,
            "age.grp_string" = ind)
 
-  # Generate rates if required ----
   if (req_population_data){
 
+    # Processing the standard population files
+    # This file is selected by the user and pulled from the package files
     std_pop <- standard_pop %>%
       filter(std_name == std_pop_name) %>%
       mutate("age.grp" = ragegrp) %>%
@@ -1386,10 +1501,18 @@ transform_data <- function(req_mortality_data, req_population_data,
       group_by(age.grp_string) %>%
       mutate("wt" = wght / sum(wght))
 
+    ## Incidence ----
 
-    ## Incidence ## ----
+    # Initialising an empty data frame to be filled from the for-loop below
     data_inc_pop <- data.frame()
 
+
+    # For loop isolates each cancer >
+    #   left joins the population file (by year, sex and age-group) >
+    #   changes any NA values in counts to 0 (you can't calculate rates using NA) >
+    #   add the cancer name back in >
+    #   recreates the `data_inc` file but with population data >
+    #   saves it as `data_inc_pop`
     for (canc in unique(data_inc$cancer.type)){
       tmp_df <- data_inc %>%
         filter(cancer.type == canc)
@@ -1408,200 +1531,79 @@ transform_data <- function(req_mortality_data, req_population_data,
     }
 
 
-    data_inc_annual <- data_inc_pop %>%
-      merge(std_pop) %>%
-      mutate(
-        "rates" = counts / population * wght * 100000,
-        "agspfc" = if_else(age.grp == 18, true = 0, false = counts / population * 100000)
-      ) %>%
-      group_by(year, sex, cancer.type) %>%
-      summarise("Counts" = sum(counts),
-                "Rates" = sum(rates),
-                "agspfc" = sum(agspfc),
-                .groups = 'drop') %>%
-      mutate("cum_rate" = 5 * agspfc * 100 / 100000,
-             "ltr" = 1 / 1 - exp(-cum_rate/100)) %>%
-      dplyr::select(-c(agspfc, cum_rate)) %>%
-      pivot_longer(cols = c("Counts", "Rates", "ltr"),
-                   names_to = "measure",
-                   values_to = "obs")
+    ### Rates calculations ----
 
+    #### Aggregation ----
+    if (aggregate_option) {
+      data_inc_agg_pop <- data_inc_pop %>%
+        group_by(year_labs, sex, cancer.type, age.grp) %>%
+        summarise("counts" = sum(counts),
+                  "population" = sum(population)) %>%
+        ungroup() %>%
+        rename("year" = year_labs)
 
-    # Add in trends - need to do for each cancer type, for each sex
-    data_inc_annual_tmp <- data.frame()
-
-    for (canc in unique(data_inc_annual$cancer.type)){
-      for (sex_i in unique(data_inc_annual$sex)){
-
-        filt_df <- data_inc_annual %>%
-          filter(cancer.type == canc,
-                 sex == sex_i)
-
-        filt_df_wide <- filt_df %>%
-          pivot_wider(names_from = "measure", values_from = "obs")
-
-
-        tmp_counts <- suppressWarnings(fit_trendline(filt_df_wide, "year", "Counts", rates_req = FALSE)) %>%
-          dplyr::select(-c(Rates, ltr)) %>%
-          rename("Trend_Counts" = Trend,
-                 "Trend_Counts_lower_ci" = lower_ci,
-                 "Trend_Counts_upper_ci" = upper_ci)
-
-        tmp_rates <- suppressWarnings(fit_trendline(filt_df_wide, "year", "Rates", rates_req = TRUE)) %>%
-          dplyr::select(-c(Counts, ltr)) %>%
-          rename("Trend_Rates" = Trend,
-                 "Trend_Rates_lower_ci" = lower_ci,
-                 "Trend_Rates_upper_ci" = upper_ci)
-
-        dat_merge <- merge(tmp_counts, tmp_rates)
-
-        # Just observed data
-        dat_merge_obs_long <- dat_merge %>%
-          dplyr::select(-contains(c("Trend", "apc", "signif"))) %>%
-          pivot_longer(cols = c("Counts", "Rates"),
-                       names_to = "measure",
-                       values_to = "obs")
-
-
-        # Just trend data
-        dat_merge_trend_long <- dat_merge %>%
-          dplyr::select(-c("Counts", "Rates")) %>%
-          rename("Counts_obs" = Trend_Counts,
-                 "Rates_obs" = Trend_Rates,
-                 "Counts_lower.ci" = Trend_Counts_lower_ci,
-                 "Counts_upper.ci" = Trend_Counts_upper_ci,
-                 "Rates_lower.ci" = Trend_Rates_lower_ci,
-                 "Rates_upper.ci" = Trend_Rates_upper_ci) %>%
-          pivot_longer(cols = c("Counts_obs", "Rates_obs",
-                                "Counts_lower.ci", "Counts_upper.ci",
-                                "Rates_lower.ci", "Rates_upper.ci"),
-                       names_to = c("measure", "type"),
-                       names_sep = "_",
-                       values_to = "obs_trend") %>%
-          # Spread the 'type' to 'lower.ci' and 'upper.ci'
-          pivot_wider(names_from = "type", values_from = "obs_trend") %>%
-          rename("obs_trend" = obs,
-                 "lower.ci_trend" = lower.ci,
-                 "upper.ci_trend" = upper.ci)
-
-
-
-
-        dat <- merge(
-          dat_merge_obs_long,
-          dat_merge_trend_long
-
-          # dat_merge %>%
-          #   dplyr::select(-c("Counts", "Rates")) %>%
-          #   rename("Counts" = Trend_Counts,
-          #          "Rates" = Trend_Rates) %>%
-          #   pivot_longer(cols = c("Counts", "Rates"),
-          #                names_to = "measure",
-          #                values_to = "obs_trend")
+      # Annual (By Year Graph)
+      data_inc_annual <- data_inc_agg_pop %>%
+        merge(std_pop) %>%
+        mutate(
+          "rates" = counts / population * wght * 100000,
+          "agspfc" = if_else(age.grp == 18, true = 0, false = counts / population * 100000)
         ) %>%
-          relocate(c(tidyr::starts_with("apc"), "signif"), .after = tidyr::last_col())
+        group_by(year, sex, cancer.type) %>%
+        summarise("Counts" = sum(counts),
+                  "Rates" = sum(rates),
+                  "agspfc" = sum(agspfc),
+                  .groups = 'drop') %>%
+        mutate("cum_rate" = 5 * agspfc * 100 / 100000,
+               "ltr" = 1 / 1 - exp(-cum_rate/100)) %>%
+        dplyr::select(-c(agspfc, cum_rate)) %>%
+        pivot_longer(cols = c("Counts", "Rates", "ltr"),
+                     names_to = "measure",
+                     values_to = "obs") %>%
+        filter(obs != 0)
 
-        dat_final <- bind_rows(
-          filt_df %>%
-            filter(measure == "ltr"),
-          dat)
+      # Age-group (By Age Group Graph)
+      data_inc_age <- data_inc_agg_pop %>%
+        merge(std_pop_grouped) %>%
+        mutate("Rates" = counts / population * wt * 100000) %>%
+        rename("Counts" = counts) %>%
+        pivot_longer(cols = c("Counts", "Rates"),
+                     names_to = "measure",
+                     values_to = "obs") %>%
+        dplyr::select(-population) %>%
+        merge(age_grps) %>%
+        group_by(across(-c(obs, age.grp, wght, wt))) %>%
+        summarise("obs" = sum(obs),
+                  .groups = 'drop') %>%
+        filter(obs != 0)
 
-        data_inc_annual_tmp <- bind_rows(data_inc_annual_tmp, dat_final)
-      }
+      # Averages (By Cancer Graph)
+      data_inc_average <- data_inc_pop %>%
+        filter(year >= max(year) - 4) %>%
+        group_by(sex, age.grp, cancer.type, nonsense) %>%
+        summarise("counts" = sum(counts),
+                  "population" = sum(population),
+                  "year" = paste0(min(year), "-", max(year)),
+                  .groups = 'drop') %>%
+        merge(std_pop) %>%
+        mutate("Rates" = counts / population * wght * 100000) %>%
+        rename("Counts" = counts) %>%
+        group_by(year, sex, cancer.type) %>%
+        summarise("Counts" = sum(Counts)/5,
+                  "Rates" = sum(Rates),
+                  .groups = 'drop') %>%
+        ungroup() %>%
+        pivot_longer(cols = c("Counts", "Rates"),
+                     names_to = "measure",
+                     values_to = "obs")
+
     }
 
-    data_inc_annual <- data_inc_annual_tmp %>%
-      filter(obs != 0)
+    #### No Aggregation ----
+    else {
 
-
-
-    # By age
-    data_inc_age <- data_inc_pop %>%
-      merge(std_pop_grouped) %>%
-      mutate("Rates" = counts / population * wt * 100000) %>%
-      rename("Counts" = counts) %>%
-      pivot_longer(cols = c("Counts", "Rates"),
-                   names_to = "measure",
-                   values_to = "obs") %>%
-      dplyr::select(-population) %>%
-      merge(age_grps) %>%
-      group_by(across(-c(obs, age.grp, wght, wt))) %>%
-      summarise("obs" = sum(obs),
-                .groups = 'drop')
-
-    ### Calculate 5 year averages
-    data_inc_average <- data_inc_pop %>%
-      filter(year >= max(year) - 4) %>%
-      group_by(sex, age.grp, cancer.type) %>%
-      summarise("counts" = sum(counts),
-                "population" = sum(population),
-                "year" = paste0(min(year), "-", max(year)),
-                .groups = 'drop') %>%
-      merge(std_pop) %>%
-      mutate("Rates" = counts / population * wght * 100000) %>%
-      rename("Counts" = counts) %>%
-      group_by(year, sex, cancer.type) %>%
-      summarise("Counts" = sum(Counts)/5,
-                "Rates" = sum(Rates),
-                .groups = 'drop') %>%
-      ungroup() %>%
-      pivot_longer(cols = c("Counts", "Rates"),
-                   names_to = "measure",
-                   values_to = "obs")
-
-    # Remove trend temporarily
-    data_inc_annual_sup <- data_inc_annual %>%
-      dplyr::select(-contains(c("trend", "apc")))
-
-
-    ## Implement suppression - pivot wider then longer so that suppression can occur on counts and rates
-    data_inc_annual <- data_inc_annual_sup %>%
-      pivot_wider(names_from = measure, values_from = obs) %>%
-      mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
-             "Counts" = if_else(suppress == 1, true = NA, false = Counts),
-             "Rates" = if_else(suppress == 1, true = NA, false = Rates)
-      ) %>%
-      pivot_longer(cols = c("Counts", "Rates", "ltr"),
-                   names_to = "measure",
-                   values_to = "obs") %>%
-      merge(data_inc_annual)
-
-    data_inc_age <- data_inc_age  %>%
-      pivot_wider(names_from = measure, values_from = obs) %>%
-      mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
-             "Counts" = if_else(suppress == 1, true = NA, false = Counts),
-             "Rates" = if_else(suppress == 1, true = NA, false = Rates)
-      ) %>%
-      pivot_longer(cols = c("Counts", "Rates"),
-                   names_to = "measure",
-                   values_to = "obs")
-
-
-    incProgress(1/8)
-
-
-    # Mortality ## ----
-    if (req_mortality_data){
-      data_mrt_pop <- data.frame()
-
-      for (canc in unique(data_mrt$cancer.type)){
-        tmp_df <- data_mrt %>%
-          filter(cancer.type == canc)
-
-        tmp_df2 <- data_pop %>%
-          left_join(tmp_df,
-                    by = c("year", "sex", "age.grp"
-                           #geog.loc_var
-                    )
-          ) %>%
-          mutate("counts" = if_else(is.na(counts), true = 0, false = counts))
-
-        tmp_df2$cancer.type <- canc
-
-        data_mrt_pop <- bind_rows(data_mrt_pop, tmp_df2)
-      }
-
-      data_mrt_annual <- data_mrt_pop %>%
+      # Annual (By Year Graph)
+      data_inc_annual <- data_inc_pop %>%
         merge(std_pop) %>%
         mutate(
           "rates" = counts / population * wght * 100000,
@@ -1619,13 +1621,13 @@ transform_data <- function(req_mortality_data, req_population_data,
                      names_to = "measure",
                      values_to = "obs")
 
-      # Add in trends - need to do for each cancer type, for each sex
-      data_mrt_annual_tmp <- data.frame()
+      # Add Trends (By Year Graph)
+      data_inc_annual_tmp <- data.frame()
 
-      for (canc in unique(data_mrt_annual$cancer.type)){
-        for (sex_i in unique(data_mrt_annual$sex)){
+      for (canc in unique(data_inc_annual$cancer.type)){
+        for (sex_i in unique(data_inc_annual$sex)){
 
-          filt_df <- data_mrt_annual %>%
+          filt_df <- data_inc_annual %>%
             filter(cancer.type == canc,
                    sex == sex_i)
 
@@ -1676,9 +1678,6 @@ transform_data <- function(req_mortality_data, req_population_data,
                    "lower.ci_trend" = lower.ci,
                    "upper.ci_trend" = upper.ci)
 
-
-
-
           dat <- merge(
             dat_merge_obs_long,
             dat_merge_trend_long
@@ -1698,16 +1697,15 @@ transform_data <- function(req_mortality_data, req_population_data,
               filter(measure == "ltr"),
             dat)
 
-          data_mrt_annual_tmp <- bind_rows(data_mrt_annual_tmp, dat_final)
+          data_inc_annual_tmp <- bind_rows(data_inc_annual_tmp, dat_final)
         }
       }
 
-      data_mrt_annual <- data_mrt_annual_tmp %>%
+      data_inc_annual <- data_inc_annual_tmp %>%
         filter(obs != 0)
 
-
-      # By age
-      data_mrt_age <- data_mrt_pop %>%
+      # Age (By Age Group Graph)
+      data_inc_age <- data_inc_pop %>%
         merge(std_pop_grouped) %>%
         mutate("Rates" = counts / population * wt * 100000) %>%
         rename("Counts" = counts) %>%
@@ -1720,9 +1718,8 @@ transform_data <- function(req_mortality_data, req_population_data,
         summarise("obs" = sum(obs),
                   .groups = 'drop')
 
-
-      ### Calculate 5 year averages
-      data_mrt_average <- data_mrt_pop %>%
+      # Averages (By Cancer Graph)
+      data_inc_average <- data_inc_pop %>%
         filter(year >= max(year) - 4) %>%
         group_by(sex, age.grp, cancer.type) %>%
         summarise("counts" = sum(counts),
@@ -1741,11 +1738,292 @@ transform_data <- function(req_mortality_data, req_population_data,
                      names_to = "measure",
                      values_to = "obs")
 
+    }
+
+
+    ### Suppression ----
+
+    # Remove trend temporarily
+    data_inc_annual_sup <- data_inc_annual %>%
+      dplyr::select(-contains(c("trend", "apc")))
+
+    # Implement suppression
+    # Pivot wider then longer so that suppression can occur on counts and rates
+    data_inc_annual <- data_inc_annual_sup %>%
+      pivot_wider(names_from = measure, values_from = obs) %>%
+      mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
+             "Counts" = if_else(suppress == 1, true = NA, false = Counts),
+             "Rates" = if_else(suppress == 1, true = NA, false = Rates)
+      ) %>%
+      pivot_longer(cols = c("Counts", "Rates", "ltr"),
+                   names_to = "measure",
+                   values_to = "obs") %>%
+      merge(data_inc_annual)
+
+    data_inc_age <- data_inc_age  %>%
+      pivot_wider(names_from = measure, values_from = obs) %>%
+      mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
+             "Counts" = if_else(suppress == 1, true = NA, false = Counts),
+             "Rates" = if_else(suppress == 1, true = NA, false = Rates)
+      ) %>%
+      pivot_longer(cols = c("Counts", "Rates"),
+                   names_to = "measure",
+                   values_to = "obs")
+
+    incProgress(1/8)
+
+
+
+    ## Mortality ----
+
+    if (req_mortality_data){
+
+      # Initialising an empty data frame to be filled from the for-loop below
+      data_mrt_pop <- data.frame()
+
+      # For loop isolates each cancer >
+      #   left joins the population file (by year, sex and age-group) >
+      #   changes any NA values in counts to 0 (you can't calculate rates using NA) >
+      #   add the cancer name back in >
+      #   recreates the `data_inc` file but with population data >
+      #   saves it as `data_inc_pop`
+      for (canc in unique(data_mrt$cancer.type)){
+        tmp_df <- data_mrt %>%
+          filter(cancer.type == canc)
+
+        tmp_df2 <- data_pop %>%
+          left_join(tmp_df,
+                    by = c("year", "sex", "age.grp"
+                           #geog.loc_var
+                    )
+          ) %>%
+          mutate("counts" = if_else(is.na(counts), true = 0, false = counts))
+
+        tmp_df2$cancer.type <- canc
+
+        data_mrt_pop <- bind_rows(data_mrt_pop, tmp_df2)
+      }
+
+
+      ### Rates calculations ----
+
+      #### Aggregation ----
+      if (aggregate_option) {
+        data_mrt_agg_pop <- data_mrt_pop %>%
+          group_by(year_labs, sex, cancer.type, age.grp) %>%
+          summarise("counts" = sum(counts),
+                    "population" = sum(population)) %>%
+          ungroup() %>%
+          rename("year" = year_labs)
+
+        # Annual (By Year Graph)
+        data_mrt_annual <- data_mrt_agg_pop %>%
+          merge(std_pop) %>%
+          mutate(
+            "rates" = counts / population * wght * 100000,
+            "agspfc" = if_else(age.grp == 18, true = 0, false = counts / population * 100000)
+          ) %>%
+          group_by(year, sex, cancer.type) %>%
+          summarise("Counts" = sum(counts),
+                    "Rates" = sum(rates),
+                    "agspfc" = sum(agspfc),
+                    .groups = 'drop') %>%
+          mutate("cum_rate" = 5 * agspfc * 100 / 100000,
+                 "ltr" = 1 / 1 - exp(-cum_rate/100)) %>%
+          dplyr::select(-c(agspfc, cum_rate)) %>%
+          pivot_longer(cols = c("Counts", "Rates", "ltr"),
+                       names_to = "measure",
+                       values_to = "obs") %>%
+          filter(obs != 0)
+
+        # Age (By Age Group Graph)
+        data_mrt_age <- data_mrt_agg_pop %>%
+          merge(std_pop_grouped) %>%
+          mutate("Rates" = counts / population * wt * 100000) %>%
+          rename("Counts" = counts) %>%
+          pivot_longer(cols = c("Counts", "Rates"),
+                       names_to = "measure",
+                       values_to = "obs") %>%
+          dplyr::select(-population) %>%
+          merge(age_grps) %>%
+          group_by(across(-c(obs, age.grp, wght, wt))) %>%
+          summarise("obs" = sum(obs),
+                    .groups = 'drop') %>%
+          filter(obs != 0)
+
+        # Averages (By Cancer Graph)
+        data_mrt_average <- data_mrt_pop %>%
+          filter(year >= max(year) - 4) %>%
+          group_by(sex, age.grp, cancer.type) %>%
+          summarise("counts" = sum(counts),
+                    "population" = sum(population),
+                    "year" = paste0(min(year), "-", max(year)),
+                    .groups = 'drop') %>%
+          merge(std_pop) %>%
+          mutate("Rates" = counts / population * wght * 100000) %>%
+          rename("Counts" = counts) %>%
+          group_by(year, sex, cancer.type) %>%
+          summarise("Counts" = sum(Counts)/5,
+                    "Rates" = sum(Rates),
+                    .groups = 'drop') %>%
+          ungroup() %>%
+          pivot_longer(cols = c("Counts", "Rates"),
+                       names_to = "measure",
+                       values_to = "obs")
+
+      }
+
+      #### No Aggregation ----
+      else {
+
+        # Annual (By Year Graph)
+        data_mrt_annual <- data_mrt_pop %>%
+          merge(std_pop) %>%
+          mutate(
+            "rates" = counts / population * wght * 100000,
+            "agspfc" = if_else(age.grp == 18, true = 0, false = counts / population * 100000)
+          ) %>%
+          group_by(year, sex, cancer.type) %>%
+          summarise("Counts" = sum(counts),
+                    "Rates" = sum(rates),
+                    "agspfc" = sum(agspfc),
+                    .groups = 'drop') %>%
+          mutate("cum_rate" = 5 * agspfc * 100 / 100000,
+                 "ltr" = 1 / 1 - exp(-cum_rate/100)) %>%
+          dplyr::select(-c(agspfc, cum_rate)) %>%
+          pivot_longer(cols = c("Counts", "Rates", "ltr"),
+                       names_to = "measure",
+                       values_to = "obs")
+
+        # Add Trends
+        data_mrt_annual_tmp <- data.frame()
+
+        for (canc in unique(data_mrt_annual$cancer.type)){
+          for (sex_i in unique(data_mrt_annual$sex)){
+
+            filt_df <- data_mrt_annual %>%
+              filter(cancer.type == canc,
+                     sex == sex_i)
+
+            filt_df_wide <- filt_df %>%
+              pivot_wider(names_from = "measure", values_from = "obs")
+
+
+            tmp_counts <- suppressWarnings(fit_trendline(filt_df_wide, "year", "Counts", rates_req = FALSE)) %>%
+              dplyr::select(-c(Rates, ltr)) %>%
+              rename("Trend_Counts" = Trend,
+                     "Trend_Counts_lower_ci" = lower_ci,
+                     "Trend_Counts_upper_ci" = upper_ci)
+
+            tmp_rates <- suppressWarnings(fit_trendline(filt_df_wide, "year", "Rates", rates_req = TRUE)) %>%
+              dplyr::select(-c(Counts, ltr)) %>%
+              rename("Trend_Rates" = Trend,
+                     "Trend_Rates_lower_ci" = lower_ci,
+                     "Trend_Rates_upper_ci" = upper_ci)
+
+            dat_merge <- merge(tmp_counts, tmp_rates)
+
+            # Just observed data
+            dat_merge_obs_long <- dat_merge %>%
+              dplyr::select(-contains(c("Trend", "apc", "signif"))) %>%
+              pivot_longer(cols = c("Counts", "Rates"),
+                           names_to = "measure",
+                           values_to = "obs")
+
+
+            # Just trend data
+            dat_merge_trend_long <- dat_merge %>%
+              dplyr::select(-c("Counts", "Rates")) %>%
+              rename("Counts_obs" = Trend_Counts,
+                     "Rates_obs" = Trend_Rates,
+                     "Counts_lower.ci" = Trend_Counts_lower_ci,
+                     "Counts_upper.ci" = Trend_Counts_upper_ci,
+                     "Rates_lower.ci" = Trend_Rates_lower_ci,
+                     "Rates_upper.ci" = Trend_Rates_upper_ci) %>%
+              pivot_longer(cols = c("Counts_obs", "Rates_obs",
+                                    "Counts_lower.ci", "Counts_upper.ci",
+                                    "Rates_lower.ci", "Rates_upper.ci"),
+                           names_to = c("measure", "type"),
+                           names_sep = "_",
+                           values_to = "obs_trend") %>%
+              # Spread the 'type' to 'lower.ci' and 'upper.ci'
+              pivot_wider(names_from = "type", values_from = "obs_trend") %>%
+              rename("obs_trend" = obs,
+                     "lower.ci_trend" = lower.ci,
+                     "upper.ci_trend" = upper.ci)
+
+            dat <- merge(
+              dat_merge_obs_long,
+              dat_merge_trend_long
+
+              # dat_merge %>%
+              #   dplyr::select(-c("Counts", "Rates")) %>%
+              #   rename("Counts" = Trend_Counts,
+              #          "Rates" = Trend_Rates) %>%
+              #   pivot_longer(cols = c("Counts", "Rates"),
+              #                names_to = "measure",
+              #                values_to = "obs_trend")
+            ) %>%
+              relocate(c(tidyr::starts_with("apc"), "signif"), .after = tidyr::last_col())
+
+            dat_final <- bind_rows(
+              filt_df %>%
+                filter(measure == "ltr"),
+              dat)
+
+            data_mrt_annual_tmp <- bind_rows(data_mrt_annual_tmp, dat_final)
+          }
+        }
+
+        data_mrt_annual <- data_mrt_annual_tmp %>%
+          filter(obs != 0)
+
+        # Age (By Age Group Graph)
+        data_mrt_age <- data_mrt_pop %>%
+          merge(std_pop_grouped) %>%
+          mutate("Rates" = counts / population * wt * 100000) %>%
+          rename("Counts" = counts) %>%
+          pivot_longer(cols = c("Counts", "Rates"),
+                       names_to = "measure",
+                       values_to = "obs") %>%
+          dplyr::select(-population) %>%
+          merge(age_grps) %>%
+          group_by(across(-c(obs, age.grp, wght, wt))) %>%
+          summarise("obs" = sum(obs),
+                    .groups = 'drop')
+
+        # Averages (By Cancer Graph)
+        data_mrt_average <- data_mrt_pop %>%
+          filter(year >= max(year) - 4) %>%
+          group_by(sex, age.grp, cancer.type) %>%
+          summarise("counts" = sum(counts),
+                    "population" = sum(population),
+                    "year" = paste0(min(year), "-", max(year)),
+                    .groups = 'drop') %>%
+          merge(std_pop) %>%
+          mutate("Rates" = counts / population * wght * 100000) %>%
+          rename("Counts" = counts) %>%
+          group_by(year, sex, cancer.type) %>%
+          summarise("Counts" = sum(Counts)/5,
+                    "Rates" = sum(Rates),
+                    .groups = 'drop') %>%
+          ungroup() %>%
+          pivot_longer(cols = c("Counts", "Rates"),
+                       names_to = "measure",
+                       values_to = "obs")
+
+      }
+
+
+      ### Suppression ----
+
+      # Remove trend temporarily
       data_mrt_annual_sup <- data_mrt_annual %>%
         dplyr::select(-contains(c("trend", "apc")))
 
 
-      ## Implement suppression
+      # Implement suppression
+      # Pivot wider then longer so that suppression can occur on counts and rates
       data_mrt_annual <- data_mrt_annual_sup %>%
         pivot_wider(names_from = measure, values_from = obs) %>%
         mutate("suppress" = if_else(Counts < suppress_threshold, true = 1, false = 0),
@@ -1768,35 +2046,80 @@ transform_data <- function(req_mortality_data, req_population_data,
                      values_to = "obs")
 
     }
+
     incProgress(1/8)
+
   }
 
-  # If rates are not required ----
+  # -~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~--~-~-~-~-~-~-~-~ #
+
+  # NO RATES ----
+
   else{
-    ## Incidence ## ----
-    data_inc_annual <- data_inc %>%
-      group_by(year, sex, cancer.type) %>%
-      summarise("obs" = sum(counts),
-                "measure" = "Counts",
-                .groups = 'drop')
 
-    data_inc_age <- data_inc %>%
-      mutate("obs" = counts,
-             "measure" = "Counts") %>%
-      merge(age_grps) %>%
-      group_by(across(-c(obs, age.grp, counts))) %>%
-      summarise("obs" = sum(obs),
-                .groups = 'drop')
+    ## Incidence ----
 
-    ### Calculate 5 year averages
-    data_inc_average <- data_inc_annual %>%
-      filter(year >= max(year) - 4) %>%
-      group_by(sex, cancer.type, measure) %>%
-      summarise("year" = paste0(min(year), "-", max(year)),
-                "obs" = sum(obs)/5,
-                .groups = 'drop')
+    ### Aggregation ----
+    if (aggregate_option) {
 
-    # Add in trends - need to do for each cancer type, for each sex
+      data_aggregate <- data_inc %>%
+        group_by(year_labs, sex, cancer.type, age.grp, max_year) %>%
+        summarise("counts" = sum(counts)) %>%
+        ungroup() %>%
+        rename("year" = year_labs)
+
+      data_inc_annual <- data_inc %>%
+        group_by(year, sex, cancer.type, max_year) %>%
+        summarise("obs" = sum(counts),
+                  "measure" = "Counts",
+                  .groups = 'drop')
+
+      data_inc_age <- data_aggregate %>%
+        mutate("obs" = counts,
+               "measure" = "Counts") %>%
+        merge(age_grps) %>%
+        group_by(across(-c(obs, age.grp, counts))) %>%
+        summarise("obs" = sum(obs),
+                  .groups = 'drop')
+
+      ### Calculate 5 year averages
+      data_inc_average <- data_inc_annual %>%
+        filter(year >= max(year) - 4) %>%
+        group_by(sex, cancer.type, measure) %>%
+        summarise("year" = paste0(min(year), "-", max(year)),
+                  "obs" = sum(obs)/5,
+                  .groups = 'drop')
+
+    }
+
+    ### No Aggregation ----
+    else {
+
+      data_inc_annual <- data_inc %>%
+        group_by(year, sex, cancer.type) %>%
+        summarise("obs" = sum(counts),
+                  "measure" = "Counts",
+                  .groups = 'drop')
+
+      data_inc_age <- data_inc %>%
+        mutate("obs" = counts,
+               "measure" = "Counts") %>%
+        merge(age_grps) %>%
+        group_by(across(-c(obs, age.grp, counts))) %>%
+        summarise("obs" = sum(obs),
+                  .groups = 'drop')
+
+      ### Calculate 5 year averages
+      data_inc_average <- data_inc_annual %>%
+        filter(year >= max(year) - 4) %>%
+        group_by(sex, cancer.type, measure) %>%
+        summarise("year" = paste0(min(year), "-", max(year)),
+                  "obs" = sum(obs)/5,
+                  .groups = 'drop')
+
+    }
+
+    # Add in trends to annual before aggregating
     data_inc_annual_tmp <- data.frame()
 
     for (canc in unique(data_inc_annual$cancer.type)){
@@ -1817,10 +2140,39 @@ transform_data <- function(req_mortality_data, req_population_data,
       }
     }
 
-    data_inc_annual <- data_inc_annual_tmp %>%
-      filter(obs != 0)
+    # Finalising the Annual data frame
+    if (aggregate_option) {
 
-    ### Implement suppression
+      data_inc_annual <- data_inc_annual_tmp %>%
+        filter(obs != 0,
+               year >= new_start_year & year <= end_year) %>%
+        mutate(
+          "year_labs" = cut(
+            year,
+            breaks = breaks,
+            right = FALSE,
+            include.lowest = TRUE,
+            labels = labels
+          ) %>% as.character(),
+          "max_year" = max(rights)
+        ) %>%
+        group_by(year_labs, sex, cancer.type, measure, max_year) %>%
+        summarise("obs" = sum(obs),
+                  "obs_trend" = sum(obs_trend),
+                  "lower.ci_trend" = sum(lower.ci_trend),
+                  "upper.ci_trend" = sum(upper.ci_trend)) %>%
+        ungroup() %>%
+        rename("year" = year_labs)
+
+    } else {
+
+      data_inc_annual <- data_inc_annual_tmp %>%
+        filter(obs != 0)
+
+    }
+
+
+    ### Suppression ----
     data_inc_annual <- data_inc_annual %>%
       mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
              "obs" = if_else(suppress == 1, true = NA, false = obs))
@@ -1829,30 +2181,98 @@ transform_data <- function(req_mortality_data, req_population_data,
       mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
              "obs" = if_else(suppress == 1, true = NA, false = obs))
 
-    # Mortality ## ----
+
+    ## Mortality ----
+
+    ### Aggregation ----
     if (req_mortality_data){
 
-      data_mrt_annual <- data_mrt %>%
-        group_by(year, sex, cancer.type) %>%
-        summarise("obs" = sum(counts),
-                  "measure" = "Counts",
-                  .groups = 'drop')
+      if (aggregate_option) {
 
-      data_mrt_age <- data_mrt %>%
-        mutate("obs" = counts,
-               "measure" = "Counts") %>%
-        merge(age_grps) %>%
-        group_by(across(-c(obs, age.grp, counts))) %>%
-        summarise("obs" = sum(obs),
-                  .groups = 'drop')
+        data_aggregate <- data_mrt %>%
+          group_by(year_labs, sex, cancer.type, age.grp, max_year) %>%
+          summarise("counts" = sum(counts)) %>%
+          ungroup() %>%
+          rename("year" = year_labs)
 
-      ### Calculate 5 year averages
-      data_mrt_average <- data_mrt_annual %>%
-        filter(year >= max(year) - 4) %>%
-        group_by(sex, cancer.type, measure) %>%
-        summarise("year" = paste0(min(year), "-", max(year)),
-                  "obs" = sum(obs)/5,
-                  .groups = 'drop')
+        data_mrt_annual <- data_mrt %>%
+          group_by(year, sex, cancer.type, max_year) %>%
+          summarise("obs" = sum(counts),
+                    "measure" = "Counts",
+                    .groups = 'drop')
+
+        data_mrt_age <- data_aggregate %>%
+          mutate("obs" = counts,
+                 "measure" = "Counts") %>%
+          merge(age_grps) %>%
+          group_by(across(-c(obs, age.grp, counts))) %>%
+          summarise("obs" = sum(obs),
+                    .groups = 'drop')
+
+        ### Calculate 5 year averages
+        data_mrt_average <- data_mrt_annual %>%
+          filter(year >= max(year) - 4) %>%
+          group_by(sex, cancer.type, measure) %>%
+          summarise("year" = paste0(min(year), "-", max(year)),
+                    "obs" = sum(obs)/5,
+                    .groups = 'drop')
+
+      }
+
+      ### No Aggregation ----
+      else {
+
+        data_mrt_annual <- data_mrt %>%
+          group_by(year, sex, cancer.type) %>%
+          summarise("obs" = sum(counts),
+                    "measure" = "Counts",
+                    .groups = 'drop')
+
+        data_mrt_age <- data_mrt %>%
+          mutate("obs" = counts,
+                 "measure" = "Counts") %>%
+          merge(age_grps) %>%
+          group_by(across(-c(obs, age.grp, counts))) %>%
+          summarise("obs" = sum(obs),
+                    .groups = 'drop')
+
+        # Calculate 5 year averages
+        data_mrt_average <- data_mrt_annual %>%
+          filter(year >= max(year) - 4) %>%
+          group_by(sex, cancer.type, measure) %>%
+          summarise("year" = paste0(min(year), "-", max(year)),
+                    "obs" = sum(obs)/5,
+                    .groups = 'drop')
+
+      }
+
+      # data_mrt <- data_mrt %>%
+      #   group_by(year_labs, sex, cancer.type, age.grp) %>%
+      #   summarise("counts" = sum(counts)) %>%
+      #   ungroup() %>%
+      #   rename("year" = year_labs)
+      #
+      # data_mrt_annual <- data_mrt %>%
+      #   group_by(year, sex, cancer.type) %>%
+      #   summarise("obs" = sum(counts),
+      #             "measure" = "Counts",
+      #             .groups = 'drop')
+      #
+      # data_mrt_age <- data_mrt %>%
+      #   mutate("obs" = counts,
+      #          "measure" = "Counts") %>%
+      #   merge(age_grps) %>%
+      #   group_by(across(-c(obs, age.grp, counts))) %>%
+      #   summarise("obs" = sum(obs),
+      #             .groups = 'drop')
+      #
+      # ### Calculate 5 year averages
+      # data_mrt_average <- data_mrt_annual %>%
+      #   filter(year >= max(year) - 4) %>%
+      #   group_by(sex, cancer.type, measure) %>%
+      #   summarise("year" = paste0(min(year), "-", max(year)),
+      #             "obs" = sum(obs)/5,
+      #             .groups = 'drop')
 
       # Add in trends - need to do for each cancer type, for each sex
       data_mrt_annual_tmp <- data.frame()
@@ -1875,10 +2295,40 @@ transform_data <- function(req_mortality_data, req_population_data,
         }
       }
 
-      data_mrt_annual <- data_mrt_annual_tmp %>%
-        filter(obs != 0)
+      if (aggregate_option) {
 
-      ### Implement suppression
+        data_mrt_annual <- data_mrt_annual_tmp %>%
+          filter(obs != 0,
+                 year >= new_start_year & year <= end_year) %>%
+          mutate(
+            "year_labs" = cut(
+              year,
+              breaks = breaks,
+              right = FALSE,
+              mrtlude.lowest = TRUE,
+              labels = labels
+            ) %>% as.character(),
+            "max_year" = max(rights)
+          ) %>%
+          group_by(year_labs, sex, cancer.type, measure, max_year) %>%
+          summarise("obs" = sum(obs),
+                    "obs_trend" = sum(obs_trend),
+                    "lower.ci_trend" = sum(lower.ci_trend),
+                    "upper.ci_trend" = sum(upper.ci_trend)) %>%
+          ungroup() %>%
+          rename("year" = year_labs)
+
+      } else {
+
+        data_mrt_annual <- data_mrt_annual_tmp %>%
+          filter(obs != 0)
+
+      }
+
+      # data_mrt_annual <- data_mrt_annual_tmp %>%
+      #   filter(obs != 0)
+
+      ### Implement suppression ----
       data_mrt_annual <- data_mrt_annual %>%
         mutate("suppress" = if_else(measure == "Counts" & obs < suppress_threshold, true = 1, false = 0),
                "obs" = if_else(suppress == 1, true = NA, false = obs))
@@ -1970,6 +2420,8 @@ fit_trendline <- function(data, x_val, y_val, rates_req){
 
   data <- data %>% arrange(!!ensym(x_val))
 
+  n_obs <- nrow(data)
+  seg_size <- max(2, floor(n_obs / 3))
 
   # Run regression on natural log scale if calculating rates
   if(rates_req){
@@ -1988,7 +2440,7 @@ fit_trendline <- function(data, x_val, y_val, rates_req){
   bp <- breakpoints(as.formula(paste0(y_val, " ~ ", x_val)),
                     data = data,
                     breaks = max_joins,
-                    h = 5)
+                    h = seg_size)
 
   breakpoints <- data[[x_val]][bp$breakpoints]
 
@@ -2000,11 +2452,13 @@ fit_trendline <- function(data, x_val, y_val, rates_req){
   if(any(is.na(breakpoints))){
 
     # Run lm model preds
-    preds <- predict(o,
-                     newdata = data,
-                     se.fit = TRUE, type = "response",
-                     level = 0.95,
-                     interval = "confidence")
+    preds <- predict(
+      o,
+      newdata = data,
+      se.fit = TRUE, type = "response",
+      level = 0.95,
+      interval = "confidence"
+    )
 
 
     ciValues <- data.frame(
@@ -2016,18 +2470,21 @@ fit_trendline <- function(data, x_val, y_val, rates_req){
   }else{
 
     # Fit segmented model, using fixed breakpoints
-    os <- segmented(obj = o,
-                    # Specify the starting breakpoints
-                    psi = breakpoints,
-                    # Don't run any additional iterations - keep them fixed at the supplied values
-                    control = seg.control(it.max = 0)
+    os <- segmented(
+      obj = o,
+      # Specify the starting breakpoints
+      psi = breakpoints,
+      # Don't run any additional iterations - keep them fixed at the supplied values
+      control = seg.control(it.max = 0)
     )
 
-    preds <- predict(os,
-                     newdata = os$model,
-                     se.fit = TRUE, type = "response",
-                     level = 0.95,
-                     interval = "confidence")
+    preds <- predict(
+      os,
+      newdata = os$model,
+      se.fit = TRUE, type = "response",
+      level = 0.95,
+      interval = "confidence"
+    )
 
     ciValues <- data.frame(
       preds$fit,
