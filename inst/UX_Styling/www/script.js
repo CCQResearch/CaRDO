@@ -67,3 +67,9 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log("Script execution finished");
 
 });
+
+$(document).on('click', '#understand', function() {
+    $(this).toggleClass('active');
+    var isActive = $(this).hasClass('active');
+    Shiny.setInputValue('understand_active', isActive, {priority: 'event'});
+  });

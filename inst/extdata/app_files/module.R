@@ -423,7 +423,7 @@ server_module <- function(id){
             HTML(paste(
               stat_text,
               if (input$sex == 3) {"persons"} else {if (input$sex == 1) {"males"} else {"females"}},
-              "</b>are expected to be diagnosed with <b>",
+              if (id == "Diagnosis") {"</b>are expected to be diagnosed with <b>"} else {"</b>are expected to die from <b>"},
               tolower(input$cancer.type),
               "</b> by age 85</span>"
             )

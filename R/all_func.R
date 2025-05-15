@@ -821,22 +821,40 @@ create_dashboard <- function(){
                             input$var_select_inc_counts)
 
             if (input$male_val == input$female_val) {
-              rlang::warn("Sex specified for male and female Incidence/count data is identical. Please select different values")
+              rlang::warn("The values for <b>males</b> and <b>females</b> have to be different:::Please select different values")
               return()
             }
 
             if(length(unique(inputs_inc)) != length(columns_incidence)) {
-              rlang::warn("It looks like you've matched the same variable to multiple labels. Please match the variables to the corresponding label.")
+              rlang::warn("It looks like you've matched the same variable to multiple labels:::Please match the variables to the corresponding label.")
               return()
             }
 
           },
           warning = function(w) {
-            showModal(modalDialog(
-              title = "Input Error",
-              w$message,
-              easyClose = TRUE
-            ))
+
+            parts <- strsplit(w$message, ":::", fixed = TRUE)[[1]]
+
+            showModal(
+              modalDialog(
+                tagList(
+
+                  div(
+                    class = "directory-copy",
+                    span("Mismatched Variables & Labels"),
+                  ),
+                  hr(),
+                  div(
+                    class = "directory-copy",
+                    id = "mismatch",
+                    p(HTML(paste(parts[1]))),
+                    p(HTML(paste(parts[2])))
+                  )
+
+                ),
+                easyClose = TRUE
+              )
+            )
             invokeRestart("muffleWarning")
           }
           )
@@ -861,22 +879,40 @@ create_dashboard <- function(){
                             input$var_select_mrt_counts)
 
             if (input$male_val == input$female_val) {
-              rlang::warn("Sex specified for male and female Mortality/count data is identical. Please select different values")
+              rlang::warn("The values for <b>males</b> and <b>females</b> have to be different:::Please select different values")
               return()
             }
 
             if(length(unique(inputs_mrt)) != length(columns_mortality)) {
-              rlang::warn("It looks like you've matched the same variable to multiple labels. Please match the variables to the corresponding label.")
+              rlang::warn("It looks like you've matched the same variable to multiple labels:::Please match the variables to the corresponding label.")
               return()
             }
 
           },
           warning = function(w) {
-            showModal(modalDialog(
-              title = "Input Error",
-              w$message,
-              easyClose = TRUE
-            ))
+
+            parts <- strsplit(w$message, ":::", fixed = TRUE)[[1]]
+
+            showModal(
+              modalDialog(
+                tagList(
+
+                  div(
+                    class = "directory-copy",
+                    span("Mismatched Variables & Labels"),
+                  ),
+                  hr(),
+                  div(
+                    class = "directory-copy",
+                    id = "mismatch",
+                    p(HTML(paste(parts[1]))),
+                    p(HTML(paste(parts[2])))
+                  )
+
+                ),
+                easyClose = TRUE
+              )
+            )
             invokeRestart("muffleWarning")
           }
           )
@@ -893,22 +929,40 @@ create_dashboard <- function(){
                             input$var_select_pop_population)
 
             if (req_population_data() & length(unique(c(input$male_val_pop, input$female_val_pop))) != 2) {#, input$persons_val_pop))) != 3){
-              rlang::warn("Sex specified for persons, male and female are duplicated. Please select different values")
+              rlang::warn("Sex specified for <b>persons</b>, <b>male</b> and <b>female</b> are duplicated. Please select different values")
               return()
             }
 
             if(length(unique(inputs_pop)) != length(columns_population)) {
-              rlang::warn("It looks like you've matched the same variable to multiple labels. Please match the variables to the corresponding label.")
+              rlang::warn("It looks like you've matched the same variable to multiple labels:::Please match the variables to the corresponding label.")
               return()
             }
 
           },
           warning = function(w) {
-            showModal(modalDialog(
-              title = "Input Error",
-              w$message,
-              easyClose = TRUE
-            ))
+
+            parts <- strsplit(w$message, ":::", fixed = TRUE)[[1]]
+
+            showModal(
+              modalDialog(
+                tagList(
+
+                  div(
+                    class = "directory-copy",
+                    span("Mismatched Variables & Labels"),
+                  ),
+                  hr(),
+                  div(
+                    class = "directory-copy",
+                    id = "mismatch",
+                    p(HTML(paste(parts[1]))),
+                    p(HTML(paste(parts[2])))
+                  )
+
+                ),
+                easyClose = TRUE
+              )
+            )
             invokeRestart("muffleWarning")
           }
           )
@@ -1354,6 +1408,7 @@ create_dashboard <- function(){
     observeEvent(input$confirm, {
       if(input$confirm){stopApp()}
     })
+
 
   }
 

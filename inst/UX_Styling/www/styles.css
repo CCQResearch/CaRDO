@@ -337,6 +337,7 @@ ol {
   margin-bottom: 0.3rem;
 }
 
+/*
 #understand {
   background-color: transparent;
   color: black;
@@ -346,6 +347,7 @@ ol {
   letter-spacing: 0.05rem;
   text-transform: uppercase;
 }
+*/
 
 /*  --------------------------------------------------------------------------*/
 
@@ -492,7 +494,72 @@ ol {
 }
 */
 
-#clipbtn:focus, #understand:focus,  #clipbtn:visited, #understand:visited, #errormsg:focus, #errormsg:visited {
+
+#understand {
+  position: relative;
+  background-color: transparent;
+  color: black;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: 2px solid #BEA540;
+  border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0; /* no gap when inactive */
+}
+
+#understand.active {
+  background-color: #BEA540;
+  color: white;
+  box-shadow: inset 0 0 5px #494949;
+  transform: scale(0.98);
+  gap: 8px; /* add spacing when active */
+}
+
+#understand::after {
+  content: "✔";
+  font-size: 18px;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#understand.active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+
+/*#understand {
+  background-color: transparent;
+  color: black;
+  font-family: 'Barlow';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  border: 2px solid black;
+  transition: all 0.2s ease;
+}
+
+#understand.active {
+  color: black;
+  border-color: #BEA540 !important;
+  background-color: #BEA540 !important;
+  transform: scale(0.98);
+  box-shadow: inset 0 0 10px #494949;
+}
+*/
+#clipbtn:focus  #clipbtn:visited, #errormsg:focus, #errormsg:visited {
   color: black;
   border-color: #BEA540 !important;
   background-color: #BEA540 !important; /* Darker shade for active state */
@@ -550,6 +617,10 @@ ol {
   font-size: inherit;
   margin: inherit;
   padding: 0.5rem 1rem;
+}
+
+#mismatch {
+  align-items: flex-start;
 }
 
 #clipbtn, #errormsg {
