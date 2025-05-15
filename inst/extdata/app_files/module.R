@@ -585,20 +585,31 @@ server_module <- function(id){
                 mode = "lines",
                 line = line_styles[[sex_num]],
                 showlegend = FALSE
+              ) %>%
+              add_trace(
+                data = data_topright() %>% filter(sex == sex_num),
+                x = ~year,
+                y = ~obs,
+                name = sex_name[[sex_num]],
+                type = "scatter",
+                mode = "markers",
+                marker = marker_styles[[sex_num]]
               )
-          }
+          } else {
 
-          plot <- plot %>%
-            add_trace(
-              data = data_topright() %>% filter(sex == sex_num),
-              x = ~year,
-              y = ~obs,
-              name = sex_name[[sex_num]],
-              type = "scatter",
-              mode = "markers",
-              #line = line_styles[[sex_num]]
-              marker = marker_styles[[sex_num]]
-            )
+            plot <- plot %>%
+              add_trace(
+                data = data_topright() %>% filter(sex == sex_num),
+                x = ~year,
+                y = ~obs,
+                name = sex_name[[sex_num]],
+                type = "scatter",
+                mode = "markers+lines",
+                line = line_styles[[sex_num]],
+                marker = marker_styles[[sex_num]]
+              )
+
+          }
         }
 
         plot

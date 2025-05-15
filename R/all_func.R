@@ -533,759 +533,835 @@ create_dashboard <- function(){
           detail = "Please wait",
           value = 0,
           {
-            #geog.loc_var = if(need_geog()) {input$var_select_pop_geog.loc} else {NULL}
+            ####### Temp directory check ----
+            if(!dir.exists("tmp")) {
+              success <- dir.create("tmp", recursive = TRUE)
+              if (!success) stop("Failed to create directory: Check Permissions")
+            }
 
-            ##### tryCatch ----
-            out <- tryCatch({
-              ####### ERROR: Sex Specification ----
-              if (input$male_val == input$female_val) {
-                stop("Sex specified for male and female Incidence/count data is identical - please select different values")
-              }
+            ####### Save Uploaded Incidence Data ----
+            withCallingHandlers({
+              if(!is.null(data_incidence())) {
 
-              ####### ERROR: Sex Specification ----
-              if (req_population_data() & length(unique(c(input$male_val_pop, input$female_val_pop))) != 2) {#, input$persons_val_pop))) != 3){
-                stop("Sex specified for persons, male and female are duplicated - please select different values")
-              }
+                cols_inc <- c("year", "cancer.type", "sex", "age.grp", "counts")
 
-              ####### Temp directory check ----
-              if(!dir.exists("tmp")) {
-                success <- dir.create("tmp", recursive = TRUE)
-                if (!success) stop("Failed to create directory: Check Permissions")
-              }
+                names(cols_inc) <- c(input$var_select_inc_year,
+                                     input$var_select_inc_cancer.type,
+                                     input$var_select_inc_sex,
+                                     input$var_select_inc_age.group,
+                                     input$var_select_inc_counts)
 
-              ####### Save Uploaded Incidence Data ----
-              tryCatch({
-                if(!is.null(data_incidence())) {
+                cols_inc <- cols_inc[names(cols_inc) != "NA"]
 
-                  cols_inc <- c("year", "cancer.type", "sex", "age.grp",
-                                #"geog.loc",
-                                "counts")
+                data_inc <- data_incidence() %>%
+                  dplyr::select(all_of(names(cols_inc)))
 
-                  names(cols_inc) <- c(input$var_select_inc_year,
-                                       input$var_select_inc_cancer.type,
-                                       input$var_select_inc_sex,
-                                       input$var_select_inc_age.group,
-                                       #input$var_select_inc_geog.loc,
-                                       input$var_select_inc_counts)
+                names(data_inc)[names(data_inc) %in% names(cols_inc)] <- unname(cols_inc)
 
-                  cols_inc <- cols_inc[names(cols_inc) != "NA"]
-
-                  data_inc <- data_incidence() %>%
-                    dplyr::select(all_of(names(cols_inc)))
-
-                  names(data_inc)[names(data_inc) %in% names(cols_inc)] <- unname(cols_inc)
-
-                  data_inc <- data_inc %>%
-                    mutate(
-                      "sex" = case_when(
-                        sex == input$male_val ~ 1,
-                        sex == input$female_val ~ 2,
-                        .default = NA
-                      )
-                    ) %>%
-                    filter(!is.na(sex))
-
-                  data_inc$cancer.type <- as.character(data_inc$cancer.type)
-
-
-                  # Generate all cancers if not given
-                  if(input$bool_all_canc == "No"){
-                    tmp <- data_inc %>%
-                      mutate("cancer.type" = "All cancers") %>%
-                      group_by(across(-counts)) %>%
-                      summarise("counts" = sum(counts),
-                                .groups = 'drop')
-
-                    data_inc <- bind_rows(data_inc, tmp)
-                  }
-
-                  saveRDS(data_inc, "tmp/data_inc.RDS")
-
-                }
-              },
-              error = function(e) {stop("Error processing your INCIDENCE data. Please check you've matched your variables correctly.")},
-              warning = function(w) {stop("Warning processing your INCIDENCE data. Please check you've matched your variables correctly.")}
-              )
-
-              ####### Save Uploaded Mortality Data ----
-              tryCatch({
-                if(!is.null(data_mortality())){
-
-                  cols_mrt <- c("year", "cancer.type", "sex", "age.grp",
-                                #"geog.loc",
-                                "counts")
-
-                  names(cols_mrt) <- c(input$var_select_mrt_year,
-                                       input$var_select_mrt_cancer.type,
-                                       input$var_select_mrt_sex,
-                                       input$var_select_mrt_age.group,
-                                       #input$var_select_mrt_geog.loc,
-                                       input$var_select_mrt_counts)
-
-                  cols_mrt <- cols_mrt[names(cols_mrt) != "NA"]
-
-
-                  data_mrt <- data_mortality() %>%
-                    dplyr::select(all_of(names(cols_mrt)))
-
-                  # names(data_mrt)[names(data_mrt) %in% names(cols_mrt)] <- cols_mrt
-
-                  data_mrt <- data_mrt %>%
-                    mutate(
-                      "sex" = case_when(
-                        sex == input$male_val ~ 1,
-                        sex == input$female_val ~ 2,
-                        .default = NA
-                      )
-                    ) %>%
-                    filter(!is.na(sex))
-
-                  data_mrt$cancer.type <- as.character(data_mrt$cancer.type)
-
-                  # Generate all cancers if not given
-                  if(input$bool_all_canc == "No"){
-                    tmp <- data_mrt %>%
-                      mutate("cancer.type" = "All cancers") %>%
-                      group_by(across(-counts)) %>%
-                      summarise("counts" = sum(counts),
-                                .groups = 'drop')
-
-                    data_mrt <- bind_rows(data_mrt, tmp)
-                  }
-
-                  saveRDS(data_mrt, "tmp/data_mrt.RDS")
-                }
-              },
-              error = function(e) {stop("Error processing your MORTALITY data. Please check you've matched your variables correctly.")},
-              warning = function(w) {stop("Warning processing your MORTALITY data. Please check you've matched your variables correctly."}
-              )
-
-                ####### Save Uploaded Population Data ----
-                tryCatch({
-                  if(!is.null(data_population())){
-
-                    cols_pop <- c("year", "sex", "age.grp",
-                                  #"geog.loc",
-                                  "population")
-
-                    names(cols_pop) <- c(input$var_select_pop_year,
-                                         input$var_select_pop_sex,
-                                         input$var_select_pop_age.group,
-                                         #ifelse(is.null(input$var_select_pop_geog.loc), "NA", input$var_select_pop_geog.loc),
-                                         input$var_select_pop_population)
-
-                    cols_pop <- cols_pop[names(cols_pop) != "NA"]
-
-
-                    data_pop <- data_population() %>%
-                      dplyr::select(all_of(names(cols_pop)))
-
-                    names(data_pop)[names(data_pop) %in% names(cols_pop)] <- cols_pop
-
-                    data_pop <- data_pop %>%
-                      mutate(
-                        "sex" = case_when(
-                          sex == input$male_val_pop ~ 1,
-                          sex == input$female_val_pop ~ 2,
-                          .default = NA
-                          # sex == input$persons_val_pop ~ 3
-                        )
-                      ) %>%
-                      filter(!is.na(sex))
-
-                    # Generate sex == 3
-                    tmp <- data_pop %>%
-                      mutate("sex" = 3) %>%
-                      group_by(across(-population)) %>%
-                      summarise("population" = sum(population),
-                                .groups = 'drop') %>%
-                      ungroup()
-
-                    # Add back in to population file
-                    data_pop <- data_pop %>% bind_rows(tmp)
-
-
-                    saveRDS(data_pop, "tmp/data_pop.RDS")
-
-                  }
-                },
-                error = function(e) {stop("Error processing your POPULATION data. Please check you've matched your variables correctly.")},
-                warning = function(w) {stop("Warning processing your POPULATION data. Please check you've matched your variables correctly.")}
-                )
-
-                ####### Save Threshold Value ----
-                suppress_threshold <- input$dashboard_suppression_threshold
-
-                aggregate_option <- input$aggregate_option
-
-                ####### Save All Other Inputs ----
-                supplied_params <- list(
-                  "All cancers" = if(input$bool_all_canc == "No") {"All cancers"}else{input$all_canc_name},
-                  "Dashboard title" = input$dashboard_title,
-                  "Dashboard catchment" = input$dashboard_location,
-                  "Suppression threshold" = suppress_threshold,
-                  "aggregate_option" = aggregate_option
-                )
-
-                ####### Transform Data ----
-                tryCatch({
-
-                  transform_data(
-                    req_mortality_data(), req_population_data(),
-                    standard_pop, input$std_pop_name,
-                    supplied_params,
-                    #geog.loc_var,
-                    suppress_threshold,
-                    aggregate_option
-                  )
-
-                },
-                error = function(e) {stop("Error Transforming Data. Please check your data frame.")},
-                warning = function(w) {stop("Warning Transforming Data. Please check your data frame.")}
-                )
-
-                },
-
-              error = function(e){e},
-              warning = function(w){w}
-
-              ) # tryCatch
-
-              ##### errorhandling ----
-              if(inherits(out, "warning") | inherits(out, "error")) {
-
-                showModal(
-                  modalDialog(
-                    title = "Oops! Something went wrong",
-                    tagList(
-                      p(out$message)
-                      # div(
-                      #   class = "error-details",
-                      #   detailed_message
-                      # )
+                data_inc <- data_inc %>%
+                  mutate(
+                    "sex" = case_when(
+                      sex == input$male_val ~ 1,
+                      sex == input$female_val ~ 2,
+                      .default = NA
                     )
-                  )
-                )
+                  ) %>%
+                  filter(!is.na(sex))
 
-                unlink("Shiny App")
-                unlink("tmp")
+                data_inc$cancer.type <- as.character(data_inc$cancer.type)
 
-              } else {
 
-                confirmSweetAlert(
-                  type = NULL,
-                  inputId = "confirm",
-                  title = HTML("Dashboard Created!"),
-                  text = tagList(
+                # Generate all cancers if not given
+                if(input$bool_all_canc == "No"){
+                  tmp <- data_inc %>%
+                    mutate("cancer.type" = "All cancers") %>%
+                    group_by(across(-counts)) %>%
+                    summarise("counts" = sum(counts),
+                              .groups = 'drop')
+
+                  data_inc <- bind_rows(data_inc, tmp)
+                }
+
+                saveRDS(data_inc, "tmp/data_inc.RDS")
+
+              }
+            }
+            )
+
+            ####### Save Uploaded Mortality Data ----
+            withCallingHandlers({
+              if(!is.null(data_mortality())){
+
+                cols_mrt <- c("year", "cancer.type", "sex", "age.grp", "counts")
+
+                names(cols_mrt) <- c(input$var_select_mrt_year,
+                                     input$var_select_mrt_cancer.type,
+                                     input$var_select_mrt_sex,
+                                     input$var_select_mrt_age.group,
+                                     input$var_select_mrt_counts)
+
+                cols_mrt <- cols_mrt[names(cols_mrt) != "NA"]
+
+
+                data_mrt <- data_mortality() %>%
+                  dplyr::select(all_of(names(cols_mrt)))
+
+                names(data_mrt)[names(data_mrt) %in% names(cols_mrt)] <- cols_mrt
+
+                data_mrt <- data_mrt %>%
+                  mutate(
+                    "sex" = case_when(
+                      sex == input$male_val ~ 1,
+                      sex == input$female_val ~ 2,
+                      .default = NA
+                    )
+                  ) %>%
+                  filter(!is.na(sex))
+
+                data_mrt$cancer.type <- as.character(data_mrt$cancer.type)
+
+                # Generate all cancers if not given
+                if(input$bool_all_canc == "No"){
+                  tmp <- data_mrt %>%
+                    mutate("cancer.type" = "All cancers") %>%
+                    group_by(across(-counts)) %>%
+                    summarise("counts" = sum(counts),
+                              .groups = 'drop')
+
+                  data_mrt <- bind_rows(data_mrt, tmp)
+                }
+
+                saveRDS(data_mrt, "tmp/data_mrt.RDS")
+              }
+            }
+            )
+
+            ####### Save Uploaded Population Data ----
+            withCallingHandlers({
+              if(!is.null(data_population())){
+
+                cols_pop <- c("year", "sex", "age.grp", "population")
+
+                names(cols_pop) <- c(input$var_select_pop_year,
+                                     input$var_select_pop_sex,
+                                     input$var_select_pop_age.group,
+                                     input$var_select_pop_population)
+
+                cols_pop <- cols_pop[names(cols_pop) != "NA"]
+
+
+                data_pop <- data_population() %>%
+                  dplyr::select(all_of(names(cols_pop)))
+
+                names(data_pop)[names(data_pop) %in% names(cols_pop)] <- cols_pop
+
+                data_pop <- data_pop %>%
+                  mutate(
+                    "sex" = case_when(
+                      sex == input$male_val_pop ~ 1,
+                      sex == input$female_val_pop ~ 2,
+                      .default = NA
+                      # sex == input$persons_val_pop ~ 3
+                    )
+                  ) %>%
+                  filter(!is.na(sex))
+
+                # Generate sex == 3
+                tmp <- data_pop %>%
+                  mutate("sex" = 3) %>%
+                  group_by(across(-population)) %>%
+                  summarise("population" = sum(population),
+                            .groups = 'drop') %>%
+                  ungroup()
+
+                # Add back in to population file
+                data_pop <- data_pop %>% bind_rows(tmp)
+
+
+                saveRDS(data_pop, "tmp/data_pop.RDS")
+
+              }
+            }
+            )
+
+            ####### Save Threshold Value ----
+            suppress_threshold <- input$dashboard_suppression_threshold
+
+            aggregate_option <- input$aggregate_option
+
+            ####### Save All Other Inputs ----
+            supplied_params <- list(
+              "All cancers" = if(input$bool_all_canc == "No") {"All cancers"} else {input$all_canc_name},
+              "Dashboard title" = input$dashboard_title,
+              "Dashboard catchment" = input$dashboard_location,
+              "Suppression threshold" = suppress_threshold,
+              "aggregate_option" = aggregate_option
+            )
+
+            ####### Transform Data ----
+            out <- tryCatch({
+
+              transform_data(
+                req_mortality_data(), req_population_data(),
+                standard_pop, input$std_pop_name,
+                supplied_params,
+                suppress_threshold,
+                aggregate_option
+              )
+
+            },
+            error = function(e) {
+              clean_msg <- gsub("\033\\[[0-9;]*m", "", conditionMessage(e))
+              structure(list(message = clean_msg), class = "error")
+            }
+            )
+
+            ##### errorhandling ----
+            if(inherits(out, "warning") | inherits(out, "error")) {
+
+              showModal(
+                modalDialog(
+                  tagList(
 
                     div(
                       class = "directory-copy",
-                      span("So, what's next?"),
-                      tags$ol(
-                        tags$li("Copy and paste the code below into RStudio's", tags$a("console", href = "https://ccqresearch.github.io/CaRDO-Handbook/build-your-dashboard.html", target = "_blank"), "."),
-                        tags$li("Make sure to click", strong("Exit"), "in this window before hitting enter.")
-                      ),
-                      div(
-                        class = "file-path",
-                        tags$code(id = "r-code", "shiny::runApp(.../Shiny App/app.R)")
-                      ),
-                      rclipButton(
-                        inputId = "clipbtn",
-                        label = "Copy to clipboard",
-                        clipText = paste0("shiny::runApp('", file.path(getwd(), "Shiny App/app.R"), "')"),
-                        icon = icon("clipboard")
-                      )
+                      span("There is something wrong with your data."),
+                      tags$pre(out$message)
                     ),
-
                     hr(),
-
                     div(
-                      class = "file-path-div",
-                      tags$p("Alternatively, the application can be located by navigating to the file path below."),
-                      div(
-                        class = "file-path",
-                        file.path(getwd(), "Shiny App")
+                      class = "directory-copy",
+                      span("How can I resolve this?"),
+                      tags$ul(
+                        tags$li("Please refer to the", tags$a("handbook", href = "https://ccqresearch.github.io/CaRDO-Handbook/", target = "_blank"), "for assistance in organising the data you load."),
+                        tags$li("You can copy the error code and search for a solution online."),
+                        tags$li("Please email us at", tags$a("statistics@cancerqld.org.au", href = "mailto:statistics@cancerqld.org.au"), "with the error and someone will be in touch to help out.")
                       )
                     )
-
-                  ),
-                  btn_labels = c("Redo", "Exit")
+                  )
                 )
+              )
 
-              }
-
-} # withProgress }
-) # withProgress )
+              unlink("Shiny App")
+              unlink("tmp")
 
             } else {
 
-              ##### Next Page ----
-              adder <- 1
+              confirmSweetAlert(
+                type = NULL,
+                inputId = "confirm",
+                title = HTML("Dashboard Created!"),
+                text = tagList(
 
-              # Update the current page index - this will in turn update current_page() when it is called
-              if( current_page() == "variable_select_inc"){ # Use the page we're jumping from
-                # If BOTH mortality and population data pages are to be skipped, skip both
-                if (!req_population_data()  & !req_mortality_data()) {
-                  adder <- 3
-                  # Else if we're only skipping mortality, skip mortality
-                } else if(!req_mortality_data()) {
-                  adder <- 2
-                }
-                # If we're currently on mortality, and DON'T require population, skip that
-              } else if(current_page() == "variable_select_mrt"){
-                if(!req_population_data()){
-                  adder <- 2
-                }
-              }
+                  div(
+                    class = "directory-copy",
+                    span("So, what's next?"),
+                    tags$ol(
+                      tags$li("Copy and paste the code below into RStudio's", tags$a("console", href = "https://ccqresearch.github.io/CaRDO-Handbook/build-your-dashboard.html", target = "_blank"), "."),
+                      tags$li("Make sure to click", strong("Exit"), "in this window before hitting enter.")
+                    ),
+                    div(
+                      class = "file-path",
+                      tags$code(id = "r-code", "shiny::runApp(.../Shiny App/app.R)")
+                    ),
+                    rclipButton(
+                      inputId = "clipbtn",
+                      label = "Copy to clipboard",
+                      clipText = paste0("shiny::runApp('", file.path(getwd(), "Shiny App/app.R"), "')"),
+                      icon = icon("clipboard")
+                    )
+                  ),
 
-              current_page_index(current_page_index() + adder)
+                  hr(),
 
-              nav_select(
-                id = "container",
-                selected = current_page()
+                  div(
+                    class = "file-path-div",
+                    tags$p("Alternatively, the application can be located by navigating to the file path below."),
+                    div(
+                      class = "file-path",
+                      file.path(getwd(), "Shiny App")
+                    )
+                  )
+
+                ),
+                btn_labels = c("Redo", "Exit")
               )
 
             }
-      })
 
-        #### EVENT: Previous Button Clicked ----
-        observeEvent(input$previous_page, {
+          } # withProgress }
+        ) # withProgress )
 
-          # Don't execute unless allowed
-          req(current_page_index() > 1)
+      } else {
 
-          subtractor <- 1
+        ##### Next Page ----
+        adder <- 1
 
-          # Update the current page index - this will in turn update current_page() when it is called
-          if( current_page() == "supplied_params"){ # Use the page we're jumping from
-            # If BOTH mortality and population data pages are to be skipped, skip both
-            if (!req_population_data()  & !req_mortality_data()) {
-              subtractor <- 3
-              # Else if we're only skipping population, skip population
-            } else if(!req_population_data()) {
-              subtractor <- 2
+        # Update the current page index - this will in turn update current_page() when it is called
+        if( current_page() == "variable_select_inc"){ # Use the page we're jumping from
+          # If BOTH mortality and population data pages are to be skipped, skip both
+          if (!req_population_data()  & !req_mortality_data()) {
+            adder <- 3
+            # Else if we're only skipping mortality, skip mortality
+          } else if(!req_mortality_data()) {
+            adder <- 2
+          }
+
+          withCallingHandlers({
+
+            columns_incidence <- c("year", "cancer.type", "sex", "age.grp",
+                                   #"geog.loc",
+                                   "counts")
+
+            inputs_inc <- c(input$var_select_inc_year,
+                            input$var_select_inc_cancer.type,
+                            input$var_select_inc_sex,
+                            input$var_select_inc_age.group,
+                            #input$var_select_inc_geog.loc,
+                            input$var_select_inc_counts)
+
+            if (input$male_val == input$female_val) {
+              rlang::warn("Sex specified for male and female Incidence/count data is identical. Please select different values")
+              return()
             }
-            # If we're currently on population, and DON'T require mortality, skip that
-          } else if(current_page() == "variable_select_pop") {
-            if(!req_mortality_data()){
-              subtractor <- 2
+
+            if(length(unique(inputs_inc)) != length(columns_incidence)) {
+              rlang::warn("It looks like you've matched the same variable to multiple labels. Please match the variables to the corresponding label.")
+              return()
             }
+
+          },
+          warning = function(w) {
+            showModal(modalDialog(
+              title = "Input Error",
+              w$message,
+              easyClose = TRUE
+            ))
+            invokeRestart("muffleWarning")
           }
-
-          current_page_index(current_page_index() - subtractor)
-
-          nav_select(
-            id = "container",
-            selected = current_page()
           )
 
-        })
-
-        #### EVENT: Hide Previous Button on First Page ----
-        output$to_hide_previous_btn <- reactive({
-          if(current_page_index() == 1) {
-            return(TRUE)
-          } else {
-            return(FALSE)
-          }
-        })
-        outputOptions(output, 'to_hide_previous_btn', suspendWhenHidden = FALSE)
-
-
-        #### EVENT: Disabling Next/Previous ----
-        observe({
-
-          if(current_page_index() == length(pages)){
-            updateActionButton(inputId = "next_page",
-                               label = "Create Dashboard")
-          }else{
-            updateActionButton(inputId = "next_page",
-                               label = "Next")
+          # If we're currently on mortality, and DON'T require population, skip that
+        } else if(current_page() == "variable_select_mrt") {
+          if(!req_population_data()){
+            adder <- 2
           }
 
-          if (current_page_index() > 1){
-            enable("previous_page")
-          }else{
-            disable("previous_page")
+          withCallingHandlers({
+
+            columns_mortality <- c("year", "cancer.type", "sex", "age.grp",
+                                   #"geog.loc",
+                                   "counts")
+
+            inputs_mrt <- c(input$var_select_mrt_year,
+                            input$var_select_mrt_cancer.type,
+                            input$var_select_mrt_sex,
+                            input$var_select_mrt_age.group,
+                            #input$var_select_mrt_geog.loc,
+                            input$var_select_mrt_counts)
+
+            if (input$male_val == input$female_val) {
+              rlang::warn("Sex specified for male and female Mortality/count data is identical. Please select different values")
+              return()
+            }
+
+            if(length(unique(inputs_mrt)) != length(columns_mortality)) {
+              rlang::warn("It looks like you've matched the same variable to multiple labels. Please match the variables to the corresponding label.")
+              return()
+            }
+
+          },
+          warning = function(w) {
+            showModal(modalDialog(
+              title = "Input Error",
+              w$message,
+              easyClose = TRUE
+            ))
+            invokeRestart("muffleWarning")
           }
-
-          if (!completed_page()){
-            disable("next_page")
-          }else{
-            enable("next_page")
-          }
-
-        })
-
-        ### Data Section ----
-
-        #### Incidence ----
-
-        data_incidence <- reactive({
-
-          if(is.null(input$data_inc_upload)){
-            return(NULL)
-          }
-
-          ext <- file_ext(input$data_inc_upload$name)
-
-          # Save the ID for removal later
-          id_inc <- showNotification(paste("Load completed, now processing the data"), duration = 0)
-
-          data <- switch(
-            ext,
-            "dta" = read_dta(input$data_inc_upload$datapath),
-            "csv" = fread(input$data_inc_upload$datapath),
-            "tsv" = vroom(input$data_inc_upload$datapath, delim = "\t"),
-            validate("Invalid file; Please load a .csv, .tsv or .dta file")
           )
 
-          removeNotification(id_inc)
+        } else if(current_page() == "variable_select_pop") {
 
-          return(data)
+          withCallingHandlers({
 
-        })
+            columns_population <- c("year", "sex", "age.grp", "population")
 
-        #### Mortality ----
+            inputs_pop <- c(input$var_select_pop_year,
+                            input$var_select_pop_sex,
+                            input$var_select_pop_age.group,
+                            input$var_select_pop_population)
 
-        data_mortality <- reactive({
+            if (req_population_data() & length(unique(c(input$male_val_pop, input$female_val_pop))) != 2) {#, input$persons_val_pop))) != 3){
+              rlang::warn("Sex specified for persons, male and female are duplicated. Please select different values")
+              return()
+            }
 
-          if(is.null(input$data_mrt_upload)){
-            return(NULL)
+            if(length(unique(inputs_pop)) != length(columns_population)) {
+              rlang::warn("It looks like you've matched the same variable to multiple labels. Please match the variables to the corresponding label.")
+              return()
+            }
+
+          },
+          warning = function(w) {
+            showModal(modalDialog(
+              title = "Input Error",
+              w$message,
+              easyClose = TRUE
+            ))
+            invokeRestart("muffleWarning")
           }
-
-          ext <- file_ext(input$data_mrt_upload$name)
-
-          # Save the ID for removal later
-          id_mrt <- showNotification(paste("Load completed, now processing the data"), duration = 0)
-
-          data <- switch(
-            ext,
-            "dta" = read_dta(input$data_mrt_upload$datapath),
-            "csv" = fread(input$data_mrt_upload$datapath),
-            "tsv" = vroom(input$data_mrt_upload$datapath, delim = "\t"),
-            validate("Invalid file; Please load a .csv, .tsv or .dta file")
           )
 
-          removeNotification(id_mrt)
+        }
 
-          return(data)
+        current_page_index(current_page_index() + adder)
+
+        nav_select(
+          id = "container",
+          selected = current_page()
+        )
+
+      }
+    })
+
+    #### EVENT: Previous Button Clicked ----
+    observeEvent(input$previous_page, {
+
+      # Don't execute unless allowed
+      req(current_page_index() > 1)
+
+      subtractor <- 1
+
+      # Update the current page index - this will in turn update current_page() when it is called
+      if( current_page() == "supplied_params"){ # Use the page we're jumping from
+        # If BOTH mortality and population data pages are to be skipped, skip both
+        if (!req_population_data()  & !req_mortality_data()) {
+          subtractor <- 3
+          # Else if we're only skipping population, skip population
+        } else if(!req_population_data()) {
+          subtractor <- 2
+        }
+        # If we're currently on population, and DON'T require mortality, skip that
+      } else if(current_page() == "variable_select_pop") {
+        if(!req_mortality_data()){
+          subtractor <- 2
+        }
+      }
+
+      current_page_index(current_page_index() - subtractor)
+
+      nav_select(
+        id = "container",
+        selected = current_page()
+      )
+
+    })
+
+    #### EVENT: Hide Previous Button on First Page ----
+    output$to_hide_previous_btn <- reactive({
+      if(current_page_index() == 1) {
+        return(TRUE)
+      } else {
+        return(FALSE)
+      }
+    })
+    outputOptions(output, 'to_hide_previous_btn', suspendWhenHidden = FALSE)
 
 
-        })
+    #### EVENT: Disabling Next/Previous ----
+    observe({
 
-        #### Population ----
+      if(current_page_index() == length(pages)){
+        updateActionButton(inputId = "next_page",
+                           label = "Create Dashboard")
+      }else{
+        updateActionButton(inputId = "next_page",
+                           label = "Next")
+      }
 
-        data_population <- reactive({
+      if (current_page_index() > 1){
+        enable("previous_page")
+      }else{
+        disable("previous_page")
+      }
 
-          if(is.null(input$pop_data_upload)){
-            return(NULL)
-          }
+      if (!completed_page()){
+        disable("next_page")
+      }else{
+        enable("next_page")
+      }
 
-          ext <- file_ext(input$pop_data_upload$name)
+    })
 
-          # Save the ID for removal later
-          id_pop <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+    ### Data Section ----
 
-          data <- switch(
-            ext,
-            "dta" = read_dta(input$pop_data_upload$datapath),
-            "csv" = fread(input$pop_data_upload$datapath),
-            "tsv" = vroom(input$pop_data_upload$datapath, delim = "\t"),
-            validate("Invalid file; Please load a .csv, .tsv or .dta file")
+    #### Incidence ----
+
+    data_incidence <- reactive({
+
+      if(is.null(input$data_inc_upload)){
+        return(NULL)
+      }
+
+      ext <- file_ext(input$data_inc_upload$name)
+
+      # Save the ID for removal later
+      id_inc <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+
+      data <- switch(
+        ext,
+        "dta" = read_dta(input$data_inc_upload$datapath),
+        "csv" = fread(input$data_inc_upload$datapath),
+        "tsv" = vroom(input$data_inc_upload$datapath, delim = "\t"),
+        validate("Invalid file; Please load a .csv, .tsv or .dta file")
+      )
+
+      removeNotification(id_inc)
+
+      return(data)
+
+    })
+
+    #### Mortality ----
+
+    data_mortality <- reactive({
+
+      if(is.null(input$data_mrt_upload)){
+        return(NULL)
+      }
+
+      ext <- file_ext(input$data_mrt_upload$name)
+
+      # Save the ID for removal later
+      id_mrt <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+
+      data <- switch(
+        ext,
+        "dta" = read_dta(input$data_mrt_upload$datapath),
+        "csv" = fread(input$data_mrt_upload$datapath),
+        "tsv" = vroom(input$data_mrt_upload$datapath, delim = "\t"),
+        validate("Invalid file; Please load a .csv, .tsv or .dta file")
+      )
+
+      removeNotification(id_mrt)
+
+      return(data)
+
+
+    })
+
+    #### Population ----
+
+    data_population <- reactive({
+
+      if(is.null(input$pop_data_upload)){
+        return(NULL)
+      }
+
+      ext <- file_ext(input$pop_data_upload$name)
+
+      # Save the ID for removal later
+      id_pop <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+
+      data <- switch(
+        ext,
+        "dta" = read_dta(input$pop_data_upload$datapath),
+        "csv" = fread(input$pop_data_upload$datapath),
+        "tsv" = vroom(input$pop_data_upload$datapath, delim = "\t"),
+        validate("Invalid file; Please load a .csv, .tsv or .dta file")
+      )
+
+      removeNotification(id_pop)
+
+      return(data)
+
+    })
+
+    ### Outputs Section ----
+
+    #### Specify Incidence Outputs ----
+
+    output$select_var_inc <- renderUI({
+      variable_names <- c(NA, names(data_incidence()))
+      tagList(
+        # Check-Panel
+        # div(
+        #   class = "checkbox-panel",
+        #   checkboxGroupInput(
+        #     inputId = "variables_inc",
+        #     label = "Does your data have:",
+        #     # choices = data_var_list,
+        #     choices = "geographical location",
+        #     NA)
+        # ),
+        # Menu-Panel
+        div(
+          class = "menu-inline",
+          selectInput(inputId = "var_select_inc_counts",
+                      choices = variable_names,
+                      label = HTML("Select your <b>count</b> variable"),
+                      NA),
+
+          selectInput(inputId = "var_select_inc_year",
+                      choices = variable_names,
+                      label = HTML("Select your <b>year</b> variable"),
+                      NA),
+          selectInput(inputId = "var_select_inc_cancer.type",
+                      choices = variable_names,
+                      label = HTML("Select your <b>cancer name</b> variable"),
+                      NA),
+          selectInput(inputId = "var_select_inc_age.group",
+                      choices = variable_names,
+                      label = HTML("Select your <b>age group</b> variable"),
+                      NA),
+          selectInput(inputId = "var_select_inc_sex",
+                      choices = variable_names,
+                      label = HTML("Select your <b>sex</b> variable"),
+                      NA),
+          div(
+            class = "hint-div",
+            p("Here, we standardise the variable names. Please match your variables with these listed above")
           )
+          # conditionalPanel(
+          #   condition = "input.variables_inc.includes('geographical location')",
+          #   selectInput(inputId = "var_select_inc_geog.loc",
+          #               choices = variable_names,
+          #               label = "Select 'geographical location' variable",
+          #               NA)
+          # )
+        ),
+        div(
+          class = "menu-div",
+          conditionalPanel(
+            condition = "input.var_select_inc_sex != 'NA'",
+            uiOutput(outputId = "select_var_inc_sex")
+          )
+        )
+      )
+    })
 
-          removeNotification(id_pop)
+    output$select_var_inc_sex <- renderUI({
+      tagList(
+        selectInput(inputId = "male_val",
+                    label = HTML("Which value in your 'sex' column represents <b>males</b>?"),
+                    choices = unique(data_incidence()[[input$var_select_inc_sex]])),
+        selectInput(inputId = "female_val",
+                    label = HTML("Which value in your 'sex' column represents <b>females</b>?"),
+                    choices = unique(data_incidence()[[input$var_select_inc_sex]]))
+      )
+    })
 
-          return(data)
+    #### Specify Mortality Outputs ----
 
-        })
-
-        ### Outputs Section ----
-
-        #### Specify Incidence Outputs ----
-
-        output$select_var_inc <- renderUI({
-          variable_names <- c(NA, names(data_incidence()))
-          tagList(
-            # Check-Panel
-            # div(
-            #   class = "checkbox-panel",
-            #   checkboxGroupInput(
-            #     inputId = "variables_inc",
-            #     label = "Does your data have:",
-            #     # choices = data_var_list,
-            #     choices = "geographical location",
-            #     NA)
-            # ),
-            # Menu-Panel
+    output$select_var_mrt <- renderUI({
+      if(req_mortality_data()){
+        variable_names <- c(NA, names(data_mortality()))
+        tagList(
+          # Menu-Panel
+          div(
+            class = "menu-inline",
+            selectInput(inputId = "var_select_mrt_counts",
+                        choices = variable_names,
+                        label = HTML("Select your <b>count</b> variable"),
+                        NA),
+            selectInput(inputId = "var_select_mrt_year",
+                        choices = variable_names,
+                        label = HTML("Select your <b>year</b> variable"),
+                        NA),
+            selectInput(inputId = "var_select_mrt_cancer.type",
+                        choices = variable_names,
+                        label = HTML("Select your <b>cancer name</b> variable"),
+                        NA),
+            selectInput(inputId = "var_select_mrt_age.group",
+                        choices = variable_names,
+                        label = HTML("Select your <b>age group</b> variable"),
+                        NA),
+            selectInput(inputId = "var_select_mrt_sex",
+                        choices = variable_names,
+                        label = HTML("Select your <b>sex</b> variable"),
+                        NA),
             div(
-              class = "menu-inline",
-              selectInput(inputId = "var_select_inc_counts",
-                          choices = variable_names,
-                          label = HTML("Select your <b>count</b> variable"),
-                          NA),
-
-              selectInput(inputId = "var_select_inc_year",
-                          choices = variable_names,
-                          label = HTML("Select your <b>year</b> variable"),
-                          NA),
-              selectInput(inputId = "var_select_inc_cancer.type",
-                          choices = variable_names,
-                          label = HTML("Select your <b>cancer name</b> variable"),
-                          NA),
-              selectInput(inputId = "var_select_inc_age.group",
-                          choices = variable_names,
-                          label = HTML("Select your <b>age group</b> variable"),
-                          NA),
-              selectInput(inputId = "var_select_inc_sex",
-                          choices = variable_names,
-                          label = HTML("Select your <b>sex</b> variable"),
-                          NA),
-              div(
-                class = "hint-div",
-                p("Here, we standardise the variable names. Please match your variables with these listed above")
-              )
-              # conditionalPanel(
-              #   condition = "input.variables_inc.includes('geographical location')",
-              #   selectInput(inputId = "var_select_inc_geog.loc",
-              #               choices = variable_names,
-              #               label = "Select 'geographical location' variable",
-              #               NA)
-              # )
-            ),
-            div(
-              class = "menu-div",
-              conditionalPanel(
-                condition = "input.var_select_inc_sex != 'NA'",
-                uiOutput(outputId = "select_var_inc_sex")
-              )
+              class = "hint-div",
+              p("Here, we standardise the variable names. Please match your variables with these listed above")
+            )
+            # conditionalPanel(
+            #   condition = "input.variables_inc.includes('geographical location')",
+            #   selectInput(inputId = "var_select_mrt_geog.loc",
+            #               choices = variable_names,
+            #               label = "Select 'geographical location' variable",
+            #               NA)
+            # )
+          ),
+          div(
+            class = "menu-div",
+            conditionalPanel(
+              condition = "input.var_select_mrt_sex != 'NA'",
+              uiOutput(outputId = "select_var_mrt_sex")
             )
           )
-        })
+        )
+      }else{
+        h5("Not required, as a mortality file has not been loaded.")
+      }
+    })
 
-        output$select_var_inc_sex <- renderUI({
-          tagList(
-            selectInput(inputId = "male_val",
-                        label = HTML("Which value in your 'sex' column represents <b>males</b>?"),
-                        choices = unique(data_incidence()[[input$var_select_inc_sex]])),
-            selectInput(inputId = "female_val",
-                        label = HTML("Which value in your 'sex' column represents <b>females</b>?"),
-                        choices = unique(data_incidence()[[input$var_select_inc_sex]]))
-          )
-        })
-
-        #### Specify Mortality Outputs ----
-
-        output$select_var_mrt <- renderUI({
-          if(req_mortality_data()){
-            variable_names <- c(NA, names(data_mortality()))
-            tagList(
-              # Menu-Panel
-              div(
-                class = "menu-inline",
-                selectInput(inputId = "var_select_mrt_counts",
-                            choices = variable_names,
-                            label = HTML("Select your <b>count</b> variable"),
-                            NA),
-                selectInput(inputId = "var_select_mrt_year",
-                            choices = variable_names,
-                            label = HTML("Select your <b>year</b> variable"),
-                            NA),
-                selectInput(inputId = "var_select_mrt_cancer.type",
-                            choices = variable_names,
-                            label = HTML("Select your <b>cancer name</b> variable"),
-                            NA),
-                selectInput(inputId = "var_select_mrt_age.group",
-                            choices = variable_names,
-                            label = HTML("Select your <b>age group</b> variable"),
-                            NA),
-                selectInput(inputId = "var_select_mrt_sex",
-                            choices = variable_names,
-                            label = HTML("Select your <b>sex</b> variable"),
-                            NA),
-                div(
-                  class = "hint-div",
-                  p("Here, we standardise the variable names. Please match your variables with these listed above")
-                )
-                # conditionalPanel(
-                #   condition = "input.variables_inc.includes('geographical location')",
-                #   selectInput(inputId = "var_select_mrt_geog.loc",
-                #               choices = variable_names,
-                #               label = "Select 'geographical location' variable",
-                #               NA)
-                # )
-              ),
-              div(
-                class = "menu-div",
-                conditionalPanel(
-                  condition = "input.var_select_mrt_sex != 'NA'",
-                  uiOutput(outputId = "select_var_mrt_sex")
-                )
-              )
-            )
-          }else{
-            h5("Not required, as a mortality file has not been loaded.")
-          }
-        })
-
-        output$select_var_mrt_sex <- renderUI({
-          tagList(
-            selectInput(inputId = "male_val",
-                        label = HTML("Which value in your 'sex' column represents <b>males</b>?"),
-                        choices = unique(data_mortality()[[input$var_select_mrt_sex]])),
-            selectInput(inputId = "female_val",
-                        label = HTML("Which value in your 'sex' column represents <b>females</b>?"),
-                        choices = unique(data_mortality()[[input$var_select_mrt_sex]]))
-          )
-        })
+    output$select_var_mrt_sex <- renderUI({
+      tagList(
+        selectInput(inputId = "male_val",
+                    label = HTML("Which value in your 'sex' column represents <b>males</b>?"),
+                    choices = unique(data_mortality()[[input$var_select_mrt_sex]])),
+        selectInput(inputId = "female_val",
+                    label = HTML("Which value in your 'sex' column represents <b>females</b>?"),
+                    choices = unique(data_mortality()[[input$var_select_mrt_sex]]))
+      )
+    })
 
 
-        # output$select_std_pop <- renderUI({
-        #   if(req_population_data()){
-        #
-        #   }
-        # })
+    # output$select_std_pop <- renderUI({
+    #   if(req_population_data()){
+    #
+    #   }
+    # })
 
-        #### Specify Population Outputs ----
+    #### Specify Population Outputs ----
 
-        output$select_var_pop <- renderUI({
-          variable_names <- c(NA, names(data_population()))
-          # required_vars <- c('population', 'year', 'age group', 'sex', 'geographical location')
-          if(req_population_data()){
-            tagList(
-              div(
-                class = "menu-inline",
-                selectInput(inputId = "var_select_pop_population",
-                            choices = variable_names,
-                            label = HTML("Select your <b>population</b> variable"),
-                            NA),
-                condition = "input.variables_pop.includes('year')",
-                selectInput(inputId = "var_select_pop_year",
-                            choices = variable_names,
-                            label = HTML("Select your <b>year</b> variable"),
-                            NA),
-                selectInput(inputId = "var_select_pop_age.group",
-                            choices = variable_names,
-                            label = HTML("Select your <b>age group</b> variable"),
-                            NA),
-                selectInput(inputId = "var_select_pop_sex",
-                            choices = variable_names,
-                            label = HTML("Select your <b>sex</b> variable"),
-                            NA),
-                div(
-                  class = "hint-div",
-                  p("Here, we standardise the variable names. Please match your variables with these listed above")
-                )
-                # conditionalPanel(
-                #   condition = "input.variables_inc.includes('geographical location')",
-                #   selectInput(inputId = "var_select_pop_geog.loc",
-                #               choices = variable_names,
-                #               label = "Select 'geographical location' variable",
-                #               NA)
-                #
-                # )
-              ),
-              div(
-                class = "menu-div",
-                conditionalPanel(
-                  condition = "input.var_select_pop_sex != 'NA'",
-                  uiOutput(outputId = "select_var_pop_sex")
-                )
-              )
-
-            )
-          }else{
-            h5("Not required, as a population file has not been loaded.")
-          }
-        })
-
-        output$select_var_pop_sex <- renderUI({
-          tagList(
-            selectInput(inputId = "male_val_pop",
-                        label = HTML("Which value in your 'sex' column represents <b>males?</b>"),
-                        choices = unique(data_population()[[input$var_select_pop_sex]])),
-            selectInput(inputId = "female_val_pop",
-                        label = HTML("Which value in your 'sex' column represents <b>females?</b>"),
-                        choices = unique(data_population()[[input$var_select_pop_sex]]))
-            # ,
-            # selectInput(inputId = "persons_val_pop",
-            #             label = HTML("Which value in your 'sex' column represents <b>persons?</b>"),
-            #             choices = unique(data_population()[[input$var_select_pop_sex]]))
-          )
-        })
-
-
-        # This code gets run on app startup due to the outputOptions(suspendWhenHidden=FALSE)
-        output$select_all_canc_var <- renderUI({
-          # However, this now causes an issue, whereby input$var_select_inc_cancer.type does not exist yet,
-          # So we put req() to say, "Hey don't run what's below until this variable exists".
-          req(input$var_select_inc_cancer.type)
-          variable_names <- c("Please specify ..", unique(data_incidence()[[input$var_select_inc_cancer.type]]) %>% sort)
-          tagList(
+    output$select_var_pop <- renderUI({
+      variable_names <- c(NA, names(data_population()))
+      # required_vars <- c('population', 'year', 'age group', 'sex', 'geographical location')
+      if(req_population_data()){
+        tagList(
+          div(
+            class = "menu-inline",
+            selectInput(inputId = "var_select_pop_population",
+                        choices = variable_names,
+                        label = HTML("Select your <b>population</b> variable"),
+                        NA),
+            condition = "input.variables_pop.includes('year')",
+            selectInput(inputId = "var_select_pop_year",
+                        choices = variable_names,
+                        label = HTML("Select your <b>year</b> variable"),
+                        NA),
+            selectInput(inputId = "var_select_pop_age.group",
+                        choices = variable_names,
+                        label = HTML("Select your <b>age group</b> variable"),
+                        NA),
+            selectInput(inputId = "var_select_pop_sex",
+                        choices = variable_names,
+                        label = HTML("Select your <b>sex</b> variable"),
+                        NA),
             div(
-              class = "panel-body",
-              prettyRadioButtons(inputId = "bool_all_canc",
-                                 label = "Do you have a cancer category indicating all cancers?",
-                                 choices = c("No", "Yes"),
-                                 shape = "square",
-                                 icon = icon("check"),
-                                 selected = "Yes"),
-              conditionalPanel(
-                condition = "input.bool_all_canc == 'Yes'",
-                selectInput(inputId = "all_canc_name",
-                            label = "Select the cancer category indicating 'all cancers'",
-                            choices = variable_names,
-                            selected = "Please specify ..")
-              ),
-              conditionalPanel(
-                condition = "input.bool_all_canc == 'No'",
-                div(
-                  class = "hint-div",
-                  p("CaRDO will report statistics for 'all cancers'.
+              class = "hint-div",
+              p("Here, we standardise the variable names. Please match your variables with these listed above")
+            )
+            # conditionalPanel(
+            #   condition = "input.variables_inc.includes('geographical location')",
+            #   selectInput(inputId = "var_select_pop_geog.loc",
+            #               choices = variable_names,
+            #               label = "Select 'geographical location' variable",
+            #               NA)
+            #
+            # )
+          ),
+          div(
+            class = "menu-div",
+            conditionalPanel(
+              condition = "input.var_select_pop_sex != 'NA'",
+              uiOutput(outputId = "select_var_pop_sex")
+            )
+          )
+
+        )
+      }else{
+        h5("Not required, as a population file has not been loaded.")
+      }
+    })
+
+    output$select_var_pop_sex <- renderUI({
+      tagList(
+        selectInput(inputId = "male_val_pop",
+                    label = HTML("Which value in your 'sex' column represents <b>males?</b>"),
+                    choices = unique(data_population()[[input$var_select_pop_sex]])),
+        selectInput(inputId = "female_val_pop",
+                    label = HTML("Which value in your 'sex' column represents <b>females?</b>"),
+                    choices = unique(data_population()[[input$var_select_pop_sex]]))
+        # ,
+        # selectInput(inputId = "persons_val_pop",
+        #             label = HTML("Which value in your 'sex' column represents <b>persons?</b>"),
+        #             choices = unique(data_population()[[input$var_select_pop_sex]]))
+      )
+    })
+
+
+    # This code gets run on app startup due to the outputOptions(suspendWhenHidden=FALSE)
+    output$select_all_canc_var <- renderUI({
+      # However, this now causes an issue, whereby input$var_select_inc_cancer.type does not exist yet,
+      # So we put req() to say, "Hey don't run what's below until this variable exists".
+      req(input$var_select_inc_cancer.type)
+      variable_names <- c("Please specify ..", unique(data_incidence()[[input$var_select_inc_cancer.type]]) %>% sort)
+      tagList(
+        div(
+          class = "panel-body",
+          prettyRadioButtons(inputId = "bool_all_canc",
+                             label = "Do you have a cancer category indicating all cancers?",
+                             choices = c("No", "Yes"),
+                             shape = "square",
+                             icon = icon("check"),
+                             selected = "Yes"),
+          conditionalPanel(
+            condition = "input.bool_all_canc == 'Yes'",
+            selectInput(inputId = "all_canc_name",
+                        label = "Select the cancer category indicating 'all cancers'",
+                        choices = variable_names,
+                        selected = "Please specify ..")
+          ),
+          conditionalPanel(
+            condition = "input.bool_all_canc == 'No'",
+            div(
+              class = "hint-div",
+              p("CaRDO will report statistics for 'all cancers'.
                 If you select no, CaRDO will calculate 'all cancers reported' by summing the cancer data you provide.
                 To ensure CaRDO reports accurate information,
                 only click Yes if your 'All cancers' category sums up ALL cancers and not just the ones you supply.")
-                )
-              )
             )
           )
-        })
+        )
+      )
+    })
 
-        # Render this output on app startup
-        outputOptions(output, "select_all_canc_var", suspendWhenHidden = FALSE)
-
-
-        # Ensure if "geographical location" is not selected in input$variables_inc,
-        # then set input$var_select_pop_geog.loc to NA
-        # observe({
-        #   # print(input$variables_inc)
-        #   if(is.null(input$variables_inc)){
-        #     updateSelectInput(session = session,
-        #                       inputId = "var_select_inc_geog.loc",
-        #                       selected = "NA")
-        #
-        #   }
-        # })
-
-        observeEvent(input$clipbtn, {
-          updateActionButton(session, inputId = "clipbtn",
-                             label = "Copied!")
-        })
+    # Render this output on app startup
+    outputOptions(output, "select_all_canc_var", suspendWhenHidden = FALSE)
 
 
-        # Finalise everything, and exit
-        observeEvent(input$confirm, {
-          if(input$confirm){stopApp()}
-        })
+    # Ensure if "geographical location" is not selected in input$variables_inc,
+    # then set input$var_select_pop_geog.loc to NA
+    # observe({
+    #   # print(input$variables_inc)
+    #   if(is.null(input$variables_inc)){
+    #     updateSelectInput(session = session,
+    #                       inputId = "var_select_inc_geog.loc",
+    #                       selected = "NA")
+    #
+    #   }
+    # })
 
-        }
+    observeEvent(input$clipbtn, {
+      updateActionButton(session, inputId = "clipbtn",
+                         label = "Copied!")
+    })
+
+    # Finalise everything, and exit
+    observeEvent(input$confirm, {
+      if(input$confirm){stopApp()}
+    })
+
+  }
 
   # shinyApp(ui, server)
   runApp(shinyApp(ui, server), launch.browser = browserViewer())
   #runApp(shinyApp(ui, server), launch.browser = dialogViewer("", width = 1200, height = 800))
 
-            }
+}
 
 
 
@@ -1574,13 +1650,13 @@ transform_data <- function(req_mortality_data, req_population_data,
         merge(age_grps) %>%
         group_by(across(-c(obs, age.grp, wght, wt))) %>%
         summarise("obs" = sum(obs),
-                  .groups = 'drop') %>%
-        filter(obs != 0)
+                  .groups = 'drop') # %>%
+      # filter(obs != 0)
 
       # Averages (By Cancer Graph)
       data_inc_average <- data_inc_pop %>%
         filter(year >= max(year) - 4) %>%
-        group_by(sex, age.grp, cancer.type, nonsense) %>%
+        group_by(sex, age.grp, cancer.type) %>%
         summarise("counts" = sum(counts),
                   "population" = sum(population),
                   "year" = paste0(min(year), "-", max(year)),

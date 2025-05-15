@@ -42,15 +42,43 @@ body::before {
 
 /*  Error Modal --------------------------------------------------*/
 
-.error-details {
-  background-color: #F9F9F9;
-  border-left: 4px solid #E74C3C;
-  padding: 1em;
-  margin-top: 1em;
-  font-family: 'Barlow';
-  white-space: pre-wrap;
+/* Modal Title */
+.modal-title {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  color: #b00020; /* deep red for error */
+  font-size: 1.4rem;
+}
+
+/* Modal Body */
+.modal-body {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1rem;
   color: #333;
-  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+/* Paragraph inside modal */
+.modal-body p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Preformatted error message */
+.modal-body pre {
+  background-color: #fcebea; /* light red background */
+  color: #721c24;            /* deep red text */
+  padding: 1rem;
+  border-left: 4px solid #f5c6cb;
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal-dialog {
+  margin: 5% auto 5% auto !important;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -464,7 +492,7 @@ ol {
 }
 */
 
-#clipbtn:focus, #understand:focus,  #clipbtn:visited, #understand:visited {
+#clipbtn:focus, #understand:focus,  #clipbtn:visited, #understand:visited, #errormsg:focus, #errormsg:visited {
   color: black;
   border-color: #BEA540 !important;
   background-color: #BEA540 !important; /* Darker shade for active state */
@@ -524,7 +552,7 @@ ol {
   padding: 0.5rem 1rem;
 }
 
-#clipbtn {
+#clipbtn, #errormsg {
   width: fit-content;
 }
 
