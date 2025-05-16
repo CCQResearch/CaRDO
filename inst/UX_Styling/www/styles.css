@@ -415,6 +415,10 @@ ol {
   font-weight: 500;
 }
 
+#aggregation_var .checkbox {
+  margin-top: 2rem;
+}
+
 @media (max-height: 775px) {
 
   .hint-div p {

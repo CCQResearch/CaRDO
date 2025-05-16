@@ -355,7 +355,8 @@ create_dashboard <- function(){
             div(
               id = "all-cancer-category",
               class = "final-panel-div",
-              uiOutput(outputId = "select_all_canc_var")
+              uiOutput(outputId = "select_all_canc_var"),
+              uiOutput(outputId = "aggregation_var")
             ),
             div(
               id = "threshold-div",
@@ -366,9 +367,6 @@ create_dashboard <- function(){
                           # ticks = FALSE,
                           value = 5,
                           step = 1),
-              checkboxInput(inputId = "aggregate_option",
-                            label = "Do you want to aggregate the years?",
-                            value = FALSE),
               div(
                 class = "hint-div",
                 p("If there are counts in your data that are below this value",
@@ -928,8 +926,8 @@ create_dashboard <- function(){
                             input$var_select_pop_age.group,
                             input$var_select_pop_population)
 
-            if (req_population_data() & length(unique(c(input$male_val_pop, input$female_val_pop))) != 2) {#, input$persons_val_pop))) != 3){
-              rlang::warn("Sex specified for <b>persons</b>, <b>male</b> and <b>female</b> are duplicated. Please select different values")
+            if (req_population_data() & length(unique(c(input$male_val_pop, input$female_val_pop))) != 2) {
+              rlang::warn("Sex specified for <b>persons</b>, <b>male</b> and <b>female</b> are duplicated:::Please select different values")
               return()
             }
 
@@ -1381,6 +1379,24 @@ create_dashboard <- function(){
           )
         )
       )
+    })
+
+    output$aggregation_var <- renderUI({
+
+      tagList(
+        checkboxInput(inputId = "aggregate_option",
+                      label = "Do you want to aggregate and report your data by 5-year intervals (eg. 2018-2022)?",
+                      value = FALSE),
+        conditionalPanel(
+          condition = "input.aggregate_option",
+          div(
+            class = "hint-div",
+            p("This is a good option if you don't have enough data to report by year.
+                CaRDO will add up the data for five year intervals and report that.")
+          )
+        )
+      )
+
     })
 
     # Render this output on app startup

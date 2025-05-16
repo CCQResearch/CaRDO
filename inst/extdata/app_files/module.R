@@ -51,7 +51,7 @@ UI_module <- function(id){
                 class = "summary",
                 h1(HTML("Summary")),
                 span(location_name),
-                span("For the year ", most_recent_year)
+                span(if(to_aggregate) {"For the years "} else {"For the year "}, most_recent_year)
               )
             ),
             div(
