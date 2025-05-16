@@ -927,7 +927,7 @@ create_dashboard <- function(){
                             input$var_select_pop_population)
 
             if (req_population_data() & length(unique(c(input$male_val_pop, input$female_val_pop))) != 2) {
-              rlang::warn("Sex specified for <b>persons</b>, <b>male</b> and <b>female</b> are duplicated:::Please select different values")
+              rlang::warn("The values for <b>males</b> and <b>females</b> have to be different:::Please select different values")
               return()
             }
 
@@ -1995,8 +1995,7 @@ transform_data <- function(req_mortality_data, req_population_data,
           merge(age_grps) %>%
           group_by(across(-c(obs, age.grp, wght, wt))) %>%
           summarise("obs" = sum(obs),
-                    .groups = 'drop') %>%
-          filter(obs != 0)
+                    .groups = 'drop')
 
         # Averages (By Cancer Graph)
         data_mrt_average <- data_mrt_pop %>%
@@ -2264,33 +2263,32 @@ transform_data <- function(req_mortality_data, req_population_data,
                   "obs" = sum(obs)/5,
                   .groups = 'drop')
 
-    }
+      data_inc_annual_tmp <- data.frame()
 
-    # Add in trends to annual before aggregating
-    data_inc_annual_tmp <- data.frame()
+      for (canc in unique(data_inc_annual$cancer.type)){
+        for (sex_i in unique(data_inc_annual$sex)){
 
-    for (canc in unique(data_inc_annual$cancer.type)){
-      for (sex_i in unique(data_inc_annual$sex)){
+          filt_df <- data_inc_annual %>%
+            filter(cancer.type == canc,
+                   sex == sex_i)
 
-        filt_df <- data_inc_annual %>%
-          filter(cancer.type == canc,
-                 sex == sex_i)
+          if(nrow(filt_df != 0)){
+            tmp_counts <- suppressWarnings(fit_trendline(filt_df, "year", "obs", rates_req = FALSE)) %>%
+              rename("obs_trend" = Trend,
+                     "lower.ci_trend" = lower_ci,
+                     "upper.ci_trend" = upper_ci)
 
-        if(nrow(filt_df != 0)){
-          tmp_counts <- suppressWarnings(fit_trendline(filt_df, "year", "obs", rates_req = FALSE)) %>%
-            rename("obs_trend" = Trend,
-                   "lower.ci_trend" = lower_ci,
-                   "upper.ci_trend" = upper_ci)
-
-          data_inc_annual_tmp <- bind_rows(data_inc_annual_tmp, tmp_counts)
+            data_inc_annual_tmp <- bind_rows(data_inc_annual_tmp, tmp_counts)
+          }
         }
       }
+
     }
 
     # Finalising the Annual data frame
     if (aggregate_option) {
 
-      data_inc_annual <- data_inc_annual_tmp %>%
+      data_inc_annual <- data_inc_annual %>%
         filter(obs != 0,
                year >= new_start_year & year <= end_year) %>%
         mutate(
@@ -2304,10 +2302,7 @@ transform_data <- function(req_mortality_data, req_population_data,
           "max_year" = max(rights)
         ) %>%
         group_by(year_labs, sex, cancer.type, measure, max_year) %>%
-        summarise("obs" = sum(obs),
-                  "obs_trend" = sum(obs_trend),
-                  "lower.ci_trend" = sum(lower.ci_trend),
-                  "upper.ci_trend" = sum(upper.ci_trend)) %>%
+        summarise("obs" = sum(obs)) %>%
         ungroup() %>%
         rename("year" = year_labs)
 
@@ -2391,6 +2386,26 @@ transform_data <- function(req_mortality_data, req_population_data,
                     "obs" = sum(obs)/5,
                     .groups = 'drop')
 
+        data_mrt_annual_tmp <- data.frame()
+
+        for (canc in unique(data_mrt_annual$cancer.type)){
+          for (sex_i in unique(data_mrt_annual$sex)){
+
+            filt_df <- data_mrt_annual %>%
+              filter(cancer.type == canc,
+                     sex == sex_i)
+
+            if(nrow(filt_df) != 0) {
+              tmp_counts <- suppressWarnings(fit_trendline(filt_df, "year", "obs", rates_req = FALSE)) %>%
+                rename("obs_trend" = Trend,
+                       "lower.ci_trend" = lower_ci,
+                       "upper.ci_trend" = upper_ci)
+
+              data_mrt_annual_tmp <- bind_rows(data_mrt_annual_tmp, tmp_counts)
+            }
+          }
+        }
+
       }
 
       # data_mrt <- data_mrt %>%
@@ -2421,30 +2436,9 @@ transform_data <- function(req_mortality_data, req_population_data,
       #             "obs" = sum(obs)/5,
       #             .groups = 'drop')
 
-      # Add in trends - need to do for each cancer type, for each sex
-      data_mrt_annual_tmp <- data.frame()
-
-      for (canc in unique(data_mrt_annual$cancer.type)){
-        for (sex_i in unique(data_mrt_annual$sex)){
-
-          filt_df <- data_mrt_annual %>%
-            filter(cancer.type == canc,
-                   sex == sex_i)
-
-          if(nrow(filt_df) != 0) {
-            tmp_counts <- suppressWarnings(fit_trendline(filt_df, "year", "obs", rates_req = FALSE)) %>%
-              rename("obs_trend" = Trend,
-                     "lower.ci_trend" = lower_ci,
-                     "upper.ci_trend" = upper_ci)
-
-            data_mrt_annual_tmp <- bind_rows(data_mrt_annual_tmp, tmp_counts)
-          }
-        }
-      }
-
       if (aggregate_option) {
 
-        data_mrt_annual <- data_mrt_annual_tmp %>%
+        data_mrt_annual <- data_mrt_annual %>%
           filter(obs != 0,
                  year >= new_start_year & year <= end_year) %>%
           mutate(
@@ -2458,10 +2452,7 @@ transform_data <- function(req_mortality_data, req_population_data,
             "max_year" = max(rights)
           ) %>%
           group_by(year_labs, sex, cancer.type, measure, max_year) %>%
-          summarise("obs" = sum(obs),
-                    "obs_trend" = sum(obs_trend),
-                    "lower.ci_trend" = sum(lower.ci_trend),
-                    "upper.ci_trend" = sum(upper.ci_trend)) %>%
+          summarise("obs" = sum(obs)) %>%
           ungroup() %>%
           rename("year" = year_labs)
 
