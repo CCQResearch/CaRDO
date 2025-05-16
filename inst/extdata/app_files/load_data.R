@@ -6,6 +6,7 @@ supplied_params <- readRDS("Data/supplied_params.RDS")
 all_cancers_name <- supplied_params[["All cancers"]] # <-- Don't Change This
 dashboard_title <- supplied_params[["Dashboard title"]] # <-- You can change this
 location_name <- supplied_params[["Dashboard catchment"]]
+to_aggregate <- supplied_params[["aggregate_option"]]
 
 
 # Define a variable that says whether mortality files are present, initialise to TRUE

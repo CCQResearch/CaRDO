@@ -40,6 +40,52 @@ body::before {
 
 
 
+/*  Error Modal --------------------------------------------------*/
+
+/* Modal Title */
+.modal-title {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  color: #b00020; /* deep red for error */
+  font-size: 1.4rem;
+}
+
+/* Modal Body */
+.modal-body {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Paragraph inside modal */
+.modal-body p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Preformatted error message */
+.modal-body pre {
+  background-color: #fcebea; /* light red background */
+  color: #721c24;            /* deep red text */
+  padding: 1rem;
+  border-left: 4px solid #f5c6cb;
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal-dialog {
+  margin: 5% auto 5% auto !important;
+}
+
+/*----------------------------------------------------------------------------*/
+
+
+
+
 /*  Shiny Input Options --------------------------------------------------*/
 
 .shiny-input-container:not(.shiny-input-container-inline) {
@@ -291,6 +337,7 @@ ol {
   margin-bottom: 0.3rem;
 }
 
+/*
 #understand {
   background-color: transparent;
   color: black;
@@ -300,6 +347,7 @@ ol {
   letter-spacing: 0.05rem;
   text-transform: uppercase;
 }
+*/
 
 /*  --------------------------------------------------------------------------*/
 
@@ -365,6 +413,10 @@ ol {
   line-height: 2rem;
   font-size: 0.8rem;
   font-weight: 500;
+}
+
+#aggregation_var .checkbox {
+  margin-top: 2rem;
 }
 
 @media (max-height: 775px) {
@@ -446,7 +498,72 @@ ol {
 }
 */
 
-#clipbtn:focus, #understand:focus,  #clipbtn:visited, #understand:visited {
+
+#understand {
+  position: relative;
+  background-color: transparent;
+  color: black;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: 2px solid #BEA540;
+  border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0; /* no gap when inactive */
+}
+
+#understand.active {
+  background-color: #BEA540;
+  color: white;
+  box-shadow: inset 0 0 5px #494949;
+  transform: scale(0.98);
+  gap: 8px; /* add spacing when active */
+}
+
+#understand::after {
+  content: "✔";
+  font-size: 18px;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#understand.active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+
+/*#understand {
+  background-color: transparent;
+  color: black;
+  font-family: 'Barlow';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  border: 2px solid black;
+  transition: all 0.2s ease;
+}
+
+#understand.active {
+  color: black;
+  border-color: #BEA540 !important;
+  background-color: #BEA540 !important;
+  transform: scale(0.98);
+  box-shadow: inset 0 0 10px #494949;
+}
+*/
+#clipbtn:focus  #clipbtn:visited, #errormsg:focus, #errormsg:visited {
   color: black;
   border-color: #BEA540 !important;
   background-color: #BEA540 !important; /* Darker shade for active state */
@@ -506,7 +623,11 @@ ol {
   padding: 0.5rem 1rem;
 }
 
-#clipbtn {
+#mismatch {
+  align-items: flex-start;
+}
+
+#clipbtn, #errormsg {
   width: fit-content;
 }
 

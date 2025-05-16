@@ -51,7 +51,7 @@ UI_module <- function(id){
                 class = "summary",
                 h1(HTML("Summary")),
                 span(location_name),
-                span("For the year ", most_recent_year)
+                span(if(to_aggregate) {"For the years "} else {"For the year "}, most_recent_year)
               )
             ),
             div(
@@ -150,9 +150,14 @@ server_module <- function(id){
 
         data_topleft <- reactive({
           inc_annual_counts %>%
-            filter(year == max(year),
-                   cancer.type == all_cancers_name,
-                   measure == input$measure) %>%
+            filter(
+              if ("max_year" %in% names(.)) {
+                stringr::str_detect(year, as.character(unique(max_year)))
+              } else {
+                year == max(year)
+              },
+              cancer.type == all_cancers_name,
+              measure == input$measure) %>%
             group_by(year, sex) %>%
             summarise(obs = sum(obs), .groups = 'drop')
         })
@@ -160,10 +165,15 @@ server_module <- function(id){
         lifetime_risk <- reactive({
           # browser()
           tmp <- inc_annual_counts %>%
-            filter(year == most_recent_year,
-                   cancer.type == input$cancer.type,
-                   sex == input$sex,
-                   measure == "ltr") %>%
+            filter(
+              if ("max_year" %in% names(.))
+              {stringr::str_detect(year, as.character(unique(max_year)))
+              } else {
+                year == max(year)
+              },
+              cancer.type == input$cancer.type,
+              sex == input$sex,
+              measure == "ltr") %>%
             pull(obs)
 
           if(is_empty(tmp)){return(0)}else{return(tmp)}
@@ -225,19 +235,29 @@ server_module <- function(id){
 
         data_topleft <- reactive({
           mrt_annual_counts %>%
-            filter(year == max(year),
-                   cancer.type == all_cancers_name,
-                   measure == input$measure) %>%
+            filter(
+              if ("max_year" %in% names(.)) {
+                stringr::str_detect(year, as.character(unique(max_year)))
+              } else {
+                year == max(year)
+              },
+              cancer.type == all_cancers_name,
+              measure == input$measure) %>%
             group_by(year, sex) %>%
             summarise(obs = sum(obs), .groups = 'drop')
         })
 
         lifetime_risk <- reactive({
           tmp <- mrt_annual_counts %>%
-            filter(year == most_recent_year,
-                   cancer.type == input$cancer.type,
-                   sex == input$sex,
-                   measure == "ltr") %>%
+            filter(
+              if ("max_year" %in% names(.))
+              {stringr::str_detect(year, as.character(unique(max_year)))
+              } else {
+                year == max(year)
+              },
+              cancer.type == input$cancer.type,
+              sex == input$sex,
+              measure == "ltr") %>%
             pull(obs)
 
           if(is_empty(tmp)){return(0)}else{return(tmp)}
@@ -403,7 +423,7 @@ server_module <- function(id){
             HTML(paste(
               stat_text,
               if (input$sex == 3) {"persons"} else {if (input$sex == 1) {"males"} else {"females"}},
-              "</b>are expected to be diagnosed with <b>",
+              if (id == "Diagnosis") {"</b>are expected to be diagnosed with <b>"} else {"</b>are expected to die from <b>"},
               tolower(input$cancer.type),
               "</b> by age 85</span>"
             )
@@ -482,14 +502,34 @@ server_module <- function(id){
         }, simplify = FALSE)
 
         marker_styles <- sapply(categories, function(cat) {
-          if (cat == input$sex) {
-            list(
-              size = 9,
-              color = plot_colour
-            )
+
+
+          if ("obs_trend" %in% names(data_topright())) {
+            if (cat == input$sex) {
+
+              list(
+                size = 9,
+                color = plot_colour
+              )
+            } else {
+              list(opacity = 0)
+            }
+
           } else {
-            list(opacity = 0)
+
+            if (cat == input$sex) {
+              list(
+                size = 12,
+                color = plot_colour,
+                line = list(color = "white", width = 3)
+              )
+            } else {
+              list(opacity = 0)
+            }
+
           }
+
+
         })
 
         hovertoggle <- sapply(categories, function(cat) {
@@ -521,14 +561,14 @@ server_module <- function(id){
               itemdoubleclick = FALSE
             ),
             xaxis = list(
-              range = list(earliest_year-1, most_recent_year+1),
+              #range = list(earliest_year-1, most_recent_year+1),
               fixedrange = TRUE,
               title = "Year",
               linewidth = 2,
               linecolor = "#000000",
               tickcolor = "#000000",
               ticks = "outside",
-              tickvals = seq(earliest_year, most_recent_year, by = 2),
+              #tickvals = seq(earliest_year, most_recent_year, by = 2),
               zeroline = TRUE
             ),
             yaxis = list(
@@ -552,30 +592,44 @@ server_module <- function(id){
             )
           )
 
-        # browser()
-
         for(sex_num in unique(data_topright()$sex)){
-          plot <- plot %>%
-            add_trace(
-              data = data_topright() %>% filter(sex == sex_num),
-              x = ~year,
-              y = ~obs_trend,
-              name = paste(sex_name[[sex_num]], "trends"),
-              type = "scatter",
-              mode = "lines",
-              line = line_styles[[sex_num]],
-              showlegend = FALSE
-            ) %>%
-            add_trace(
-              data = data_topright() %>% filter(sex == sex_num),
-              x = ~year,
-              y = ~obs,
-              name = sex_name[[sex_num]],
-              type = "scatter",
-              mode = "markers",
-              #line = line_styles[[sex_num]]
-              marker = marker_styles[[sex_num]]
-            )
+
+          if("obs_trend" %in% names(data_topright())) {
+            plot <- plot %>%
+              add_trace(
+                data = data_topright() %>% filter(sex == sex_num),
+                x = ~year,
+                y = ~obs_trend,
+                name = paste(sex_name[[sex_num]], "trends"),
+                type = "scatter",
+                mode = "lines",
+                line = line_styles[[sex_num]],
+                showlegend = FALSE
+              ) %>%
+              add_trace(
+                data = data_topright() %>% filter(sex == sex_num),
+                x = ~year,
+                y = ~obs,
+                name = sex_name[[sex_num]],
+                type = "scatter",
+                mode = "markers",
+                marker = marker_styles[[sex_num]]
+              )
+          } else {
+
+            plot <- plot %>%
+              add_trace(
+                data = data_topright() %>% filter(sex == sex_num),
+                x = ~year,
+                y = ~obs,
+                name = sex_name[[sex_num]],
+                type = "scatter",
+                mode = "markers+lines",
+                line = line_styles[[sex_num]],
+                marker = marker_styles[[sex_num]]
+              )
+
+          }
         }
 
         plot
@@ -629,10 +683,20 @@ server_module <- function(id){
 
       output$title_bottomleft <- renderUI({
 
-        heading_bracket <- if(input$measure == "Counts") {
-          paste0("(Counts, 5 year average ", most_recent_year-4, "-", most_recent_year, ")")
-        } else {
-          paste0("(5 years ", most_recent_year-4, "-", most_recent_year, ", Age Standarised)")
+        if(to_aggregate) {
+          heading_bracket <- if(input$measure == "Counts") {
+            paste0("(Counts, 5 year average ", unique(data_bottomleft()$year), ")")
+          } else {
+            paste0("(5 years ", unique(data_bottomleft()$year), ", Age Standarised)")
+          }
+
+        }else{
+
+          heading_bracket <- if(input$measure == "Counts") {
+            paste0("(Counts, 5 year average ", most_recent_year-4, "-", most_recent_year, ")")
+          } else {
+            paste0("(5 years ", most_recent_year-4, "-", most_recent_year, ", Age Standarised)")
+          }
         }
 
         div(
@@ -789,13 +853,13 @@ server_module <- function(id){
           layout(
             xaxis = list(
               title = "Year",
-              range = list(earliest_year-1, most_recent_year+1),
+              #range = list(earliest_year-1, most_recent_year+1),
               fixedrange = TRUE,
               linewidth = 2,
               linecolor = "#000000",
               tickcolor = "#000000",
-              ticks = "outside",
-              tickvals = seq(earliest_year, most_recent_year, by = 5)
+              ticks = "outside"
+              #tickvals = seq(earliest_year, most_recent_year, by = 5)
             ),
             yaxis = list(
               rangemode = "tozero",
