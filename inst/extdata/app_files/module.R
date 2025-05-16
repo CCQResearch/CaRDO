@@ -502,14 +502,34 @@ server_module <- function(id){
         }, simplify = FALSE)
 
         marker_styles <- sapply(categories, function(cat) {
-          if (cat == input$sex) {
-            list(
-              size = 9,
-              color = plot_colour
-            )
+
+
+          if ("obs_trend" %in% names(data_topright())) {
+            if (cat == input$sex) {
+
+              list(
+                size = 9,
+                color = plot_colour
+              )
+            } else {
+              list(opacity = 0)
+            }
+
           } else {
-            list(opacity = 0)
+
+            if (cat == input$sex) {
+              list(
+                size = 12,
+                color = plot_colour,
+                line = list(color = "white", width = 3)
+              )
+            } else {
+              list(opacity = 0)
+            }
+
           }
+
+
         })
 
         hovertoggle <- sapply(categories, function(cat) {
