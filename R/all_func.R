@@ -624,7 +624,7 @@ create_dashboard <- function(){
                 # Generate all cancers if not given
                 if(input$bool_all_canc == "No"){
                   tmp <- data_mrt %>%
-                    mutate("cancer.type" = "All malignant neoplasms") %>%
+                    mutate("cancer.type" = "All reported cancers") %>%
                     group_by(across(-counts)) %>%
                     summarise("counts" = sum(counts),
                               .groups = 'drop')
