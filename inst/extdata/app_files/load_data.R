@@ -85,7 +85,7 @@ sex_specific_cancers <- inc_annual_counts %>%
 
 top_5_cancers_inc <- inc_averages %>%
   filter(measure == "Counts",
-         cancer.type != "All cancers") %>%
+         cancer.type != all_cancers_name) %>%
   arrange(desc(obs)) %>%
   pull(cancer.type) %>%
   unique() %>%
@@ -109,7 +109,7 @@ if(!no_mrt){
 
   top_5_cancers_mrt <- mrt_averages %>%
     filter(measure == "Counts",
-           cancer.type != "All cancers") %>%
+           cancer.type != all_cancers_name) %>%
     arrange(desc(obs)) %>%
     pull(cancer.type) %>%
     unique() %>%

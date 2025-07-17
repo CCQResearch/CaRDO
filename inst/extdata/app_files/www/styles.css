@@ -18,7 +18,7 @@ h1, .h1 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-align: center;
-  margin-botton: 0.2rem !important;
+  margin-bottom: 0.2rem !important;
 }
 
 h2, .h2 {
@@ -31,7 +31,7 @@ h2, .h2 {
 h3, .h3 {
   margin: 0;
   font-family: var(--regular-font);
-  font-size: clamp(12px, 1vw, 20px);
+  font-size: clamp(12px, 1vw, 16px);
   font-weight: 400;
 }
 
@@ -138,6 +138,10 @@ b, strong {
   width: 40%;
 }
 
+.shiny-input-container:not(.shiny-input-container-inline) {
+  width: 400px !important;
+}
+
 /* Targets both the parent divs of the menu and radio options */
 .form-group.shiny-input-container {
   display: flex;
@@ -232,38 +236,12 @@ b, strong {
 
 /* Summary Card ------------------------------------------------------------- */
 
-.summary-container {
+.summary {
   display: flex;
-  align-items: stretch;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
   gap: 2rem;
-}
-
-
-
-/* Summary Title */
-.summary-title {
-  flex 0 1 auto;
-  padding-top: 1.2rem;
-}
-
-.summary {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.summary h1 {
-  font-size: 1.4rem;
-  text-align: right;
-  text-transform: none;
-}
-
-.summary span {
-  font-size: 1.2rem;
-  font-style: italic;
-  text-align: right;
 }
 
 
@@ -272,19 +250,57 @@ b, strong {
 .summary-content {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 0 0.5rem 0;
+  flex: 2;
+  order: 2;
+}
+
+.summary-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  gap: 2rem;
+}
+
+.summary h1 {
+  font-size: 1.4rem;
+  text-transform: none;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-style: italic;
+}
+
+hr {
+  margin: 0;
+  color: black;
+  opacity: 1;
+}
+
+.summary-stats {
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  flex: 1;
-  min-width: 0;
-  background-color: var(--custom-background);
-  border-radius: 16px;
-  padding: 0rem 0rem 1rem 1rem;
+  gap: 2rem;
 }
 
 .content-row {
+  display: flex;
+  flex-direction: column;
   font-size: clamp(30px, 1vw + 1.7vh, 40px);
   font-weight: 300;
 }
-
 
 
 
@@ -294,11 +310,10 @@ b, strong {
   flex-direction: row;
   align-items: center;
   height: 100%;
-  flex: 0 1 300px;
+  flex: 1;
   padding: 1rem;
-  border: 2px solid var(--custom-background);
-  border-radius: 16px;
   gap: 1.5rem;
+  order: 3;
 }
 
 .ltr-vis {
@@ -334,6 +349,21 @@ b, strong {
 
 .ltr-stat {
   font-weight: 500;
+}
+
+
+
+/* CaRDO Logo */
+
+.cardo-logo {
+  display: flex;
+  flex: 1;
+  background-image: url("cardo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: opacity(0.5);
+  order: 1;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -511,24 +541,40 @@ body.methods-active nav.navbar.navbar-default {
 
 /* MEDIA QUERIES (ordered by breakpoints) ----------------------------------- */
 
-/* 1600px width breakpoint -------- */
-/* Removes the Summary Title div and flexes the lifetime-risk div */
+/* 1867/865 aspect breakpoint -------- */
+/*  */
 
-@media (max-width: 1600px) {
+@media (min-aspect-ratio: 1528/704) {
 
-  .summary-title {
-    display: none !important;
+  .content-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  .lifetime-risk {
-    flex: 1 !important;
+  .summary-stats {
+    gap: 0;
   }
+
+}
+
+/* 1867/865 aspect breakpoint -------- */
+/*  */
+
+@media (min-aspect-ratio: 1867/864) {
+
+  .content-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
 }
 
 /* 1300px width breakpoint -------- */
 /* Starts the space saving for the Header sections by removing labels */
 
-@media (max-width: 1300px) {
+@media (max-width: 1300px), (max-height: 600px) {
 
   /* Header Section */
   .gender-measure {
@@ -543,13 +589,6 @@ body.methods-active nav.navbar.navbar-default {
     width: 70% !important;
   }
 
-}
-
-/* 1111px width breakpoint -------- */
-/* Ensuring the lifetime risk visualisation and information is readable */
-
-@media (max-width: 1111px), (max-height: 600px) {
-
   .lifetime-risk {
     padding: 0 !important;
     border: none !important;
@@ -558,6 +597,35 @@ body.methods-active nav.navbar.navbar-default {
 
   .ltr-vis {
     display: none !important;
+  }
+
+}
+
+/* 1147px width breakpoint -------- */
+/*  */
+
+@media (max-width: 1147px) {
+
+  .summary-title {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .title {
+    margin: 0.5rem;
+  }
+
+  .info {
+    align-items: flex-start;
+  }
+
+  .summary h1 {
+    text-align: left;
+    margin: 0;
+  }
+
+  .summary-stats {
+    gap: 0.5rem;
   }
 
 }
@@ -598,11 +666,11 @@ body.methods-active nav.navbar.navbar-default {
     margin: 1rem !important;
   }
 
-  .summary-container {
+  .summary {
     gap: 1rem;
   }
 
-  .summary-content {
+  .summary-stats {
     padding: 0rem 0rem 1rem 0.5rem;
   }
 
@@ -698,7 +766,7 @@ body.methods-active nav.navbar.navbar-default {
 
 @media (max-width: 470px) {
 
-  .summary-container {
+  .summary {
     flex-direction: column;
   }
 

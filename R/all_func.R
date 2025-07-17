@@ -572,12 +572,15 @@ create_dashboard <- function(){
                 # Generate all cancers if not given
                 if(input$bool_all_canc == "No"){
                   tmp <- data_inc %>%
-                    mutate("cancer.type" = "All cancers") %>%
+                    mutate("cancer.type" = "All reported cancers") %>%
                     group_by(across(-counts)) %>%
                     summarise("counts" = sum(counts),
                               .groups = 'drop')
 
                   data_inc <- bind_rows(data_inc, tmp)
+                } else {
+                  data_inc <- data_inc %>%
+                    mutate(cancer.type = if_else(cancer.type == input$all_canc_name, "All malignant neoplasms", cancer.type))
                 }
 
                 saveRDS(data_inc, "tmp/data_inc.RDS")
@@ -621,12 +624,15 @@ create_dashboard <- function(){
                 # Generate all cancers if not given
                 if(input$bool_all_canc == "No"){
                   tmp <- data_mrt %>%
-                    mutate("cancer.type" = "All cancers") %>%
+                    mutate("cancer.type" = "All malignant neoplasms") %>%
                     group_by(across(-counts)) %>%
                     summarise("counts" = sum(counts),
                               .groups = 'drop')
 
                   data_mrt <- bind_rows(data_mrt, tmp)
+                } else {
+                  data_mrt <- data_mrt %>%
+                    mutate(cancer.type = if_else(cancer.type == input$all_canc_name, "All malignant neoplasms", cancer.type))
                 }
 
                 saveRDS(data_mrt, "tmp/data_mrt.RDS")
@@ -689,7 +695,7 @@ create_dashboard <- function(){
 
             ####### Save All Other Inputs ----
             supplied_params <- list(
-              "All cancers" = if(input$bool_all_canc == "No") {"All cancers"} else {input$all_canc_name},
+              "All cancers" = if(input$bool_all_canc == "No") {"All reported cancers"} else {"All malignant neoplasms"},
               "Dashboard title" = input$dashboard_title,
               "Dashboard catchment" = input$dashboard_location,
               "Suppression threshold" = suppress_threshold,

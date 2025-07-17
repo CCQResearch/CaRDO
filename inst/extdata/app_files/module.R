@@ -44,33 +44,41 @@ UI_module <- function(id){
         ### Top-left - Summary ----
         card(
           div(
-            class = "summary-container",
-            div(
-              class = "summary-title",
-              div(
-                class = "summary",
-                h1(HTML("Summary")),
-                span(location_name),
-                span(if(to_aggregate) {"For the years "} else {"For the year "}, most_recent_year)
-              )
-            ),
+            class = "summary",
+
             div(
               class = "summary-content",
+
               div(
-                class = "content-row",
-                # textOutput(ns("all_value")),
-                uiOutput(ns("all_text"))
+                class = "summary-title",
+                div(
+                  class = "title",
+                  h1(HTML("Summary")),
+                  h2(location_name)
+                ),
+                div(
+                  class = "info",
+                  h2(all_cancers_name),
+                  h2(if(to_aggregate) {"For the years "} else {"For the year "}, most_recent_year)
+                )
               ),
+              hr(),
               div(
-                class = "content-row",
-                # textOutput(ns("male_value")),
-                uiOutput(ns("male_text"))
-              ),
-              div(
-                class = "content-row",
-                # textOutput(ns("female_value")),
-                uiOutput(ns("female_text"))
+                class = "summary-stats",
+                div(
+                  class = "content-row",
+                  uiOutput(ns("all_text"))
+                ),
+                div(
+                  class = "content-row",
+                  uiOutput(ns("male_text"))
+                ),
+                div(
+                  class = "content-row",
+                  uiOutput(ns("female_text"))
+                )
               )
+
             ),
             if(length(measure_choices) != 1) {
               div(
@@ -81,7 +89,6 @@ UI_module <- function(id){
                 ),
                 div(
                   class = "ltr-text",
-                  uiOutput(ns("ltr_cancer")),
                   h2("Lifetime Risk"),
                   uiOutput(ns("ltr_text"))
                 ),
@@ -90,7 +97,10 @@ UI_module <- function(id){
                   class = "ltr-tooltip"
                 )
               )
+            } else {
+              div(class = "cardo-logo")
             }
+
           )
         ),
         ### Top-right - Over Time ----
@@ -205,7 +215,7 @@ server_module <- function(id){
               filter(measure == input$measure)
           } else {
             inc_averages %>%
-              filter(cancer.type != "All cancers",
+              filter(cancer.type != all_cancers_name,
                      measure == input$measure,
                      sex == input$sex) %>%
               slice_max(order_by = obs, n = 5)
@@ -289,7 +299,7 @@ server_module <- function(id){
               filter(measure == input$measure)
           } else {
             mrt_averages %>%
-              filter(cancer.type != "All cancers",
+              filter(cancer.type != all_cancers_name,
                      measure == input$measure,
                      sex == input$sex) %>%
               slice_max(order_by = obs, n = 5)
@@ -409,15 +419,15 @@ server_module <- function(id){
         ltr_stat <- if (lifetime_risk() * 10 < 1 & lifetime_risk() * 10 != 0) {"< 1"} else {round(lifetime_risk() * 10)}
 
         stat_text <- if(lifetime_risk() == 0){
-          "<span>No <b>"
+          "<p>No <b>"
         }else{
           paste0(
-            "<span>Approximately 1 in <b>",round(10/(10 * lifetime_risk()), 1))
+            "<p>Approximately 1 in <b>", round(10/(10 * lifetime_risk()), 1))
         }
 
         div(
           p(style = "font-size: clamp(14px, 1vw, 18px); margin-bottom: 1rem;", input$cancer.type),
-          HTML(paste(span(class = "ltr-stat", ltr_stat), " out of 10")),
+          HTML(paste("<b>", ltr_stat, "</b> out of 10")),
           div(
             class = "ltr-info",
             HTML(paste(
@@ -425,7 +435,7 @@ server_module <- function(id){
               if (input$sex == 3) {"persons"} else {if (input$sex == 1) {"males"} else {"females"}},
               if (id == "Diagnosis") {"</b>are expected to be diagnosed with <b>"} else {"</b>are expected to die from <b>"},
               tolower(input$cancer.type),
-              "</b> by age 85</span>"
+              "</b> by age 85</p>"
             )
             )
           )
