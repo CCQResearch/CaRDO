@@ -362,7 +362,7 @@ hr {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  filter: opacity(0.5);
+  /* filter: opacity(0.5); */
   order: 1;
 }
 

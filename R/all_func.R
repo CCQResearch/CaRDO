@@ -86,6 +86,7 @@ create_dashboard <- function(){
           class = pages[[1]],
           div(
             class = "acronym-container",
+            div(class = "logo"),
             h1(class = "acronym-title", "CaRDO"),
             div(
               class = "acronym-words",

@@ -19,21 +19,14 @@ html, body {
   background: none !important;
 }
 
-body::before {
-  content: "";
-  background-color: white;
-  background-image: url('cardo.png');
-  background-size: 50%;
+.logo {
+  background-image: url("cardo.png");
+  background-size: contain;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 80% 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  background-position: center;
+  width: 10%;
   height: 100%;
-  opacity: 0.25;
-  z-index: -1;
+  margin-right: -2rem;
 }
 
 /*----------------------------------------------------------------------------*/
@@ -198,6 +191,7 @@ li {font-family: 'Barlow'; font-size: 0.9rem; margin: 0.5rem 1rem;}
 /*  Landing Page  ------------------------------------------------------------*/
 .acronym-container {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   gap: 3rem;
 }
