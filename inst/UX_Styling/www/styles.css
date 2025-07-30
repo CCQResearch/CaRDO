@@ -401,6 +401,7 @@ ol {
   border-radius: 16px;
   width: 330px;
   padding: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .hint-div p {
