@@ -66,7 +66,7 @@ ui <- page_navbar(
 
 server <- function(input, output, session){
 
-  server_module("Diagnosis")
+  server_module("Diagnoses")
 
   if(!no_mrt){
     server_module("Deaths")
