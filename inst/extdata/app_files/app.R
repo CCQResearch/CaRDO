@@ -40,7 +40,7 @@ ui <- page_navbar(
   ),
   title = dashboard_title,
   nav_panel(
-    title = "Diagnosis",
+    title = "Diagnoses",
     id = "diagnosis",
     UI_module("Diagnosis")
   ),
