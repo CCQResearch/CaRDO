@@ -357,7 +357,12 @@ create_dashboard <- function(){
               id = "all-cancer-category",
               class = "final-panel-div",
               uiOutput(outputId = "select_all_canc_var"),
-              uiOutput(outputId = "aggregation_var")
+              uiOutput(outputId = "aggregation_var"),
+              div(
+                class = "hint-div",
+                p("We assume that you are using ICD-10 as a coding system for cancers.",
+                  "This system will be displayed as a table in the Methods page.")
+              )
             ),
             div(
               id = "threshold-div",
