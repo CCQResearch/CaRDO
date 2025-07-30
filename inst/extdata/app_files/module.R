@@ -10,7 +10,7 @@ UI_module <- function(id){
         div(
           class = "cancer-menu",
           selectInput(inputId = ns("cancer.type"),
-                      choices = if (id == "Diagnosis") {cancer_choices_inc} else {cancer_choices_mrt},
+                      choices = if (id == "Diagnoses") {cancer_choices_inc} else {cancer_choices_mrt},
                       label = "Cancer type")
           # downloadButton(outputId = ns("report"),
           #                label = "Report") %>%
@@ -145,7 +145,7 @@ server_module <- function(id){
 
       counts_rates_labs <- reactive({
         paste0(
-          ifelse(id == "Diagnosis",
+          ifelse(id == "Diagnoses",
                  yes = "Diagnoses",
                  no = id),
           ifelse(input$measure == "Counts",
@@ -156,7 +156,7 @@ server_module <- function(id){
 
       ## Data loading ----
 
-      if(id == "Diagnosis"){
+      if(id == "Diagnoses"){
 
         data_topleft <- reactive({
           inc_annual_counts %>%
@@ -328,7 +328,7 @@ server_module <- function(id){
       time_hovertemplate <- reactive({
         paste0(
           if_else(input$measure == "Counts", paste0("%{y:,.1f}"), paste0("%{y:,.1f}")),
-          if_else(id == "Diagnosis", " diagnoses", " deaths"),
+          if_else(id == "Diagnoses", " diagnoses", " deaths"),
           if_else(input$measure == "Counts", "", " per 100,000 pop.")
         )
       })
@@ -407,7 +407,7 @@ server_module <- function(id){
                  preserveAspectRatio = "XMidYMid meet",
                  lapply(1:10, function(i) {
                    color <- ifelse(i <= round(lifetime_risk() * 10),
-                                   if(id == "Diagnosis") "#1C54A8" else "#8E3E39",
+                                   if(id == "Diagnoses") "#1C54A8" else "#8E3E39",
                                    "#E6E6E6")
                    tags$circle(class = "data-circle", `data-info` = "Each circle represents 1 in 10 persons", cx = "50%", cy = (10 - i) * 10 + 5, r = 3, fill = color)
                  })
@@ -433,7 +433,7 @@ server_module <- function(id){
             HTML(paste(
               stat_text,
               if (input$sex == 3) {"persons"} else {if (input$sex == 1) {"males"} else {"females"}},
-              if (id == "Diagnosis") {"</b>are expected to be diagnosed with <b>"} else {"</b>are expected to die from <b>"},
+              if (id == "Diagnoses") {"</b>are expected to be diagnosed with <b>"} else {"</b>are expected to die from <b>"},
               tolower(input$cancer.type),
               "</b> by age 85</p>"
             )
@@ -446,9 +446,9 @@ server_module <- function(id){
       ### TR-Time Outputs ----
       title_topright <- reactive({
         heading_title <- if(input$measure == "Counts") {
-          if(id == "Diagnosis") "Number of diagnoses" else "Number of deaths"
+          if(id == "Diagnoses") "Number of diagnoses" else "Number of deaths"
         } else {
-          if(id == "Diagnosis") "Diagnosis rates" else "Death rates"
+          if(id == "Diagnoses") "Diagnosis rates" else "Death rates"
         }
         heading_cancer <- tolower(input$cancer.type)
         heading_sex <- if(input$sex == 3) {
@@ -501,7 +501,7 @@ server_module <- function(id){
         )
 
         categories <- c("1", "2", "3")
-        plot_colour <- if(id == "Diagnosis") "#1C54A8" else "#8E3E39"
+        plot_colour <- if(id == "Diagnoses") "#1C54A8" else "#8E3E39"
 
         line_styles <- sapply(categories, function(cat) {
           if (cat == input$sex) {
@@ -679,7 +679,7 @@ server_module <- function(id){
 
       ### BL-Cancer Outputs ----
       title_bottomleft <- reactive({
-        heading_title <- if(id == "Diagnosis") "diagnoses" else "deaths"
+        heading_title <- if(id == "Diagnoses") "diagnoses" else "deaths"
         heading_sex <- if(input$sex == 3) {
           " "
         } else {
@@ -732,7 +732,7 @@ server_module <- function(id){
 
       output$bottomleft <- renderPlotly({
 
-        plot_colour <- if(id == "Diagnosis") "#335C98" else "#8E3E39"
+        plot_colour <- if(id == "Diagnoses") "#335C98" else "#8E3E39"
 
         cancer_axis_limit <- if(input$measure == "Counts") {counts_limit} else {rates_limit}
 
@@ -800,9 +800,9 @@ server_module <- function(id){
       ### BR-Age Outputs ----
       title_bottomright <- reactive({
         heading_title <- if(input$measure == "Counts") {
-          if(id == "Diagnosis") "Number of diagnoses" else "Number of deaths"
+          if(id == "Diagnoses") "Number of diagnoses" else "Number of deaths"
         } else {
-          if(id == "Diagnosis") "Diagnosis rates" else "Death rates"
+          if(id == "Diagnoses") "Diagnosis rates" else "Death rates"
         }
         heading_cancer <- tolower(input$cancer.type)
         heading_sex <- if(input$sex == 3) {

@@ -41,8 +41,8 @@ ui <- page_navbar(
   title = dashboard_title,
   nav_panel(
     title = "Diagnoses",
-    id = "diagnosis",
-    UI_module("Diagnosis")
+    id = "diagnoses",
+    UI_module("Diagnoses")
   ),
   if(!no_mrt){
     nav_panel(
