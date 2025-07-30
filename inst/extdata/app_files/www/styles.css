@@ -464,7 +464,22 @@ hr {
   margin: 2rem 0rem 1rem 0rem;
 }
 
+table {
+  margin: 1rem 0;
+}
 
+thead {
+  background-color: #454545;
+  color: #FFFFFF;
+}
+
+thead, tbody, tfoot, tr, td, th {
+  padding: 0.5rem;
+}
+
+table tr:nth-child(odd) td {
+  background-color: #DBDBDB;
+}
 
 /* Fade-in animation for methods content */
 .methods-panel > * {
