@@ -241,6 +241,17 @@ li {font-family: 'Barlow'; font-size: 0.9rem; margin: 0.5rem 1rem;}
   line-height: 1.5;
 }
 
+#license {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: grey;
+}
+
+.license-text li, .license-text p {
+  font-size: 0.9rem;
+}
+
 /*  --------------------------------------------------------------------------*/
 
 /*  Disclaimer Page  ---------------------------------------------------------*/

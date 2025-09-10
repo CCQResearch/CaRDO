@@ -109,7 +109,6 @@ create_dashboard <- function(){
       ),
 
       ### UI-Disclaimer ----
-
       nav_panel_hidden(
         pages[[2]],
         div(
@@ -401,6 +400,13 @@ create_dashboard <- function(){
                        width = "100%")
         )
       ),
+      div(
+        id = "license_modal",
+        style = "margin: 0 auto;",
+        actionButton(inputId = "license",
+                     label = "View Liscensing",
+                     width = "100%")
+      ),
       ## Next button / Save + Exit
       div(
         id = "next_page_div",
@@ -420,6 +426,41 @@ create_dashboard <- function(){
   server <- function(input, output, session){
 
     is_na_char <- function(x) { x=="NA" }
+
+    licensing_modal <-
+      showModal(
+        modalDialog(
+          size = "l",
+          tagList(
+
+            div(
+              class = "directory-copy",
+              span("CaRDO Liscensing")
+            ),
+            hr(),
+            div(
+              class = "license-text",
+              p("The CaRDO software and associated materials are made available under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Licence (CC BY-NC-SA 4.0).", tags$br(),
+                "This licence allows users to:", tags$br()),
+              tags$ul(
+                tags$li("Share - copy and redistribute the material in any medium or format; and/or,"),
+                tags$li("Adapt - remix, transform, and build upon the material,")
+              ),
+              p("Under the following conditions:", tags$br()),
+              tags$ul(
+                tags$li(tags$b("Attribution"), "- You must give appropriate credit, provide a link to the licence, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. Please use this reference when providing credit: ", tags$i("Retell, J., Francis, S., Rene, J., & Baade, P. (2025). CaRDO Handbook (Version 06-2025). Cancer Council Queensland: Viertel Cancer Research Centre. https://ccqresearch.github.io/CaRDO-Handbook/")),
+                tags$li(tags$b("NonCommercial"), "- You may not use the material for commercial purposes without prior written permission."),
+                tags$li(tags$b("ShareAlike"), "- If you remix, transform, or build upon the material, you must distribute your contributions under the same licence (CC BY-NC-SA 4.0). This ensures that any derivative works remain freely available under the same terms, supporting open collaboration and equitable access especially for low-resource cancer registries.")
+              ),
+              p("We welcome use by cancer registries and organisations, especially in low-resource settings. If your organisation requires customisations or enhancements to the base product, please contact us (statistics@cancerqld.org.au) to discuss potential cost-recovery arrangements.")
+            )
+          ),
+          footer = tagList(
+            modalButton("I Agree")
+          ),
+          easyClose = TRUE
+        )
+      )
 
     # need_geog <- reactive({
     #   if(is.null(input$variables_inc)){return(FALSE)}
@@ -525,6 +566,14 @@ create_dashboard <- function(){
     # observe(print(current_page()))
 
     ### Observe Event Section ----
+
+
+
+    observe({
+
+      licensing_modal
+
+    })
 
     #### EVENT: Next Button Clicked ----
     observeEvent(input$next_page, {
@@ -1018,6 +1067,45 @@ create_dashboard <- function(){
       nav_select(
         id = "container",
         selected = current_page()
+      )
+
+    })
+
+    #### EVENT: Licensing Modal ----
+    observeEvent(input$license, {
+
+      showModal(
+        modalDialog(
+          size = "l",
+          tagList(
+
+            div(
+              class = "directory-copy",
+              span("CaRDO Liscensing")
+            ),
+            hr(),
+            div(
+              class = "license-text",
+              p("The CaRDO software and associated materials are made available under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Licence (CC BY-NC-SA 4.0).", tags$br(),
+                "This licence allows users to:", tags$br()),
+              tags$ul(
+                tags$li("Share - copy and redistribute the material in any medium or format; and/or,"),
+                tags$li("Adapt - remix, transform, and build upon the material,")
+              ),
+              p("Under the following conditions:", tags$br()),
+              tags$ul(
+                tags$li(tags$b("Attribution"), "- You must give appropriate credit, provide a link to the licence, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. Please use this reference when providing credit: ", tags$blockquote("Retell, J., Francis, S., Rene, J., & Baade, P. (2025). CaRDO Handbook (Version 06-2025). Cancer Council Queensland: Viertel Cancer Research Centre. https://ccqresearch.github.io/CaRDO-Handbook/")),
+                tags$li(tags$b("NonCommercial"), "- You may not use the material for commercial purposes without prior written permission."),
+                tags$li(tags$b("ShareAlike"), "- If you remix, transform, or build upon the material, you must distribute your contributions under the same licence (CC BY-NC-SA 4.0). This ensures that any derivative works remain freely available under the same terms, supporting open collaboration and equitable access especially for low-resource cancer registries.")
+              ),
+              p("We welcome use by cancer registries and organisations, especially in low-resource settings. If your organisation requires customisations or enhancements to the base product, please contact us (statistics@cancerqld.org.au) to discuss potential cost-recovery arrangements.")
+            )
+          ),
+          footer = tagList(
+            modalButton("I Agree")
+          ),
+          easyClose = TRUE
+        )
       )
 
     })
