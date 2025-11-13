@@ -376,6 +376,12 @@ create_dashboard <- function(){
                 class = "hint-div",
                 p("If there are counts in your data that are below this value",
                   "they will not show in the dashboard. They are 'suppressed' after all necessary calculations are made.")
+              ),
+              div(
+                class = "hint-div feedback",
+                p("If you use CaRDO or have feedback, please contact us at",
+                  tags$a("statistics@cancerqld.org.au", href = "mailto:statistics@cancerqld.org.au"),
+                  "– we’d love to hear from you. Your input helps us demonstrate CaRDO’s impact and secure funding for its continued development.")
               )
             )
           )

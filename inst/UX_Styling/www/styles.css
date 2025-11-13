@@ -421,6 +421,12 @@ ol {
   font-weight: 500;
 }
 
+.hint-div .feedback {
+  background: transparent;
+  font-style: italic;
+  padding: 1rem 0 0 0;
+}
+
 #aggregation_var .checkbox {
   margin-top: 2rem;
 }
