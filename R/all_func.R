@@ -200,7 +200,8 @@ create_dashboard <- function(){
                 condition = "input.select_data.includes('Incidence')",
                 fileInput(inputId = "data_inc_upload",
                           label = HTML("Load <b>incidence</b> data"),
-                          accept = c(".csv", ".tsv", ".dta"))
+                          accept = c(".csv", ".tsv", ".dta")),
+                uiOutput("data_inc_upload_msg")
               ),
               conditionalPanel(
                 condition = "input.select_data.includes('Mortality')",
@@ -1152,6 +1153,34 @@ create_dashboard <- function(){
 
     })
 
+    #### EVENT: Incorrect File Type ----
+
+    observeEvent(input$data_inc_upload, {
+
+      ext <- tools::file_ext(input$data_inc_upload$name)
+
+      if (!ext %in% c("csv", "tsv", "dta")) {
+
+        showNotification(
+          "Incorrect file type - please load a .csv, .tsv or .dta file",
+          type = "error",
+          duration = 5
+        )
+
+        output$data_inc_upload_msg <- renderUI({
+
+          tags$p(style = "color: red;", "Incorrect file type.")
+
+        })
+
+      } else {
+
+        output$data_inc_upload_msg <- renderUI(NULL)
+
+      }
+
+    })
+
     ### Data Section ----
 
     #### Incidence ----
@@ -1165,7 +1194,7 @@ create_dashboard <- function(){
       ext <- file_ext(input$data_inc_upload$name)
 
       # Save the ID for removal later
-      id_inc <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+      # id_inc <- showNotification(paste("Load completed"), duration = 5)
 
       data <- switch(
         ext,
@@ -1175,7 +1204,7 @@ create_dashboard <- function(){
         validate("Invalid file; Please load a .csv, .tsv or .dta file")
       )
 
-      removeNotification(id_inc)
+      # removeNotification(id_inc)
 
       return(data)
 
@@ -1192,7 +1221,7 @@ create_dashboard <- function(){
       ext <- file_ext(input$data_mrt_upload$name)
 
       # Save the ID for removal later
-      id_mrt <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+      # id_mrt <- showNotification(paste("Load completed"), duration = 0)
 
       data <- switch(
         ext,
@@ -1202,7 +1231,7 @@ create_dashboard <- function(){
         validate("Invalid file; Please load a .csv, .tsv or .dta file")
       )
 
-      removeNotification(id_mrt)
+      # removeNotification(id_mrt)
 
       return(data)
 
@@ -1220,7 +1249,7 @@ create_dashboard <- function(){
       ext <- file_ext(input$pop_data_upload$name)
 
       # Save the ID for removal later
-      id_pop <- showNotification(paste("Load completed, now processing the data"), duration = 0)
+      # id_pop <- showNotification(paste("Load completed"), duration = 0)
 
       data <- switch(
         ext,
@@ -1230,7 +1259,7 @@ create_dashboard <- function(){
         validate("Invalid file; Please load a .csv, .tsv or .dta file")
       )
 
-      removeNotification(id_pop)
+      # removeNotification(id_pop)
 
       return(data)
 
@@ -1555,8 +1584,8 @@ transform_data <- function(req_mortality_data, req_population_data,
                            aggregate_option){
 
   # There are three main datasets that are needed to create the dashboard:
-  #   1.  'Annual' - This will have the measure (counts/rates) for each year
-  #   2.  'Age' - This will have the measures by broad age group
+  #   1.  'Annual'  - This will have the measure (counts/rates) for each year
+  #   2.  'Age'     - This will have the measures by broad age group
   #   3.  'Average' - This is an aggregation of the most recent 5 years
   #
   # The base is Incidence -> Counts
