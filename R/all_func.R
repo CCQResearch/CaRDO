@@ -62,6 +62,15 @@ create_dashboard <- function(){
 
   addResourcePath("CaRDO", system.file("UX_Styling/www", package = "CaRDO"))
 
+  # Lookup: which age.grp codes belong to each age-range option
+  age_grp_lookup <- list(
+    "all_ages"      = 1:18,
+    "adults_who"    = 4:18,
+    "adults_legal"  = 4:18
+#    "paediatric_14" = 1:3,
+#    "paediatric_19" = 1:4
+  )
+
   ## User Interface ----
 
   ui <- page_fillable(
@@ -362,6 +371,26 @@ create_dashboard <- function(){
                 class = "hint-div",
                 p("We assume that you are using ICD-10 as a coding system for cancers.",
                   "This system will be displayed as a table in the Methods page.")
+              )
+            ),
+            div(
+              id = "age-group-structure",
+              class = "final-panel-div",
+              radioButtons(
+                inputId = "age_group_var",
+                label = "Age collection scope: All ages (0-85+)",
+                choices = list(
+                  "All ages (default)" = "all_ages",
+                  "Adults only - WHO (15-85+)" = "adults_who",
+                  "Adults only - Legal (18-85+)" = "adults_legal"
+                  # "Paediatric only (0-14)",
+                  # "Paediatric & Adolescent (0-19)"
+                ),
+                selected = "all_ages"
+              ),
+              div(
+                class = "hint-div",
+                p("Only change this if you do not collect across the full age range.")
               )
             ),
             div(
@@ -755,13 +784,16 @@ create_dashboard <- function(){
 
             aggregate_option <- input$aggregate_option
 
+            agerange_choice <- input$age_group_var
+
             ####### Save All Other Inputs ----
             supplied_params <- list(
               "All cancers" = if(input$bool_all_canc == "No") {"All reported cancers"} else {"All malignant neoplasms"},
               "Dashboard title" = input$dashboard_title,
               "Dashboard catchment" = input$dashboard_location,
               "Suppression threshold" = suppress_threshold,
-              "aggregate_option" = aggregate_option
+              "aggregate_option" = aggregate_option,
+              "Age range" = input$age_group_var
             )
 
             ####### Transform Data ----
@@ -772,7 +804,8 @@ create_dashboard <- function(){
                 standard_pop, input$std_pop_name,
                 supplied_params,
                 suppress_threshold,
-                aggregate_option
+                aggregate_option,
+                agerange_choice
               )
 
             },
@@ -1198,10 +1231,13 @@ create_dashboard <- function(){
 
       data <- switch(
         ext,
-        "dta" = read_dta(input$data_inc_upload$datapath),
-        "csv" = fread(input$data_inc_upload$datapath),
-        "tsv" = vroom(input$data_inc_upload$datapath, delim = "\t"),
-        validate("Invalid file; Please load a .csv, .tsv or .dta file")
+        "dta"  = read_dta(input$data_inc_upload$datapath),
+        "csv"  = fread(input$data_inc_upload$datapath),
+        "tsv"  = vroom(input$data_inc_upload$datapath, delim = "\t"),
+        "xlsx" = readxl::read_excel(input$data_inc_upload$datapath),
+        "xls"  = readxl::read_excel(input$data_inc_upload$datapath),
+        "rds"  = readRDS(input$data_inc_upload$datapath),
+        validate("Invalid file; Please load a .csv, .tsv, .dta, .xlsx, .xls or .rds file")
       )
 
       # removeNotification(id_inc)
@@ -1225,10 +1261,13 @@ create_dashboard <- function(){
 
       data <- switch(
         ext,
-        "dta" = read_dta(input$data_mrt_upload$datapath),
-        "csv" = fread(input$data_mrt_upload$datapath),
-        "tsv" = vroom(input$data_mrt_upload$datapath, delim = "\t"),
-        validate("Invalid file; Please load a .csv, .tsv or .dta file")
+        "dta"  = read_dta(input$data_mrt_upload$datapath),
+        "csv"  = fread(input$data_mrt_upload$datapath),
+        "tsv"  = vroom(input$data_mrt_upload$datapath, delim = "\t"),
+        "xlsx" = readxl::read_excel(input$data_mrt_upload$datapath),
+        "xls"  = readxl::read_excel(input$data_mrt_upload$datapath),
+        "rds"  = readRDS(input$data_mrt_upload$datapath),
+        validate("Invalid file; Please load a .csv, .tsv, .dta, .xlsx, .xls or .rds file")
       )
 
       # removeNotification(id_mrt)
@@ -1253,10 +1292,13 @@ create_dashboard <- function(){
 
       data <- switch(
         ext,
-        "dta" = read_dta(input$pop_data_upload$datapath),
-        "csv" = fread(input$pop_data_upload$datapath),
-        "tsv" = vroom(input$pop_data_upload$datapath, delim = "\t"),
-        validate("Invalid file; Please load a .csv, .tsv or .dta file")
+        "dta"  = read_dta(input$pop_data_upload$datapath),
+        "csv"  = fread(input$pop_data_upload$datapath),
+        "tsv"  = vroom(input$pop_data_upload$datapath, delim = "\t"),
+        "xlsx" = readxl::read_excel(input$pop_data_upload$datapath),
+        "xls"  = readxl::read_excel(input$pop_data_upload$datapath),
+        "rds"  = readRDS(input$pop_data_upload$datapath),
+        validate("Invalid file; Please load a .csv, .tsv, .dta, .xlsx, .xls or .rds file")
       )
 
       # removeNotification(id_pop)
@@ -1581,7 +1623,7 @@ create_dashboard <- function(){
 transform_data <- function(req_mortality_data, req_population_data,
                            standard_pop, std_pop_name,
                            supplied_params, suppress_threshold,
-                           aggregate_option){
+                           aggregate_option, agerange_choice) {
 
   # There are three main datasets that are needed to create the dashboard:
   #   1.  'Annual'  - This will have the measure (counts/rates) for each year
@@ -1763,20 +1805,50 @@ transform_data <- function(req_mortality_data, req_population_data,
   incProgress(1/4)
 
   # Group data by age, to smaller age groups
-  age_grps <- list("0-34" = 1:7, "35-49" = 8:10,
-                   "50-64" = 11:13, "65+" = 14:18) %>%
-    stack() %>%
-    rename("age.grp" = values,
-           "age.grp_string" = ind)
 
-  if (req_population_data){
+
+  age_grps <- if (agerange_choice == "adults_who") {
+
+    list("15-34" = 4:7, "35-49" = 8:10, "50-64" = 11:13, "65+" = 14:18) %>%
+      stack() %>%
+      rename("age.grp" = values,
+             "age.grp_string" = ind)
+
+  } else if (agerange_choice == "adults_legal") {
+
+    list("18-34" = 4:7, "35-49" = 8:10, "50-64" = 11:13, "65+" = 14:18) %>%
+      stack() %>%
+      rename("age.grp" = values,
+             "age.grp_string" = ind)
+
+  } else {
+
+    list("0-34" = 1:7, "35-49" = 8:10,
+                     "50-64" = 11:13, "65+" = 14:18) %>%
+      stack() %>%
+      rename("age.grp" = values,
+             "age.grp_string" = ind)
+
+  }
+
+
+  if (req_population_data) {
 
     # Processing the standard population files
     # This file is selected by the user and pulled from the package files
     std_pop <- standard_pop %>%
       filter(std_name == std_pop_name) %>%
-      mutate("age.grp" = ragegrp) %>%
-      dplyr::select(age.grp, wght)
+      mutate(age.grp = ragegrp) %>%
+      dplyr::select(age.grp, wght) %>%
+      {
+        if (agerange_choice == "adults_legal") {
+          mutate(., wght = if_else(age.grp == "15-19", wght * (2/5), wght))
+        } else {
+          .
+        }
+      } %>%
+      filter(age.grp %in% age_grps$age.grp) %>%
+      mutate(wght = wght / sum(wght))
 
     std_pop_grouped <- std_pop %>%
       merge(age_grps) %>%
