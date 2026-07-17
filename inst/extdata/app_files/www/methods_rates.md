@@ -8,6 +8,8 @@ All cancer diagnoses and cancer deaths trends were calculated using directly sta
 
 $$\sum_{i = 1}^{18} \frac{events_{i}}{population_{i}} \times weights_{i} \times 100,000$$
 
+**Age-standardized rates for Adults Only - Legal (18-85+)** are calculated by first adjusting the standard population to match the dataset's age range. As the youngest available age band begins at 18 rather than the standard 15-19 grouping, the standard population for the 15-19 band is reweighted to reflect only ages 18-19, calculated as 2/5 (40%) of the 15-19 standard population, under an assumption of uniform population distribution across single years of age within that band. This reweighted value is then combined with the standard populations for all subsequent 5-year age bands (20-24 through 80-84) and the terminal 85+ band to form an adjusted standard population totaling the 18-85+ range. Age-specific rates from the dataset are then directly standardized against this adjusted standard population using the standard direct standardization method.
+
 ## Life Time Risk {#ltr}
 
 Cumulative risk is a measure used to estimate the risk of developing or dying of cancer up to a specific age. It takes into account the removal of persons from the population of interest who have already been diagnosed with or died from cancer. Commonly expressed as a ‘1 in $n$’ proportion, the cumulative risk is calculated as:
@@ -15,6 +17,8 @@ Cumulative risk is a measure used to estimate the risk of developing or dying of
 $$n = \frac{1}{1-e^{(-5\sum a_{j} \times \frac{100}{100,000})}}$$
 
 where $a_{j}$ are the age-specific rates (5-year age groups) per 100,000 for ages 0 – to your specific age group, for example 85. CaRDO provides the cumulative risk up to the age 85 as an approximation of lifetime risk. An $x$ in 100 variation is also supplied, calculated as the inverse of the cumulative risk multiplied by 100. These calculations assume that the person experiences the current age-specific risk rates up to the age specified (e.g. 85), so do not account for any specific risk factors (such as smoking).
+
+*Note: Cumulative risk estimates are based on age-specific rates for available age groups only. Where younger age groups (e.g., under 15) are not included, cumulative risk may be slightly underestimated. For most cancers this effect is negligible, as incidence in these younger age groups is close to zero. However, for cancers with a meaningful childhood burden — such as leukaemia — this omission will lead to a more meaningful underestimate of true cumulative risk, and estimates should be interpreted with this limitation in mind.*
 
 ## Incidence & Mortality Trends {#trends}
 
