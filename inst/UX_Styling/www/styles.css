@@ -635,6 +635,10 @@ ol {
   padding: 0.5rem 1rem;
 }
 
+.action-icon, .action-label {
+  background: none !important;
+}
+
 #mismatch {
   align-items: flex-start;
 }
