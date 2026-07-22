@@ -649,6 +649,7 @@ create_dashboard <- function(){
 
                 data_inc <- data_inc %>%
                   mutate(
+                    "cancer.type" = stringr::str_to_title(cancer.type),
                     "sex" = case_when(
                       sex == input$male_val ~ 1,
                       sex == input$female_val ~ 2,
@@ -702,6 +703,7 @@ create_dashboard <- function(){
 
                 data_mrt <- data_mrt %>%
                   mutate(
+                    "cancer.type" = stringr::str_to_title(cancer.type),
                     "sex" = case_when(
                       sex == input$male_val ~ 1,
                       sex == input$female_val ~ 2,
@@ -1527,7 +1529,11 @@ create_dashboard <- function(){
       # However, this now causes an issue, whereby input$var_select_inc_cancer.type does not exist yet,
       # So we put req() to say, "Hey don't run what's below until this variable exists".
       req(input$var_select_inc_cancer.type)
-      variable_names <- c("Please specify ..", unique(data_incidence()[[input$var_select_inc_cancer.type]]) %>% sort)
+      temp_cancer_names <- input$var_select_inc_cancer.type
+      variable_names <- c("Please specify ..",
+                          unique(data_incidence()[[temp_cancer_names]]) %>%
+                            stringr::str_to_title() %>%
+                            sort())
       tagList(
         div(
           class = "panel-body",
