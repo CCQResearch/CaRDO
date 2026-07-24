@@ -59,7 +59,8 @@ UI_module <- function(id){
                 div(
                   class = "info",
                   h2(all_cancers_name),
-                  h2(if(to_aggregate) {"For the years "} else {"For the year "}, most_recent_year)
+                  h2(if(to_aggregate) {"For the years "} else {"For the year "}, most_recent_year),
+                  h2(age_scope, style = "opacity: 0.6;font-size: 0.90em;")
                 )
               ),
               hr(),
