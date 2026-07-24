@@ -62,15 +62,6 @@ create_dashboard <- function(){
 
   addResourcePath("CaRDO", system.file("UX_Styling/www", package = "CaRDO"))
 
-  # Lookup: which age.grp codes belong to each age-range option
-  age_grp_lookup <- list(
-    "all_ages"      = 1:18,
-    "adults_who"    = 4:18,
-    "adults_legal"  = 4:18
-#    "paediatric_14" = 1:3,
-#    "paediatric_19" = 1:4
-  )
-
   ## User Interface ----
 
   ui <- page_fillable(
@@ -795,7 +786,7 @@ create_dashboard <- function(){
               "Dashboard catchment" = input$dashboard_location,
               "Suppression threshold" = suppress_threshold,
               "aggregate_option" = aggregate_option,
-              "Age range" = input$age_group_var
+              "Age range" = agerange_choice
             )
 
             ####### Transform Data ----
