@@ -786,7 +786,8 @@ create_dashboard <- function(){
               "Dashboard catchment" = input$dashboard_location,
               "Suppression threshold" = suppress_threshold,
               "aggregate_option" = aggregate_option,
-              "Age range" = agerange_choice
+              "Age range" = agerange_choice,
+              "Standard population" = input$std_pop_name
             )
 
             ####### Transform Data ----

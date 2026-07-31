@@ -483,9 +483,12 @@ table tr:nth-child(odd) td {
 }
 
 /* Fade-in animation for methods content */
-.methods-panel > * {
+.methods-panel #methods_ui > * {
   opacity: 0;
   transform: translateY(10px);
+}
+
+.methods-panel #methods_ui.fade-in > * {
   animation: fadeIn 1s ease-in-out forwards;
 }
 
@@ -800,6 +803,10 @@ body.methods-active nav.navbar.navbar-default {
 
 
 /* Plotly Styling ----------------------------------------------------------- */
+
+g.hoverlayer g.traces > text.legendtext {
+  font-size: clamp(9px, 0.9vw, 11px) !important;
+}
 
 text.xtitle, text.ytitle, g.xtick > text, g.ytick > text, g.traces > text, g.scrollbox > text {
   font-family: var(--regular-font) !important;

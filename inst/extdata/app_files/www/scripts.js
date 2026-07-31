@@ -7,7 +7,7 @@ $(document).on('shown.bs.tab', function(e) {
 
   var activePane = $('.tab-pane.active');
   var panelValue = activePane.attr('data-value');
-  
+
   if (panelValue === 'Methods') {
     $('body').addClass('methods-active');
     $('').addClass('fade-in');
@@ -15,25 +15,25 @@ $(document).on('shown.bs.tab', function(e) {
     $('body').removeClass('methods-active');
     $('').removeClass('fade-in');
   }
-  
+
 });
 
 // Hover tooltips on lifetime risk
 
 $(document).on("shiny:value", function (event) {
-  
+
   if (event.target.id.includes("ltr_vis")) {
     console.log(`LTR visualisation updated for ${event.target.id}, adding event listeners`);
-  
+
     setTimeout(function() {
-      
+
       let circles = document.querySelectorAll("#" + event.target.id + " .data-circle");
-      
+
       if (circles.length > 0) {
         console.log(`Circles found: ${circles.length} in ${event.target.id}`);
-        
+
         circles.forEach(circle => {
-          
+
           let tooltip = document.createElement("div");
           tooltip.classList.add("ltr-tooltip");
           tooltip.style.position = "absolute";
@@ -45,29 +45,46 @@ $(document).on("shiny:value", function (event) {
           tooltip.style.display = "none";
           tooltip.style.pointerEvents = "none";
           tooltip.style.fontSize = "0.8rem";
-          
+
           document.body.appendChild(tooltip);
-          
+
           circle.addEventListener("mouseover", function(event) {
             tooltip.innerText = circle.getAttribute("data-info");
             tooltip.style.display = "block";
             tooltip.style.left = (event.pageX + 10) + "px";
             tooltip.style.top = (event.pageY + 10) + "px";
           });
-          
+
           circle.addEventListener("mousemove", function(event) {
             tooltip.style.left = (event.pageX + 10) + "px";
             tooltip.style.top = (event.pageY + 10) + "px";
           });
-          
+
           circle.addEventListener("mouseout", function(event) {
             tooltip.style.display = "none";
           });
-          
+
         });
       } else {
         console.warn(`No circles found! ${event.target.id}`);
       }
     }, 500);
   }
+});
+
+// MathJax Refresher
+Shiny.addCustomMessageHandler('refreshMethodsPanel', function(message) {
+
+  var el = document.getElementById('methods_ui');
+
+  if (el) {
+    el.classList.remove('fade-in');
+    void el.offsetWidth;
+    el.classList.add('fade-in');
+  }
+
+  if (window.MathJax) {
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
+  }
+
 });

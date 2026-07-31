@@ -56,11 +56,9 @@ ui <- page_navbar(
     title = "Methods",
     id = "methods",
     class = "methods-panel",
-    if(length(measure_choices) != 1){
-      includeMarkdown("www/methods_rates.md")
-    }else{
-      includeMarkdown("www/methods_no_rates.md")
-    }
+
+    uiOutput("methods_ui")
+
   )
 )
 
@@ -71,6 +69,33 @@ server <- function(input, output, session){
   if(!no_mrt){
     server_module("Deaths")
   }
+
+  output$methods_ui <- renderUI({
+
+    if(length(measure_choices) != 1) {
+
+      md_text <- paste(readLines("www/methods_rates.md", warn = FALSE), collapse = "\n")
+      md_text <- gsub("{{standard_pop_name}}", standard_pop_name, md_text, fixed = TRUE)
+
+      session$onFlushed(function() {
+        session$sendCustomMessage("refreshMethodsPanel", TRUE)
+      }, once = TRUE)
+
+      HTML(markdown::markdownToHTML(text = md_text, fragment.only = TRUE))
+
+    } else {
+
+      md_text <- paste(readLines("www/methods_no_rates.md", warn = FALSE), collapse = "\n")
+
+      session$onFlushed(function() {
+        session$sendCustomMessage("refreshMethodsPanel", TRUE)
+      }, once = TRUE)
+
+      HTML(markdown::markdownToHTML(text = md_text, fragment.only = TRUE))
+
+    }
+
+  })
 
   output$report <- downloadHandler(
     filename = ""

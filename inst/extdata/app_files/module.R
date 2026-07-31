@@ -328,9 +328,9 @@ server_module <- function(id){
 
       time_hovertemplate <- reactive({
         paste0(
-          if_else(input$measure == "Counts", paste0("%{y:,.1f}"), paste0("%{y:,.1f}")),
-          if_else(id == "Diagnoses", " diagnoses", " deaths"),
-          if_else(input$measure == "Counts", "", " per 100,000 pop.")
+          if_else(input$measure == "Counts", paste0("%{y:,.1f}"), paste0("%{y:,.1f}"))
+          # if_else(id == "Diagnoses", " diagnoses", " deaths"),
+          # if_else(input$measure == "Counts", "", " per 100,000 pop.")
         )
       })
 
@@ -513,7 +513,6 @@ server_module <- function(id){
         }, simplify = FALSE)
 
         marker_styles <- sapply(categories, function(cat) {
-
 
           if ("obs_trend" %in% names(data_topright())) {
             if (cat == input$sex) {

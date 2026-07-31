@@ -4,7 +4,7 @@
 
 Age-standardised rates attempt to adjust for variation in age structures in different populations (either different geographical areas or the same population across time). There are two methods of age-standardisation – direct and indirect.
 
-All cancer diagnoses and cancer deaths trends were calculated using directly standardised rates. The method involves applying age-specific rates from the population of interest (i.e. your catchment) to a standard population, which in CaRDO is the World Standard Population by default [1]. Five-year age groups up to 85-years-and-above were used for all age-standardized rate calculations.
+All cancer diagnoses and cancer deaths trends were calculated using directly standardised rates. The method involves applying age-specific rates from the population of interest (i.e. your catchment) to a standard population. The standard population used here is the **{{standard_pop_name}}**. Five-year age groups up to 85-years-and-above were used for all age-standardized rate calculations.
 
 $$\sum_{i = 1}^{18} \frac{events_{i}}{population_{i}} \times weights_{i} \times 100,000$$
 
