@@ -36,6 +36,9 @@ $(document).on("shiny:value", function (event) {
 
           let tooltip = document.createElement("div");
           tooltip.classList.add("ltr-tooltip");
+          tooltip.style.fontFamily = "Barlow";
+          tooltip.style.fontSize = "0.8rem";
+          tooltip.style.letterSpacing = "0.3px";
           tooltip.style.position = "absolute";
           tooltip.style.zIndex = "9999";
           tooltip.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
@@ -44,7 +47,6 @@ $(document).on("shiny:value", function (event) {
           tooltip.style.borderRadius = "5px";
           tooltip.style.display = "none";
           tooltip.style.pointerEvents = "none";
-          tooltip.style.fontSize = "0.8rem";
 
           document.body.appendChild(tooltip);
 
