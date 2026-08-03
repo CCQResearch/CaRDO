@@ -1547,9 +1547,8 @@ create_dashboard <- function(){
             div(
               class = "hint-div",
               p("CaRDO will report statistics for 'all cancers'.
-                If you select no, CaRDO will calculate 'all cancers reported' by summing the cancer data you provide.
-                To ensure CaRDO reports accurate information,
-                only click Yes if your 'All cancers' category sums up ALL cancers and not just the ones you supply.")
+                If you select NO, CaRDO will calculate 'all cancers reported' by summing the cancer categories you supply.
+                Only tick NO if your data does NOT contain any overlapping cancer categories (e.g. cervical cancer and gynaecological cancers) as this will result in double counting.")
             )
           )
         )
