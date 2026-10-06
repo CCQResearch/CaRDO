@@ -18,9 +18,9 @@ where $a_{j}$ are the age-specific rates (5-year age groups) per 100,000 for age
 
 ## Incidence & Mortality Trends {#trends}
 
-Incidence and mortality trends were calculated by fitting piece-wise functions, composed of splines and linear models, to the data. 
+Incidence and mortality trends were calculated by fitting piece-wise linear models to the data. Rates were modelled on the natural log scale.  
 
-Break points were identified using the `strucchange` package, specifically the function `breakpoints()`. The data was then segmented by these breakpoints. A maximum number of 3 breakpoints were set, with a minimum number of 5 observations within each segment. Then, a spline and linear model was fit to each segment using the `mgcv` package. The model with the lowest AIC was chosen for each given segment.
+Break points were identified using the `strucchange` package, specifically the function `breakpoints()`. The data was then segmented by these breakpoints. At most one breakpoint was allowed for every 5 years of data, with each segment containing at least one third of the observations (and never fewer than 3). A linear model was then fit to each segment using the `segmented` package. Where there were fewer than 6 observations, a single linear model was fit.
 
 ## Cancer ICD-O3 codes used {#Cancer-codes}
 

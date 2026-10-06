@@ -4,14 +4,19 @@ Title: CaRDO: Cancer Registry Data Online
 Version: 1.0.0
 Authors@R:
     c(
-      person(given = "Sean", family = "Francis", email = "statistics@cancerqld.org.au", role = c("aut", "cre")),
-      person(given = "James", family = "Retell", role = c("aut")),    
+      person(given = "Sean", family = "Francis", role = c("aut")),
+      person(given = "James", family = "Retell", email = "statistics@cancerqld.org.au", role = c("aut","cre")),    
       person(given = "James", family = "Rene", role = c("aut")),
-      person(given = "Peter", family = "Baade", role = c("aut"))
+      person(given = "Peter", family = "Baade", role = c("aut")),
+      person("Viertel Cancer Research Centre, Cancer Council Queensland,", role = "cph")
     )
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: Builds interactive 'shiny' dashboards for reporting
+    population-level cancer statistics. A guided interface loads cancer
+    incidence, mortality and population data, calculates counts,
+    age-standardised rates, trends and lifetime risk, applies small-number
+    suppression, and generates a dashboard application that is ready to
+    publish.
+License: CC BY-NC-SA 4.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
@@ -20,16 +25,21 @@ Imports:
     data.table,
     dplyr,
     haven,
-    magrittr,
-    mgcv,
+        magrittr,
     rclipboard,
+    rlang,
     segmented,
     shiny,
     shinyjs,
     shinyWidgets,
     stats,
+    stringr,
     strucchange,
     tidyr,
     tidyselect,
     tools,
     vroom
+Suggests:
+    markdown,
+    plotly,
+    tidyverse

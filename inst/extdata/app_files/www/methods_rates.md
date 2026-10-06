@@ -4,7 +4,7 @@
 
 Age-standardised rates attempt to adjust for variation in age structures in different populations (either different geographical areas or the same population across time). There are two methods of age-standardisation – direct and indirect.
 
-All cancer diagnoses and cancer deaths trends were calculated using directly standardised rates. The method involves applying age-specific rates from the population of interest (i.e. your catchment) to a standard population, which in CaRDO is the World Standard Population by default [1]. Five-year age groups up to 85-years-and-above were used for all age-standardized rate calculations.
+All cancer diagnoses and cancer deaths trends were calculated using directly standardised rates. The method involves applying age-specific rates from the population of interest (i.e. your catchment) to a standard population. The standard population used here is the **{{standard_pop_name}}**. Five-year age groups up to 85-years-and-above were used for all age-standardized rate calculations.
 
 $$\sum_{i = 1}^{18} \frac{events_{i}}{population_{i}} \times weights_{i} \times 100,000$$
 
@@ -22,9 +22,9 @@ where $a_{j}$ are the age-specific rates (5-year age groups) per 100,000 for age
 
 ## Incidence & Mortality Trends {#trends}
 
-Incidence and mortality trends were calculated by fitting piece-wise functions, composed of splines and linear models, to the data. 
+Incidence and mortality trends were calculated by fitting piece-wise linear models to the data. Rates were modelled on the natural log scale. 
 
-Break points were identified using the `strucchange` package, specifically the function `breakpoints()`. The data was then segmented by these breakpoints. A maximum number of 3 breakpoints were set, with a minimum number of 5 observations within each segment. Then, a spline and linear model was fit to each segment using the `mgcv` package. The model with the lowest AIC was chosen for each given segment.
+Break points were identified using the `strucchange` package, specifically the function `breakpoints()`. The data was then segmented by these breakpoints. At most one breakpoint was allowed for every 5 years of data, with each segment containing at least one third of the observations (and never fewer than 3). A linear model was then fit to each segment using the `segmented` package. Where there were fewer than 6 observations, a single linear model was fit.
 
 ## Cancer ICD-O3 codes used {#Cancer-codes}
 

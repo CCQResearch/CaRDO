@@ -483,9 +483,12 @@ table tr:nth-child(odd) td {
 }
 
 /* Fade-in animation for methods content */
-.methods-panel > * {
+.methods-panel #methods_ui > * {
   opacity: 0;
   transform: translateY(10px);
+}
+
+.methods-panel #methods_ui.fade-in > * {
   animation: fadeIn 1s ease-in-out forwards;
 }
 
@@ -801,13 +804,26 @@ body.methods-active nav.navbar.navbar-default {
 
 /* Plotly Styling ----------------------------------------------------------- */
 
-text.xtitle, text.ytitle, g.xtick > text, g.ytick > text, g.traces > text, g.scrollbox > text {
+text.legendtitletext {
+  font-weight: 600;
+}
+
+text.xtitle, text.ytitle,
+g.xtick > text, g.ytick > text,
+g.traces > text, g.scrollbox > text,
+g.hoverlayer g.traces > text.legendtext {
   font-family: var(--regular-font) !important;
   font-size: clamp(12px, 1vw, 14px) !important;
 }
 
 text.xtitle, text.ytitle {
   font-weight: 500 !important;
+}
+
+text.nums {
+  font-family: 'Barlow' !important;
+  font-size: 15px !important;
+  letter-spacing: 0.3px !important;
 }
 
 /* -------------------------------------------------------------------------- */

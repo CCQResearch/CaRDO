@@ -7,14 +7,15 @@ all_cancers_name <- supplied_params[["All cancers"]] # <-- Don't Change This
 dashboard_title <- supplied_params[["Dashboard title"]] # <-- You can change this
 location_name <- supplied_params[["Dashboard catchment"]]
 to_aggregate <- supplied_params[["aggregate_option"]]
+standard_pop_name <- supplied_params[["Standard population"]]
 
 age_choices <- list(
   "All ages (0-85+)" = "all_ages",
   "Adults (15-85+)" = "adults_who",
   "Adults (18-85+)" = "adults_legal"
 )
-age_scope <- names(age_choices)[age_choices == supplied_params[["Age range"]]]
 
+age_scope <- names(age_choices)[age_choices == supplied_params[["Age range"]]]
 
 # Define a variable that says whether mortality files are present, initialise to TRUE
 no_mrt <<- FALSE

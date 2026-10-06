@@ -11,7 +11,8 @@ transform_data(
   std_pop_name,
   supplied_params,
   suppress_threshold,
-  aggregate_option
+  aggregate_option,
+  agerange_choice
 )
 }
 \description{
