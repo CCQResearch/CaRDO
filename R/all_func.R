@@ -675,7 +675,7 @@ create_dashboard <- function(){
             )
 
             ####### Save Uploaded Mortality Data ----
-            withCallingHandlers({
+            tryCatch({
               if(!is.null(data_mortality())){
 
                 cols_mrt <- c("year", "cancer.type", "sex", "age.grp", "counts")
@@ -1664,9 +1664,8 @@ transform_data <- function(req_mortality_data, req_population_data,
   # Reading in the Incidence data file provided by the user
   data_inc <- readRDS("tmp/data_inc.RDS")
 
-    # Without this the build succeeds, but rows with other codes are quietly dropped from rates, giving wrong numbers
-    check_age_groups(data_inc, "incidence")
-
+  # Without this the build succeeds, but rows with other codes are quietly dropped from rates, giving wrong numbers
+  check_age_groups(data_inc, "incidence")
 
   # Collapsing `Diagnoses` counts to create a `Persons` sex category
   # `Persons` or `3` is just the sum of males and females (or 1 and 2)
@@ -1838,8 +1837,6 @@ transform_data <- function(req_mortality_data, req_population_data,
   incProgress(1/4)
 
   # Group data by age, to smaller age groups
-
-
   age_grps <- if (agerange_choice == "adults_who") {
 
     list("15-34" = 4:7, "35-49" = 8:10, "50-64" = 11:13, "65+" = 14:18) %>%
@@ -1863,7 +1860,6 @@ transform_data <- function(req_mortality_data, req_population_data,
              "age.grp_string" = ind)
 
   }
-
 
   if (req_population_data) {
 
@@ -2850,7 +2846,7 @@ fit_trendline <- function(data, x_val, y_val, rates_req){
     )
 
 
-  }else{
+  } else {
 
     # Fit segmented model, using fixed breakpoints
     os <- segmented(
@@ -2928,9 +2924,6 @@ fit_trendline <- function(data, x_val, y_val, rates_req){
         "apc_upper_ci" = apc_upper_ci,
         "signif" = if_else(apc_lower_ci * apc_upper_ci < 0, NA, "*") # product of same signs is +ve, product of opposite signs is -ve
       )
-
-
-
 
     # Revert the log transform of the data
     data[[y_val]] <- exp(data[[y_val]])
