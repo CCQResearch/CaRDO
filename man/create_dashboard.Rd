@@ -10,5 +10,5 @@ create_dashboard()
 Create your dashboard
 }
 \author{
-Sean Francis
+Sean Francis, James Rene, James Retell
 }

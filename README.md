@@ -53,7 +53,7 @@ loaded into CaRDO.
 
 Further details on data requirements and building a CaRDO dashboard are
 available [here](https://ccqresearch.github.io/CaRDO-Handbook/). Please
-reach out to us at <statistics@qldcancer.org.au> if you have any
+reach out to us at <statistics@cancerqld.org.au> if you have any
 questions or concerns.
 
 ## Disclaimer

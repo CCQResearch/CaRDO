@@ -155,19 +155,6 @@ server_module <- function(id){
         )
       })
 
-      # For X-Unified hover templates
-      label_word <- reactive({
-        if (id == "Diagnoses") {
-          if (input$measure == "Rates") "Diagnosis Rates" else "Diagnoses"
-        } else {
-          if (input$measure == "Rates") "Death Rates" else "Deaths"
-        }
-      })
-
-      hover_fmt <- reactive({
-        paste0("%Y ", label_word(), "")
-      })
-
       ## Data loading ----
 
       if(id == "Diagnoses"){
@@ -187,6 +174,7 @@ server_module <- function(id){
         })
 
         lifetime_risk <- reactive({
+          # browser()
           tmp <- inc_annual_counts %>%
             filter(
               if ("max_year" %in% names(.))
@@ -338,13 +326,13 @@ server_module <- function(id){
         })
       }
 
-      # time_hovertemplate <- reactive({
-      #   paste0(
-      #     if_else(input$measure == "Counts", paste0("%{y:,.1f}      "), paste0("%{y:,.1f}      "))
-      #     # if_else(id == "Diagnoses", " diagnoses", " deaths"),
-      #     # if_else(input$measure == "Counts", "", " per 100,000 pop.")
-      #   )
-      # })
+      time_hovertemplate <- reactive({
+        paste0(
+          if_else(input$measure == "Counts", paste0("%{y:,.1f}"), paste0("%{y:,.1f}")),
+          if_else(id == "Diagnoses", " diagnoses", " deaths"),
+          if_else(input$measure == "Counts", "", " per 100,000 pop.")
+        )
+      })
 
       # ---------------------------------------------------------------------- #
 
@@ -417,7 +405,7 @@ server_module <- function(id){
                  width = "100%",
                  height = "100%",
                  viewBox = "0 0 7 100",
-                 preserveAspectRatio = "xMidYMid meet",
+                 preserveAspectRatio = "XMidYMid meet",
                  lapply(1:10, function(i) {
                    color <- ifelse(i <= round(lifetime_risk() * 10),
                                    if(id == "Diagnoses") "#1C54A8" else "#8E3E39",
@@ -526,6 +514,7 @@ server_module <- function(id){
 
         marker_styles <- sapply(categories, function(cat) {
 
+
           if ("obs_trend" %in% names(data_topright())) {
             if (cat == input$sex) {
 
@@ -563,7 +552,7 @@ server_module <- function(id){
         })
 
         plot <- plot_ly(
-          hovertemplate = paste0("<span style='font-weight: 500;'>%{y:,.1f}      </span>")
+          hovertemplate = time_hovertemplate()
         ) %>%
           config(
             modeBarButtonsToRemove = plotly_btns_rm,
@@ -583,9 +572,6 @@ server_module <- function(id){
               itemdoubleclick = FALSE
             ),
             xaxis = list(
-              type = "date",
-              tickformat = "%Y",
-              hoverformat = hover_fmt(),
               #range = list(earliest_year-1, most_recent_year+1),
               fixedrange = TRUE,
               title = "Year",
@@ -708,19 +694,19 @@ server_module <- function(id){
 
       output$title_bottomleft <- renderUI({
 
-        if (to_aggregate) {
+        if(to_aggregate) {
           heading_bracket <- if(input$measure == "Counts") {
-            paste0("(5-year Average Counts ", unique(data_bottomleft()$year), ")")
+            paste0("(Counts, 5 year average ", unique(data_bottomleft()$year), ")")
           } else {
-            paste0("(5-year Age Standardised Rates ", unique(data_bottomleft()$year), ")")
+            paste0("(5 years ", unique(data_bottomleft()$year), ", Age Standarised)")
           }
 
-        } else {
+        }else{
 
           heading_bracket <- if(input$measure == "Counts") {
-            paste0("(5-year Average Counts ", most_recent_year-4, "-", most_recent_year, ")")
+            paste0("(Counts, 5 year average ", most_recent_year-4, "-", most_recent_year, ")")
           } else {
-            paste0("(5-year Age Standardised Rates ", most_recent_year-4, "-", most_recent_year, ")")
+            paste0("(5 years ", most_recent_year-4, "-", most_recent_year, ", Age Standarised)")
           }
         }
 
@@ -748,21 +734,10 @@ server_module <- function(id){
       output$bottomleft <- renderPlotly({
 
         plot_colour <- if(id == "Diagnoses") "#335C98" else "#8E3E39"
-        hover_colour <- if(id == "Diagnoses") "#24406B" else "#6A2E2A"
 
         cancer_axis_limit <- if(input$measure == "Counts") {counts_limit} else {rates_limit}
 
         data_bl <- data_bottomleft()
-
-        hover_card <- if (input$measure == "Counts") {
-          paste0("<i>5-year Average</i><br>",
-                 "%{y}: <span style='font-weight: 500;'>%{x:,.1f}</span>",
-                 "<extra></extra>")
-        } else {
-          paste0("<i>5-year Rate</i><br>",
-                 "%{y}: <span style='font-weight: 500;'>%{x:,.1f}</span>",
-                 "<extra></extra>")
-        }
 
         plot_ly(data = data_bl)%>%
           add_bars(
@@ -772,7 +747,10 @@ server_module <- function(id){
             width = 0.5,
             marker = list(#line = list(color = "#333333", width = 0.5),
               color = plot_colour),
-            hovertemplate = hover_card
+            hovertemplate = paste0(
+              "%{y}: ", if_else(input$measure == "Counts", paste0("%{x:,}"), paste0("%{x:,.1f}")),
+              "<extra></extra>"
+            )
           ) %>%
           config(
             modeBarButtonsToRemove = plotly_btns_rm,
@@ -800,11 +778,6 @@ server_module <- function(id){
               title = "",
               fixedrange = TRUE,
               rangemode = 'tozero'
-            ),
-            hoverlabel = list(
-              bgcolor = "#FFFFFF",
-              bordercolor = "#000000",
-              font = list(color = "#000000")
             ),
             margin = list(t = 0, b = 0, l = 0, r = 0, pad = 15),
             paper_bgcolor = 'transparent',
@@ -891,9 +864,6 @@ server_module <- function(id){
           layout(
             xaxis = list(
               title = "Year",
-              type = "date",
-              tickformat = "%Y",
-              hoverformat = hover_fmt(),
               #range = list(earliest_year-1, most_recent_year+1),
               fixedrange = TRUE,
               linewidth = 2,
@@ -937,6 +907,7 @@ server_module <- function(id){
 
         for (i in rev(seq_along(age_groups))) {
 
+          # browser()
           selected_colour <- age_colours
 
           filt_df <- data_bottomright() %>%
@@ -961,7 +932,7 @@ server_module <- function(id){
                             color = age_colours[i],
                             line = list(color = "white", width = 3)
               ),
-              hovertemplate = paste0("<span style='font-weight: 500;'>%{y:,.1f}      </span>")
+              hovertemplate = time_hovertemplate()
               # text = ~tooltip,
               # hoverinfo = "text"
             )
@@ -978,3 +949,4 @@ server_module <- function(id){
     }
   )
 }
+

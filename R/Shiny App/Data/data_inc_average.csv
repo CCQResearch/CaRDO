@@ -1,0 +1,55 @@
+"year","sex","cancer.type","measure","obs"
+"2019-2023",1,"All malignant neoplasms","Counts",12975.4
+"2019-2023",1,"All malignant neoplasms","Rates",503.233258819021
+"2019-2023",1,"Breast (Female) Cancer","Counts",0
+"2019-2023",1,"Breast (Female) Cancer","Rates",0
+"2019-2023",1,"Colorectal Cancer","Counts",1164.8
+"2019-2023",1,"Colorectal Cancer","Rates",48.3526411074438
+"2019-2023",1,"Leukaemia","Counts",407.8
+"2019-2023",1,"Leukaemia","Rates",15.8129842472857
+"2019-2023",1,"Lung Cancer","Counts",1137.4
+"2019-2023",1,"Lung Cancer","Rates",37.5558974932647
+"2019-2023",1,"Lymphoma","Counts",576.4
+"2019-2023",1,"Lymphoma","Rates",23.365929623643
+"2019-2023",1,"Melanoma Cancer","Counts",1682
+"2019-2023",1,"Melanoma Cancer","Rates",71.9244852898699
+"2019-2023",1,"Pancreatic Cancer","Counts",347.6
+"2019-2023",1,"Pancreatic Cancer","Rates",13.8715308710641
+"2019-2023",1,"Prostate Cancer","Counts",4006
+"2019-2023",1,"Prostate Cancer","Rates",147.948218771736
+"2019-2023",2,"All malignant neoplasms","Counts",9751.8
+"2019-2023",2,"All malignant neoplasms","Rates",425.764359253558
+"2019-2023",2,"Breast (Female) Cancer","Counts",2619.2
+"2019-2023",2,"Breast (Female) Cancer","Rates",128.043884228164
+"2019-2023",2,"Colorectal Cancer","Counts",980
+"2019-2023",2,"Colorectal Cancer","Rates",38.6271005226777
+"2019-2023",2,"Leukaemia","Counts",258.8
+"2019-2023",2,"Leukaemia","Rates",10.6159033689927
+"2019-2023",2,"Lung Cancer","Counts",977.8
+"2019-2023",2,"Lung Cancer","Rates",34.4716882657828
+"2019-2023",2,"Lymphoma","Counts",431.4
+"2019-2023",2,"Lymphoma","Rates",18.5805071454957
+"2019-2023",2,"Melanoma Cancer","Counts",1169.2
+"2019-2023",2,"Melanoma Cancer","Rates",58.1729497314638
+"2019-2023",2,"Pancreatic Cancer","Counts",307.6
+"2019-2023",2,"Pancreatic Cancer","Rates",11.4711162662774
+"2019-2023",2,"Prostate Cancer","Counts",0
+"2019-2023",2,"Prostate Cancer","Rates",0
+"2019-2023",3,"All malignant neoplasms","Counts",22727.2
+"2019-2023",3,"All malignant neoplasms","Rates",462.76591203399
+"2019-2023",3,"Breast (Female) Cancer","Counts",0
+"2019-2023",3,"Breast (Female) Cancer","Rates",0
+"2019-2023",3,"Colorectal Cancer","Counts",2144.8
+"2019-2023",3,"Colorectal Cancer","Rates",43.3704383646537
+"2019-2023",3,"Leukaemia","Counts",666.6
+"2019-2023",3,"Leukaemia","Rates",13.1625531312296
+"2019-2023",3,"Lung Cancer","Counts",2115.2
+"2019-2023",3,"Lung Cancer","Rates",35.9370039845023
+"2019-2023",3,"Lymphoma","Counts",1007.8
+"2019-2023",3,"Lymphoma","Rates",20.9163486167068
+"2019-2023",3,"Melanoma Cancer","Counts",2851.2
+"2019-2023",3,"Melanoma Cancer","Rates",64.801355433307
+"2019-2023",3,"Pancreatic Cancer","Counts",655.2
+"2019-2023",3,"Pancreatic Cancer","Rates",12.6550478421835
+"2019-2023",3,"Prostate Cancer","Counts",0
+"2019-2023",3,"Prostate Cancer","Rates",0

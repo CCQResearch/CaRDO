@@ -23,7 +23,7 @@
 #' Create your dashboard
 #'
 #' @import shiny
-#' @import bslib
+#' @importFrom bslib page_fillable navset_hidden nav_panel_hidden nav_select
 #' @import shinyWidgets
 #' @import dplyr
 #' @importFrom shinyjs useShinyjs enable disable
@@ -35,7 +35,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom tidyselect all_of
 #' @export
-#' @author Sean Francis
+#' @author Sean Francis, James Rene, James Retell
 
 create_dashboard <- function(){
 
@@ -431,7 +431,7 @@ create_dashboard <- function(){
         id = "license_modal",
         style = "margin: 0 auto;",
         actionButton(inputId = "license",
-                     label = "View Liscensing",
+                     label = "View Licensing",
                      width = "100%")
       ),
       ## Next button / Save + Exit
@@ -462,7 +462,7 @@ create_dashboard <- function(){
 
             div(
               class = "directory-copy",
-              span("CaRDO Liscensing")
+              span("CaRDO Licensing")
             ),
             hr(),
             div(
@@ -569,9 +569,8 @@ create_dashboard <- function(){
         bool <- if(req_population_data()){
           !any(
             sapply(
-              c(input$var_select_pop_counts,
-                input$var_select_,
-                input$var_select_pop_cancer.type,
+              c(input$var_select_pop_population,
+                input$var_select_pop_year,
                 input$var_select_pop_sex,
                 input$var_select_pop_age.group
                 #if(need_geog()){input$var_select_pop_geog.loc}else{NULL}
@@ -620,7 +619,9 @@ create_dashboard <- function(){
             }
 
             ####### Save Uploaded Incidence Data ----
-            withCallingHandlers({
+            save_error <- NULL
+
+            tryCatch({
               if(!is.null(data_incidence())) {
 
                 cols_inc <- c("year", "cancer.type", "sex", "age.grp", "counts")
@@ -669,11 +670,12 @@ create_dashboard <- function(){
                 saveRDS(data_inc, "tmp/data_inc.RDS")
 
               }
-            }
+            },
+            error = function(e) { save_error <<- conditionMessage(e) }
             )
 
             ####### Save Uploaded Mortality Data ----
-            withCallingHandlers({
+            tryCatch({
               if(!is.null(data_mortality())){
 
                 cols_mrt <- c("year", "cancer.type", "sex", "age.grp", "counts")
@@ -696,8 +698,8 @@ create_dashboard <- function(){
                   mutate(
                     "cancer.type" = stringr::str_to_title(cancer.type),
                     "sex" = case_when(
-                      sex == input$male_val ~ 1,
-                      sex == input$female_val ~ 2,
+                      sex == input$male_val_mrt ~ 1,
+                      sex == input$female_val_mrt ~ 2,
                       .default = NA
                     )
                   ) %>%
@@ -721,11 +723,12 @@ create_dashboard <- function(){
 
                 saveRDS(data_mrt, "tmp/data_mrt.RDS")
               }
-            }
+            },
+            error = function(e) { save_error <<- conditionMessage(e) }
             )
 
             ####### Save Uploaded Population Data ----
-            withCallingHandlers({
+            tryCatch({
               if(!is.null(data_population())){
 
                 cols_pop <- c("year", "sex", "age.grp", "population")
@@ -769,7 +772,8 @@ create_dashboard <- function(){
                 saveRDS(data_pop, "tmp/data_pop.RDS")
 
               }
-            }
+            },
+            error = function(e) { save_error <<- conditionMessage(e) }
             )
 
             ####### Save Threshold Value ----
@@ -792,6 +796,8 @@ create_dashboard <- function(){
 
             ####### Transform Data ----
             out <- tryCatch({
+
+              if (!is.null(save_error)) stop(save_error, call. = FALSE)
 
               transform_data(
                 req_mortality_data(), req_population_data(),
@@ -835,8 +841,8 @@ create_dashboard <- function(){
                 )
               )
 
-              unlink("Shiny App")
-              unlink("tmp")
+              unlink("Shiny App", recursive = TRUE)
+              unlink("tmp", recursive = TRUE)
 
             } else {
 
@@ -971,7 +977,7 @@ create_dashboard <- function(){
                             #input$var_select_mrt_geog.loc,
                             input$var_select_mrt_counts)
 
-            if (input$male_val == input$female_val) {
+            if (input$male_val_mrt == input$female_val_mrt) {
               rlang::warn("The values for <b>males</b> and <b>females</b> have to be different:::Please select different values")
               return()
             }
@@ -1115,7 +1121,7 @@ create_dashboard <- function(){
 
             div(
               class = "directory-copy",
-              span("CaRDO Liscensing")
+              span("CaRDO Licensing")
             ),
             hr(),
             div(
@@ -1431,10 +1437,10 @@ create_dashboard <- function(){
 
     output$select_var_mrt_sex <- renderUI({
       tagList(
-        selectInput(inputId = "male_val",
+        selectInput(inputId = "male_val_mrt",
                     label = HTML("Which value in your 'sex' column represents <b>males</b>?"),
                     choices = unique(data_mortality()[[input$var_select_mrt_sex]])),
-        selectInput(inputId = "female_val",
+        selectInput(inputId = "female_val_mrt",
                     label = HTML("Which value in your 'sex' column represents <b>females</b>?"),
                     choices = unique(data_mortality()[[input$var_select_mrt_sex]]))
       )
@@ -1658,6 +1664,8 @@ transform_data <- function(req_mortality_data, req_population_data,
   # Reading in the Incidence data file provided by the user
   data_inc <- readRDS("tmp/data_inc.RDS")
 
+  # Without this the build succeeds, but rows with other codes are quietly dropped from rates, giving wrong numbers
+  check_age_groups(data_inc, "incidence")
 
   # Collapsing `Diagnoses` counts to create a `Persons` sex category
   # `Persons` or `3` is just the sum of males and females (or 1 and 2)
@@ -1725,6 +1733,13 @@ transform_data <- function(req_mortality_data, req_population_data,
     # Reading in the Mortality data file provided by the user
     data_mrt <- readRDS("tmp/data_mrt.RDS")
 
+    check_age_groups(data_mrt, "mortality")
+
+    if (!(supplied_params[["All cancers"]] %in% data_mrt$cancer.type)) {
+      stop("The 'all cancers' category you chose for incidence was not found in the mortality file. ",
+           "Please use the same name for this category in both files.",
+           call. = FALSE)
+    }
 
     # Collapsing `Death` counts to create a `Persons` sex category
     # `Persons` or `3` is just the sum of males and females (or 1 and 2)
@@ -1759,27 +1774,27 @@ transform_data <- function(req_mortality_data, req_population_data,
     # into a multiple of the aggregate number.
     # Labels are created and matched to corresponding years
     if (aggregate_option) {
-      start_year <- min(data_mrt$year)
-      end_year <- max(data_mrt$year)
+      start_year_mrt <- min(data_mrt$year)
+      end_year_mrt <- max(data_mrt$year)
 
-      new_start_year <- start_year + ((end_year - start_year + 1) %% 5)
+      new_start_year_mrt <- start_year_mrt + ((end_year_mrt - start_year_mrt + 1) %% 5)
 
-      breaks <- seq(new_start_year, end_year + 1, by = 5)
-      lefts <- head(breaks, -1)
-      rights <- tail(breaks, -1) - 1
-      labels <- paste0(lefts, "-", rights)
+      breaks_mrt <- seq(new_start_year_mrt, end_year_mrt + 1, by = 5)
+      lefts_mrt <- head(breaks_mrt, -1)
+      rights_mrt <- tail(breaks_mrt, -1) - 1
+      labels_mrt <- paste0(lefts_mrt, "-", rights_mrt)
 
       data_mrt <- data_mrt %>%
-        filter(year >= new_start_year & year <= end_year) %>%
+        filter(year >= new_start_year_mrt & year <= end_year_mrt) %>%
         mutate(
           "year_labs" = cut(
             year,
-            breaks = breaks,
+            breaks = breaks_mrt,
             right = FALSE,
             include.lowest = TRUE,
-            labels = labels
+            labels = labels_mrt
           ) %>% as.character(),
-          "max_year" = max(rights)
+          "max_year" = max(rights_mrt)
         )
     }
 
@@ -1794,6 +1809,26 @@ transform_data <- function(req_mortality_data, req_population_data,
   # Reading in the Population data file provided by the user
   if (req_population_data){
     data_pop <- readRDS("tmp/data_pop.RDS")
+
+    check_age_groups(data_pop, "population")
+
+    # Tell the user if some years cannot be reported as rates
+    years_no_pop <- setdiff(unique(data_inc$year), unique(data_pop$year))
+    if (req_mortality_data) {
+      years_no_pop <- union(years_no_pop,
+                            setdiff(unique(data_mrt$year), unique(data_pop$year)))
+    }
+    if (length(years_no_pop) > 0) {
+      try(
+        showNotification(
+          paste0("These years are not in your population file and have been left out of the dashboard: ",
+                 paste(sort(years_no_pop), collapse = ", ")),
+          type = "warning",
+          duration = NULL
+        ),
+        silent = TRUE
+      )
+    }
   }
 
   # Delete the temporary directory
@@ -1802,8 +1837,6 @@ transform_data <- function(req_mortality_data, req_population_data,
   incProgress(1/4)
 
   # Group data by age, to smaller age groups
-
-
   age_grps <- if (agerange_choice == "adults_who") {
 
     list("15-34" = 4:7, "35-49" = 8:10, "50-64" = 11:13, "65+" = 14:18) %>%
@@ -1828,7 +1861,6 @@ transform_data <- function(req_mortality_data, req_population_data,
 
   }
 
-
   if (req_population_data) {
 
     # Processing the standard population files
@@ -1839,7 +1871,7 @@ transform_data <- function(req_mortality_data, req_population_data,
       dplyr::select(age.grp, wght) %>%
       {
         if (agerange_choice == "adults_legal") {
-          mutate(., wght = if_else(age.grp == "15-19", wght * (2/5), wght))
+          mutate(., wght = if_else(age.grp == 4, wght * (2/5), wght))
         } else {
           .
         }
@@ -1869,6 +1901,7 @@ transform_data <- function(req_mortality_data, req_population_data,
         filter(cancer.type == canc)
 
       tmp_df2 <- data_pop %>%
+        filter(year %in% unique(data_inc$year)) %>%
         left_join(tmp_df,
                   by = c("year", "sex", "age.grp"
                          #geog.loc_var
@@ -2143,6 +2176,7 @@ transform_data <- function(req_mortality_data, req_population_data,
           filter(cancer.type == canc)
 
         tmp_df2 <- data_pop %>%
+          filter(year %in% unique(data_mrt$year)) %>%
           left_join(tmp_df,
                     by = c("year", "sex", "age.grp"
                            #geog.loc_var
@@ -2363,7 +2397,6 @@ transform_data <- function(req_mortality_data, req_population_data,
                        values_to = "obs")
 
       }
-
 
       ### Suppression ----
 
@@ -2644,16 +2677,16 @@ transform_data <- function(req_mortality_data, req_population_data,
 
         data_mrt_annual <- data_mrt_annual %>%
           filter(obs != 0,
-                 year >= new_start_year & year <= end_year) %>%
+                 year >= new_start_year_mrt & year <= end_year_mrt) %>%
           mutate(
             "year_labs" = cut(
               year,
-              breaks = breaks,
+              breaks = breaks_mrt,
               right = FALSE,
-              mrtlude.lowest = TRUE,
-              labels = labels
+              include.lowest = TRUE,
+              labels = labels_mrt
             ) %>% as.character(),
-            "max_year" = max(rights)
+            "max_year" = max(rights_mrt)
           ) %>%
           group_by(year_labs, sex, cancer.type, measure, max_year) %>%
           summarise("obs" = sum(obs)) %>%
@@ -2688,6 +2721,8 @@ transform_data <- function(req_mortality_data, req_population_data,
 
   incProgress(1/4)
 
+  data_inc_average <- suppress_averages(data_inc_average, suppress_threshold)
+
   write.csv(data_inc_annual,
             file.path(output_path, "data_inc_annual.csv"),
             row.names = FALSE)
@@ -2703,6 +2738,8 @@ transform_data <- function(req_mortality_data, req_population_data,
 
 
   if (req_mortality_data){
+
+    data_mrt_average <- suppress_averages(data_mrt_average, suppress_threshold)
 
     write.csv(data_mrt_annual,
               file.path(output_path, "data_mrt_annual.csv"),
@@ -2809,7 +2846,7 @@ fit_trendline <- function(data, x_val, y_val, rates_req){
     )
 
 
-  }else{
+  } else {
 
     # Fit segmented model, using fixed breakpoints
     os <- segmented(
@@ -2888,8 +2925,6 @@ fit_trendline <- function(data, x_val, y_val, rates_req){
         "signif" = if_else(apc_lower_ci * apc_upper_ci < 0, NA, "*") # product of same signs is +ve, product of opposite signs is -ve
       )
 
-
-
     # Revert the log transform of the data
     data[[y_val]] <- exp(data[[y_val]])
     data$Trend <- exp(data$Trend)
@@ -2902,5 +2937,40 @@ fit_trendline <- function(data, x_val, y_val, rates_req){
 
 }
 
+#' Stops with a clear message if age groups are not coded 1 to 18
+#'
+#' @param data The dataset to check, with an `age.grp` column
+#' @param file_label The name of the file, used in the message
 
+check_age_groups <- function(data, file_label){
+
+  bad_values <- setdiff(unique(data$age.grp), 1:18)
+
+  if (length(bad_values) > 0) {
+    stop("The ", file_label, " file has age group values that are not between 1 and 18: ",
+         paste(head(sort(bad_values), 10), collapse = ", "),
+         ". Age groups must be coded from 1 (0-4 years) to 18 (85+ years).",
+         call. = FALSE)
+  }
+
+}
+
+#' Removes 5-year averages that are based on too few cases
+#'
+#' @param data The averages dataset
+#' @param suppress_threshold The suppression threshold chosen by the user
+#' @import dplyr
+
+suppress_averages <- function(data, suppress_threshold){
+
+  # The average is the 5-year total divided by 5
+  too_low <- data %>%
+    filter(measure == "Counts",
+           obs * 5 < suppress_threshold) %>%
+    dplyr::select(year, sex, cancer.type)
+
+  data %>%
+    anti_join(too_low, by = c("year", "sex", "cancer.type"))
+
+}
 
