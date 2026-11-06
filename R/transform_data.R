@@ -110,53 +110,59 @@ transform_data <- function(
   ## Validate Years ----
   # -------------------------------------------------------------------------- #
   
-  # Process the year variable for each dataset
-  validate_years <- lapply(data_frames, function(df) {
-    
-    # Finding the most restrictive year range across all datasets
-    start_year <- max(vapply(data_frames, function(d) min(d$year), numeric(1)))
-    end_year   <- min(vapply(data_frames, function(d) max(d$year), numeric(1)))
-    
-    if (start_year > end_year) { stop("No overlapping years!") }
-    
-    df <- df %>% filter(year >= start_year, year <= end_year)
-    start_year <- start_year + (end_year - start_year + 1) %% 5
-    
-    df <- df %>%
-      filter(year >= start_year, year <= end_year) %>%
-      mutate(
-        "block_start" = start_year + 5 * ((year - start_year) %/% 5),
-        "year.label"  = paste0(block_start, "-", block_start + 4),
-        "last_range"  = ifelse(year >= end_year - 4, TRUE, FALSE)
-      ) %>%
-      dplyr::select(-block_start)
-    
-    list(
-      data = df,
-      end_year = end_year
-    )
-    
-  })
+  years_result <- process_years(data_frames, aggregate_option)
   
-  data_frames <- lapply(validate_years, `[[`, "data")
-  end_year    <- max(vapply(validate_years, `[[`, numeric(1), "end_year"))
+  data_frames <- years_result$data
+  end_year    <- years_result$end_year
   
   list2env(data_frames, envir = environment())
   
-  # If population is missing years, there's nothing we can do
-  missing_years <- lapply(data_frames, function(df) {
-    setdiff(min(df$year):max(df$year), df$year)
-  })
-  
-  if (length(missing_years$data_pop) > 0) {
-    stop(
-      sprintf(
-        "The population has missing year(s): %s",
-        paste(missing_years$data_pop, collapse = ", "),
-        call. = FALSE
-      )
-    )
-  }
+  # # Process the year variable for each dataset
+  # validate_years <- lapply(data_frames, function(df) {
+  #   
+  #   # Finding the most restrictive year range across all datasets
+  #   start_year <- max(vapply(data_frames, function(d) min(d$year), numeric(1)))
+  #   end_year   <- min(vapply(data_frames, function(d) max(d$year), numeric(1)))
+  #   
+  #   # Handling unusual cases of year ranges.
+  #   if (start_year > end_year) { stop("No overlapping years!") }
+  #   if (aggregate_option) {start_year <- start_year + (end_year-start_year+1) %% 5}
+  #   
+  #   df <- df %>%
+  #     filter(year >= start_year, year <= end_year) %>%
+  #     mutate(
+  #       "block_end"  = end_year - 5 * ((end_year - year) %/% 5),
+  #       "year.label" = paste0(block_end - 4, "-", block_end),
+  #       "last_range" = ifelse(year >= end_year - 4, TRUE, FALSE)
+  #     ) %>%
+  #     select(-block_end)
+  #   
+  #   list(
+  #     data = df,
+  #     end_year = end_year
+  #   )
+  #   
+  # })
+  # 
+  # data_frames <- lapply(validate_years, `[[`, "data")
+  # end_year    <- max(vapply(validate_years, `[[`, numeric(1), "end_year"))
+  # 
+  # list2env(data_frames, envir = environment())
+  # 
+  # # If population is missing years, there's nothing we can do
+  # missing_years <- lapply(data_frames, function(df) {
+  #   setdiff(min(df$year):max(df$year), df$year)
+  # })
+  # 
+  # if (length(missing_years$data_pop) > 0) {
+  #   stop(
+  #     sprintf(
+  #       "The population has missing year(s): %s",
+  #       paste(missing_years$data_pop, collapse = ", "),
+  #       call. = FALSE
+  #     )
+  #   )
+  # }
   
   
   
@@ -436,7 +442,7 @@ transform_data <- function(
       # ----------------------------------- #
       
       
-      ### STEP 4: Cancer (5-year average) ----
+      ### STEP 4: Cancer ----
       # ----------------------------------- #
       cancer <- df %>%
         # Only report last 5 years
@@ -453,7 +459,7 @@ transform_data <- function(
         # Aggregate Age Groups
         group_by(year, cancer.type, sex) %>%
         summarise(
-          "counts" = round(sum(counts) / 5, 1),  # Only reporting 5-year average
+          "counts" = round(sum(counts), 1),  # Only reporting 5-year average
           "rates"  = sum(rates),
           .groups  = "drop"
         ) %>%
@@ -684,7 +690,7 @@ transform_data <- function(
       # ----------------------------------- #
       
       
-      ### STEP 4: Cancer (5-year average) ----
+      ### STEP 4: Cancer ----
       # ----------------------------------- #
       cancer <- df %>%
         # Only report last 5 years
@@ -696,7 +702,7 @@ transform_data <- function(
         group_by(year, cancer.type, sex) %>%
         summarise(
           "measure" = "counts",
-          "obs"     = round(sum(counts) / 5, 1),    # Only reporting 5-year average
+          "obs"     = round(sum(counts), 1),
           .groups   = "drop"
         )
       # ----------------------------------- #
