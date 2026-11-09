@@ -1580,7 +1580,7 @@ create_dashboard <- function() {
             selectInput(inputId  = "var_select_pop_population",
                         choices  = variable_names,
                         label    = HTML("Select your <b>population</b> variable"),
-                        selected = match_variables("count", variable_names)),
+                        selected = match_variables("population", variable_names)),
 
             condition = "input.variables_pop.includes('year')",
             
