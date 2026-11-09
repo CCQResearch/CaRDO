@@ -1437,7 +1437,7 @@ create_dashboard <- function() {
                       selected = match_variables("sex", variable_names)),
           div(
             class = "hint-div",
-            p("Here, we standardise the variable names. Please match your variables with these listed above")
+            p("Here, we standardise the variable names. Please double check your variables with these listed above")
           )
         ),
         
@@ -1517,7 +1517,7 @@ create_dashboard <- function() {
                         selected = match_variables("sex", variable_names)),
             div(
               class = "hint-div",
-              p("Here, we standardise the variable names. Please match your variables with these listed above")
+              p("Here, we standardise the variable names. Please double check your variables with these listed above")
             )
           ),
           
@@ -1601,7 +1601,7 @@ create_dashboard <- function() {
                         selected = match_variables("sex", variable_names)),
             div(
               class = "hint-div",
-              p("Here, we standardise the variable names. Please match your variables with these listed above")
+              p("Here, we standardise the variable names. Please double check your variables with these listed above")
             )
             
           ),
