@@ -16,6 +16,6 @@ match_variables <- function(std_name, user_cols) {
   score     <- sapply(norm_cols, function(u) { grep(pattern, u) })
   match     <- which.max(score)
   
-  if (match != 0) user_cols[match] else NA_character_
+  if (length(match) != 0) user_cols[match] else NA_character_
 
 }
