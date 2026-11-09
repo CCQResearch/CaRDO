@@ -304,12 +304,18 @@ transform_data <- function(
       
       merge_pop <- data.frame()
       
+      min_year <- min(df$year)
+      max_year <- max(df$year)
+      
       for (cancer in unique(df$cancer.type)) {
         
         temp_cancer <- df %>% filter(cancer.type == cancer)
         
         temp_pop <- data_pop %>%
-          filter(sex %in% unique(temp_cancer$sex)) %>%
+          filter(
+            year >= min_year & year <= max_year,
+            sex %in% unique(temp_cancer$sex)
+          ) %>%
           left_join(
             temp_cancer, by = c("year", "year.label", "sex",
                                 "age.grp", "age.label", "last_range")
