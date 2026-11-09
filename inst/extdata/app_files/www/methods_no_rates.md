@@ -6,7 +6,6 @@ Incidence and mortality trends were calculated by fitting piece-wise linear mode
 
 Break points were identified using the `strucchange` package, specifically the function `breakpoints()`. The data was then segmented by these breakpoints. At most one breakpoint was allowed for every 5 years of data, with each segment containing at least one third of the observations (and never fewer than 3). A linear model was then fit to each segment using the `segmented` package. Where there were fewer than 6 observations, a single linear model was fit.
 
-
 ## Cancer ICD-O3 codes used {#Cancer-codes}
 
 | Cancer Type                                                                                                                             | ICD Code                                    |

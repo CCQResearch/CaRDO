@@ -4,6 +4,7 @@
 # CaRDO
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 CaRDO is a user-friendly R package for creating interactive R-Shiny
@@ -49,7 +50,8 @@ loaded into CaRDO.
     unique combination of each variable.
 2.  Cancer-type values must be coded as you wish them to be displayed
 3.  Cancer counts and any population data must be aggregated by 5-year
-    age groups, with age groups coded numerically from 1 – 18.
+    age groups, with age groups coded numerically using the numbers 1 –
+    18.
 
 Further details on data requirements and building a CaRDO dashboard are
 available [here](https://ccqresearch.github.io/CaRDO-Handbook/). Please

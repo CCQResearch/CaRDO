@@ -1,7 +1,7 @@
 Package: CaRDO
 Type: Package
 Title: CaRDO: Cancer Registry Data Online
-Version: 1.0.0
+Version: 1.1.0
 Authors@R:
     c(
       person(given = "Sean", family = "Francis", role = c("aut")),
