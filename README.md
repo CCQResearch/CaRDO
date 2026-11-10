@@ -69,3 +69,8 @@ However, if you choose to *publish* your dashboard (e.g., share it
 online), data will be uploaded to the cloud at the resolution that it
 appears in the dashboard. It is your responsibility to ensure that all
 displayed data is appropriate for sharing before publishing publicly.
+
+## Version Updates
+
+See `NEWS.md` for details on some of the changes made to the program.
+Most recent release is 1.1.0.

@@ -22,7 +22,6 @@ CaRDO is a user-friendly R package for creating interactive R-Shiny dashboards t
 
 Detailed documentation for building a CaRDO dashboard is available [here](https://ccqresearch.github.io/CaRDO-Handbook/){target="_blank"}
 
-
 ## Installation
 
 1. CaRDO requires the following packages installed before launching 
@@ -33,11 +32,15 @@ install.packages("tidyverse")
 install.packages("plotly")
 install.packages("markdown")
 ```
+
 2. Install CaRDO using
+
 ``` r
 remotes::install_github("https://github.com/CCQResearch/CaRDO", dependencies = TRUE)
 ```
-3. Load CaRDO using 
+
+3. Load CaRDO using
+
 ``` r
 CaRDO::create_dashboard()
 ```
@@ -58,3 +61,6 @@ Data loaded into CaRDO is stored locally on your computer, and all analyses are 
 
 However, if you choose to *publish* your dashboard (e.g., share it online), data will be uploaded to the cloud at the resolution that it appears in the dashboard. It is your responsibility to ensure that all displayed data is appropriate for sharing before publishing publicly.
 
+## Version Updates
+
+See `NEWS.md` for details on some of the changes made to the program. Most recent release is 1.1.0.
